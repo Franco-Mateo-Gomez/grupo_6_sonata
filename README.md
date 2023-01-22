@@ -57,6 +57,22 @@
     
 ---
 
+## Integrantes del equipo
+
+### **FRANCO MATEO GOMEZ**
+
+~~~
+Nacimiento: 06/08/2003
+Nacionalidad: Argentina
+Correo: matufranone@gmail.com
+Rol: EQUIPO DE DESARROLLO => [Crear el repositorio, Desarrollar Wireframe]
+~~~
+
+
+
+
+---
+
 ## Autores
 
 | [@abrilmc](https://github.com/abrilmc) | [@GuidoRM](https://github.com/GuidoRM) | [@Franco-Mateo-Gomez](https://github.com/Franco-Mateo-Gomez) |
