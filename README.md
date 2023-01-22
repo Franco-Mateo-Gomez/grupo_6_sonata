@@ -1,5 +1,12 @@
 
 # SONAT@
+
+## Temática del Market Place
+
+- **Servicios que ofrece el sitio:** Nuestro sitio pone a la venta proyectos de audio, creados por grupos o artistas emergentes. El contenido está orientado en múltiples géneros.
+
+- **Público objetivo:** Ofrecemos una vía para que las productoras o creadores de contenido multimedia puedan adquirir música de calidad y utilizarla en cualquier proyecto o negocio.
+
 ## Sitios de referencia o inspiración
 
 - SoundCloud
