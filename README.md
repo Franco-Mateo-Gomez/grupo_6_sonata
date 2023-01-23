@@ -68,6 +68,14 @@ Correo: matufranone@gmail.com
 Rol: EQUIPO DE DESARROLLO => [Crear el repositorio, Desarrollar Wireframe]
 ~~~
 
+### **GUIDO RAFAEL MAMANÍ**
+
+~~~
+Nacimiento: 03/03/2004
+Nacionalidad: Argentina
+Correo: guidorafaelmamani100@gmail.com
+Rol: EQUIPO DE DESARROLLO
+~~~
 
 
 
