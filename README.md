@@ -24,7 +24,6 @@
     [Acceder al sitio](https://www.spotify.com/ar/premium/)
 
 - Apple Music
-![](https://drive.google.com/file/d/1f7sgXEbtprvTaoGemtk-mWq-vtM198fE/view?usp=sharing)
 ![](https://d500.epimg.net/cincodias/imagenes/2019/03/25/lifestyle/1553546506_454568_1553546685_sumario_normal.jpg)
     > Seleccionamos la página de inicio de Apple Music por la forma de optimizar espacio entre las imágenes. Por otro lado, mejorará la visualización del usuario al momento de seleccionar un Artista, ya sea porque es destacado o es nuevo en la web.
 
