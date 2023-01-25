@@ -1,6 +1,9 @@
 
 # SONAT@
 
+## Gestión y control del proyecto
+[LINKHUB.to](https://lhub.to/proyectointegradorgrupo6)
+
 ## Temática del Market Place
 
 - **Servicios que ofrece el sitio:** Nuestro sitio pone a la venta proyectos de audio, creados por grupos o artistas emergentes. El contenido está orientado en múltiples géneros.
