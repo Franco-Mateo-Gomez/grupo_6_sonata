@@ -55,21 +55,6 @@
    
     [Acceder al sitio](https://tidal.com/)
     
-## Características de nuestra página web
-
-- Paleta de colores
-![PaletaDeColores](https://user-images.githubusercontent.com/91217730/214374217-d88835dd-5226-4bb4-ac09-d93065ce3560.jpeg)
-
-- Tipografía:
-<img width="947" alt="DMSANS" src="https://user-images.githubusercontent.com/91217730/214375024-20197832-17f1-4a8d-bd2b-9de9b40d7982.png">
-
-- Logos:
-![LOGO_v1](https://user-images.githubusercontent.com/91217730/214375447-377e84f5-4522-4807-9304-161efefe534d.jpg)
-    > Versión 1
-    
-![LOGO-SONATA2](https://user-images.githubusercontent.com/91217730/214375463-e2685dec-ea7c-4ce4-8dd5-712f7f5f36f9.png)
-    > Versión 2
-
 ---
 
 ## Integrantes del equipo
@@ -91,16 +76,15 @@ Nacionalidad: Argentina
 Correo: guidorafaelmamani100@gmail.com
 Rol: EQUIPO DE DESARROLLO
 ~~~
+
 ### **ABRIL MARTÍNEZ CATÁ**
 
----
+~~~
 Nacimiento: 31/03/2006
 Nacionalidad: Argentina
 Correo: abrilmartinezcata@gmail.com
 Rol: EQUIPO DE DESARROLLO
 ~~~
-
-
 
 ## Autores
 
