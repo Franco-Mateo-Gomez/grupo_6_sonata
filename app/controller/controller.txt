@@ -1,0 +1,5 @@
+Controller - Controlador
+
+Es el que se comunica entre el modelo y la vista, antes de que el modelo consulte a la
+base de datos, este es el encargado de mandarlo a llamar, y tambien una vez que el modelo
+tiene los resultados de la consulta, es el encargado de pasarlos a la vista.

@@ -1,0 +1,6 @@
+Routes - Rutas
+
+Es el encargado de registrar todas las URL que soporta la aplicación.
+
+Si el usuario accede a /login, las routes llaman a un controlador, que se comunica
+con el modelo para obtener los datos que son pasados hacia la vista para ser mostrados.
