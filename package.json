@@ -1,0 +1,22 @@
+{
+  "name": "ti_sonata",
+  "version": "1.0.0",
+  "description": "- **Servicios que ofrece el sitio:** Nuestro sitio pone a la venta proyectos de audio, creados por grupos o artistas emergentes. El contenido está orientado en múltiples géneros.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Franco-Mateo-Gomez/grupo_6_sonata.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Franco-Mateo-Gomez/grupo_6_sonata/issues"
+  },
+  "homepage": "https://github.com/Franco-Mateo-Gomez/grupo_6_sonata#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
