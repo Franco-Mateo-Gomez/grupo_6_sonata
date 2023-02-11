@@ -2,9 +2,10 @@
   "name": "ti_sonata",
   "version": "1.0.0",
   "description": "- **Servicios que ofrece el sitio:** Nuestro sitio pone a la venta proyectos de audio, creados por grupos o artistas emergentes. El contenido está orientado en múltiples géneros.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
