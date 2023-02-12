@@ -1,0 +1,129 @@
+@import url(general.css);
+
+.main-login img{
+    width: 100%;
+}
+
+.form-content{
+    background-color: #d9c6b0;
+}
+
+.main-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.login-content{
+    background-image:url("../images/login/image_background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo-container{
+    margin-top: 10%;
+    width: 70%;
+    padding: 7%;
+    background-color: #dfdfdf6c;
+    border-radius: 5px;
+}
+
+.login-button{
+    background-color: blue;
+    margin: 20px 0;
+    padding: 13px 30px;
+    background-color: #d95a4e;
+    border: 2px solid #0D0D0D;
+    border-radius: 20px;
+    color: #d9c6b0;
+    font-weight: 700;
+}
+
+.login-form-content{
+    background-color: #d9c6b0;
+}
+
+.login-form-content h1{
+    padding: 5%;
+}
+
+.login-form-content .form-login{
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.form-login label{
+    font-weight: 500;
+}
+
+.form-login input[type=text],input[type=password]{
+    margin: 4% 0;
+    padding: 4%;
+    border: 0;
+    color: #0D0D0D;
+    border-bottom: 2px solid #0D0D0D;
+    background-color: transparent;
+    outline: none;
+
+}
+
+.form-login input::placeholder{
+    color: #0D0D0D;
+}
+
+.form-login-submit{
+    margin: 5% auto;
+}
+
+.form-login-submit button{
+    background-color: #0D0D0D;
+    color: #d9c6b0;
+    padding: 10px 80px;
+    border-radius: 20px;
+    border: 4px;
+    font-weight: 700;
+}
+
+.form-login-forgot-password{
+    margin: 4% 0;
+    margin-right: 5%;
+    align-self:flex-end;
+    color: #0D0D0D;
+    text-decoration:underline;
+    font-weight: 400;
+}
+
+.login-register-section{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+.login-register-section button{
+    background-color: #0D0D0D;
+    color: #d9c6b0;
+    padding: 10px 30px;
+    border: none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+}
+
+@media (min-width:768px){
+    .main-login{
+        flex-direction: row;
+        height: 100vh;
+    }
+}
