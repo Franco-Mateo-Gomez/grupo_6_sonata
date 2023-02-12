@@ -13,3 +13,7 @@ app.use(express.static(path.join(__dirname,'public')));
 app.get("/",(req,res)=>{
      res.sendFile(path.join(__dirname,"/app/views/main.html"));
 })
+
+app.get("/header",(req,res)=>{
+    res.sendFile(path.join(__dirname,"/app/views/header.html"));
+})
