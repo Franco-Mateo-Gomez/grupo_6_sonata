@@ -1,11 +1,12 @@
 @import url(general.css);
+@import url(styles_footer.css);
 
 .main-login img{
     width: 100%;
 }
 
 .form-content{
-    background-color: #d9c6b0;
+    background-color: var(--marron_clarito);
 }
 
 .main-login{
