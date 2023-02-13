@@ -1,14 +1,5 @@
 @import url(general.css);
 
-/*COLORES DE SONATA*/
-:root {
-  --marron_clarito: #d9c6b0;
-  --marron_medio: #a68f72;
-  --marron_fuerte: #8c3a27;
-  --naranja: #d95a4e;
-  --negro: #0d0d0d;
-}
-
 footer{
     display: flex;
     align-items: center;
@@ -20,7 +11,7 @@ footer{
     width: 100%;
     background-color: var(--marron_fuerte);
     color: var(--marron_clarito);
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
 }
 
@@ -38,14 +29,14 @@ footer ul li a{
 }
 
 .red_social{
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2.2rem;
+    height: 2.2rem;
     background-color: var(--marron_clarito);
     border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
 }
 
 .red_social a{
@@ -54,4 +45,15 @@ footer ul li a{
 
 .enlaces_informacion li:hover{
     border-bottom: 3px var(--marron_clarito) solid;
+}
+
+@media (min-width:1024px){
+    footer{
+        font-size: 1.2rem;
+    }
+    .red_social{
+        width: 2.4rem;
+        height: 2.4rem;
+        font-size: 1.8rem;
+    }
 }

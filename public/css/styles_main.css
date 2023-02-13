@@ -1,11 +1,4 @@
-/*COLORES DE SONATA*/
-:root {
-  --marron_clarito: #d9c6b0;
-  --marron_medio: #a68f72;
-  --marron_fuerte: #8c3a27;
-  --naranja: #d95a4e;
-  --negro: #0d0d0d;
-}
+@import url(general.css);
 
 main {
   background-color: var(--marron_clarito);
