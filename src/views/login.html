@@ -3,35 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
     <title>Iniciar Sesión</title>
 </head>
 <body>
 
     <!--Main content-->
-    <main>
+    <main class="main-login">
 
         <!--Left content-->
-        <section class="session-content">
-
-            <div class="image-background">
-
+        <section class="login-content">
+    
+            <div class="logo-container">
+                <img class="logo" src="/images/imagen_logo_sonata_v1.png" alt="logo Sonata">
             </div>
 
-            <div class="logo">
-
-            </div>
-
-            <a href="#">Volver al Inicio</a>
+            <a href="#"><button class="login-button">Volver al Inicio</button></a>
 
         </section>
 
         <!--Right content-->
-        <section class="form-content">
-            <form action="" method="post">
+        <section class="login-form-content">
 
+            <h1 class="titulares">INICIAR SESIÓN</h1>
+
+            <form class="form-login" action="" method="post">
+
+                <label class="label-forms" for="">Email/Usuario</label>
+                <input type="text" name="loged-user" required placeholder="Nombre de usuari@"></input>
+                
+                <label class="label-forms" for="">Clave</label>
+                <input type="password" name="loged-password" required placeholder="Contraseña"></input>
+
+                <a class="form-login-submit" href="#">
+                    <button type="submit">Ingresar</button>
+                </a>
+
+                <a class="form-login-forgot-password" href="#">Olvidé la contraseña</a>
             </form>
+
+
+            <div class="login-register-section">
+                <h5 class="recomendaciones">¿Eres nuevo?</h5>
+                <a href="#"><button>Crear cuenta</button></a>
+            </div>
+
         </section>
-        
+
     </main>
 
     <!--Footer-->

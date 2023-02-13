@@ -12,3 +12,34 @@
   body {
     font-family: "DM Sans", sans-serif;
   }
+
+.titulares{
+  font-size: 1.6rem;
+}
+
+.label-forms{
+  font-size: 1rem;
+}
+
+.recomendaciones{
+  font-size: 0.8rem;
+}
+
+button{
+  font-size: 0.8rem;
+}
+
+  @media (min-width:1024px){
+    .titulares{
+      font-size: 2rem;
+    }
+    .label-forms{
+      font-size: 1.2rem;
+    }
+    button{
+      font-size: 1rem;
+    }
+    .recomendaciones{
+      font-size: 1rem;
+    }
+  }
