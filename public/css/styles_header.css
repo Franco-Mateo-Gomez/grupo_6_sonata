@@ -22,7 +22,7 @@ header {
 #check {
   display: none;
 }
-.boton_menu {
+label .boton_menu {
   display: none;
 }
 
@@ -139,7 +139,7 @@ header {
     display: inline;
   }
 
-  .boton_menu {
+  label .boton_menu {
     display: block;
     font-size: 25px;
     color: white;
@@ -278,7 +278,7 @@ header {
     display: inline;
   }
 
-  .boton_menu {
+  label .boton_menu {
     display: block;
     font-size: 25px;
     color: white;

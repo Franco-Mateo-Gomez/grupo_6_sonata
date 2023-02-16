@@ -74,3 +74,138 @@
     align-items: center;
     justify-content: space-evenly;
 }
+
+
+/*Slider 2*/
+.padre-contenedor-slider{
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(49, 49, 49);
+}
+
+.padre-contenedor-slider > h4,h2,small,a {
+  margin: 0;
+  padding: 0;
+}
+
+.padre-contenedor-slider a{
+  text-decoration: none;
+}
+
+.contenedor-slider-generos{
+  width: 100%;
+  margin: 0px 0;
+}
+
+.contenedor-slider-generos h2{
+  font-size: 45px;
+  line-height: 38px;
+  padding-bottom: 50px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  margin-top: 2rem;
+}
+
+.slider-list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: fit-content; 
+  height: 304px;
+  padding: 10px 0;
+  margin: 0 auto;
+  max-width: 90vw;
+  overflow: hidden;
+}
+
+.slider-track{
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  transition: .5s ease-in-out;
+}
+
+/*Estilos de cada slide*/
+.slider-generos{
+  position: relative;
+  width: 210px;
+  padding: 0 18px;
+  float: left;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+}
+
+/*Estilos del titulo de cada slide*/
+.slider-generos h4{
+  position: absolute;
+  z-index: 1;
+  font-size: 22px;
+  line-height: 23px;
+  color: white;
+  padding: 15px;
+}
+
+/*Adaptando la imagen al contenedor .slider-track*/
+.slider-generos a img{
+  object-fit: cover;
+  height: 300px;
+  width: 200px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/*Adaptando a escritorio*/
+@media(min-width:768px){
+  .slider-generos{
+    width: 275px;
+  }
+
+  .slider-generos a img{
+    width: 250px;
+  }
+
+}
+
+/*Estilos de la botones de navegacion del slider*/
+.slider-arrow{
+  border-radius: 30px;
+  background-color: white;
+  position: absolute;
+  z-index: 4;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+}
+
+.slider-arrow:focus{
+  outline: 0;
+}
+
+.slider-arrow i{
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.slider-prev{
+  left: 0;
+}
+
+.slider-next{
+  right: 0;
+}
+
+.slide-selection{
+  border: 4px white solid;
+  position: relative;
+  z-index: 2;
+}
+
+/*Img a 250px*/
