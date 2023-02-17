@@ -1,0 +1,287 @@
+@import url(general.css);
+
+.main-checkout{
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-products-resume{
+    display: none;
+}
+
+.checkout-payment-method{
+    background-color: var(--marron_clarito);
+}
+
+.checkout-logo{
+    margin: 5% auto;
+    width: 60vw;
+}
+.checkout-logo img{
+    width: 100%;
+}
+
+.checkout-products-section{
+    background-color: var(--marron_medio);
+}
+
+/*MOBILE-PRODUCT LIST*/
+
+details{
+    background-color:#edeae6;
+    padding: 5% 4%;
+    border-top: 1px solid var(--negro);
+    border-bottom: 1px solid var(--negro);
+}
+
+details h4{
+    display: inline;
+}
+
+details summary{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+
+details .checkout-summary-products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px solid var(--negro);
+    border-radius: 4px;
+    margin: 1%;
+    margin-top: 7%;
+    padding: 4%;
+}
+
+details .checkout-summary-products img{
+    width:35%;
+}
+  
+.checkout-summary-products-details{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5%;
+}
+
+.checkout-summary-products-details div h4{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.checkout-summary-products-details-bottom{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 3%;
+}
+
+.checkout-summary-products-details-bottom-price{
+    display: flex;
+    align-items: center;
+}
+
+.checkout-summary-products-details-bottom button{
+    font-size: 0.8rem;
+    padding: 10% 10%;
+    font-weight: 600;
+    color: var(--marron_clarito);
+    background-color: var(--negro);
+    border: none;
+    border-radius: 10px;
+}
+
+.checkout-summary-products-details-bottom a{
+    margin-right: 15%;
+}
+
+.checkout-products-coin-mobile{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 3%;
+    margin-bottom: 2%;
+}
+
+.checkout-products-coin-mobile select{
+    background-color:#edeae6;
+    padding: 0.8%;
+    border: 1px solid var(--negro);
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.checkout-products-coin-mobile select option{
+    font-weight: 600;
+    color: var(--negro);
+}
+
+.checkout-products-coin-mobile .checkout-moneda{
+    width: 20%;
+    text-align: center;
+}
+
+.checkout-products-coin-mobile header{
+    margin-right: 2%;
+    font-size: 0.9rem;
+}
+
+.checkout-products-coin-desktop{
+    display: none;
+}
+
+/*Paying section*/
+
+.header-checkout{
+    margin: 3% 2%;
+}
+
+.checkout-payiments-apps{
+    width: 100%;
+    height: 100%;
+    margin: 3% 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.checkout-payiments-apps button{
+    width: 100%;
+    height: 100%;
+    padding: 6%;
+    margin: 0 1%;
+    border: 1px solid var(--negro);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#tarjeta{
+    background-image: url("../images/checkout/credit_card.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60% 85%;
+    object-fit: cover;
+}
+
+#paypal{
+    background-image: url("../images/checkout/paypal.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% 80%;
+    object-fit: cover;
+}
+
+#modo{
+    background-image: url("../images/checkout/MODO.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% 80%;
+    object-fit: cover;
+    
+}
+
+.checkout-form-container{
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+
+.checkout-form-container label{
+    font-weight: 700;
+}
+
+
+
+.checkout-form-container input[type=text],input[type=password],input[type=email]{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 3% 2%;
+    color: #0D0D0D;
+    border: 1px solid #0D0D0D;
+    background-color: transparent;
+    outline: none;
+    border-radius: 5px;
+}
+
+#select-checkout-country{
+    margin: 1% 0;
+    padding: 2%;
+    border-radius: 8px;
+    background-color:#f0eeec;
+    font-weight: 500;
+}
+
+#select-checkout-country option{
+    background-color:#e1cdb9;
+    font-weight: 500;
+}
+
+.checkout-form-city-postal{
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.checkout-buttons button{
+    padding: 2% 10%;
+    margin-bottom: 2%;
+    border-radius: 20px;
+    border: 2px solid var(--negro);
+    font-weight: 600;
+}
+
+#checkout-exit{
+    background-color: transparent;
+}
+
+#checkout-continue{
+    background-color: var(--negro);
+    color: var(--marron_clarito);
+}
+
+.checkout-products-resume{
+    display: none;
+}
+
+
+/*TRANSITIONS*/
+details:hover{
+    background-color:#f0eeec;
+}
+
+@media (min-width:768px){
+    .checkout-summary-products-details-bottom button{
+        padding: 15% 100%;
+    }
+}
+
+@media (min-width:1024px){
+    .main-checkout{
+        flex-direction: row;
+    }
+    details{
+        display: none;
+    }
+    .checkout-products-coin-mobile{
+        display: none;
+    }
+    .checkout-products-coin-desktop{
+        display: block;
+    }
+    .checkout-products-resume{
+        display: flex;
+    }
+}

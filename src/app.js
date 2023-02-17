@@ -3,6 +3,7 @@ const path = require ("path");
 
 /*Routes*/
 const mainRoutes = require('./routes/main.js')
+const payingRoutes = require('./routes/paying.js')
 /*-----*/
 
 const app = express();
@@ -15,3 +16,4 @@ app.listen(port,()=>{
 
 app.use(express.static(path.join(__dirname,'../public')));
 app.use("/",mainRoutes);
+app.use("/checkout",payingRoutes);

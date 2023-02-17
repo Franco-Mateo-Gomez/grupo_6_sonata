@@ -40,6 +40,10 @@ button{
   font-size: 0.8rem;
 }
 
+ul li{
+  list-style-type: none;
+}
+
   @media (min-width:1024px){
     .titulares{
       font-size: 2rem;
