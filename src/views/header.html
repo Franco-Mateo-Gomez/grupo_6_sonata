@@ -11,12 +11,14 @@
 
     <!--CDN FONT AWESOME-->
     <script src="https://kit.fontawesome.com/0aeb7696ea.js" crossorigin="anonymous"></script>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
     <!--CUSTOM CSS-->
     <link rel="stylesheet" href="/css/styles_header.css">
-    <link rel="stylesheet" href="/css/styles_main.css">
-    <link rel="stylesheet" href="/css/styles_footer.css">
 
+    <link rel="stylesheet" href="/css/styles_footer.css">
+    <link rel="stylesheet" href="/css/styles_main.css">
 </head>
 
 <body>
@@ -29,7 +31,7 @@
             <i class="boton_menu fa-solid fa-bars"></i>
         </label>
         <ul class="nav-menu">
-            <li class="btn-home"><a href="/"><i class="icono-home fa-solid fa-house"> </i>HOME</a></li>
+            <li class="btn-home"><a href="/"><i class="icono-home fa-solid fa-house"></i> HOME</a></li>
             <li class="btn-carrito"><a href="/"><i class="fa-solid fa-cart-shopping"></i></a></li>
             <li class="btn-busqueda">
                 <form action="">
@@ -42,219 +44,216 @@
     </header>
 
     <main>
-        <section class="popular">
-
-            <h2 class="titulo_popular">Popular</h2>
-
-            <ul class="contenedor_albumes_popular">
-                <li><a href="#"><img src="/images/imagen_album1.JPG" alt="Ejemplo de album"></a></li>
-                <li><a href="#"><img src="/images/imagen_album5.JPG" alt="Ejemplo de album"></a></li>
-                <li><a href="#"><img src="/images/imagen_album6.JPG" alt="Ejemplo de album"></a></li>
-                <li><a href="#"><img src="/images/imagen_album3.JPG" alt="Ejemplo de album"></a></li>
-            </ul>
-        </section>
-
-        <section class="recientes">
-            <section class="recientes_contenedor">
-                <h2>Recientes</h2>
-                <section class="recientes_albumes">
-                    <div class="reciente_album">
-                        <img src="/images/imagen_album2.JPG" alt="">
-                        <h2>EJEMPLO</h2>
-                    </div>
-                    <div class="recientes_separacion">
-                        <div class="reciente_album">
-                            <img src="/images/imagen_album3.JPG" alt="">
-                            <h2>EJEMPLO</h2>
-                        </div>
-
-                        <div class="reciente_album">
-                            <img src="/images/imagen_album4.JPG" alt="">
-                            <h2>EJEMPLO</h2>
-                        </div>
-                    </div>
-                </section>
-            </section>
-        </section>
-
-    </main>
-
-    <section id="tranding">
-        <div class="container">
-            <h3 class="text-center section-subheading">-- Popular Delivery --</h3>
-            <h1 class="text-center section-heading">Trending food</h1>
-        </div>
-        <div class="container">
-            <div class="swiper tranding-slide">
-                <div class="swiper-wraper">
-                    <!--Slide start-->
-                    <div class="swiper-slide tranding-slide">
-                        <div class="tranding-slide-img">
-                            <a href="#"><img src="/images/imagen_album6.JPG" alt="Ejemplo de album"></a>
-                        </div>
-                        <div class="tranding-slide-content">
-                            <h1 class="food-price">$20</h1>
-                            <div class="tranding-slide-content-bottom">
-                                <h2 class="food-name">
-                                    Special Pizza
-                                </h2>
-                                <h3 class="food-rating">
-                                    <span>4.5</span>
-                                    <div class="rating">
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
+        <section class="slider_album_populares">
+            <div class="container">
+                <h1 class="titulo_populares">Albumes Populares</h1>
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="/images/imagen_album1.JPG" />
+                            <h3 class="precio_album">$20</h3>
+                            <div class="descripcion_album">
+                                <h3>Album super especial boe</h3>
+                                <div class="subdescripcion_album">
+                                    <a class="descripcion_boton" href="">Ver Album</a>
+                                    <div class="calificacion">
+                                        <span>5</span>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
                                     </div>
-                                </h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="/images/imagen_album2.JPG" />
+                            <h3 class="precio_album">$20</h3>
+                            <div class="descripcion_album">
+                                <h3>Album super especial boe</h3>
+                                <div class="subdescripcion_album">
+                                    <a class="descripcion_boton" href="">Ver Album</a>
+                                    <div class="calificacion">
+                                        <span>5</span>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="/images/imagen_album3.JPG" />
+                            <h3 class="precio_album">$20</h3>
+                            <div class="descripcion_album">
+                                <h3>Album super especial boe</h3>
+                                <div class="subdescripcion_album">
+                                    <a class="descripcion_boton" href="">Ver Album</a>
+                                    <div class="calificacion">
+                                        <span>5</span>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="/images/imagen_album4.JPG" />
+                            <h3 class="precio_album">$20</h3>
+                            <div class="descripcion_album">
+                                <h3>Album super especial boe</h3>
+                                <div class="subdescripcion_album">
+                                    <a class="descripcion_boton" href="">Ver Album</a>
+                                    <div class="calificacion">
+                                        <span>5</span>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="/images/imagen_album5.JPG" />
+                            <h3 class="precio_album">$20</h3>
+                            <div class="descripcion_album">
+                                <h3>Album super especial boe</h3>
+                                <div class="subdescripcion_album">
+                                    <a class="descripcion_boton" href="">Ver Album</a>
+                                    <div class="calificacion">
+                                        <span>5.0</span>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="/images/imagen_album6.JPG"/>
+                            <h3 class="precio_album">$20</h3>
+                            <div class="descripcion_album">
+                                <h3>Album super especial boe</h3>
+                                <div class="subdescripcion_album">
+                                    <a class="descripcion_boton" href="">Ver Album</a>
+                                    <div class="calificacion">
+                                        <span>5</span>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!--Slide end-->
-                    <!--Slide start-->
-                    <div class="swiper-slide tranding-slide">
-                        <div class="tranding-slide-img">
-                            <a href="#"><img src="/images/imagen_album2.JPG" alt="Ejemplo de album"></a>
-                        </div>
-                        <div class="tranding-slide-content">
-                            <h1 class="food-price">$20</h1>
-                            <div class="tranding-slide-content-bottom">
-                                <h2 class="food-name">
-                                    Special Pizza
-                                </h2>
-                                <h3 class="food-rating">
-                                    <span>4.5</span>
-                                    <div class="rating">
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                    </div>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Slide end-->
-                    <!--Slide start-->
-                    <div class="swiper-slide tranding-slide">
-                        <div class="tranding-slide-img">
-                            <a href="#"><img src="/images/imagen_album3.JPG" alt="Ejemplo de album"></a>
-                        </div>
-                        <div class="tranding-slide-content">
-                            <h1 class="food-price">$20</h1>
-                            <div class="tranding-slide-content-bottom">
-                                <h2 class="food-name">
-                                    Special Pizza
-                                </h2>
-                                <h3 class="food-rating">
-                                    <span>4.5</span>
-                                    <div class="rating">
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                    </div>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Slide end-->
-                    <!--Slide start-->
-                    <div class="swiper-slide tranding-slide">
-                        <div class="tranding-slide-img">
-                            <a href="#"><img src="/images/imagen_album4.JPG" alt="Ejemplo de album"></a>
-                        </div>
-                        <div class="tranding-slide-content">
-                            <h1 class="food-price">$20</h1>
-                            <div class="tranding-slide-content-bottom">
-                                <h2 class="food-name">
-                                    Special Pizza
-                                </h2>
-                                <h3 class="food-rating">
-                                    <span>4.5</span>
-                                    <div class="rating">
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                    </div>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Slide end-->
-                    <!--Slide start-->
-                    <div class="swiper-slide tranding-slide">
-                        <div class="tranding-slide-img">
-                            <a href="#"><img src="/images/imagen_album5.JPG" alt="Ejemplo de album"></a>
-                        </div>
-                        <div class="tranding-slide-content">
-                            <h1 class="food-price">$20</h1>
-                            <div class="tranding-slide-content-bottom">
-                                <h2 class="food-name">
-                                    Special Pizza
-                                </h2>
-                                <h3 class="food-rating">
-                                    <span>4.5</span>
-                                    <div class="rating">
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                    </div>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Slide end-->
-                    <!--Slide start-->
-                    <div class="swiper-slide tranding-slide">
-                        <div class="tranding-slide-img">
-                            <a href="#"><img src="/images/imagen_album6.JPG" alt="Ejemplo de album"></a>
-                        </div>
-                        <div class="tranding-slide-content">
-                            <h1 class="food-price">$20</h1>
-                            <div class="tranding-slide-content-bottom">
-                                <h2 class="food-name">
-                                    Special Pizza
-                                </h2>
-                                <h3 class="food-rating">
-                                    <span>4.5</span>
-                                    <div class="rating">
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                    </div>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Slide end-->
-                </div>
-
-                <div class="tranding-slider-control">
-                    <div class="swiper-button-prev slider-arrow">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </div>
-
-                    <div class="swiper-button-next slider-arrow">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </div>
-                    <div class="swiper-pagination">
-
-                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
+        </section>
+
+        <div class="padre-contenedor-slider">
+            <section class="contenedor-slider-generos">
+                <h2>Ejemplo</h2>
+    
+                <div class="slider-list" id="slider-list">
+                    <button type="button" class="slider-arrow slider-prev" id="button-prev" data-button="button-prev" onclick="app.processingButton(event)">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+    
+                    <div class="slider-track" id="track">
+    
+                        <div class="slider-generos">
+    
+                            <div>
+    
+                                <a href="">
+                                    <h4>Ejemplo</h4>
+                                    <picture>
+                                        <img src="/images/imagen_album6.JPG"/>
+                                    </picture>
+                                </a>
+    
+                            </div>
+    
+                        </div>
+    
+                        <div class="slider-generos">
+    
+                            <div>
+    
+                                <a href="">
+                                    <h4>Ejemplo</h4>
+                                    <picture>
+                                        <img src="/images/imagen_album6.JPG"/>
+                                    </picture>
+                                </a>
+    
+                            </div>
+    
+                        </div>
+    
+                        <div class="slider-generos">
+    
+                            <div>
+    
+                                <a href="">
+                                    <h4>Ejemplo</h4>
+                                    <picture>
+                                        <img src="/images/imagen_album6.JPG"/>
+                                    </picture>
+                                </a>
+    
+                            </div>
+    
+                        </div>
+    
+                        <div class="slider-generos">
+    
+                            <div>
+    
+                                <a href="">
+                                    <h4>Ejemplo</h4>
+                                    <picture>
+                                        <img src="/images/imagen_album6.JPG"/>
+                                    </picture>
+                                </a>
+    
+                            </div>
+    
+                        </div>
+    
+                    </div>
+    
+                    <button class="slider-arrow slider-next" id="button-next" data-button="button-next" onclick="app.processingButton(event)">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+    
+                </div>
+    
+                
+            </section>
         </div>
 
-    </section>
+
+    </main>
 
     <footer>
         <p><i class="fa-regular fa-copyright"></i> Copyrigth</p>
@@ -271,6 +270,13 @@
         </ul>
 
     </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script src="/scripts/script-slider-responsive.js"></script>
+    <script src="/scripts/script-slider-generos.js"></script>
 
 </body>
 
