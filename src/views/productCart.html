@@ -101,20 +101,30 @@
                 <h2 class="titulares">Información del cliente</h2>
 
                 <form class="checkout-form-container"action="" method="post">
-                    <label class="label-forms" for="">NOMBRE Y APELLIDO COMPLETO</label>
-                    <input type="text" name="loged-user" required placeholder="Nombre completo"></input>
 
-                        <label class="label-forms" for="">DIRECCIÓN DE CORREO ELECTRÓNICO</label>
-                        <input type="email" name="loged-user" required placeholder="Correo"></input>
+                    <div class="checkout-form-fields-user">
+                        <label class="label-forms" for="">NOMBRE Y APELLIDO COMPLETO</label>
+                        <input type="text" name="loged-user" required placeholder="Nombre completo"></input>
+                    </div>
 
-                        <label class="label-forms" for="">PAÍS</label>
-                        <select id="select-checkout-country" name="pais">
-                            <option value="Argentina" selected>Argentina</option>
-                            <option value="Brazil">Brasil</option>
-                            <option value="Chile">Chile</option>
-                            <option value="Mexico">México</option>
-                            <option value="USA">Estados Unidos</option>
-                        </select>
+                    <div class="checkout-form-email-country">
+                        <div class="form-fields-email">
+                            <label class="label-forms" for="">DIRECCIÓN DE CORREO ELECTRÓNICO</label>
+                            <input type="email" name="loged-user" required placeholder="Correo"></input>
+                        </div>
+    
+                        <div class="form-fields-country">
+                            <label class="label-forms" for="">PAÍS</label>
+                            <select id="select-checkout-country" name="pais">
+                                <option value="Argentina" selected>Argentina</option>
+                                <option value="Brazil">Brasil</option>
+                                <option value="Chile">Chile</option>
+                                <option value="Mexico">México</option>
+                                <option value="USA">Estados Unidos</option>
+                            </select>
+                        </div>
+                    </div>
+                    
 
                     <div class="checkout-form-city-postal">
                         <label class="label-forms" for="">CIUDAD</label>
@@ -124,9 +134,11 @@
                         <input type="text" name="loged-user" required placeholder="N° de código postal"></input>
                     </div>
 
-                    <label class="label-forms" for="">DIRECCIÓN</label>
-                    <input type="text" name="loged-user" required placeholder="Dirección"></input>
-                
+                    <div class="checkout-form-fields-user">
+                        <label class="label-forms" for="">DIRECCIÓN</label>
+                        <input type="text" name="loged-user" required placeholder="Dirección"></input>
+                    </div>
+
                     <div class="checkout-buttons">
 
                         <button id="checkout-exit">Cancelar</button>

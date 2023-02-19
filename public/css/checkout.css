@@ -16,6 +16,7 @@
 .checkout-logo{
     width: 40%;
     margin: 4% auto;
+    transition: width ease-in-out .5s;
 }
 
 .checkout-logo img{
@@ -144,9 +145,11 @@ details .checkout-summary-products img{
     margin: 0% 2%;
 }
 
+.checkout-client-information{
+    margin: 0% 2%;
+}
+
 .checkout-payiments-apps{
-    width: 100%;
-    height: 100%;
     margin: 2% 0;
     display: flex;
     align-items: center;
@@ -155,7 +158,7 @@ details .checkout-summary-products img{
 
 .checkout-payiments-apps button{
     width: 100%;
-    height: 100%;
+    height: 50%;
     padding: 5%;
     margin: 0 1%;
     border: 1px solid var(--negro);
@@ -192,6 +195,49 @@ details .checkout-summary-products img{
     display: flex;
     flex-direction: column;
     padding: 2%;
+    background-color: var(--marron_clarito);
+}
+
+.checkout-form-fields-user{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--negro);
+    border-radius: 15px;
+    padding: 4%;
+    margin: 1% 0;
+    transition: background-color ease-in-out .3s;
+}
+
+.checkout-form-fields-user label{
+    margin-bottom: 3%;
+}
+
+.checkout-form-email-country{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--negro);
+    border-radius: 15px;
+    padding: 4%;
+    margin: 1% 0;
+}
+
+.form-fields-email{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-fields-email label{
+    margin-bottom: 3%;
+}
+
+.form-fields-country{
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.form-fields-country label{
+    margin-right: 2%;
 }
 
 .checkout-form-container label{
@@ -210,22 +256,30 @@ details .checkout-summary-products img{
 }
 
 #select-checkout-country{
+    width: 100%;
     margin: 1% 0;
     padding: 2%;
-    border-radius: 8px;
     background-color:#f0eeec;
     font-weight: 500;
+    border: none;
 }
 
-#select-checkout-country option{
-    background-color:#ece8e4;
+option{
     font-weight: 500;
-    outline: none;
 }
 
 .checkout-form-city-postal{
+    border: 1px solid var(--negro);
     display: flex;
     flex-direction: column;
+    border-radius: 15px;
+    padding: 4%;
+    margin: 2% 0;
+    transition: background-color ease-in-out .3s;
+}
+
+.checkout-form-city-postal label{
+    margin: 3% 1%;
 }
 
 .checkout-buttons{
@@ -241,15 +295,18 @@ details .checkout-summary-products img{
     border-radius: 20px;
     border: 2px solid var(--negro);
     font-weight: 600;
+    cursor: pointer;
 }
 
 #checkout-exit{
     background-color: transparent;
+    
 }
 
 #checkout-continue{
     background-color: var(--negro);
     color: var(--marron_clarito);
+    transition: background-color ease-in-out .3s;
 }
 
 .checkout-list{
@@ -348,12 +405,29 @@ details .checkout-summary-products img{
 }
 
 /*TRANSITIONS*/
+
+.checkout-logo:hover{
+    width: 45%;
+}
+
 details:hover{
     background-color:#f0eeec;
 }
 
 .checkout-summary-products-desktop:hover{
     background-color: #dcd2c6;
+}
+
+.checkout-form-fields-user:hover{
+    background-color: #dcd2c6;
+}
+
+.checkout-form-city-postal:hover{
+    background-color: #dcd2c6;
+}
+
+#checkout-continue:hover{
+    background-color: #292727;
 }
 
 @media (min-width:768px){
@@ -382,6 +456,13 @@ details:hover{
     }
     .checkout-summary-products-desktop{
         display: flex;
+    }
+    .checkout-form-city-postal{
+        flex-direction: row;
+        align-items: center;
+    }
+    .checkout-form-city-postal label{
+        margin: 3% 3%;
     }
     .checkout-footer{
         display: flex;
