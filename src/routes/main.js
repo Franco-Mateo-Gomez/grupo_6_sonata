@@ -10,8 +10,8 @@ router.get("/",(req,res)=>{
 })
 
 /*Sub pages*/
-router.get("/header",(req,res)=>{
-    res.sendFile(path.join(__dirname,"../views/header.html"));
+router.get("/home",(req,res)=>{
+    res.sendFile(path.join(__dirname,"../views/index.html"));
 })
 
 router.get("/login",(req,res)=>{
