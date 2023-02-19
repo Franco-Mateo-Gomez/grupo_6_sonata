@@ -14,9 +14,10 @@
 }
 
 .checkout-logo{
-    margin: 5% auto;
-    width: 60vw;
+    width: 40%;
+    margin: 4% auto;
 }
+
 .checkout-logo img{
     width: 100%;
 }
@@ -140,13 +141,13 @@ details .checkout-summary-products img{
 /*Paying section*/
 
 .header-checkout{
-    margin: 3% 2%;
+    margin: 0% 2%;
 }
 
 .checkout-payiments-apps{
     width: 100%;
     height: 100%;
-    margin: 3% 0;
+    margin: 2% 0;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -155,7 +156,7 @@ details .checkout-summary-products img{
 .checkout-payiments-apps button{
     width: 100%;
     height: 100%;
-    padding: 6%;
+    padding: 5%;
     margin: 0 1%;
     border: 1px solid var(--negro);
     border-radius: 8px;
@@ -197,17 +198,15 @@ details .checkout-summary-products img{
     font-weight: 700;
 }
 
-
-
 .checkout-form-container input[type=text],input[type=password],input[type=email]{
     margin-top: 1%;
     margin-bottom: 1%;
-    padding: 3% 2%;
+    padding: 2% 2%;
     color: #0D0D0D;
-    border: 1px solid #0D0D0D;
+    border: 0;
+    border-bottom: 2px solid #0D0D0D;
     background-color: transparent;
     outline: none;
-    border-radius: 5px;
 }
 
 #select-checkout-country{
@@ -219,8 +218,9 @@ details .checkout-summary-products img{
 }
 
 #select-checkout-country option{
-    background-color:#e1cdb9;
+    background-color:#ece8e4;
     font-weight: 500;
+    outline: none;
 }
 
 .checkout-form-city-postal{
@@ -252,14 +252,108 @@ details .checkout-summary-products img{
     color: var(--marron_clarito);
 }
 
-.checkout-products-resume{
-    display: none;
+.checkout-list{
+    overflow-y: scroll;
+    width: 100%;
+    height: 40%;
 }
 
+.checkout-summary-products-desktop{
+    display: none;
+    margin: 2% 2%;
+    padding: 2%;
+    border: 2px solid black;
+    background-color: var(--marron_clarito);
+    border-radius: 15px;
+    transition: background-color ease-in-out .2s;
+}
+
+.checkout-summary-products-desktop img{
+    width: 25%;
+}
+
+.checkout-summary-products-details-desktop{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin:1% 2%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.checkout-summary-products-details-bottom-desktop{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 2%;
+}
+
+.checkout-summary-products-details-bottom-desktop button{
+    font-size: 0.8rem;
+    padding: 15% 60%;
+    font-weight: 600;
+    color: var(--marron_clarito);
+    background-color: var(--negro);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout-summary-products-details-bottom-price-desktop{
+    margin-left: 15%;
+    display: flex;
+    align-items: center;
+}
+
+.checkout-summary-products-details-bottom-price-desktop h4{
+    margin-right: 5%;
+}
+
+.checkout-products-coin-desktop .checkout-moneda{
+    background-color:#edeae6;
+    width: 50%;
+    text-align: center;
+    padding: 0.8%;
+    border: 1px solid var(--negro);
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.checkout-products-coin-desktop .checkout-moneda option{
+    font-weight: 600;
+    color: var(--negro);
+}
+
+.checkout-products-coin-desktop{
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 2%;
+    border-bottom: 2px solid var(--negro);
+    margin-bottom: 5%;
+}
+
+.checkout-footer{
+    padding: 5%;
+    border-top: 2px solid var(--negro);
+    align-items: center;
+    margin-top: 5%;
+    display: none;
+    justify-content: space-between;
+}
+
+.checkout-footer-price{
+    display: flex;
+    align-items: center;
+}
 
 /*TRANSITIONS*/
 details:hover{
     background-color:#f0eeec;
+}
+
+.checkout-summary-products-desktop:hover{
+    background-color: #dcd2c6;
 }
 
 @media (min-width:768px){
@@ -278,10 +372,32 @@ details:hover{
     .checkout-products-coin-mobile{
         display: none;
     }
-    .checkout-products-coin-desktop{
-        display: block;
+    .checkout-payment-method-desktop{
+        padding: 2%;
+        width: 45%;
+        background-color: var(--marron_medio);
     }
-    .checkout-products-resume{
+    .checkout-products-coin-desktop{
         display: flex;
     }
+    .checkout-summary-products-desktop{
+        display: flex;
+    }
+    .checkout-footer{
+        display: flex;
+    }
+}
+
+
+.checkout-list::-webkit-scrollbar{
+    width: 8px;
+}
+
+.checkout-list::-webkit-scrollbar-thumb{
+    background: var(--marron_clarito);
+    border-radius: 10px;
+}
+
+.checkout-list::-webkit-scrollbar-thumb:hover{
+    background:#cbc0b2;
 }
