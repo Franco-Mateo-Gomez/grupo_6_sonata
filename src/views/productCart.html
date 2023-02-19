@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/imagen_logo_sonata_v1.png">
+    <link rel="stylesheet" href="/css/checkout.css">
+    <title>Detalles de compra</title>
+</head>
+<body>
+
+   <main class="main-checkout">
+
+        <!--Payiment method section-->
+        <section class="checkout-payment-method">
+
+            <div class="checkout-logo">
+                <img src="/images/imagen_logo_sonata_v2.png" alt="logo sonata">
+            </div>
+
+            <section class="checkout-products-coin-mobile">
+                <header>
+                    <h3>Moneda:</h3>
+                </header>
+                <select class="checkout-moneda" name="moneda">
+                    <option value="USD">
+                        USD
+                    </option>
+            
+                    <option value="ARS" selected>
+                       ARS
+                    </option>
+            
+                    <option value="EUR">
+                        EUR
+                    </option>
+                </select>
+            </section>
+
+            <details>
+                <summary>
+                    <div>
+                        Mostrar productos <span class="fa-sharp fa-solid fa-circle-arrow-down"></span>
+                    </div>
+                    <h4>$0.00</h4>
+                </summary>
+
+                    <!--Product list - mobile version-->
+                    <div class="checkout-summary-products">
+                        <img src="/images/imagen_album2.JPG" alt="imagen de producto">
+                        
+                        <div class="checkout-summary-products-details">
+                            <div>
+                                <h4>SoundWave</h4>
+                            </div>
+                            <div class="checkout-summary-products-details-bottom">
+                                <a href="#">
+                                    <button>Eliminar</button>
+                                </a>
+                                <div class="checkout-summary-products-details-bottom-price">
+                                    <h4>$0.00<h6>ARS</h6></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-summary-products">
+                        <img src="/images/imagen_album4.JPG" alt="imagen de producto">
+                        
+                        <div class="checkout-summary-products-details">
+                            <div>
+                                <h4>BPMLive</h4>
+                            </div>
+                            <div class="checkout-summary-products-details-bottom">
+                                <a href="#">
+                                    <button>Eliminar</button>
+                                </a>
+                                <div class="checkout-summary-products-details-bottom-price">
+                                    <h4>$0.00<h6>ARS</h6></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Product list - mobile version-->
+
+            </details>
+
+            <div class="header-checkout">
+                <h2 class="titulares">Pago</h2>
+                <p>Seleccione el método de pago</p>
+    
+                <div class="checkout-payiments-apps">
+                    <button id="tarjeta"></button>
+                    <button id="paypal"></button>
+                    <button id="modo"></button>
+                </div>
+            </div>
+
+            <div class="checkout-client-information">
+                
+                <h2 class="titulares">Información del cliente</h2>
+
+                <form class="checkout-form-container"action="" method="post">
+
+                    <div class="checkout-form-fields-user">
+                        <label class="label-forms" for="">NOMBRE Y APELLIDO COMPLETO</label>
+                        <input type="text" name="loged-user" required placeholder="Nombre completo"></input>
+                    </div>
+
+                    <div class="checkout-form-email-country">
+                        <div class="form-fields-email">
+                            <label class="label-forms" for="">DIRECCIÓN DE CORREO ELECTRÓNICO</label>
+                            <input type="email" name="loged-user" required placeholder="Correo"></input>
+                        </div>
+    
+                        <div class="form-fields-country">
+                            <label class="label-forms" for="">PAÍS</label>
+                            <select id="select-checkout-country" name="pais">
+                                <option value="Argentina" selected>Argentina</option>
+                                <option value="Brazil">Brasil</option>
+                                <option value="Chile">Chile</option>
+                                <option value="Mexico">México</option>
+                                <option value="USA">Estados Unidos</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+
+                    <div class="checkout-form-city-postal">
+                        <label class="label-forms" for="">CIUDAD</label>
+                        <input type="text" name="loged-user" required placeholder="Ciudad"></input>
+
+                        <label class="label-forms" for="">CÓDIGO POSTAL</label>
+                        <input type="text" name="loged-user" required placeholder="N° de código postal"></input>
+                    </div>
+
+                    <div class="checkout-form-fields-user">
+                        <label class="label-forms" for="">DIRECCIÓN</label>
+                        <input type="text" name="loged-user" required placeholder="Dirección"></input>
+                    </div>
+
+                    <div class="checkout-buttons">
+
+                        <button id="checkout-exit">Cancelar</button>
+
+                        <button id="checkout-continue" type="submit">Continuar</button>
+                    </div>
+
+                </form>
+            </div>
+            
+        </section>
+
+        <!--Products section-->
+
+        <section class="checkout-payment-method-desktop">
+            
+            <div class="checkout-products-coin-desktop">
+                <header>
+                    <h3>Moneda:</h3>
+                </header>
+                <select class="checkout-moneda" name="moneda">
+                    <option value="USD">
+                        USD
+                    </option>
+            
+                    <option value="ARS" selected>
+                       ARS
+                    </option>
+            
+                    <option value="EUR">
+                        EUR
+                    </option>
+                </select>
+            </div>
+
+            <div class="checkout-list">
+
+                <div class="checkout-summary-products-desktop">
+
+                    <img src="/images/imagen_album2.JPG" alt="imagen de producto">
+                        
+                    <div class="checkout-summary-products-details-desktop">
+                        <div class="checkout-summary-products-details-desktop-description">
+                            <h4>Sony</h4>
+                        </div>
+                        <div class="checkout-summary-products-details-bottom-desktop">
+                            <a href="#">
+                                <button>Eliminar</button>
+                            </a>
+                            <div class="checkout-summary-products-details-bottom-price-desktop">
+                                <h4>$0.00<h6>ARS</h6></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-summary-products-desktop">
+
+                    <img src="/images/imagen_album3.JPG" alt="imagen de producto">
+                        
+                    <div class="checkout-summary-products-details-desktop">
+                        <div>
+                            <h4>SoundWave</h4>
+                        </div>
+                        <div class="checkout-summary-products-details-bottom-desktop">
+                            <a href="#">
+                                <button>Eliminar</button>
+                            </a>
+                            <div class="checkout-summary-products-details-bottom-price-desktop">
+                                <h4>$0.00<h6>ARS</h6></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-summary-products-desktop">
+
+                    <img src="/images/imagen_album4.JPG" alt="imagen de producto">
+                        
+                    <div class="checkout-summary-products-details-desktop">
+                        <div>
+                            <h4>OpenSource</h4>
+                        </div>
+                        <div class="checkout-summary-products-details-bottom-desktop">
+                            <a href="#">
+                                <button>Eliminar</button>
+                            </a>
+                            <div class="checkout-summary-products-details-bottom-price-desktop">
+                                <h4>$0.00<h6>ARS</h6></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-summary-products-desktop">
+
+                    <img src="/images/imagen_album4.JPG" alt="imagen de producto">
+                        
+                    <div class="checkout-summary-products-details-desktop">
+                        <div>
+                            <h4>OpenSource</h4>
+                        </div>
+                        <div class="checkout-summary-products-details-bottom-desktop">
+                            <a href="#">
+                                <button>Eliminar</button>
+                            </a>
+                            <div class="checkout-summary-products-details-bottom-price-desktop">
+                                <h4>$0.00<h6>ARS</h6></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            
+            <footer class="checkout-footer">
+                <h2>TOTAL</h2>
+                <div class="checkout-footer-price">
+                    <h2>$0.00</h2>
+                    <h3>ARS</h3>
+                </div>
+            </footer>
+            
+        </section>
+        
+    
+    </main>
+</body>
+</html>
