@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/imagen_logo_sonata_v1.png">
     <link rel="stylesheet" href="/css/checkout.css">
+    <link rel="stylesheet" href="/css/modal.css">
     <title>Detalles de compra</title>
 </head>
 <body>
@@ -264,8 +265,55 @@
             </footer>
             
         </section>
-        
-    
     </main>
+
+    <button onclick="openModal()">Mostrar</button>
+
+    <dialog class="modal" id="mainModal">
+        <header class="modal-header">
+            <h2 class="titulares">Detalle de pago</h2>
+            <button onclick="closeModal()"><img src="/images/checkout/exit.png" alt="Salir"></button>
+        </header>
+
+        <main>
+            <form class="modal-form-container"action="" method="post">
+                
+                <div class="modal-form-fields-user">
+                    <label class="label-forms" for="">Nombre completo del titular:</label>
+                    <input type="text" name="loged-user" required placeholder="Nombre completo"></input>
+                </div>
+
+                <div class="modal-form-fields-user">
+                    <label class="label-forms" for="">Número de tarjeta de débito/crédito:</label>
+                    <input type="number" name="loged-user" required placeholder="0000 - 0000 - 0000 - 0000"></input>
+                </div>
+
+                <div class="modal-form-fields-date-cvc">
+
+                    <div class="modal-form-date">
+                        <label class="label-forms" for="">Fecha de expiración:</label>
+                        <input type="date" name="loged-user" required placeholder="01/2024"></input>
+                    </div>
+
+                    <div class="modal-form-cvc">
+                        <label class="label-forms" for="">CVC:</label>
+                        <input type="number" name="loged-user" required></input>
+                    </div>
+    
+                </div>
+
+                <div class="checkout-buttons">
+
+                    <button id="checkout-exit" onclick="closeModal()">Cancelar</button>
+
+                    <button id="checkout-continue" type="submit">PAGAR</button>
+                </div>
+
+            </form>
+        </main>
+        
+    </dialog>
+
+    <script src="/scripts/script-checkout-modal.js"></script>
 </body>
 </html>
