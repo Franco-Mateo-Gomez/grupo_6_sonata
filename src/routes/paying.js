@@ -1,12 +1,8 @@
-/* Project -> Paying Routes */
-
 let express = require('express');
 let router = express.Router();
-const path = require ("path");
+const payingController = require("../controllers/payingControllers.js")
 
 /*Principal page*/
-router.get("/",(req,res)=>{
-    res.sendFile(path.join(__dirname,"../views/productCart.html"));
-})
+router.get("/",payingController.checkout);
 
 module.exports = router;

@@ -1,17 +1,11 @@
-/* Project -> Main Routes */
-
 let express = require('express');
 let router = express.Router();
-const path = require ("path");
+const mainController = require("../controllers/mainControllers.js")
 
 /*Principal page*/
-router.get("/",(req,res)=>{
-    res.sendFile(path.join(__dirname,"../views/index.html"));
-})
-
-/*Sub pages*/
-router.get("/login",(req,res)=>{
-    res.sendFile(path.join(__dirname,"../views/login.html"));
-})
+router.get("/",mainController.index);
+router.get("/login",mainController.login);
+router.get("/register",mainController.register);
+router.get("/about",mainController.aboutUs);
 
 module.exports = router;
