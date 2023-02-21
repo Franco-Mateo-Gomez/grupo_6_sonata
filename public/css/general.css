@@ -44,6 +44,10 @@ input[type=text],input[type=password],input[type=email]{
   font-size: 0.8rem;
 }
 
+input{
+  outline: none;
+}
+
 button{
   font-size: 0.8rem;
 }
