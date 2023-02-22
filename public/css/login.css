@@ -102,6 +102,18 @@
     font-weight: 400;
 }
 
+.remember-section{
+    margin: 4% 0;
+    margin-right: 5%;
+    align-self:flex-end;
+}
+
+.remember-section a{
+    color: #0D0D0D;
+    font-weight: 400;
+    cursor: default;
+}
+
 .login-register-section{
     margin-top: 8%;
     display: flex;
