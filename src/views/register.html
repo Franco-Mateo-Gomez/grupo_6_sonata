@@ -5,35 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="shortcut icon" href="/images/imagen_logo_sonata_v1.png">
+    <script src="https://kit.fontawesome.com/0aeb7696ea.js" crossorigin="anonymous"></script>
     <title>Registro</title>
 </head>
 
 <body>
     <header>
         <div>
-            <img class="logo" src="/images/imagen_logo_sonata_v2.png" alt="">
+            <a href="/"><img class="logo" src="/images/imagen_logo_sonata_v2.png" alt=""></a>
+            
         </div>
-        <input type="checkbox" name="" id="check">
-        <label for="check">
-            <i class="boton_menu fa-solid fa-bars"></i>
-        </label>
-        <ul class="nav-menu">
-            <li class="btn-home"><a href="/"><i class="icono-home fa-solid fa-house"></i> HOME</a></li>
-            <li class="btn-carrito"><a href="/"><i class="fa-solid fa-cart-shopping"></i></a></li>
-            <li class="btn-busqueda">
-                <form action="">
-                    <input type="search" placeholder="Buscar artista">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </li>
-            <li class="btn-usuario"><a href="/"><i class="fa-solid fa-user"></i></a></li>
-        </ul>
     </header>
     <main>
-        
+        <div class="imagen_user">
+            <i class="fa-solid fa-user-plus"></i>
+        </div>
+        <div class="formulario">
+            <form class="formulario_registro" action="POST">
+                <div class="nombre_de_usuario">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" name="nombre_de_usuario" id="usuario" required minlength="5" maxlength="25">
+                </div>
+                <div class="correo">
+                    <label for="correo">Correo </label>
+                    <input type="text" required="@">
+                </div>
+                <div>
+                    <label for="contrasenia">Contraseña</label>
+                    <input type="password" name="contrasenia" id="contrasenia">
+                </div>
+                <div>
+                    <label for="confirmacion">Confirmar Contraseña</label>
+                    <input type="password" name="confirmacion" id="confirmacion">
+                </div>
+                <div class="botones">
+                    <input type="submit" name="registrarme" value="Registrarme" id="registrarme">
+                    <input type="reset" value="Cancelar" id="cancelar">
+                </div>
+            </form>
+        </div>
     </main>
     <footer>
-        <p><i class="fa-regular fa-copyright"></i> Copyrigth</p>
+        <p><i class="fa-regular fa-copyright"></i> Copyright</p>
 
         <ul class="enlaces_informacion">
             <li><a href="">Consultas</a></li>
