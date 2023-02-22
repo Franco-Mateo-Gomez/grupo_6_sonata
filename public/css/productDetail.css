@@ -1,0 +1,193 @@
+@import url(general.css);
+
+main{
+    margin-top: 100px;
+    margin-top: 100px;
+    background-color: var(--marron_clarito);
+    height: 80vh;
+}
+
+.informacion_artista{
+    background-image: url(../images/banner_usuario.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.contenedor_informacion_artista {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem 1rem;
+    backdrop-filter: blur(6px) drop-shadow(2px 4px 6px black);
+}
+
+
+.informacion_artista_left {
+    width: fit-content;
+    padding: 1rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.redes_sociales_artista {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.red_social_artista{
+    width: 2.2rem;
+    height: 2.2rem;
+    background-color: black;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.red_social_artista a{
+    color: var(--marron_clarito);
+}
+
+.valoracion {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    font-size: larger;
+    color: black;
+}
+
+.informacion_artista_right {
+    width: min-content;
+    padding: 1rem;
+    height: 10rem;
+    overflow: auto auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.descripcion_artista {
+    text-align: end;
+    color: black;
+    font-style: oblique;
+    width: 400px;
+    font-weight: bold;
+}
+
+.nombre_artista {
+    align-self: end;
+    -webkit-text-stroke: 1.5px black;
+    color: white;
+    font-size: xx-large;
+}
+
+/*Descripcion del producto*/
+
+section.informacion_producto {
+    height: 50vh;
+    width: 100%;
+    background-color: var(--marron_clarito);
+}
+
+.contenedor_informacion_producto{
+    background-color: var(--marron_medio);
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    top: -15%;
+    border-radius: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1.4rem;
+    gap: 3rem;
+}
+
+.precio_album{
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--naranja);
+    width: 100px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 10px 0px 10px;
+    border-left: 3px solid white;
+    border-bottom: 3px solid white;
+    color: white;
+    font-size: larger;
+}
+
+.imagen_album {
+    width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen_album button {
+    width: 3rem;
+    background: none;
+    cursor: pointer;
+    border: none;
+    margin: 1rem;
+    font-size: x-large;
+}
+
+.imagen_album img{
+    width: 200px;
+}
+
+.descripcion_producto{
+    width: 50%;
+    height: 200px;
+    display: flex;
+    align-items: start;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.descripcion_producto button{
+    border-radius: 2rem;
+    font-weight: bolder;
+    background-color: black;
+    /* width: 90px; */
+    padding: 0.4rem 1.7rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+.descripcion_producto h5 span{
+    color: var(--naranja);
+    padding-left: 1rem;
+}
+
+/*MEDIA QUERYS PARA ADAPTARSE A TAMAÑOS DE PANTALLAS*/
+
+/* Escritorio grande */
+@media only screen and (min-width: 795px) and (max-width: 1600px) {
+   
+  }
+  
+  /*tablet */
+  @media only screen and (min-width: 501px) and (max-width: 794px) {
+  
+  }
+  
+  /* Teléfonos */
+  @media only screen and (min-width: 0px) and (max-width: 500px) {
+  }
+  

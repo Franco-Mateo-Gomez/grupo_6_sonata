@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/imagen_logo_sonata_v1.png">
+    <link rel="stylesheet" href="/css/checkout.css">
+    <link rel="stylesheet" href="/css/modal.css">
+    <title>Detalles de compra</title>
+</head>
+<body>
+
+    <main class="main-checkout">
+
+        <!--Payiment method section-->
+        <section class="checkout-payment-method">
+
+            <div class="checkout-logo">
+                <img src="/images/imagen_logo_sonata_v2.png" alt="logo sonata">
+            </div>
+
+            <!--Product list on mobile-->
+            <section class="checkout-products-coin-mobile">
+                <header>
+                    <h3>Moneda:</h3>
+                </header>
+                <select class="checkout-moneda" name="moneda">
+                    <option value="USD">
+                        USD
+                    </option>
+            
+                    <option value="ARS" selected>
+                       ARS
+                    </option>
+            
+                    <option value="EUR">
+                        EUR
+                    </option>
+                </select>
+            </section>
+
+            <details>
+                
+                <summary>
+                    <div class="summary-header">
+                        <p>Mostrar productos</p> <span class="fa-sharp fa-solid fa-circle-arrow-down"></span>
+                    </div>
+                    <h4>$0.00</h4>
+                </summary>
+
+                    <!--Product list - mobile version-->
+                    <div class="checkout-summary-products">
+                        <img src="/images/imagen_album2.JPG" alt="imagen de producto">
+                        
+                        <div class="checkout-summary-products-details">
+                            <div>
+                                <h4>SoundWave</h4>
+                            </div>
+                            <div class="checkout-summary-products-details-bottom">
+                                <a href="#">
+                                    <button>Eliminar</button>
+                                </a>
+                                <div class="checkout-summary-products-details-bottom-price">
+                                    <h4>$0.00</h4><h6>ARS</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-summary-products">
+                        <img src="/images/imagen_album4.JPG" alt="imagen de producto">
+                        
+                        <div class="checkout-summary-products-details">
+                            <div>
+                                <h4>BPMLive</h4>
+                            </div>
+                            <div class="checkout-summary-products-details-bottom">
+                                <a href="#">
+                                    <button>Eliminar</button>
+                                </a>
+                                <div class="checkout-summary-products-details-bottom-price">
+                                    <h4>$0.00</h4><h6>ARS</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </details>
+             <!--END Product list on mobile-->
+
+             <!--Express payment methods-->
+            <div class="header-checkout">
+                <h2 class="titulares">Pago</h2>
+                <p>Seleccione el método de pago</p>
+    
+                <div class="checkout-payiments-apps">
+                    <button id="tarjeta"></button>
+                    <button id="paypal"></button>
+                    <button id="modo"></button>
+                </div>
+            </div>
+            <!--END Express payment methods-->
+
+            <div class="checkout-client-information">
+                
+                <h2 class="titulares">Información del cliente</h2>
+
+                <form class="checkout-form-container"action="" method="post">
+
+                    <div class="checkout-form-fields-user">
+                        <label class="label-forms" for="full_name">NOMBRE Y APELLIDO COMPLETO</label>
+                        <input type="text" id="full_name" name="full_name" required placeholder="Nombre completo"></input>
+                    </div>
+
+                    <div class="checkout-form-email-country">
+                        <div class="form-fields-email">
+                            <label class="label-forms" for="email">DIRECCIÓN DE CORREO ELECTRÓNICO</label>
+                            <input type="email" id="email" name="email" required placeholder="Correo"></input>
+                        </div>
+    
+                        <div class="form-fields-country">
+                            <label class="label-forms" for="pais">PAÍS</label>
+                            <select id="select-checkout-country" name="pais">
+                                <option value="Argentina" selected>Argentina</option>
+                                <option value="Brazil">Brasil</option>
+                                <option value="Chile">Chile</option>
+                                <option value="Mexico">México</option>
+                                <option value="USA">Estados Unidos</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+
+                    <div class="checkout-form-city-postal">
+                        <label class="label-forms" for="city">CIUDAD</label>
+                        <input type="text" id="city" name="city" required placeholder="Ciudad"></input>
+
+                        <label class="label-forms" for="postal">CÓDIGO POSTAL</label>
+                        <input type="text" id="postal" name="postal" required placeholder="N° de código postal"></input>
+                    </div>
+
+                    <div class="checkout-form-fields-user">
+                        <label class="label-forms" for="address">DIRECCIÓN</label>
+                        <input type="text" id="address" name="address" required placeholder="Dirección"></input>
+                    </div>
+
+                    <div class="checkout-buttons">
+
+                        <button id="checkout-exit">Cancelar</button>
+                        <button id="checkout-continue" type="submit" onclick="openModal()">Continuar</button>
+                    </div>
+
+                </form>
+            </div>
+            
+        </section>
+
+        <!--Products section-->
+
+        <section class="checkout-payment-method-desktop">
+            
+            <div class="checkout-products-coin-desktop">
+                <header>
+                    <h3>Moneda:</h3>
+                </header>
+                <select class="checkout-moneda" name="moneda">
+                    <option value="USD">
+                        USD
+                    </option>
+            
+                    <option value="ARS" selected>
+                       ARS
+                    </option>
+            
+                    <option value="EUR">
+                        EUR
+                    </option>
+                </select>
+            </div>
+
+            <div class="checkout-list">
+
+                <div class="checkout-summary-products-desktop">
+
+                    <img src="/images/imagen_album2.JPG" alt="imagen de producto">
+                        
+                    <div class="checkout-summary-products-details-desktop">
+                        <div class="checkout-summary-products-details-desktop-description">
+                            <h4>Sony</h4>
+                        </div>
+                        <div class="checkout-summary-products-details-bottom-desktop">
+                            <a href="#">
+                                <button>Eliminar</button>
+                            </a>
+                            <div class="checkout-summary-products-details-bottom-price-desktop">
+                                <h4>$0.00<h6>ARS</h6></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-summary-products-desktop">
+
+                    <img src="/images/imagen_album3.JPG" alt="imagen de producto">
+                        
+                    <div class="checkout-summary-products-details-desktop">
+                        <div>
+                            <h4>SoundWave</h4>
+                        </div>
+                        <div class="checkout-summary-products-details-bottom-desktop">
+                            <a href="#">
+                                <button>Eliminar</button>
+                            </a>
+                            <div class="checkout-summary-products-details-bottom-price-desktop">
+                                <h4>$0.00<h6>ARS</h6></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-summary-products-desktop">
+
+                    <img src="/images/imagen_album4.JPG" alt="imagen de producto">
+                        
+                    <div class="checkout-summary-products-details-desktop">
+                        <div>
+                            <h4>OpenSource</h4>
+                        </div>
+                        <div class="checkout-summary-products-details-bottom-desktop">
+                            <a href="#">
+                                <button>Eliminar</button>
+                            </a>
+                            <div class="checkout-summary-products-details-bottom-price-desktop">
+                                <h4>$0.00<h6>ARS</h6></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-summary-products-desktop">
+
+                    <img src="/images/imagen_album4.JPG" alt="imagen de producto">
+                        
+                    <div class="checkout-summary-products-details-desktop">
+                        <div>
+                            <h4>OpenSource</h4>
+                        </div>
+                        <div class="checkout-summary-products-details-bottom-desktop">
+                            <a href="#">
+                                <button>Eliminar</button>
+                            </a>
+                            <div class="checkout-summary-products-details-bottom-price-desktop">
+                                <h4>$0.00<h6>ARS</h6></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="checkout-footer">
+                <h2>TOTAL</h2>
+                <div class="checkout-footer-price">
+                    <h2>$0.00</h2>
+                    <h3>ARS</h3>
+                </div>
+            </footer>
+            
+        </section>
+    </main>
+
+    <dialog class="modal" id="mainModal">
+        <header class="modal-header">
+            <h2 class="titulares">Detalle de pago</h2>
+            <button onclick="closeModal()"><img src="/images/checkout/exit.png" alt="Salir"></button>
+        </header>
+
+        <main>
+            <form class="modal-form-container"action="" method="post">
+                
+                <div class="modal-form-fields-user">
+                    <label class="label-forms" for="card_name">Nombre completo del titular:</label>
+                    <input type="text" id="card_name" name="card_name" required placeholder="Nombre completo"></input>
+                </div>
+
+                <div class="modal-form-fields-user">
+                    <label class="label-forms" for="card_number">Número de tarjeta de débito/crédito:</label>
+                    <input type="number" id="card_number" name="card_number" required placeholder="0000 - 0000 - 0000 - 0000"></input>
+                </div>
+
+                <div class="modal-form-fields-date-cvc">
+
+                    <div class="modal-form-date">
+                        <label class="label-forms" for="card_date">Fecha de expiración:</label>
+                        <input type="date" id="card_date" name="card_date" required placeholder="01/2024"></input>
+                    </div>
+
+                    <div class="modal-form-cvc">
+                        <label class="label-forms" for="card_cvc">CVC:</label>
+                        <input type="number" id="card_cvc" name="card_cvc" required></input>
+                    </div>
+    
+                </div>
+
+                <div class="checkout-buttons">
+
+                    <button id="checkout-exit" onclick="closeModal()">Cancelar</button>
+                    <button id="checkout-continue" type="submit">PAGAR</button>
+                </div>
+
+            </form>
+        </main>
+        
+    </dialog>
+
+    <script src="/scripts/script-checkout-modal.js"></script>
+</body>
+</html>

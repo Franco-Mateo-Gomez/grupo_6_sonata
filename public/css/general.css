@@ -37,8 +37,24 @@
   font-size: 0.8rem;
 }
 
+p{
+  font-size: 1rem;
+}
+
+input[type=text],input[type=password],input[type=email]{
+  font-size: 0.8rem;
+}
+
+input{
+  outline: none;
+}
+
 button{
   font-size: 0.8rem;
+}
+
+ul li{
+  list-style-type: none;
 }
 
   @media (min-width:1024px){
