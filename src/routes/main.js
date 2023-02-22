@@ -1,3 +1,4 @@
+const path = require('path');
 let express = require('express');
 let router = express.Router();
 const mainController = require("../controllers/mainControllers.js")
