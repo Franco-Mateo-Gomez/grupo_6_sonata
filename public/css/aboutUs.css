@@ -1,6 +1,10 @@
 @import url(general.css);
 @import url(styles_footer.css);
 
+.main-desktop{
+    display: none;
+}
+
 body{
     background-color: var(--marron_clarito);
 }
@@ -173,8 +177,11 @@ img{
 }
 
 .card-description{
+    width: 100%;
     margin: 2% 0;
     padding: 2%;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-description h4{
@@ -185,6 +192,7 @@ img{
     font-weight: 500;
     font-size: 0.9rem;
     margin-bottom: 2%;
+    overflow-wrap:break-word;
 }
 
 .card-description button{
@@ -196,6 +204,7 @@ img{
     border-radius: 5px;
     color: var(--marron_clarito);
     font-weight: 600;
+    cursor: pointer;
 }
 
 .card-rol{
@@ -230,6 +239,9 @@ footer{
     background-color: #bcb7b193;
 }
 
+.desktop-article-image:hover{
+    opacity: 0.9;
+}
 
 @media (min-width:768px){
 
@@ -255,15 +267,168 @@ footer{
     }
 }
 
+header nav{
+    width: 40%;
+    display: none;
+}
+
+.desktop-register-login-buttons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.desktop-register-login-buttons li {
+    width: 100%;
+    margin-right: 15%;
+}
+
+.desktop-register-login-buttons li button{
+    padding: 5% 28%;
+    border: 2px solid var(--negro);
+    border-radius: 10px;
+    background-color: transparent;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.main-desktop{
+    margin-top: 5%;
+}
+
+.desktop-about-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.desktop-about-section header{
+    background-color: #d9c6b080;
+    padding: 4%;
+}
+
+.desktop-about-section header h2{
+    font-size: 3rem;
+    color: var(--negro);
+}
+
+.desktop-article-about{
+    background-color: var(--marron_medio);
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 3%;
+}
+
+.desktop-article-about .desktop-article-title{
+    font-size: 2rem;
+    margin: 0% 5%;
+    white-space: nowrap;
+}
+
+.desktop-article-titles{
+    margin-bottom: 5%;
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.desktop-article-p{
+    margin: 5% 0;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.desktop-article-goals{
+    width: 100%;
+    display: flex;
+    background-color: var(--marron_clarito);
+    align-items: center;
+    justify-content: center;
+}
+
+.desktop-article-image{
+    width: 70%;
+    transition: opacity ease-in-out .5s;
+}
+
+.desktop-article-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4%;
+}
+
+.desktop-article-values{
+    width: 100%;
+    display: flex;
+    background-color: var(--marron_clarito);
+    align-items: center;
+    justify-content: center;
+}
+
+
 @media (min-width:1024px){
+
+    .main-desktop{
+        display: flex;
+    }
+
+    body{
+        background-image:url("/images/about/about_background2.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+
+    header nav{
+        display: flex;
+    }
+
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-container{
+        width: 13%;
+        margin:2% 5%;
+    }
+
     .card-container{
         flex-wrap: nowrap;
     }
-    .card-team{
-        margin: 5% 3%;
-        width: 35%;
+
+    .article-team h3{
+        font-size: 1.7rem;
+        font-weight: 500;
     }
+
+    .card-team{
+        margin: 4% 3%;
+        width: 33%;
+    }
+
+    .card-team img{
+        width: 230px;
+        height: 230px;
+    }
+
     main{
         margin-bottom: 5%;
+        background-color: transparent;
     }
+
+    .main-mobile{
+        display:none;
+    }
+
 }
