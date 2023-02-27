@@ -13,6 +13,10 @@ const mainController={
     aboutUs:(req,res) =>{
         res.sendFile(path.join(__dirname,"../views/aboutUs.html"));
     }
+    ,
+    productDetail:(req,res) =>{
+        res.sendFile(path.join(__dirname,"../views/productDetail.html"));
+    }
 }
 
 module.exports = mainController;

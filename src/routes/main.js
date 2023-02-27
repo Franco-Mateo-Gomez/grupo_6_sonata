@@ -7,10 +7,7 @@ router.get("/",mainController.index);
 router.get("/login",mainController.login);
 router.get("/register",mainController.register);
 router.get("/about",mainController.aboutUs);
-
-router.get("/productDetail",(req,res)=>{
-    res.sendFile(path.join(__dirname,"../views/productDetail.html"));
-})
+router.get("/productDetail", mainController.productDetail)
 
 
 module.exports = router;
