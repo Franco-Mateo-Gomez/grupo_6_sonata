@@ -1,0 +1,153 @@
+@import url(general.css);
+@import url(styles_footer.css);
+
+img{
+    width: 100%;
+}
+
+.register-section{
+    width: 100%;
+    background-color: var(--marron_medio);
+    padding-bottom: 5%;
+    /* background-image: url("/images/about/goals.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    background-position: center center; */
+}
+
+.logo-container{
+    padding-top: 5%;
+    margin: auto;
+    width: 60%;
+}
+
+.register-login-buttons{
+    width: 100%;
+    margin-top: 8%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.register-login-buttons button{
+    margin: 0 2%;
+    white-space: nowrap;
+    padding: 2% 8%;
+    font-weight: 500;
+    border: none;
+    border-radius: 12px;
+    background-color: transparent;
+    color: snow;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#login-button{
+    background-color: var(--naranja);
+}
+
+#register-button{
+    background-color: var(--negro);
+}
+
+.carousel-section{
+    height: 150px;
+    overflow: hidden;
+}
+
+.item-carousel{
+    height: 100%;
+    position: relative;
+}
+
+.card-carousel{
+    background-color: var(--marron_clarito);
+    height: 100%;
+    padding: 2% 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-carousel p{
+    text-align: center;
+    margin-top: 3%;
+}
+
+.arrows-carousel{
+    height: 100%;
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5% 5%;
+}
+
+.fa-chevron-left{
+    color: var(--negro);
+    font-size: 1.3rem;
+}
+
+.fa-chevron-right{
+    color: var(--negro);
+    font-size: 1.3rem;
+}
+
+.carousel-points-container{
+    background-color: var(--marron_clarito);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2%;
+}
+
+.carousel-points-container >a{
+    margin: 0 5%;
+    font-size: 1rem;
+}
+
+.fa-circle{
+    color: black;
+}
+
+.desktop-right-section{
+    display: none;
+
+}
+
+main{
+    margin-bottom: 50%;
+}
+
+footer{
+    width: 100%;
+    position: fixed;
+    bottom: -15px;
+}
+
+@media (min-width:768px){
+    main{
+        margin-bottom: 10%;
+    }
+}
+
+@media (min-width:1024px){
+    main{
+        margin-bottom: 5%;
+    }
+    .desktop-right-section{
+        display: flex;
+    }
+    .main-front{
+        display: flex;
+    }
+    .register-section{
+        width: 80%;
+    }
+}

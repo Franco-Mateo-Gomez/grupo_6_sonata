@@ -12,6 +12,9 @@ const mainController={
     },
     aboutUs:(req,res) =>{
         res.sendFile(path.join(__dirname,"../views/aboutUs.html"));
+    },
+    front:(req,res) =>{
+        res.sendFile(path.join(__dirname,"../views/frontPage.html"));
     }
     ,
     productDetail:(req,res) =>{

@@ -2,9 +2,7 @@
 
 main{
     margin-top: 100px;
-    margin-top: 100px;
     background-color: var(--marron_clarito);
-    height: 80vh;
 }
 
 .informacion_artista{
@@ -102,9 +100,10 @@ section.informacion_producto {
 .contenedor_informacion_producto{
     background-color: var(--marron_medio);
     width: 90%;
+    height: 90%;
     margin: 0 auto;
     position: relative;
-    top: -15%;
+    top: -5%;
     border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -132,11 +131,12 @@ section.informacion_producto {
 }
 
 .imagen_album {
-    width: 280px;
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 
 .imagen_album button {
     width: 3rem;
@@ -148,7 +148,7 @@ section.informacion_producto {
 }
 
 .imagen_album img{
-    width: 200px;
+    width: 100%;
 }
 
 .descripcion_producto{
@@ -176,6 +176,21 @@ section.informacion_producto {
 }
 
 /*MEDIA QUERYS PARA ADAPTARSE A TAMAÑOS DE PANTALLAS*/
+
+@media (max-width:425px){
+    .imagen_album{
+        width: 60%;
+        margin-top: 5%;
+    }
+    .contenedor_informacion_producto{
+        height: 100%;
+    }
+    .descripcion_producto{
+        height: 2%;
+        align-items: center;
+    }
+}
+
 
 /* Escritorio grande */
 @media only screen and (min-width: 795px) and (max-width: 1600px) {

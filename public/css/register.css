@@ -1,0 +1,87 @@
+@import url(general.css);
+@import url(styles_footer.css);
+
+.logo {
+    width: 15%;
+    margin: 2rem;
+}
+
+body {
+    background-color: #d9c6b0;
+    
+}
+
+form input {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    gap: 2rem;
+    border: none;
+    margin: 4% 0;
+    border: 0;
+    color: #0D0D0D;
+    border-bottom: 2px solid #0D0D0D;
+    background-color: transparent;
+    outline: none;
+    
+}
+
+form {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.formulario {
+    padding-top: 4rem;
+    margin: 0 auto;
+    width: 50%;
+    background-color: #a68f72;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+#registrarme {
+    color: white;
+    background-color: #0D0D0D;
+    border-radius: 5rem;
+    cursor: pointer;
+}
+
+#cancelar {
+   color: white;
+    background-color: #d95a4e;
+    border-radius: 5rem;
+    cursor: pointer;
+}
+
+footer {
+    bottom: 0;
+}
+
+label {
+    font-size: 2rem;
+}
+
+.botones input {
+    font-size: 2rem;
+}
+
+.imagen_user {
+    padding: 5rem;
+    background-color: #8c3a27;
+    border-radius: 9rem;
+    font-size: 3.5rem;
+    position: relative;
+    right: -43%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8rem;
+    bottom: -4rem;
+    height: 8rem;
+    color: snow;
+}
+
+input {
+    font-size: 1.5rem;
+}
