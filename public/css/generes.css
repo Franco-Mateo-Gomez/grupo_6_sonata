@@ -4,6 +4,7 @@
 
 main{
     margin-bottom: 50%;
+    background-color: var(--marron_clarito);
 }
 
 .main-generes{
@@ -24,15 +25,19 @@ main{
     flex-direction: column;
     align-items: center;
     padding: 2% 0;
+    font-size: 1.2rem;
 }
 
 .artists{
-    margin: 2% 0;
+    margin: 5% 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #a68f725b;
+    padding-top: 1%;
+    border-radius: 30px;
 }
 
 .artist-card{
@@ -105,4 +110,44 @@ footer{
     width: 100%;
     position: fixed;
     bottom: -15px;
+}
+
+@media (min-width:768px){
+    .artists{
+        margin: 3% 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .artist-card{
+        margin: 3% 3%;
+        width: 40%;
+    }
+
+    .main-header{
+        padding: 1% 0;
+    }
+    main{
+        margin-bottom: 15%;
+    }
+}
+
+@media (min-width:1024px){
+    .artists{
+        margin: 2% 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .artist-card{
+        margin: 1% 2%;
+        width: 21%;
+    }
+    main{
+        margin-bottom: 8%;
+    }
 }
