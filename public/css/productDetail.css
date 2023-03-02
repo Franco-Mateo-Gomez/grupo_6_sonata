@@ -1,119 +1,223 @@
-@import url(general.css);
+/*GOOGLE FONTS: DM SANS*/
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 
-main{
+/*FONTAWESOME*/
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
+
+/*COLORES DE SONATA*/
+:root {
+    --marron_clarito: #d9c6b0;
+    --marron_medio: #a68f72;
+    --marron_fuerte: #8c3a27;
+    --naranja: #d95a4e;
+    --negro: #0d0d0d;
+}
+
+/*ESTILOS GENERAL POR DEFECTO*/
+* {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+}
+
+body {
     margin-top: 100px;
     background-color: var(--marron_clarito);
 }
 
-.informacion_artista{
-    background-image: url(../images/banner_usuario.jpg);
+.informacion_artista {
+    width: 100%;
+    background-image: url(../images/banner_usuario2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 }
-.contenedor_informacion_artista {
+
+.content {
+    backdrop-filter: blur(100px) opacity(0.5);
     width: 100%;
-    height: fit-content;
+    height: 38vh;
+    padding: 1rem 2rem;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    padding: 1rem 1rem;
-    backdrop-filter: blur(6px) drop-shadow(2px 4px 6px black);
 }
 
-
 .informacion_artista_left {
-    width: fit-content;
-    padding: 1rem;
-    height: 10rem;
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
 }
 
+.informacion_artista_left .valoracion h2 {
+    font-size: 20px;
+}
+
 .redes_sociales_artista {
     display: flex;
+    gap: 1rem;
+}
+
+li.red_social_artista {
+    background-color: black;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    padding: 1.2rem;
+}
+
+li.red_social_artista a {
+    color: white;
+    font-size: 20px;
+}
+
+.valoracion i {
+    -webkit-text-stroke: 1px black;
+    color: white;
+}
+
+.valoracion h2 {
+    color: white;
+}
+
+.valoracion i:hover {
+    color: yellow;
+}
+
+/*---------------Descripción Artista-------------------*/
+.informacion_artista_right {
+    width: 60%;
+    text-align: end;
+    display: flex;
+    gap: 1.5rem;
+    align-items: end;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.nombre_artista {
+    font-size: 30px;
+    -webkit-text-stroke: 1px black;
+    color: white;
+}
+
+.descripcion_artista {
+    font-size: 20px;
+    font-weight: 600;
+    font-style: italic;
+}
+
+/*---------------Fin descripción Artista-------------------*/
+
+.informacion_producto {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    background: var(--marron_clarito);
+    position: relative;
+}
+
+.contenedor_informacion_producto {
+    width: 80%;
+    height: 50vh;
+    background-color: var(--marron_medio);
+    border-radius: 1rem;
+    position: relative;
+    top: -20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.imagen_album {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+}
+
+
+.boton_right, .boton_left {
+    background: none;
+    border: none;
+    font-size: 25px;
+}
+
+
+.boton_play{
+    position: absolute;
+    border-radius: 5rem;
+    font-size: 4rem;
+    width: 4rem;
+    background: none;
+    border: none;
+    display: flex;
+    height: 4rem;
+    align-items: center;
+    border: 4px solid black;
+    backdrop-filter: blur(10px) contrast(0.5);
+    justify-content: center;
+}
+
+.imagen_album img {
+    width: 220px;
+
+}
+
+.descripcion_producto {
+    width: 50%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
     gap: 1rem;
 }
 
-.red_social_artista{
-    width: 2.2rem;
-    height: 2.2rem;
+.descripcion_producto button {
     background-color: black;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-}
-
-.red_social_artista a{
-    color: var(--marron_clarito);
-}
-
-.valoracion {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    font-size: larger;
-    color: black;
-}
-
-.informacion_artista_right {
-    width: min-content;
-    padding: 1rem;
-    height: 10rem;
-    overflow: auto auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.descripcion_artista {
-    text-align: end;
-    color: black;
-    font-style: oblique;
-    width: 400px;
     font-weight: bold;
-}
-
-.nombre_artista {
-    align-self: end;
-    -webkit-text-stroke: 1.5px black;
+    border: none;
     color: white;
-    font-size: xx-large;
+    padding: 0.3rem 1.9rem;
+    font-size: 16px;
+    border-radius: 2rem;
 }
 
-/*Descripcion del producto*/
-
-section.informacion_producto {
-    height: 50vh;
+.estilo_descripcion {
+    height: 100%;
     width: 100%;
-    background-color: var(--marron_clarito);
-}
-
-.contenedor_informacion_producto{
-    background-color: var(--marron_medio);
-    width: 90%;
-    height: 90%;
-    margin: 0 auto;
-    position: relative;
-    top: -5%;
-    border-radius: 1rem;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 1.4rem;
-    gap: 3rem;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 30px;
 }
 
-.precio_album{
+.estilo_descripcion h2 {
+    line-height: 50px;
+}
+
+.estilo_descripcion h5 span {
+    margin-left: 10px;
+    color: var(--marron_fuerte);
+}
+
+.precio_album {
     display: flex;
     position: absolute;
     top: 0;
@@ -130,79 +234,58 @@ section.informacion_producto {
     font-size: larger;
 }
 
-.imagen_album {
-    width: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 
-.imagen_album button {
-    width: 3rem;
-    background: none;
-    cursor: pointer;
-    border: none;
-    margin: 1rem;
-    font-size: x-large;
-}
 
-.imagen_album img{
-    width: 100%;
-}
-
-.descripcion_producto{
-    width: 50%;
-    height: 200px;
-    display: flex;
-    align-items: start;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
-
-.descripcion_producto button{
-    border-radius: 2rem;
-    font-weight: bolder;
-    background-color: black;
-    /* width: 90px; */
-    padding: 0.4rem 1.7rem;
-    text-transform: uppercase;
-    color: white;
-}
-
-.descripcion_producto h5 span{
-    color: var(--naranja);
-    padding-left: 1rem;
-}
-
-/*MEDIA QUERYS PARA ADAPTARSE A TAMAÑOS DE PANTALLAS*/
-
-@media (max-width:425px){
-    .imagen_album{
-        width: 60%;
-        margin-top: 5%;
+@media (max-width:730px) {
+    .contenedor_informacion_producto {
+        width: 90%;
+        height: fit-content;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 0;
+        padding: 1rem;
     }
-    .contenedor_informacion_producto{
-        height: 100%;
-    }
-    .descripcion_producto{
-        height: 2%;
+
+    .descripcion_producto {
+        flex-direction: column-reverse;
+        width: 80%;
         align-items: center;
     }
+
+    .descripcion_artista {
+        display: none;
+    }
+
+    .imagen_album {
+        gap: 1rem;
+    }
+
+    .content {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        height: 45vh;
+    }
+
+    .valoracion {
+        width: 100vw;
+        text-align: center;
+    }
+
+    .informacion_artista_left {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+
+    .informacion_artista_right {
+        align-items: center;
+    }
+
+    .informacion_artista_right h2 {
+        font-size: 40px;
+    }
 }
-
-
-/* Escritorio grande */
-@media only screen and (min-width: 795px) and (max-width: 1600px) {
-   
-  }
-  
-  /*tablet */
-  @media only screen and (min-width: 501px) and (max-width: 794px) {
-  
-  }
-  
-  /* Teléfonos */
-  @media only screen and (min-width: 0px) and (max-width: 500px) {
-  }
-  
