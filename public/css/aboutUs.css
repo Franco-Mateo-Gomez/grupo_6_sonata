@@ -166,6 +166,7 @@ img{
     align-items: center;
     padding: 4%;
     border-radius: 5%;
+    transition: background-color .5s ease-in-out;
 }
 
 .card-team img{
@@ -243,6 +244,11 @@ footer{
     opacity: 0.9;
 }
 
+.card-team:hover{
+    background-color: #d2afac;
+}
+
+
 @media (min-width:768px){
 
     .card-container{
@@ -253,7 +259,7 @@ footer{
     }
 
     .card-team{
-        margin: 5% 2%;
+        margin: 2% 2%;
         width: 40%;
     }
 
@@ -372,7 +378,6 @@ header nav{
     justify-content: center;
 }
 
-
 @media (min-width:1024px){
 
     .main-desktop{
@@ -413,13 +418,14 @@ header nav{
     }
 
     .card-team{
-        margin: 4% 3%;
-        width: 28%;
+        margin: 2% 1%;
+        width: 26%;
     }
 
     .card-team img{
         width: 230px;
         height: 230px;
+        margin-bottom: 6%;
     }
 
     main{

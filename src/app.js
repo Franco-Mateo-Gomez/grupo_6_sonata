@@ -11,6 +11,9 @@ const generesRoutes = require("./routes/generes");
 
 const port = process.env.PORT || 3030;
 
+/*Template engine configuration*/
+app.set("view engine","ejs");
+
 app.listen(port,()=>{
     console.log("Running on: http://localhost:"+port);
 })
