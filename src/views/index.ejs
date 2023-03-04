@@ -16,32 +16,13 @@
 
     <!--CUSTOM CSS-->
     <link rel="stylesheet" href="/css/styles_header.css">
-
     <link rel="stylesheet" href="/css/styles_footer.css">
     <link rel="stylesheet" href="/css/styles_main.css">
+
 </head>
 
 <body>
-    <header>
-        <div>
-            <img class="logo" src="/images/imagen_logo_sonata_v2.png" alt="">
-        </div>
-        <input type="checkbox" name="" id="check">
-        <label for="check">
-            <i class="boton_menu fa-solid fa-bars"></i>
-        </label>
-        <ul class="nav-menu">
-            <li class="btn-home"><a href="/"><i class="icono-home fa-solid fa-house"></i> HOME</a></li>
-            <li class="btn-carrito"><a href="/"><i class="fa-solid fa-cart-shopping"></i></a></li>
-            <li class="btn-busqueda">
-                <form action="">
-                    <input type="search" placeholder="Buscar artista">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </li>
-            <li class="btn-usuario"><a href="/"><i class="fa-solid fa-user"></i></a></li>
-        </ul>
-    </header>
+    <%- include('./partials/header') %>
 
     <main>
         <section class="slider_album_populares">
@@ -296,21 +277,8 @@
 
     </main>
 
-    <footer>
-        <p><i class="fa-regular fa-copyright"></i> Copyrigth</p>
-
-        <ul class="enlaces_informacion">
-            <li><a href="">Consultas</a></li>
-            <li><a href="">Acerca de nosotros</a></li>
-        </ul>
-
-        <ul class="enlaces_sociales">
-            <li class="red_social"><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
-            <li class="red_social"><a href=""><i class="fa-brands fa-instagram"></i></a></li>
-            <li class="red_social"><a href=""><i class="fa-brands fa-twitter"></i></a></li>
-        </ul>
-
-    </footer>
+    <!--Footer-->
+    <%- include('./partials/footer') %>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>

@@ -1,6 +1,6 @@
 const payingController={
     checkout:(req,res) =>{
-        res.render("productCart");
+        res.render("products/productCart");
     }
 }
 
