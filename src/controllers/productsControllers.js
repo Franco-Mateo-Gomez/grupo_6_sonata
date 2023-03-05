@@ -5,9 +5,10 @@ const productsController={
     },
     productEdit:(req,res)=>{
         res.render("editProduct")
-    }    adminProducts:(req,res) =>{
-        res.render("products/adminProducts");
     },
+    adminProducts:(req,res) =>{
+        res.render("products/adminProducts");
+    }
 
-
+}
 module.exports = productsController;
