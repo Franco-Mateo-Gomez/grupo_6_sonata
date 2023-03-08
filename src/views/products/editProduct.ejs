@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
 
         <main>
 
@@ -47,7 +47,33 @@
     
                             <div>
                                 <label for="genero_pista">Género:</label>
-                                <input class="input_personalizado_fondo" type="text" name="" id="genero_pista">
+                                <select class="list-generes" name="edit-generes-list">
+
+                                    <option value="ROCK">
+                                        ROCK
+                                    </option>
+                            
+                                    <option value="POP">
+                                       POP
+                                    </option>
+                            
+                                    <option value="CLASICA">
+                                        CLÁSICA
+                                    </option>
+
+                                    <option value="ELECTRONICA">
+                                        ELECTRÓNICA
+                                    </option>
+
+                                    <option value="HIP-HOP">
+                                        HIP-HOP
+                                    </option>
+
+                                    <option value="Otro">
+                                        Otro
+                                    </option>
+
+                                </select>
                             </div>
                         </div>
     
@@ -69,7 +95,19 @@
     
                         <div>
                             <label for="moneda_pista">Moneda:</label>
-                            <input class="input_personalizado_fondo" type="text" name="" id="moneda_pista">
+                            <select class="checkout-moneda" name="moneda">
+                                <option value="USD">
+                                    USD
+                                </option>
+                        
+                                <option value="ARS" selected>
+                                   ARS
+                                </option>
+                        
+                                <option value="EUR">
+                                    EUR
+                                </option>
+                            </select>
                         </div>
                     </section>
                 </section>
@@ -82,7 +120,7 @@
 
         </main>
         <!--Footer-->
-        <%- include('./partials/footer') %>
+        <%- include('../partials/footer') %>
 </body>
 
 </html>
