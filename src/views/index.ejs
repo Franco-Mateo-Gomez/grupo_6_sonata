@@ -25,130 +25,22 @@
     <%- include('./partials/header') %>
 
     <main>
+
+        <!--SLIDER DE ALBUMES POPULARES-->
         <section class="slider_album_populares">
             <div class="container">
                 <h1 class="titulo_populares"><i class="fa-solid fa-compact-disc"></i> Albumes Populares</h1>
                 <!-- Swiper -->
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="/images/imagen_album1.JPG" />
-                            <h3 class="precio_album">$20</h3>
-                            <div class="descripcion_album">
-                                <h3>Album super especial boe</h3>
-                                <div class="subdescripcion_album">
-                                    <a class="descripcion_boton" href="">Ver Album</a>
-                                    <div class="calificacion">
-                                        <span>5</span>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <img src="/images/imagen_album2.JPG" />
-                            <h3 class="precio_album">$20</h3>
-                            <div class="descripcion_album">
-                                <h3>Album super especial boe</h3>
-                                <div class="subdescripcion_album">
-                                    <a class="descripcion_boton" href="">Ver Album</a>
-                                    <div class="calificacion">
-                                        <span>5</span>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <img src="/images/imagen_album3.JPG" />
-                            <h3 class="precio_album">$20</h3>
-                            <div class="descripcion_album">
-                                <h3>Album super especial boe</h3>
-                                <div class="subdescripcion_album">
-                                    <a class="descripcion_boton" href="">Ver Album</a>
-                                    <div class="calificacion">
-                                        <span>5</span>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <img src="/images/imagen_album4.JPG" />
-                            <h3 class="precio_album">$20</h3>
-                            <div class="descripcion_album">
-                                <h3>Album super especial boe</h3>
-                                <div class="subdescripcion_album">
-                                    <a class="descripcion_boton" href="">Ver Album</a>
-                                    <div class="calificacion">
-                                        <span>5</span>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <img src="/images/imagen_album5.JPG" />
-                            <h3 class="precio_album">$20</h3>
-                            <div class="descripcion_album">
-                                <h3>Album super especial boe</h3>
-                                <div class="subdescripcion_album">
-                                    <a class="descripcion_boton" href="">Ver Album</a>
-                                    <div class="calificacion">
-                                        <span>5.0</span>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <img src="/images/imagen_album6.JPG" />
-                            <h3 class="precio_album">$20</h3>
-                            <div class="descripcion_album">
-                                <h3>Album super especial boe</h3>
-                                <div class="subdescripcion_album">
-                                    <a class="descripcion_boton" href="">Ver Album</a>
-                                    <div class="calificacion">
-                                        <span>5</span>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <%- include("./partials/index/productosPopulares")%>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
+
+
 
         <div class="padre-contenedor-slider">
             <section class="contenedor-slider-generos">
@@ -163,103 +55,11 @@
                     <div class="slider-track" id="track">
 
                         <div class="slider_contenedor_slides">
-
-                            <!--ROCK-->
-                            <div class="slider-generos">
-
-                                <div>
-
-                                    <a href="">
-                                        <h4>Rock</h4>
-                                        <picture>
-                                            <img src="/images/index/generos_rock.jpg" />
-                                        </picture>
-                                    </a>
-                                </div>
-
-                            </div>
-
-                            <!--Clásica-->
-                            <div class="slider-generos">
-
-                                <div>
-
-                                    <a href="">
-                                        <h4>Clásica</h4>
-                                        <picture>
-                                            <img src="/images/index/generos_clasica.jpg" />
-                                        </picture>
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-                            <!--POP-->
-                            <div class="slider-generos">
-
-                                <div>
-
-                                    <a href="">
-                                        <h4>POP</h4>
-                                        <picture>
-                                            <img src="/images/index/generos_pop.jpg" />
-                                        </picture>
-                                    </a>
-
-                                </div>
-
-                            </div>
+                            <%- include("./partials/index/productosGeneros")%>
                         </div>
 
                         <div class="slider_contenedor_slides">
-
-                            <!--ROCK-->
-                            <div class="slider-generos">
-
-                                <div>
-
-                                    <a href="">
-                                        <h4>Rock</h4>
-                                        <picture>
-                                            <img src="/images/index/generos_rock.jpg" />
-                                        </picture>
-                                    </a>
-                                </div>
-
-                            </div>
-
-                            <!--Clásica-->
-                            <div class="slider-generos">
-
-                                <div>
-
-                                    <a href="">
-                                        <h4>Clásica</h4>
-                                        <picture>
-                                            <img src="/images/index/generos_clasica.jpg" />
-                                        </picture>
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-                            <!--POP-->
-                            <div class="slider-generos">
-
-                                <div>
-
-                                    <a href="">
-                                        <h4>POP</h4>
-                                        <picture>
-                                            <img src="/images/index/generos_pop.jpg" />
-                                        </picture>
-                                    </a>
-
-                                </div>
-
-                            </div>
+                            <%- include("./partials/index/productosGeneros")%>
                         </div>
 
                     </div>

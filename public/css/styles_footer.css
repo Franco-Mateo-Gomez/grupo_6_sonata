@@ -13,6 +13,7 @@ footer{
     color: var(--marron_clarito);
     font-size: 1rem;
     font-weight: 700;
+    
 }
 
 footer ul{
@@ -56,4 +57,9 @@ footer ul li a{
         height: 2.4rem;
         font-size: 1.8rem;
     }
+}
+
+footer{
+    position: relative;
+    bottom: 0;
 }

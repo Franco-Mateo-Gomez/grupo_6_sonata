@@ -14,6 +14,11 @@ const mainController={
     front:(req,res) =>{
         res.render("frontPage");
     }
+    ,
+    paginaAbril:(req,res) =>{
+        res.render("paginaAbril");
+    }
+    ,
 }
 
 module.exports = mainController;
