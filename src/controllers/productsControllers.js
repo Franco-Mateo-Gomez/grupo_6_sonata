@@ -1,7 +1,15 @@
+let baseDatos = require('../model/baseDatos');
 
 const productsController={
     productDetail:(req,res) =>{
-        res.render("products/productDetail");
+        let idProducto=req.params.idProducto;
+        let productoSolicitado = baseDatos.find((producto) => {
+            return producto.id == idProducto; 
+        });
+
+        console.log(productoSolicitado)
+
+        res.render("products/productDetail", {album:productoSolicitado});
     },
     productCreate:(req,res)=>{
         res.render("products/createProduct")

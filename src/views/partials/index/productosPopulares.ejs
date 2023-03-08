@@ -1,19 +1,36 @@
-<% for(let i=0; i<6; i++){ %>
-
+<% for(let i=0; i<albumes.length; i++){ %>
+    
     <div class="swiper-slide">
-        <img src="/images/imagen_album1.JPG" />
-        <h3 class="precio_album">$20</h3>
+
+        <!--IMAGEN DEL ALBUM DEL SLIDER POPULAR-->
+        <img src=<%=albumes[i].img%> />
+
+        <!--PRECIO DEL ALBUM DEL SLIDER POPULAR-->
+        <h3 class="precio_album">$<%=albumes[i].precio%></h3>
+
         <div class="descripcion_album">
-            <h3>Album super especial boe</h3>
+
+            <!--NOMBRE DEL ALBUM DEL SLIDER POPULAR-->
+            <h3><%=albumes[i].nombreAlbum%></h3>
+
             <div class="subdescripcion_album">
-                <a class="descripcion_boton" href="/product/detail">Ver Album</a>
+
+                <!--BOTON HACIA DETALLES DEL ALBUM DEL SLIDER POPULAR-->
+                <a class="descripcion_boton" href=<%="/product/detail/"+albumes[i].id%>>Ver Album</a>
+
+                <!--CALIFICACIÓN DEL ALBUM DEL SLIDER POPULAR-->
                 <div class="calificacion">
-                    <span>5</span>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                    <span><%=albumes[i].valoracion%></span>
+
+                    <% for (let j=0; j<5; j++){ %>
+
+                         <% if(j<albumes[i].valoracion){ %>
+                            <i class="fa-solid fa-star" style="color:yellow"></i>
+                        <% } else{ %>
+                            <i class="fa-solid fa-star"></i>
+                        <% } %>
+
+                    <% } %>
 
                 </div>
             </div>

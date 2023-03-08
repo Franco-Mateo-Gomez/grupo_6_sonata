@@ -23,78 +23,118 @@
 <body>
     <%- include('../partials/header') %>
 
-    <main>
+        <main>
 
-        <section class="informacion_artista">
-            <div class="content">
-                <div class="informacion_artista_left">
-                    <div class="valoracion">
-                        <h2>Valoración:</h2>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+            <section class="informacion_artista">
+                <div class="content">
+                    <div class="informacion_artista_left">
+
+                        <!--VALORACIÓN DEL ÁLBUM-->
+                        <div class="valoracion">
+                            <h2>Valoración:</h2>
+                            <% for (let i=0; i<5; i++){ %>
+                                <% if(i<album.valoracion){ %>
+                                   <i class="fa-solid fa-star" style="color:yellow"></i>
+                               <% } else{ %>
+                                   <i class="fa-solid fa-star"></i>
+                               <% } %>
+       
+                           <% } %>
+                           
+                        </div>
+
+                        <!--REDES SOCIALES DEL ARTISTA-->
+                        <ul class="redes_sociales_artista">
+                            <%if(album.redes[0]){%>
+                                <li class="red_social_artista">
+                                    <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                                </li>
+                            <%}%>
+
+                            <%if(album.redes[1]){%>
+                                <li class="red_social_artista">
+                                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                                </li>
+                            <%}%>
+
+                            <%if(album.redes[2]){%>
+                                <li class="red_social_artista">
+                                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                                </li>
+                            <%}%>
+                        </ul>
                     </div>
-    
-                    <ul class="redes_sociales_artista">
-                        <li class="red_social_artista"><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
-                        <li class="red_social_artista"><a href=""><i class="fa-brands fa-instagram"></i></a></li>
-                        <li class="red_social_artista"><a href=""><i class="fa-brands fa-twitter"></i></a></li>
-                    </ul>
-                </div>
-    
-                <div class="informacion_artista_right">
-                    <h2 class="nombre_artista">@Greencup</h2>
-                    <p class="descripcion_artista">
-                        Productor musical proveniente de Escocia. Sus producciones se
-                        centran en el género "Rock" y "Heavy Metal".
-                    </p>
-                </div>
-    
-            </div>
-        </section>
 
+                    <div class="informacion_artista_right">
 
-        <section class="informacion_producto">
-            <div class="contenedor_informacion_producto">
-                <section class="imagen_album">
-                    <button class="boton_left" type="button">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <img src="/images/imagen_album7.jpg" alt="Imagen de un album">
-                    
+                        <!--NOMBRE DEL ARTISTA-->
+                        <h2 class="nombre_artista"> <%=album.nombreArtista%> </h2>
 
-                    <button  class="boton_right" type="button">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
+                        <!--DESCRIPCION DEL ARTISTA-->
+                        <p class="descripcion_artista"><%=album.descripcion%></p>
 
-                    <button class="boton_play" type="button">
-                        <i class=" fa-regular fa-circle-play"></i>
-                    </button>
-                </section>
-                <section class="descripcion_producto">
-                    <button type="submit">Comprar</button>
-                    <div class="estilo_descripcion">
-                        <h2>VioletBowl</h2>
-                    <h5>Duración: <span>2:45</span></h5>
-                    <h5>Género: <span>Rock</span></h5>
-                    <h5>Fecha de publicación: <span>09/01/2023</span></h5>
                     </div>
-                </section>
+
+                </div>
+            </section>
 
 
-                <section class="precio_album">
-                    <h4>$4000</h4>
-                </section>
-            </div>
+            <section class="informacion_producto">
+                <div class="contenedor_informacion_producto">
 
-            
-        </section>
-    </main>
+                    <!--SLIDER DEL ÁLBUM-->
+                    <section class="imagen_album">
 
-    <%- include('../partials/footer') %>
-    
+                        <button class="boton_left" type="button">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+
+                        <!--IMAGEN DEL ARTISTA-->
+                        <img src=<%=album.img%> alt="Imagen de un album">
+
+
+                        <button class="boton_right" type="button">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                        <button class="boton_play" type="button">
+                            <i class=" fa-regular fa-circle-play"></i>
+                        </button>
+
+                    </section>
+
+                    <!--DESCRIPCIÓN DEL ARTISTA-->
+                    <section class="descripcion_producto">
+                        <button type="submit">Comprar</button>
+
+                        <div class="estilo_descripcion">
+                            <!--NOMBRE DEL ÁLBUM-->
+                            <h2><%=album.nombreAlbum%></h2>
+
+                            <!--DURACIÓN DEL ÁLBUM-->
+                            <h5>Duración: <span><%=album.duracion%></span></h5>
+
+                            <!--GÉNERO DEL ÁLBUM-->
+                            <h5>Género: <span style="text-transform: capitalize;"><%=album.genero%></span></h5>
+
+                            <!--FECHA DE PUBLICACIÓN DEL ÁLBUM-->
+                            <h5>Fecha de publicación: <span><%=album.fechaPublicacion%></span></h5>
+                        </div>
+
+                    </section>
+
+
+                    <section class="precio_album">
+                        <h4>$<%=album.precio%></h4>
+                    </section>
+                </div>
+
+
+            </section>
+        </main>
+
+        <%- include('../partials/footer') %>
+
 
 </body>
 

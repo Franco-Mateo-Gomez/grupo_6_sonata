@@ -1,6 +1,9 @@
+let baseDatos = require('../model/baseDatos');
+
 const mainController={
     index:(req,res) =>{
-        res.render("index");
+        console.log(""+baseDatos[0].genero)
+        res.render("index", {albumes:baseDatos});
     },
     login:(req,res) =>{
         res.render("users/login");
@@ -14,11 +17,6 @@ const mainController={
     front:(req,res) =>{
         res.render("frontPage");
     }
-    ,
-    paginaAbril:(req,res) =>{
-        res.render("paginaAbril");
-    }
-    ,
 }
 
 module.exports = mainController;
