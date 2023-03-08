@@ -60,8 +60,6 @@ main{
 }
 
 footer{
-    width: 100%;
-    position: fixed;
     bottom: -15px;
 }
 

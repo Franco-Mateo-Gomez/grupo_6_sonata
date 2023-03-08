@@ -9,11 +9,6 @@ img{
     width: 100%;
     background-color: var(--marron_medio);
     padding-bottom: 5%;
-    /* background-image: url("/images/about/goals.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size:cover;
-    background-position: center center; */
 }
 
 .logo-container{
