@@ -16,7 +16,11 @@ const mainController={
     },
     front:(req,res) =>{
         res.render("frontPage");
-    }
+    },
+    user:(req,res) =>{
+        res.render("users/user");
+    },
+
 }
 
 module.exports = mainController;

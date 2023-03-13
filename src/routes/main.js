@@ -9,5 +9,6 @@ router.get("/front",mainController.front);
 router.get("/login",mainController.login);
 router.get("/register",mainController.register);
 router.get("/about",mainController.aboutUs);
+router.get("/user",mainController.user);
 
 module.exports=router;
