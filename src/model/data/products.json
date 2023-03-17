@@ -1,0 +1,108 @@
+{
+    "productos":[
+        {
+            "id":1,
+            "img":"/images/imagen_album7.jpg",
+            "nombreArtista": "RockyMarty",
+            "descripcion":"Productor musical proveniente de Escocia. Sus producciones se centran en el género 'Rock' y 'Heavy Metal'.",
+            "valoracion": 3,
+            "redes": [true, true, true],
+            "nombrePista": "Organic Stereo",
+            "genero": "rock",
+            "duracion": "2:07",
+            "fechaPublicacion": "01/01/2023",
+            "precio": 12040
+        },
+        {
+            "id":2,
+            "img":"/images/imagen_album4.jpg",
+            "nombreArtista": "MozartKing",
+            "descripcion":"Productor musical proveniente de Grecia. Apasionado por la música clásica.",
+            "valoracion": 5,
+            "redes": [true, true, true],
+            "nombrePista": "Piano ",
+            "genero": "clásica",
+            "duracion": "2:45",
+            "fechaPublicacion": "09/01/2023",
+            "precio": 1255
+        },
+        {
+            "id":3,
+            "img":"/images/imagen_album1.jpg",
+            "nombreArtista": "The Rockstars",
+            "descripcion":"Banda de rock estadounidense formada en 1985. Conocidos por sus poderosas guitarras y letras que hacen temblar estadios.",
+            "valoracion": 4,
+            "redes": [true, true, true],
+            "nombrePista": "Thunder Road",
+            "genero": "rock",
+            "duracion": "4:12",
+            "fechaPublicacion": "03/02/2023",
+            "precio": 9750
+        },
+        {
+            "id":4,
+            "img":"/images/imagen_album6.jpg",
+            "nombreArtista": "DivaPop",
+            "descripcion":"Cantante pop española con más de 10 años de carrera. Sus letras y coreografías son famosas en todo el mundo.",
+            "valoracion": 4,
+            "redes": [true, true, true],
+            "nombrePista": "Lollipop",
+            "genero": "pop",
+            "duracion": "3:25",
+            "fechaPublicacion": "12/03/2023",
+            "precio": 14350
+        },
+        {
+            "id":5,
+            "img":"/images/imagen_album3.jpg",
+            "nombreArtista": "JazzPhonic",
+            "descripcion":"Productor musical de jazz y bossa nova de origen francés. Su música es perfecta para una noche de tranquilidad y buena compañía.",
+            "valoracion": 5,
+            "redes": [true, true, true],
+            "nombrePista": "Smooth Nights",
+            "genero": "jazz",
+            "duracion": "4:07",
+            "fechaPublicacion": "05/01/2023",
+            "precio": 7900
+        },
+        {
+            "id":6,
+            "img":"/images/imagen_album6.jpg",
+            "nombreArtista": "DancingBeats",
+            "descripcion":"Productor musical de Francia. Especializado en la creación de pistas de baile de alta energía.",
+            "valoracion": 4,
+            "redes": [true, true, false],
+            "nombrePista": "Electric Flow",
+            "genero": "electrónica",
+            "duracion": "3:20",
+            "fechaPublicacion": "03/02/2023",
+            "precio": 1579
+        },
+        {
+            "id":7,
+            "img":"/images/imagen_album1.jpg",
+            "nombreArtista": "RhythmicSoul",
+            "descripcion":"Productor musical de Estados Unidos. Su especialidad es la creación de pistas de soul y funk.",
+            "valoracion": 4,
+            "redes": [false, true, true],
+            "nombrePista": "Soulful Nights",
+            "genero": "jass",
+            "duracion": "4:12",
+            "fechaPublicacion": "28/02/2023",
+            "precio": 2200
+        },
+        {
+            "id":8,
+            "img":"/images/imagen_album3.jpg",
+            "nombreArtista": "RapGod",
+            "descripcion":"Productor musical de Inglaterra. Especializado en la creación de pistas de rap.",
+            "valoracion": 5,
+            "redes": [true, true, true],
+            "nombrePista": "Rhyme Mastery",
+            "genero": "hip-hop",
+            "duracion": "3:56",
+            "fechaPublicacion": "11/03/2023",
+            "precio": 1300
+        }
+    ]
+}

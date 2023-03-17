@@ -26,7 +26,3 @@ app.use("/",mainRoutes);
 app.use("/checkout",payingRoutes);
 app.use("/product",productsRoutes);
 app.use("/generes",generesRoutes);
-
-app.get("/editProduct", (req,res)=>{
-    res.render("editProduct")
-})
