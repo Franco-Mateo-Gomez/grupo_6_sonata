@@ -7,8 +7,6 @@ const productsController={
             return producto.id == idProducto; 
         });
 
-        console.log(productoSolicitado)
-
         res.render("products/productDetail", {album:productoSolicitado});
     },
     productCreate:(req,res)=>{
