@@ -1,14 +1,24 @@
-let baseDatos = require('../model/baseDatos');
+const path = require("path");
+const fs = require("fs")
+
+const datausersJSON= path.join(__dirname, '../model/data/users.json');
+const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
+
+const dataProductsJSON= path.join(__dirname, '../model/data/products.json');
+const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
 
 const productsController={
     productDetail:(req,res) =>{
-        let idProducto=req.params.idProducto;
-        let productoSolicitado = baseDatos.find((producto) => {
-            return producto.id == idProducto; 
-        });
+        const idProducto=req.params.id;
 
-        res.render("products/productDetail", {album:productoSolicitado});
+        const filtraProducto = dataProducts.find(product => product.id == idProducto);
+
+        const filtraUsuario = datausers.find(user => user.id == filtraProducto.idUser);
+
+        res.render("products/productDetail",{filtraProducto:filtraProducto, filtraUsuario:filtraUsuario});
     },
+
+    
     productCreate:(req,res)=>{
         res.render("products/createProduct")
     },

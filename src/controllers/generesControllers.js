@@ -1,13 +1,12 @@
 const path = require("path");
 const fs = require("fs")
 
-const dataProductsJSON= path.join(__dirname, '../model/data/users.json');
-
-const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
+const datausersJSON = path.join(__dirname, '../model/data/users.json');
+const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
 
 //Arrays -> Filter in generes
-const filtraRock = dataProducts.filter(producto => producto.genero=="rock");
-const filtraClassic = dataProducts.filter(producto => producto.genero=="classic");
+const filtraRock = datausers.filter(producto => producto.genero=="rock");
+const filtraClassic = datausers.filter(producto => producto.genero=="classic");
 
 const generesController={
     rock:(req,res) =>{
