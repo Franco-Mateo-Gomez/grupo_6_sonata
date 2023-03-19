@@ -5,7 +5,8 @@ main {
   justify-content: space-evenly;
   flex-wrap: wrap;
   height: fit-content;
-  margin-top: 100px;
+  margin-top: 110px;
+  margin-bottom: 12%;
 }
 
 body,
@@ -14,11 +15,12 @@ main {
 }
 
 .contenedor_imagen {
+  margin: auto;
   display: flex;
   border: 2px solid black;
   align-items: center;
   justify-content: center;
-  width: 15rem;
+  width: 18rem;
   height: 15rem;
   border-radius: 0 2rem 0 2rem;
 }
@@ -162,6 +164,8 @@ button[type="reset"] {
 @media (max-width: 615px) {
   main {
     padding: 2rem 0;
+    margin-top: 25%;
+    margin-bottom: 40%;
   }
 
   .contenedor_imagen {
