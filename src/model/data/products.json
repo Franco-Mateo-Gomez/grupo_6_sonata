@@ -1,7 +1,7 @@
 [
     {
         "id":1,
-        "img":"/images/imagen_album3.jpg",
+        "img":"/images/products/idProduct1.jpg",
         "nombreTrack":"City of Rock",
         "duracion": "2:45",
         "fechaPublicacion": "09/01/2023",
@@ -11,7 +11,7 @@
     },
     {
         "id":2,
-        "img":"/images/imagen_album7.jpg",
+        "img":"/images/products/idProduct2.jpg",
         "nombreTrack":"Electro Nocturne 87",
         "duracion": "3:15",
         "fechaPublicacion": "22/03/2023",

@@ -175,7 +175,7 @@ li.red_social_artista a {
 }
 
 .imagen_album img {
-    width: 220px;
+    width: 350px;
 }
 
 .descripcion_producto {
@@ -185,7 +185,6 @@ li.red_social_artista a {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 1rem;
 }
 
 .descripcion_producto button {
@@ -204,7 +203,7 @@ li.red_social_artista a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    line-height: 30px;
+    line-height: 25px;
 }
 
 .estilo_descripcion h2 {
@@ -233,22 +232,34 @@ li.red_social_artista a {
     font-size: larger;
 }
 
+@media (max-width:768px) {
 
+    .imagen_album img {
+        width: 200px;
+    }
+}
 
+@media (max-width:425px) {
 
-@media (max-width:730px) {
+    .imagen_album img {
+        width: 200px;
+    }
+
     .contenedor_informacion_producto {
-        width: 90%;
-        height: fit-content;
+        width: 95%;
+        height: 100%;
         flex-direction: column;
         justify-content: space-evenly;
-        gap: 0;
         padding: 1rem;
+    }
+
+    .estilo_descripcion{
+        margin-bottom: 1%;
     }
 
     .descripcion_producto {
         flex-direction: column-reverse;
-        width: 80%;
+        width: 100%;
         align-items: center;
     }
 
@@ -258,6 +269,7 @@ li.red_social_artista a {
 
     .imagen_album {
         gap: 1rem;
+        margin-bottom: 3.5%;
     }
 
     .content {
