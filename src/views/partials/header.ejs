@@ -8,14 +8,32 @@
         <i class="boton_menu fa-solid fa-bars"></i>
     </label>
     <ul class="nav-menu">
-        <li class="btn-home"><a href="/"><i class="icono-home fa-solid fa-house"></i> HOME</a></li>
-        <li class="btn-carrito"><a href="/checkout"><i class="fa-solid fa-cart-shopping"></i></a></li>
-        <li class="btn-busqueda">
+        <li class="btn btn-home"><a href="/"><i class="icono-home fa-solid fa-house"></i> HOME</a></li>
+        
+        <li class="btn btn-carrito"><a href="/checkout"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        
+        <li class="btn btn-busqueda">
             <form action="">
                 <input type="search" placeholder="Buscar artista">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </li>
-        <li class="btn-usuario"><a href="/"><i class="fa-solid fa-user"></i></a></li>
+
+        <input type="checkbox" id="usuario_check">
+        
+        <li class="btn-usuario">
+            <a href="/">
+                <label for="usuario_check">
+                    <i class="fa-solid fa-user"></i>
+                </label>
+            </a>
+            
+        </li>
+        <span class="flecha_usuario"></span>
+        <section class="botones_usuario">
+            <li> <a href="">EJEMPLO</a> </li>
+            <li> <a href="">EJEMPLO</a> </li>
+            <li> <a href="">EJEMPLO</a> </li>
+        </section>
     </ul>
 </header>

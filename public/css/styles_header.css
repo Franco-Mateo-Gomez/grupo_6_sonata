@@ -35,18 +35,18 @@ label .boton_menu {
   font-size: 1.2rem;
 }
 
-.btn-carrito,.btn-home{
-    margin: 0 10px;
+.btn-carrito,
+.btn-home {
+  margin: 0 10px;
 }
 
 .nav-menu li a {
   color: var(--marron_clarito);
 }
 
-.nav-menu li a:hover{
-    border-bottom: 4px var(--marron_clarito) solid;
+.nav-menu .btn a:hover {
+  border-bottom: 4px var(--marron_clarito) solid;
 }
-
 
 .nav-menu li form {
   display: flex;
@@ -255,6 +255,8 @@ label .boton_menu {
   .nav-menu li form {
     padding: 1rem;
   }
+
+  
 }
 
 /* Teléfonos */
@@ -262,6 +264,7 @@ label .boton_menu {
   .logo {
     margin-left: 0px;
   }
+
   .nav-menu li form input {
     width: 80%;
     height: 2.5rem;
@@ -383,4 +386,66 @@ label .boton_menu {
   .nav-menu li form {
     padding: 1rem;
   }
+
+}
+
+.botones_usuario {
+  position: absolute;
+  background: darkolivegreen;
+  bottom: -400%;
+    right: 0%;
+  width: 30%;
+  overflow: hidden;
+  display: none;
+  border-radius: 10px;
+  background: var(--naranja);
+  border: 2px solid var(--marron_clarito);
+  outline: 3px solid var(--marron_medio);
+  transition: 0.3s ease-in;
+}
+
+.botones_usuario li {
+  width: 100%;
+}
+
+.botones_usuario li a {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  display: block;
+}
+.botones_usuario a:hover{
+  background-color: #a68f72;
+}
+
+#usuario_check {
+  display: none;
+}
+
+#usuario_check:checked ~ .botones_usuario {
+  width: 30%;
+  overflow: visible;
+  display: block;
+}
+
+
+.flecha_usuario {
+  border: none;
+  display: block;
+  width: 0;
+  background: unset;
+  height: 0;
+  position: absolute;
+  right: 2%;
+  top: 110%;
+}
+
+#usuario_check:checked ~ .flecha_usuario {
+  border-bottom: 15px solid var(--naranja);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+#usuario_check:checked ~ .nav-menu{
+  position: relative;
 }

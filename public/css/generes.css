@@ -3,7 +3,6 @@
 @import url(styles_footer.css);
 
 main{
-    margin-bottom: 50%;
     background-color: var(--marron_clarito);
 }
 
@@ -106,11 +105,6 @@ body{
     background-color: var(--marron_clarito);
 }
 
-footer{
-    width: 100%;
-    position: fixed;
-    bottom: -15px;
-}
 
 @media (min-width:768px){
     .artists{
@@ -128,9 +122,6 @@ footer{
 
     .main-header{
         padding: 1% 0;
-    }
-    main{
-        margin-bottom: 15%;
     }
 }
 

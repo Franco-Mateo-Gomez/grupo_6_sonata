@@ -17,8 +17,8 @@ const productos = [
         img: "/images/imagen_album6.jpg",
         nombreArtista: "NOMBRE ARTISTA 2",
         descripcion:"Productor musical proveniente de Escocia. Sus producciones se centran en el género 'Rock' y 'Heavy Metal'.",
-        valoracion: 3,
-        redes: [true, true, true], //1."instagram" 2."facebook" 3."twiter"
+        valoracion: 1,
+        redes: [true, false, true], //1."instagram" 2."facebook" 3."twiter"
         nombreAlbum: "NOMBRE ALBUM 2",
         genero: "rock",
         duracion: "2:45",
