@@ -17,125 +17,27 @@
 
         <section class="tracks">
 
+            <%filtraTraks.forEach(function(track) { %>
+
             <article class="track-card">
                 <div class="track-card-img">
-                    <img src="/images/imagen_album2.JPG" alt="imagen_artista">
+                    <img src="<%=track.img%>" alt="imagen_artista">
                     <div class="track-card-name">
-                        <h4>Pista 1</h4>
+                        <h4><%=track.nombreTrack%></h4>
                     </div>
                 </div>
                 <div class="track-button">
                     <a href="editProduct.ejs">
                         <button id="button-edit">EDITAR</button>
                     </a>
-                    <a href="editProduct.ejs">
-                        <button id="button-delete">ELIMINAR</button>
+                    <a href="">
+                        <form action="/product/<%=filtraUsuario.id%>/edit-list/<%=track.id %>?_method=DELETE" method="post">
+                            <button id="button-delete" type="submit">ELIMINAR</button>
+                    </form>
                     </a>
                 </div>
             </article>
-
-            <article class="track-card">
-                <div class="track-card-img">
-                    <img src="/images/imagen_album3.JPG" alt="imagen_artista">
-                    <div class="track-card-name">
-                        <h4>Pista 2</h4>
-                    </div>
-                </div>
-                <div class="track-button">
-                    <a href="editProduct.ejs">
-                        <button id="button-edit">EDITAR</button>
-                    </a>
-                    <a href="editProduct.ejs">
-                        <button id="button-delete">ELIMINAR</button>
-                    </a>
-                </div>
-            </article>
-
-            <article class="track-card">
-                <div class="track-card-img">
-                    <img src="/images/imagen_album4.JPG" alt="imagen_artista">
-                    <div class="track-card-name">
-                        <h4>Pista 3</h4>
-                    </div>
-                </div>
-                <div class="track-button">
-                    <a href="editProduct.ejs">
-                        <button id="button-edit">EDITAR</button>
-                    </a>
-                    <a href="editProduct.ejs">
-                        <button id="button-delete">ELIMINAR</button>
-                    </a>
-                </div>
-            </article>
-
-            <article class="track-card">
-                <div class="track-card-img">
-                    <img src="/images/imagen_album5.JPG" alt="imagen_artista">
-                    <div class="track-card-name">
-                        <h4>Pista 4</h4>
-                    </div>
-                </div>
-                <div class="track-button">
-                    <a href="editProduct.ejs">
-                        <button id="button-edit">EDITAR</button>
-                    </a>
-                    <a href="editProduct.ejs">
-                        <button id="button-delete">ELIMINAR</button>
-                    </a>
-                </div>
-            </article>
-
-            <article class="track-card">
-                <div class="track-card-img">
-                    <img src="/images/imagen_album6.JPG" alt="imagen_artista">
-                    <div class="track-card-name">
-                        <h4>Pista 5</h4>
-                    </div>
-                </div>
-                <div class="track-button">
-                    <a href="editProduct.ejs">
-                        <button id="button-edit">EDITAR</button>
-                    </a>
-                    <a href="editProduct.ejs">
-                        <button id="button-delete">ELIMINAR</button>
-                    </a>
-                </div>
-            </article>
-
-            <article class="track-card">
-                <div class="track-card-img">
-                    <img src="/images/imagen_album2.JPG" alt="imagen_artista">
-                    <div class="track-card-name">
-                        <h4>Pista 6</h4>
-                    </div>
-                </div>
-                <div class="track-button">
-                    <a href="editProduct.ejs">
-                        <button id="button-edit">EDITAR</button>
-                    </a>
-                    <a href="editProduct.ejs">
-                        <button id="button-delete">ELIMINAR</button>
-                    </a>
-                </div>
-            </article>
-
-            <article class="track-card">
-                <div class="track-card-img">
-                    <img src="/images/imagen_album3.JPG" alt="imagen_artista">
-                    <div class="track-card-name">
-                        <h4>Pista 7</h4>
-                    </div>
-                </div>
-                <div class="track-button">
-                    <a href="editProduct.ejs">
-                        <button id="button-edit">EDITAR</button>
-                    </a>
-                    <a href="editProduct.ejs">
-                        <button id="button-delete">ELIMINAR</button>
-                    </a>
-                </div>
-            </article>
-
+            <% }); %>
         </section>
     </main>
     <%- include('../partials/footer') %>

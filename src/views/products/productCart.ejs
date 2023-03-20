@@ -47,43 +47,30 @@
                     </div>
                     <h4>$0.00</h4>
                 </summary>
+                
+                    <%productList.forEach(function(producto) { %>
 
                     <!--Product list - mobile version-->
                     <div class="checkout-summary-products">
-                        <img src="/images/imagen_album2.JPG" alt="imagen de producto">
+                        <img src="<%=producto.image %>" alt="imagen de producto">
                         
                         <div class="checkout-summary-products-details">
                             <div>
-                                <h4>SoundWave</h4>
+                                <h4><%=producto.name %></h4>
                             </div>
                             <div class="checkout-summary-products-details-bottom">
                                 <a href="#">
                                     <button>Eliminar</button>
                                 </a>
                                 <div class="checkout-summary-products-details-bottom-price">
-                                    <h4>$0.00</h4><h6>ARS</h6>
+                                    <h4>$<%=producto.precio %></h4>
+                                    <h6>$<%=producto.moneda %></h6>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="checkout-summary-products">
-                        <img src="/images/imagen_album4.JPG" alt="imagen de producto">
-                        
-                        <div class="checkout-summary-products-details">
-                            <div>
-                                <h4>BPMLive</h4>
-                            </div>
-                            <div class="checkout-summary-products-details-bottom">
-                                <a href="#">
-                                    <button>Eliminar</button>
-                                </a>
-                                <div class="checkout-summary-products-details-bottom-price">
-                                    <h4>$0.00</h4><h6>ARS</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <% }); %>
 
             </details>
              <!--END Product list on mobile-->
@@ -180,81 +167,28 @@
 
             <div class="checkout-list">
 
+                <%productList.forEach(function(producto) { %>
+
                 <div class="checkout-summary-products-desktop">
 
-                    <img src="/images/imagen_album2.JPG" alt="imagen de producto">
+                    <img src="<%=producto.image %>" alt="imagen de producto">
                         
                     <div class="checkout-summary-products-details-desktop">
                         <div class="checkout-summary-products-details-desktop-description">
-                            <h4>Sony</h4>
+                            <h4><%=producto.name %></h4>
                         </div>
                         <div class="checkout-summary-products-details-bottom-desktop">
                             <a href="#">
                                 <button>Eliminar</button>
                             </a>
                             <div class="checkout-summary-products-details-bottom-price-desktop">
-                                <h4>$0.00<h6>ARS</h6></h4>
+                                <h4>$<%=producto.precio %><h6><%=producto.moneda%></h6></h4>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="checkout-summary-products-desktop">
-
-                    <img src="/images/imagen_album3.JPG" alt="imagen de producto">
-                        
-                    <div class="checkout-summary-products-details-desktop">
-                        <div>
-                            <h4>SoundWave</h4>
-                        </div>
-                        <div class="checkout-summary-products-details-bottom-desktop">
-                            <a href="#">
-                                <button>Eliminar</button>
-                            </a>
-                            <div class="checkout-summary-products-details-bottom-price-desktop">
-                                <h4>$0.00<h6>ARS</h6></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="checkout-summary-products-desktop">
-
-                    <img src="/images/imagen_album4.JPG" alt="imagen de producto">
-                        
-                    <div class="checkout-summary-products-details-desktop">
-                        <div>
-                            <h4>OpenSource</h4>
-                        </div>
-                        <div class="checkout-summary-products-details-bottom-desktop">
-                            <a href="#">
-                                <button>Eliminar</button>
-                            </a>
-                            <div class="checkout-summary-products-details-bottom-price-desktop">
-                                <h4>$0.00<h6>ARS</h6></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="checkout-summary-products-desktop">
-
-                    <img src="/images/imagen_album4.JPG" alt="imagen de producto">
-                        
-                    <div class="checkout-summary-products-details-desktop">
-                        <div>
-                            <h4>OpenSource</h4>
-                        </div>
-                        <div class="checkout-summary-products-details-bottom-desktop">
-                            <a href="#">
-                                <button>Eliminar</button>
-                            </a>
-                            <div class="checkout-summary-products-details-bottom-price-desktop">
-                                <h4>$0.00<h6>ARS</h6></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
+                <% }); %>
 
             </div>
 

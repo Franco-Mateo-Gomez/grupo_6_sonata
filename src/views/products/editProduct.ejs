@@ -26,52 +26,36 @@
 
         <main>
 
-            <section class="contenedor_imagen">
-
-                <div class="contenedor_boton_imagen">
-                    <input type="file" name="" id="imagen_pista">
-                    <label for="imagen_pista"><i class="fa-solid fa-circle-plus"></i></label>
-                </div>
-
-            </section>
-
-            <form class="form_productos" action="" method="post">
+            <form class="form_productos" action="/product/<%=filtraUsuario.id %>/edit/<%=filtraTrack.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+                
+                <section class="contenedor_imagen" style="background-image: url('<%=filtraTrack.img %>');background-size: cover; background-position: center center;">
+             
+                    <div class="contenedor_boton_imagen">
+                        <input type="file" name="imgPista" id="imagen_pista">
+                        <label for="imagen_pista"><i class="fa-solid fa-circle-plus"></i></label>
+                    </div>
+    
+                </section>
+                
                 <h2 class="titulo_formulario">Modificar pista</h2>
                 <section class="contenedor_formulario">
                     <section class="formulario_superior">
                         <div class="inputs_superiores">
                             <div>
                                 <label for="nombre_pista">Nombre de la pista:</label>
-                                <input class="input_personalizado_barra" type="text" name="" id="nombre_pista">
+                                <input class="input_personalizado_barra" type="text" value="<%=filtraTrack.nombreTrack%>" name="nombrePista" id="nombre_pista">
                             </div>
     
                             <div>
                                 <label for="genero_pista">Género:</label>
-                                <select class="list-generes" name="edit-generes-list">
+                                <select class="list-generes" name="generes">
 
-                                    <option value="ROCK">
-                                        ROCK
-                                    </option>
-                            
-                                    <option value="POP">
-                                       POP
-                                    </option>
-                            
-                                    <option value="CLASICA">
-                                        CLÁSICA
-                                    </option>
-
-                                    <option value="ELECTRONICA">
-                                        ELECTRÓNICA
-                                    </option>
-
-                                    <option value="HIP-HOP">
-                                        HIP-HOP
-                                    </option>
-
-                                    <option value="Otro">
-                                        Otro
-                                    </option>
+                                    <option value="ROCK" <%= filtraTrack.genero == 'ROCK' ? 'selected' : '' %>>ROCK</option>
+                                    <option value="POP" <%= filtraTrack.genero == 'POP' ? 'selected' : '' %>>POP</option>
+                                    <option value="CLÁSICA" <%= filtraTrack.genero == 'CLÁSICA' ? 'selected' : '' %>>CLÁSICA</option>
+                                    <option value="ELECTRÓNICA" <%= filtraTrack.genero == 'ELECTRÓNICA' ? 'selected' : '' %>>ELECTRÓNICA</option>
+                                    <option value="HIP-HOP" <%= filtraTrack.genero == 'HIP-HOP' ? 'selected' : '' %>>HIP-HOP</option>
+                                    <option value="Otro" <%= filtraTrack.genero == 'Otro' ? 'selected' : '' %>>Otro</option>
 
                                 </select>
                             </div>
@@ -79,7 +63,7 @@
     
                         <div class="inputs_inferiores">
                             <label for="descripcion_pista">Descripción:</label>
-                            <textarea class="input_personalizado_fondo" name="" id="descripcion_pista"></textarea>
+                            <textarea class="input_personalizado_fondo" name="descripcionProducto" id="descripcion_pista"><%=filtraTrack.descripcionProducto%></textarea>
                         </div>
 
                         <label class="boton_subir_imagen" for="imagen_pista">Modificar imagen<i class="fa-solid fa-circle-plus"></i></label>
@@ -90,23 +74,17 @@
                     <section class="formulario_inferior">
                         <div>
                             <label for="precio_pista">Precio:</label>
-                            <input class="input_personalizado_barra" type="text" name="" id="precio_pista">
+                            <input class="input_personalizado_barra" type="text" value="<%=filtraTrack.precio%>" name="nuevoPrecio" id="precio_pista">
                         </div>
     
                         <div>
                             <label for="moneda_pista">Moneda:</label>
                             <select class="checkout-moneda" name="moneda">
-                                <option value="USD">
-                                    USD
-                                </option>
-                        
-                                <option value="ARS" selected>
-                                   ARS
-                                </option>
-                        
-                                <option value="EUR">
-                                    EUR
-                                </option>
+
+                                <option value="USD" <%= filtraTrack.moneda == 'USD' ? 'selected' : '' %>>USD</option>
+                                <option value="ARS" <%= filtraTrack.moneda == 'ARS' ? 'selected' : '' %>>ARS</option>
+                                <option value="EUR" <%= filtraTrack.moneda == 'EUR' ? 'selected' : '' %>>EUR</option>
+                            
                             </select>
                         </div>
                     </section>

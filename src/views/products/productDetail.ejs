@@ -33,31 +33,30 @@
                         <div class="valoracion">
                             <h2>Valoración:</h2>
                             <% for (let i=0; i<5; i++){ %>
-                                <% if(i<album.valoracion){ %>
-                                   <i class="fa-solid fa-star" style="color:yellow"></i>
-                               <% } else{ %>
-                                   <i class="fa-solid fa-star"></i>
-                               <% } %>
-       
-                           <% } %>
-                           
+                                <% if(i<filtraUsuario.valoracion){ %>
+                                    <i class="fa-solid fa-star" style="color:yellow"></i>
+                                <% } else{ %>
+                                  <i class="fa-solid fa-star"></i>
+                                <% } %>
+                              <% } %>
+
                         </div>
 
                         <!--REDES SOCIALES DEL ARTISTA-->
                         <ul class="redes_sociales_artista">
-                            <%if(album.redes[0]){%>
+                            <%if(filtraUsuario.redes[0]){%>
                                 <li class="red_social_artista">
                                     <a href=""><i class="fa-brands fa-facebook-f"></i></a>
                                 </li>
                             <%}%>
 
-                            <%if(album.redes[1]){%>
+                            <%if(filtraUsuario.redes[1]){%>
                                 <li class="red_social_artista">
                                     <a href=""><i class="fa-brands fa-instagram"></i></a>
                                 </li>
                             <%}%>
 
-                            <%if(album.redes[2]){%>
+                            <%if(filtraUsuario.redes[2]){%>
                                 <li class="red_social_artista">
                                     <a href=""><i class="fa-brands fa-twitter"></i></a>
                                 </li>
@@ -68,10 +67,10 @@
                     <div class="informacion_artista_right">
 
                         <!--NOMBRE DEL ARTISTA-->
-                        <h2 class="nombre_artista"> <%=album.nombreArtista%> </h2>
+                        <h2 class="nombre_artista"><%=filtraUsuario.nombreArtista%></h2>
 
                         <!--DESCRIPCION DEL ARTISTA-->
-                        <p class="descripcion_artista"><%=album.descripcion%></p>
+                        <p class="descripcion_artista"><%=filtraUsuario.descripcion%></p>
 
                     </div>
 
@@ -90,7 +89,7 @@
                         </button>
 
                         <!--IMAGEN DEL ARTISTA-->
-                        <img src=<%=album.img%> alt="Imagen de un album">
+                        <img src=<%=filtraProducto.img%> alt="Imagen de un album">
 
 
                         <button class="boton_right" type="button">
@@ -105,27 +104,30 @@
 
                     <!--DESCRIPCIÓN DEL ARTISTA-->
                     <section class="descripcion_producto">
+                        
                         <button type="submit">Comprar</button>
 
                         <div class="estilo_descripcion">
                             <!--NOMBRE DEL ÁLBUM-->
-                            <h2><%=album.nombreAlbum%></h2>
+                            <h2><%=filtraProducto.nombreTrack%></h2>
 
                             <!--DURACIÓN DEL ÁLBUM-->
-                            <h5>Duración: <span><%=album.duracion%></span></h5>
+                            <h5>Duración: <span><%=filtraProducto.duracion%></span></h5>
 
                             <!--GÉNERO DEL ÁLBUM-->
-                            <h5>Género: <span style="text-transform: capitalize;"><%=album.genero%></span></h5>
+                            <h5>Género: <span style="text-transform: capitalize;"><%=filtraUsuario.genero%></span></h5>
+
+                            <h5>Descripción: <span><%=filtraProducto.descripcionProducto%></span></h5>
 
                             <!--FECHA DE PUBLICACIÓN DEL ÁLBUM-->
-                            <h5>Fecha de publicación: <span><%=album.fechaPublicacion%></span></h5>
+                            <h5>Fecha de publicación: <span><%=filtraProducto.fechaPublicacion%></span></h5>
                         </div>
 
                     </section>
 
 
                     <section class="precio_album">
-                        <h4>$<%=album.precio%></h4>
+                        <h4>$<%=filtraProducto.precio%></h4>
                     </section>
                 </div>
 
