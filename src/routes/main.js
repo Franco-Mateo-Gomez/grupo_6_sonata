@@ -10,5 +10,11 @@ router.get("/login",mainController.login);
 router.get("/register",mainController.register);
 router.get("/about",mainController.aboutUs);
 router.get("/user",mainController.user);
-
+router.get("/ejemploSession", (req,res)=>{
+    if(req.session.contador == undefined){
+        req.session.contador = 0
+    }
+    req.session.contador++;
+    res.send("Contador recargas: "+req.session.contador)
+})
 module.exports=router;

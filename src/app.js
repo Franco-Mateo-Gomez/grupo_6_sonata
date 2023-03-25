@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require ("path");
 const methodOverride = require('method-override');
+const session = require("express-session")
 const app = express();
 
 /*Routes*/
@@ -18,12 +19,15 @@ app.set("view engine","ejs");
 
 /*Port configuration*/
 app.listen(port,()=>{
-    console.log("Running on: http://localhost:"+port);
+    console.log("Running on: http://localhost:"+port+"/general");
 })
 
 /*Use Method Override*/
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+
+/*Use Express Session*/
+app.use(session({secret:"SECRETO"}))
 
 /*Use Public folder*/
 app.use(express.static(path.join(__dirname,'../public')));

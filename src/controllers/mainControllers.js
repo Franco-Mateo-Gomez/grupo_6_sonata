@@ -1,9 +1,12 @@
-let baseDatos = require('../model/baseDatos');
+const path = require("path");
+const fs = require("fs")
+
+const dataProductsJSON= path.join(__dirname, '../model/data/products.json');
+const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
 
 const mainController={
     index:(req,res) =>{
-        console.log(""+baseDatos[0].genero)
-        res.render("index", {albumes:baseDatos});
+        res.render("index", {albumes:dataProducts});
     },
     login:(req,res) =>{
         res.render("users/login");

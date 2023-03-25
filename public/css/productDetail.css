@@ -180,7 +180,7 @@ li.red_social_artista a {
 }
 
 .imagen_album img {
-    width: 350px;
+    width: 250px;
 }
 
 .descripcion_producto {
@@ -238,16 +238,21 @@ li.red_social_artista a {
 }
 
 @media (max-width:768px) {
-
     .imagen_album img {
         width: 200px;
     }
+
+    .contenedor_informacion_producto {
+        width: 95%;
+    }
 }
 
-@media (max-width:425px) {
+
+
+@media (max-width:600px) {
 
     .imagen_album img {
-        width: 200px;
+        width: 70%;
     }
 
     .contenedor_informacion_producto {
@@ -289,7 +294,7 @@ li.red_social_artista a {
         width: 100vw;
         text-align: center;
     }
-
+    
     .informacion_artista_left {
         justify-content: center;
         align-items: center;
@@ -307,3 +312,21 @@ li.red_social_artista a {
         width: 20rem;
     }
 }
+
+.valoracion2{
+    display: flex;
+    align-items: center;
+}
+.valoracion2 i {
+    -webkit-text-stroke: 1px black;
+    color: white;
+}
+
+.valoracion2 h5 {
+    margin-right: 0.5rem;
+}
+
+.valoracion2 i:hover {
+    color: yellow;
+}
+
