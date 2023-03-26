@@ -1,0 +1,29 @@
+img {
+    width: 50%;
+    margin-right: 1rem;
+}
+
+.contenedor_imagen{
+    width: 100%;
+    background: #f8f8f5;
+    height: 90vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f8f5;
+    height: 100vh;
+    margin: 0;
+}
+
+.mensaje{
+    position: absolute;
+    bottom: 0;
+    font-size: x-large;
+}

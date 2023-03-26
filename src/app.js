@@ -33,3 +33,7 @@ app.use("/",mainRoutes);
 app.use("/checkout",payingRoutes);
 app.use("/product",productsRoutes);
 app.use("/generes",generesRoutes);
+
+app.use((req,res,next) => {
+    res.status(404).render('not-found')
+})
