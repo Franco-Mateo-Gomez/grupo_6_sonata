@@ -1,21 +1,42 @@
 
 <header>
     <div>
-        <a href="/"><img class="logo" src="/images/imagen_logo_sonata_v2.png" alt=""></a>
+        <a href="/general"><img class="logo" src="/images/imagen_logo_sonata_v2.png" alt=""></a>
     </div>
     <input type="checkbox" name="" id="check">
     <label for="check">
         <i class="boton_menu fa-solid fa-bars"></i>
     </label>
+
     <ul class="nav-menu">
-        <li class="btn-home"><a href="/"><i class="icono-home fa-solid fa-house"></i> HOME</a></li>
-        <li class="btn-carrito"><a href="/checkout"><i class="fa-solid fa-cart-shopping"></i></a></li>
-        <li class="btn-busqueda">
+        <li class="btn btn-home"><a href="/"><i class="icono-home fa-solid fa-house"></i> HOME</a></li>
+        
+        <li class="btn btn-carrito"><a href="/checkout"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        
+        <li class="btn btn-busqueda">
             <form action="">
                 <input type="search" placeholder="Buscar artista">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </li>
-        <li class="btn-usuario"><a href="/"><i class="fa-solid fa-user"></i></a></li>
+
+        <input type="checkbox" id="usuario_check">
+        
+        <li class="btn-usuario">
+                <label for="usuario_check">
+                    <i class="fa-solid fa-user"></i>
+                </label>
+
+            <span class="flecha_usuario"></span>
+            
+        </li>
+
+        
+
+        <section class="botones_usuario">
+            <li> <a href="/product/1/admin-products">Administración de Producto</a> </li>
+            <li> <a href="/product/1/edit-list">Configuracion del usuario</a> </li>
+            <li> <a href="/login">Salir de la cuenta</a> </li>
+        </section>
     </ul>
 </header>

@@ -29,9 +29,9 @@
                 <div class="content">
                     <div class="informacion_artista_left">
 
-                        <!--VALORACIÓN DEL ÁLBUM-->
+                        <!--VALORACIÓN DEL ARTISTA-->
                         <div class="valoracion">
-                            <h2>Valoración:</h2>
+                            <h2>Valoración del Artista:</h2>
                             <% for (let i=0; i<5; i++){ %>
                                 <% if(i<filtraUsuario.valoracion){ %>
                                     <i class="fa-solid fa-star" style="color:yellow"></i>
@@ -91,7 +91,6 @@
                         <!--IMAGEN DEL ARTISTA-->
                         <img src=<%=filtraProducto.img%> alt="Imagen de un album">
 
-
                         <button class="boton_right" type="button">
                             <i class="fa-solid fa-chevron-right"></i>
                         </button>
@@ -121,6 +120,20 @@
 
                             <!--FECHA DE PUBLICACIÓN DEL ÁLBUM-->
                             <h5>Fecha de publicación: <span><%=filtraProducto.fechaPublicacion%></span></h5>
+                            
+                            <!--VALORACIÓN DEL ÁLBUM-->
+                            <div class="valoracion2">
+                                <h5>Valoración del album:</h5>
+                                <%filtraProducto.valoracion+".0"%>
+                                <% for (let i=0; i<5; i++){ %>
+                                    <% if(i<filtraProducto.valoracion){ %>
+                                        <i class="fa-solid fa-star" style="color:yellow"></i>
+                                    <% } else{ %>
+                                    <i class="fa-solid fa-star"></i>
+                                    <% } %>
+                                <% } %>
+
+                            </div>
                         </div>
 
                     </section>

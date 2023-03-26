@@ -35,18 +35,22 @@ label .boton_menu {
   font-size: 1.2rem;
 }
 
-.btn-carrito,.btn-home{
-    margin: 0 10px;
+.btn-carrito,
+.btn-home {
+  margin: 0 10px;
 }
 
 .nav-menu li a {
   color: var(--marron_clarito);
 }
 
-.nav-menu li a:hover{
-    border-bottom: 4px var(--marron_clarito) solid;
+.nav-menu .btn a:hover {
+  border-bottom: 4px var(--marron_clarito) solid;
 }
 
+.nav-menu .btn-usuario label:hover {
+  border-bottom: 4px var(--marron_clarito) solid;
+}
 
 .nav-menu li form {
   display: flex;
@@ -91,7 +95,7 @@ label .boton_menu {
   justify-content: center;
 }
 
-.btn-usuario a {
+.btn-usuario label {
   width: 100%;
   height: 100%;
   display: flex;
@@ -99,8 +103,9 @@ label .boton_menu {
   border-radius: 100%;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
+  color: var(--marron_clarito);
+  font-size: 1rem;
 }
 
 .icono-home {
@@ -191,13 +196,13 @@ label .boton_menu {
     width: auto;
     height: auto;
   }
-  .btn-usuario a {
-    display: inline;
+  .btn-usuario label {
     background: none;
     border-radius: unset;
+    padding: 20px;
   }
 
-  .btn-usuario a::after {
+  .btn-usuario label::after {
     content: "   USUARIO";
     color: var(--marron_clarito);
     font-weight: 700;
@@ -255,13 +260,73 @@ label .boton_menu {
   .nav-menu li form {
     padding: 1rem;
   }
+  .botones_usuario{
+    width: unset;
+    visibility: hidden;
+    display: none;
+  }
+  .flecha_usuario{
+    width: unset;
+    visibility: hidden;
+    display: none;
+  }
+
+  #usuario_check:checked ~ .botones_usuario {
+    width: unset;
+    visibility: hidden;
+    display: none;
+  }
+  
+  
+  #usuario_check:checked ~ .btn-usuario .flecha_usuario {
+    width: unset;
+    visibility: hidden;
+    display: none;
+  }
+
+  .btn-usuario label{
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 20px 0;
+  }
+
+  
 }
 
 /* Teléfonos */
 @media only screen and (min-width: 0px) and (max-width: 500px) {
+  
+  .botones_usuario{
+    width: unset;
+    visibility: hidden;
+    display: none;
+  }
+  .flecha_usuario{
+    width: unset;
+    visibility: hidden;
+    display: none;
+  }
+
+  #usuario_check:checked ~ .botones_usuario {
+    width: unset;
+    visibility: hidden;
+    display: none;
+  }
+  
+  
+  #usuario_check:checked ~ .btn-usuario .flecha_usuario {
+    width: unset;
+    visibility: hidden;
+    display: none;
+  }
+  
+
+
   .logo {
     margin-left: 0px;
   }
+
   .nav-menu li form input {
     width: 80%;
     height: 2.5rem;
@@ -322,13 +387,13 @@ label .boton_menu {
     width: auto;
     height: auto;
   }
-  .btn-usuario a {
-    display: inline;
+  .btn-usuario label {
+    padding: 20px;
     background: none;
     border-radius: unset;
   }
 
-  .btn-usuario a::after {
+  .btn-usuario label::after {
     content: "   USUARIO";
     color: var(--marron_clarito);
     font-weight: 700;
@@ -383,4 +448,65 @@ label .boton_menu {
   .nav-menu li form {
     padding: 1rem;
   }
+
+}
+
+.botones_usuario {
+  position: absolute;
+  background: darkolivegreen;
+  bottom: -130%;
+  right: 4%;
+  width: 30%;
+  overflow: hidden;
+  display: none;
+  border-radius: 10px;
+  background: var(--naranja);
+  border: 2px solid var(--marron_clarito);
+  outline: 3px solid var(--marron_medio);
+  transition: 0.3s ease-in;
+}
+
+.botones_usuario li {
+  width: 100%;
+}
+
+.botones_usuario li a {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  display: block;
+}
+.botones_usuario a:hover{
+  background-color: #a68f72;
+}
+
+#usuario_check {
+  display: none;
+}
+
+#usuario_check:checked ~ .botones_usuario {
+  width: 30%;
+  overflow: visible;
+  display: block;
+}
+
+
+.flecha_usuario {
+  border: none;
+  display: block;
+  width: 0;
+  background: unset;
+  height: 0;
+  position: absolute;
+  top: 75%;
+}
+
+#usuario_check:checked ~ .btn-usuario .flecha_usuario {
+  border-bottom: 15px solid var(--marron_medio);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+#usuario_check:checked ~ .nav-menu{
+  position: relative;
 }

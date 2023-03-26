@@ -198,9 +198,3 @@ button[type="reset"] {
     gap: 1rem;
   }
 }
-
-footer{
-  width: 100%;
-  position: fixed;
-  bottom: -15px;
-}

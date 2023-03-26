@@ -29,25 +29,30 @@
             <section class="contenedor_imagen">
 
                 <div class="contenedor_boton_imagen">
-                    <input type="file" name="" id="imagen_pista">
                     <label for="imagen_pista"><i class="fa-solid fa-circle-plus"></i></label>
                 </div>
 
             </section>
 
-            <form class="form_productos" action="" method="post">
+            <form class="form_productos" action="/product/create" method="post" enctype="multipart/form-data">
+                <input type="file" name="imgPista" id="imagen_pista">
                 <h2 class="titulo_formulario">Subir pista</h2>
+
                 <section class="contenedor_formulario">
+
                     <section class="formulario_superior">
+
                         <div class="inputs_superiores">
+
                             <div>
                                 <label for="nombre_pista">Nombre de la pista:</label>
-                                <input class="input_personalizado_barra" type="text" name="" id="nombre_pista">
+                                <input class="input_personalizado_barra" type="text" name="nombrePista" id="nombre_pista">
                             </div>
     
                             <div>
+
                                 <label for="genero_pista">Género:</label>
-                                <select class="list-generes" name="edit-generes-list">
+                                <select class="list-generes" name="edit_generes">
 
                                     <option value="ROCK">
                                         ROCK
@@ -79,7 +84,7 @@
     
                         <div class="inputs_inferiores">
                             <label for="descripcion_pista">Descripción:</label>
-                            <textarea class="input_personalizado_fondo" name="" id="descripcion_pista"></textarea>
+                            <textarea class="input_personalizado_fondo" name="descripcion_pista" id="descripcion_pista"></textarea>
                         </div>
 
                         <label class="boton_subir_imagen" for="imagen_pista">Insertar imagen<i class="fa-solid fa-circle-plus"></i></label>
@@ -90,7 +95,7 @@
                     <section class="formulario_inferior">
                         <div>
                             <label for="precio_pista">Precio:</label>
-                            <input class="input_personalizado_barra" type="text" name="" id="precio_pista">
+                            <input class="input_personalizado_barra" type="text" name="precio_pista" id="precio_pista">
                         </div>
     
                         <div>

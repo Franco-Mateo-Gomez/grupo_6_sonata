@@ -19,74 +19,75 @@
     <link rel="stylesheet" href="/css/styles_footer.css">
     <link rel="stylesheet" href="/css/styles_main.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.9/dist/draggable.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.9/dist/draggable.min.js"></script>
+
+
 </head>
 
 <body>
     <%- include('./partials/header') %>
 
-    <main>
+        <main>
 
-        <!--SLIDER DE ALBUMES POPULARES-->
-        <section class="slider_album_populares">
-            <div class="container">
-                <h1 class="titulo_populares"><i class="fa-solid fa-compact-disc"></i> Albumes Populares</h1>
-                <!-- Swiper -->
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <%- include("./partials/index/productosPopulares")%>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </section>
-
-
-
-        <div class="padre-contenedor-slider">
-            <section class="contenedor-slider-generos">
-                <h2><i class="fa-solid fa-music"></i> Géneros</h2>
-
-                <div class="slider-list" id="slider-list">
-                    <button type="button" class="slider-arrow slider-prev" id="button-prev" data-button="button-prev"
-                        onclick="app.processingButton(event)">
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </button>
-
-                    <div class="slider-track" id="track">
-
-                        <div class="slider_contenedor_slides">
-                            <%- include("./partials/index/productosGeneros")%>
+            <!--SLIDER DE ALBUMES POPULARES-->
+            <section class="slider_album_populares">
+                <div class="container">
+                    <h1 class="titulo_populares"><i class="fa-solid fa-compact-disc"></i> Albumes Populares</h1>
+                    <!-- Swiper -->
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <%- include("./partials/index/productosPopulares")%>
                         </div>
-
-                        <div class="slider_contenedor_slides">
-                            <%- include("./partials/index/productosGeneros")%>
-                        </div>
-
+                        <div class="swiper-pagination"></div>
                     </div>
-
-                    <button class="slider-arrow slider-next" id="button-next" data-button="button-next"
-                        onclick="app.processingButton(event)">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-
                 </div>
-
-
             </section>
-        </div>
 
-    </main>
+            <section class="slider_alubum_generos">
 
-    <!--Footer-->
-    <%- include('./partials/footer') %>
+                <article class="generos_album">
+                    <input type="radio" name="filtro" id="pop">
+                    <input type="radio" name="filtro" id="rock">
+                    <input type="radio" name="filtro" checked id="todo">
+                    <input type="radio" name="filtro" id="x">
+    
+                    <section class="botones_filtro">
+                        <label for="todo">Todo</label>
+    
+                        <label for="rock">Rock</label>
+    
+                        <label for="pop">Pop</label>
+    
+                        <label for="x">×</label>
+                    </section>
+    
+                    <figure id="filtro">
+                        <img src="images/imagen_album1.jpg" class="todo rock">
+                        <img src="images/imagen_album2.jpg" class="todo pop">
+                        <img src="images/imagen_album3.jpg" class="todo pop">
+                        <img src="images/imagen_album4.jpg" class="todo rock">
+                        <img src="images/imagen_album5.jpg" class="todo rock">
+                        <img src="images/imagen_album6.jpg" class="todo pop">
+                        <img src="images/imagen_album7.jpg" class="todo rock">
+                        <img src="images/imagen_album1.jpg" class="todo pop">
+                    </figure>
+    
+                </article>
+            </section>
+        </main>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <!--Footer-->
+        <%- include('./partials/footer') %>
 
-    <!-- Initialize Swiper -->
-    <script src="/scripts/script-slider-responsive.js"></script>
-    <script src="/scripts/script-slider-generos.js"></script>
+            <script src="/scripts/script_scroll.js"></script>
 
+            <!-- Swiper JS -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+            <!-- Initialize Swiper -->
+            <script src="/scripts/script-slider-responsive.js"></script>
+            <script src="/scripts/script-slider-generos.js"></script>
 </body>
 
 </html>

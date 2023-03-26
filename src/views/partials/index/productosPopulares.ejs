@@ -1,4 +1,4 @@
-<% for(let i=0; i<albumes.length; i++){ %>
+<% for(let i=1; i<albumes.length; i++){ %>
     
     <div class="swiper-slide">
 
@@ -11,7 +11,7 @@
         <div class="descripcion_album">
 
             <!--NOMBRE DEL ALBUM DEL SLIDER POPULAR-->
-            <h3><%=albumes[i].nombreAlbum%></h3>
+            <h3><%=albumes[i].nombreTrack%></h3>
 
             <div class="subdescripcion_album">
 
@@ -21,7 +21,7 @@
                 <!--CALIFICACIÓN DEL ALBUM DEL SLIDER POPULAR-->
                 <div class="calificacion">
                     <span><%=albumes[i].valoracion%></span>
-
+                    
                     <% for (let j=0; j<5; j++){ %>
 
                          <% if(j<albumes[i].valoracion){ %>

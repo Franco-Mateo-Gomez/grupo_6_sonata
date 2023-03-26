@@ -42,6 +42,7 @@ main{
     padding: 13%;
     white-space: nowrap;
     background-color: var(--marron_medio);
+    color: var(--marron_clarito);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -86,7 +87,7 @@ footer{
     }
     .admin-options{
         margin-top: 2%;
-        padding: 4%;
+        padding: 7%;
         margin: 3%;
     }
     .admin-options span{
