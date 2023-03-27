@@ -140,11 +140,35 @@
   "nombreCompleto": "Artemisa Iris Herrera",
   "email": "artemisIris@dominio.com",
   "clave": "$2b$10$idGiC6zGzMRo9gzfJTHepekBELTsvOo2SQNgcpmkdTrapvj8x6AMm",
-  "rutaImagen": "/images/users/idUser1.jpg",
+  "img": "/images/users/idUser1.jpg",
   "nombreArtista": "Artemis123",
   "descripcion": "Todavia no escribio una descripción.",
   "valoracion": 0,
   "redes": [],
-  "genero":"electronica"
+  "genero": "electronica"
+ },
+ {
+  "id": 10,
+  "nombreCompleto": "Alan Gomez",
+  "email": "banda22@gmail.com",
+  "clave": "$2b$10$vtIAWb4fIV1cNgLx.BEAr.yUba9ks9ETjXsxZMepSO7EnQdL8sTcO",
+  "img": "/images/users/user_image-1679930138146.jpg",
+  "nombreArtista": "Banda 22",
+  "descripcion": "Todavia no escribio una descripción.",
+  "valoracion": 0,
+  "redes": [],
+  "genero": "rock"
+ },
+ {
+  "id": 11,
+  "nombreCompleto": "Elias Garrix",
+  "email": "elogarrix@gmail.com",
+  "clave": "$2b$10$8fvEgcRnGMCM49lhvxnEge5KxVssfO9ybQMhJEPRCvg1FLyzOZFaO",
+  "img": "/images/users/user_image-1679930547724.jpg",
+  "nombreArtista": "Elo Garrix",
+  "descripcion": "Todavia no escribio una descripción.",
+  "valoracion": 0,
+  "redes": [],
+  "genero": "classic"
  }
 ]
