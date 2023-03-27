@@ -124,7 +124,7 @@
   "apellido": "Heinz",
   "email": "tonyheinz@gmail.com",
   "clave": "abc123",
-  "img": "/images/imagen_album3.jpg",
+  "img": "/images/users/idUser1.jpg",
   "nombreArtista": "RapGod",
   "descripcion": "Productor musical de Inglaterra. Especializado en la creación de pistas de rap.",
   "valoracion": 5,
@@ -140,10 +140,11 @@
   "nombreCompleto": "Artemisa Iris Herrera",
   "email": "artemisIris@dominio.com",
   "clave": "$2b$10$idGiC6zGzMRo9gzfJTHepekBELTsvOo2SQNgcpmkdTrapvj8x6AMm",
-  "rutaImagen": "/images/users/user_image-1679890749932.png",
+  "rutaImagen": "/images/users/idUser1.jpg",
   "nombreArtista": "Artemis123",
   "descripcion": "Todavia no escribio una descripción.",
   "valoracion": 0,
-  "redes": []
+  "redes": [],
+  "genero":"electronica"
  }
 ]

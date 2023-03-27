@@ -17,7 +17,8 @@ const productsController = {
         res.render("products/productDetail", { filtraProducto: filtraProducto, filtraUsuario: filtraUsuario });
     },
     productCreate: (req, res) => {
-        res.render("products/createProduct")
+        const idUser = req.params.userId;
+        res.render("products/createProduct",{idUser})
     },
 
     productEditView: (req, res) => {
@@ -83,23 +84,12 @@ const productsController = {
     },
     
     create: (req, res) => {
-        //Leo el archivo y sus datos lo guardo en una variable
-        let ArichivoProductosUsuarios = fs.readFileSync(path.join(__dirname, '../model/data/products.json'), 'utf-8');
-        let productosUsuarios;
 
-
-        //Si el archivo no posee datos creo un array vacio
-        if (ArichivoProductosUsuarios == "") {
-            productosUsuarios = [];
-        } else { //Si el archivo si posee datos, lo guardo en una variable
-            productosUsuarios = JSON.parse(ArichivoProductosUsuarios);
-        }
-
-        let idProducto = productosUsuarios[productosUsuarios.length - 1].id + 1;
-        console.log(req.body)
+        const userId = req.params.userId;
+        
         let producto = {
-            id: idProducto,
-            img: "/images/products/"+req.file.filename,
+            id: dataProducts[dataProducts.length - 1].id + 1,
+            img: "/images/products/" + req.file.filename,
             nombreTrack: req.body.nombrePista,
             duracion: "",
             fechaPublicacion: "",
@@ -107,16 +97,15 @@ const productsController = {
             genero: req.body.edit_generes,
             precio: req.body.precio_pista,
             moneda: req.body.moneda,
-            idUser: 9,
+            idUser: userId,
             valoracion: 0
         }
 
         //A la variable le agrego el nuevo usuario
-        productosUsuarios.push(producto);
-        productosUsuarios[0].idAcumulativo = idProducto;
+        dataProducts.push(producto);
 
         //Convierto el objeto en un string
-        let productosUsuariosJSON = JSON.stringify(productosUsuarios);
+        let productosUsuariosJSON = JSON.stringify(dataProducts);
 
         //Escribo los cambios en el archivo
         fs.writeFileSync(path.join(__dirname, '../model/data/products.json'), productosUsuariosJSON);
