@@ -116,17 +116,11 @@ label .boton_menu {
 
 /* Escritorio grande */
 @media only screen and (min-width: 795px) and (max-width: 1600px) {
-  main {
-    background-color: ghostwhite;
-  }
 }
 
 /*tablet */
 @media only screen and (min-width: 501px) and (max-width: 794px) {
-  main {
-    background-color: #a68f72;
-  }
-
+  
   body {
     background-color: #a68f72;
   }
@@ -335,10 +329,7 @@ label .boton_menu {
   .nav-menu li form button {
     height: 2.5rem;
   }
-  body {
-    background-color: #a1661e;
-  }
-
+  
   .icono-home {
     display: inline;
   }

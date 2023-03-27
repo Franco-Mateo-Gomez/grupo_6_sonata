@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,39 +8,44 @@
     <link rel="stylesheet" href="/css/editProductList.css">
     <title>Lista de productos</title>
 </head>
+
 <body>
     <%- include('../partials/header') %>
 
-    <main class="main-tracks">
-        <div class="main-header">
-            <h3>LISTADO DE PISTAS</h3>
-        </div>
+        <main class="main-tracks">
+            <div class="main-header">
+                <h3>LISTADO DE PISTAS</h3>
+            </div>
 
-        <section class="tracks">
+            <section class="tracks">
 
-            <%filtraTraks.forEach(function(track) { %>
+                <%filtraTraks.forEach(function(track) { %>
 
-            <article class="track-card">
-                <div class="track-card-img">
-                    <img src="<%=track.img%>" alt="imagen_artista">
-                    <div class="track-card-name">
-                        <h4><%=track.nombreTrack%></h4>
-                    </div>
-                </div>
-                <div class="track-button">
-                    <a href="/product/1/edit/1">
-                        <button id="button-edit">EDITAR</button>
-                    </a>
-                    <a href="">
-                        <form action="/product/<%=filtraUsuario.id%>/edit-list/<%=track.id %>?_method=DELETE" method="post">
-                            <button id="button-delete" type="submit">ELIMINAR</button>
-                    </form>
-                    </a>
-                </div>
-            </article>
-            <% }); %>
-        </section>
-    </main>
-    <%- include('../partials/footer') %>
+                    <article class="track-card">
+                        <div class="track-card-img">
+                            <img src="<%=track.img%>" alt="imagen_artista">
+                            <div class="track-card-name">
+                                <h4>
+                                    <%=track.nombreTrack%>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="track-button">
+                            <a href="/product/<%=filtraUsuario.id%>/edit/<%=track.id%>">
+                                <button id="button-edit">EDITAR</button>
+                            </a>
+                            <a href="">
+                                <form action="/product/<%=filtraUsuario.id%>/edit-list/<%=track.id%>?_method=DELETE"
+                                    method="post">
+                                    <button id="button-delete" type="submit">ELIMINAR</button>
+                                </form>
+                            </a>
+                        </div>
+                    </article>
+                    <% }); %>
+            </section>
+        </main>
+        <%- include('../partials/footer') %>
 </body>
+
 </html>

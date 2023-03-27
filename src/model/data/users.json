@@ -1,138 +1,149 @@
 [
-    {
-        "id": 1,
-        "nombreCompleto": "Marty",
-        "apellido": "Rocky",
-        "email": "martyrocky@gmail.com",
-        "clave": "abc123",
-        "img": "/images/users/idUser1.jpg",
-        "nombreArtista": "RockyMarty",
-        "descripcion": "Productor musical proveniente de Escocia. Sus producciones se centran en el género 'Rock' y 'Heavy Metal'.",
-        "valoracion": 3,
-        "redes": [
-            true,
-            true,
-            false
-        ],
-        "genero": "rock"
-    },
-    {
-        "id": 2,
-        "nombreCompleto": "Romeo",
-        "apellido": "Mozart",
-        "email": "mozartromeo@gmail.com",
-        "clave": "abc123",
-        "img": "/images/imagen_album4.jpg",
-        "nombreArtista": "MozartKing",
-        "descripcion": "Productor musical proveniente de Grecia. Apasionado por la música clásica.",
-        "valoracion": 5,
-        "redes": [
-            true,
-            true,
-            true
-        ],
-        "genero": "classic"
-    },
-    {
-        "id": 3,
-        "nombreCompleto": "Fred",
-        "apellido": "Flid",
-        "email": "fredflid@gmail.com",
-        "clave": "abc123",
-        "img": "/images/users/idUser3.jpg",
-        "nombreArtista": "The Rockstar",
-        "descripcion": "Banda de rock estadounidense formada en 1985. Conocidos por sus poderosas guitarras y letras que hacen temblar estadios.",
-        "valoracion": 4,
-        "redes": [
-            true,
-            true,
-            true
-        ],
-        "genero": "rock"
-    },
-    {
-        "id": 4,
-        "nombreCompleto": "Eva",
-        "apellido": "Diva",
-        "email": "evadiva@gmail.com",
-        "clave": "abc123",
-        "img": "/images/imagen_album6.jpg",
-        "nombreArtista": "DivaPop",
-        "descripcion": "Cantante pop española con más de 10 años de carrera. Sus letras y coreografías son famosas en todo el mundo.",
-        "valoracion": 4,
-        "redes": [
-            true,
-            true,
-            true
-        ],
-        "genero": "pop"
-    },
-    {
-        "id": 5,
-        "nombreCompleto": "Fred",
-        "apellido": "Phonic",
-        "email": "fredphonic@gmail.com",
-        "clave": "abc123",
-        "img": "/images/imagen_album3.jpg",
-        "nombreArtista": "JazzPhonic",
-        "descripcion": "Productor musical de jazz y bossa nova de origen francés. Su música es perfecta para una noche de tranquilidad y buena compañía.",
-        "valoracion": 5,
-        "redes": [
-            true,
-            true,
-            true
-        ],
-        "genero": "jass"
-    },
-    {
-        "id": 6,
-        "nombreCompleto": "Paule",
-        "apellido": "Desanto",
-        "email": "pauledesanto@gmail.com",
-        "clave": "abc123",
-        "img": "/images/imagen_album6.jpg",
-        "nombreArtista": "DancingBeats",
-        "descripcion": "Productor musical de Francia. Especializado en la creación de pistas de baile de alta energía.",
-        "valoracion": 4,
-        "redes": [
-            true,
-            true,
-            false
-        ],
-        "genero": "electronica"
-    },
-    {
-        "id": 7,
-        "nombreCompleto": "Jordan",
-        "apellido": "Gerard",
-        "email": "jordangerard@gmail.com",
-        "clave": "abc123",
-        "img": "/images/users/idUser7.jpg",
-        "nombreArtista": "RhythmicSoul",
-        "descripcion": "Productor musical de Estados Unidos. Su especialidad es la creación de pistas de soul y funk.",
-        "valoracion": 4,
-        "redes": [
-            false,
-            true,
-            true
-        ],
-        "genero": "rock"
-    },
-    {
-        "id": 8,
-        "nombreCompleto": "Tony",
-        "apellido": "Heinz",
-        "email": "tonyheinz@gmail.com",
-        "clave": "abc123",
-        "img": "/images/imagen_album3.jpg",
-        "nombreArtista": "RapGod",
-        "descripcion": "Productor musical de Inglaterra. Especializado en la creación de pistas de rap.",
-        "valoracion": 5,
-        "redes": [
-            true,
-            true,
-            true
-        ],
-        "genero": "hip-hop"
-    }
+ {
+  "id": 1,
+  "nombreCompleto": "Marty",
+  "apellido": "Rocky",
+  "email": "martyrocky@gmail.com",
+  "clave": "abc123",
+  "img": "/images/users/idUser1.jpg",
+  "nombreArtista": "RockyMarty",
+  "descripcion": "Productor musical proveniente de Escocia. Sus producciones se centran en el género 'Rock' y 'Heavy Metal'.",
+  "valoracion": 3,
+  "redes": [
+   true,
+   true,
+   false
+  ],
+  "genero": "rock"
+ },
+ {
+  "id": 2,
+  "nombreCompleto": "Romeo",
+  "apellido": "Mozart",
+  "email": "mozartromeo@gmail.com",
+  "clave": "abc123",
+  "img": "/images/imagen_album4.jpg",
+  "nombreArtista": "MozartKing",
+  "descripcion": "Productor musical proveniente de Grecia. Apasionado por la música clásica.",
+  "valoracion": 5,
+  "redes": [
+   true,
+   true,
+   true
+  ],
+  "genero": "classic"
+ },
+ {
+  "id": 3,
+  "nombreCompleto": "Fred",
+  "apellido": "Flid",
+  "email": "fredflid@gmail.com",
+  "clave": "abc123",
+  "img": "/images/users/idUser3.jpg",
+  "nombreArtista": "The Rockstar",
+  "descripcion": "Banda de rock estadounidense formada en 1985. Conocidos por sus poderosas guitarras y letras que hacen temblar estadios.",
+  "valoracion": 4,
+  "redes": [
+   true,
+   true,
+   true
+  ],
+  "genero": "rock"
+ },
+ {
+  "id": 4,
+  "nombreCompleto": "Eva",
+  "apellido": "Diva",
+  "email": "evadiva@gmail.com",
+  "clave": "abc123",
+  "img": "/images/imagen_album6.jpg",
+  "nombreArtista": "DivaPop",
+  "descripcion": "Cantante pop española con más de 10 años de carrera. Sus letras y coreografías son famosas en todo el mundo.",
+  "valoracion": 4,
+  "redes": [
+   true,
+   true,
+   true
+  ],
+  "genero": "pop"
+ },
+ {
+  "id": 5,
+  "nombreCompleto": "Fred",
+  "apellido": "Phonic",
+  "email": "fredphonic@gmail.com",
+  "clave": "abc123",
+  "img": "/images/imagen_album3.jpg",
+  "nombreArtista": "JazzPhonic",
+  "descripcion": "Productor musical de jazz y bossa nova de origen francés. Su música es perfecta para una noche de tranquilidad y buena compañía.",
+  "valoracion": 5,
+  "redes": [
+   true,
+   true,
+   true
+  ],
+  "genero": "jass"
+ },
+ {
+  "id": 6,
+  "nombreCompleto": "Paule",
+  "apellido": "Desanto",
+  "email": "pauledesanto@gmail.com",
+  "clave": "abc123",
+  "img": "/images/imagen_album6.jpg",
+  "nombreArtista": "DancingBeats",
+  "descripcion": "Productor musical de Francia. Especializado en la creación de pistas de baile de alta energía.",
+  "valoracion": 4,
+  "redes": [
+   true,
+   true,
+   false
+  ],
+  "genero": "electronica"
+ },
+ {
+  "id": 7,
+  "nombreCompleto": "Jordan",
+  "apellido": "Gerard",
+  "email": "jordangerard@gmail.com",
+  "clave": "abc123",
+  "img": "/images/users/idUser7.jpg",
+  "nombreArtista": "RhythmicSoul",
+  "descripcion": "Productor musical de Estados Unidos. Su especialidad es la creación de pistas de soul y funk.",
+  "valoracion": 4,
+  "redes": [
+   false,
+   true,
+   true
+  ],
+  "genero": "rock"
+ },
+ {
+  "id": 8,
+  "nombreCompleto": "Tony",
+  "apellido": "Heinz",
+  "email": "tonyheinz@gmail.com",
+  "clave": "abc123",
+  "img": "/images/imagen_album3.jpg",
+  "nombreArtista": "RapGod",
+  "descripcion": "Productor musical de Inglaterra. Especializado en la creación de pistas de rap.",
+  "valoracion": 5,
+  "redes": [
+   true,
+   true,
+   true
+  ],
+  "genero": "hip-hop"
+ },
+ {
+  "id": 9,
+  "nombreCompleto": "Artemisa Iris Herrera",
+  "email": "artemisIris@dominio.com",
+  "clave": "$2b$10$idGiC6zGzMRo9gzfJTHepekBELTsvOo2SQNgcpmkdTrapvj8x6AMm",
+  "rutaImagen": "/images/users/user_image-1679890749932.png",
+  "nombreArtista": "Artemis123",
+  "descripcion": "Todavia no escribio una descripción.",
+  "valoracion": 0,
+  "redes": []
+ }
 ]

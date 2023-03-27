@@ -28,13 +28,16 @@
 
             <h1 class="titulares">INICIAR SESIÓN</h1>
 
-            <form class="form-login" action="" method="post">
+            <form class="form-login" action="/login" method="post">
 
                 <label class="label-forms" for="">Email/Usuario</label>
-                <input type="text" name="loged-user" required placeholder="Nombre de usuari@"></input>
-                
+                <input type="text" name="user_email" required placeholder="Nombre de usuari@"></input>
+                <% if (locals.errors && errors.user_email) { %>
+                    <h6><%= errors.user_email.msg %></h6>
+                <% } %>
+
                 <label class="label-forms" for="">Clave</label>
-                <input type="password" name="loged-password" required placeholder="Contraseña"></input>
+                <input type="password" name="user_password" required placeholder="Contraseña"></input>
 
                 <a class="form-login-submit" href="#">
                     <button type="submit">Ingresar</button>

@@ -1,92 +1,98 @@
 @import url(general.css);
 @import url(styles_footer.css);
 
-.logo {
-    width: 15%;
-    margin: 2rem;
+body{
+    background-color: var(--marron_clarito);
 }
 
-body {
-    background-color: #d9c6b0;
-    
-}
-
-form input {
-    width: 100%;
-    margin: 0 auto;
-    padding: 1rem;
-    gap: 2rem;
-    border: none;
-    margin: 4% 0;
-    border: 0;
-    color: #0D0D0D;
-    border-bottom: 2px solid #0D0D0D;
-    background-color: transparent;
-    outline: none;
-    font-size: 5rem ;
-    
-}
-
-form {
-    margin: 0 auto;
-    width: 80%;
-}
-
-.formulario {
-    padding-top: 4rem;
-    margin: 0 auto;
-    width: 50%;
-    background-color: #a68f72;
-    border-radius: 1rem;
-    margin-bottom: 1rem;
-}
-
-#registrarme {
-    color: white;
-    background-color: #0D0D0D;
-    border-radius: 5rem;
-    cursor: pointer;
-}
-
-#cancelar {
-   color: white;
-    background-color: #d95a4e;
-    border-radius: 5rem;
-    cursor: pointer;
-}
-
-footer {
-    bottom: 0;
-}
-
-label {
-    font-size: 2rem;
-}
-
-.botones input {
-    font-size: 2rem;
-}
-
-.imagen_user {
-    padding: 5rem;
-    background-color: #8c3a27;
-    border-radius: 9rem;
-    font-size: 3.5rem;
-    position: relative;
-    right: -43%;
+main{
+    height: 120vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 8rem;
-    bottom: -4rem;
-    height: 8rem;
-    color: snow;
+    margin-top: 200px;
 }
 
-input {
-    font-size: 1.5rem;
+.contenedor_logo{
+    position: absolute;
 }
 
-@media (max-width:730px) {
-    
+.contenedor_registro{
+    width: 400px;
+    max-width: 90%;
+    background: var(--marron_medio);
+    position: relative;
+    border-radius: 1rem;
+    height: fit-content;
+}
+
+.formulario_registro{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.campo_formulario_registro {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 5px;
+}
+
+.imagen_user{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--marron_fuerte);
+    color: var(--marron_clarito);
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 50%;
+    font-size: xx-large;
+}
+.campo_formulario_registro_botones{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; 
+}
+
+input[type="submit"], input[type="reset"] {
+    width: fit-content;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 2rem;
+    width: 40%;
+    font-weight: bolder;
+    color: var(--marron_clarito);
+}
+
+input[type="submit"]{
+    background-color: var(--naranja);
+}
+
+input[type="reset"]{
+    background-color: var(--negro);
+}
+
+.campo_formulario_registro input {
+    border: none;
+    padding: 0.4rem;
+    background: none;
+    border-bottom: solid 1px var(--negro);
+}
+
+input[type="file"] {
+    border: solid 1px var(--negro);
+    background-color: var(--negro);
+    color: white;
+    border-radius: 0.5rem;
 }

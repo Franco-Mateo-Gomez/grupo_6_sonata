@@ -27,7 +27,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
 /*Use Express Session*/
-app.use(session({secret:"SECRETO"}))
+app.use(session({
+    secret:"SECRETO",
+    resave: false,
+    saveUninitialized:false
+}));
 
 /*Use Public folder*/
 app.use(express.static(path.join(__dirname,'../public')));

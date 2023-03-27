@@ -26,11 +26,12 @@ const productsController = {
         const idUser = req.params.userId;
 
         const filtraUsuario = datausers.find(user => user.id == idUser);
-        const filtraTraks = dataProducts.find(productosUsuarios => productosUsuarios.id == idProductosUsuarios && productosUsuarios.idUser == idUser);
+        const filtraTrack = dataProducts.find(productosUsuarios => productosUsuarios.id == idProductosUsuarios && productosUsuarios.idUser == idUser);
 
-        res.render("products/editProduct", { filtraTraks:filtraTraks, filtraUsuario:filtraUsuario });
+        res.render("products/editProduct", { filtraTrack:filtraTrack, filtraUsuario:filtraUsuario });
 
     },
+
     productEdit: (req, res) => {
         const idProductosUsuarios = req.params.id;
         const userId = req.params.userId;
@@ -50,8 +51,9 @@ const productsController = {
 
         fs.writeFileSync(dataProductsJSON, JSON.stringify(dataProducts));
 
-        res.redirect("/");
+        res.render("index", { albumes: dataProducts })
     },
+
     productEditList: (req, res) => {
         const idUser = req.params.userId;
 
@@ -77,8 +79,9 @@ const productsController = {
 
         fs.writeFileSync(dataProductsJSON, JSON.stringify(dataProducts));
 
-        res.redirect("/product/6/edit-list");
+        res.redirect("/product/9/edit-list");
     },
+    
     create: (req, res) => {
         //Leo el archivo y sus datos lo guardo en una variable
         let ArichivoProductosUsuarios = fs.readFileSync(path.join(__dirname, '../model/data/products.json'), 'utf-8');
@@ -92,7 +95,7 @@ const productsController = {
             productosUsuarios = JSON.parse(ArichivoProductosUsuarios);
         }
 
-        let idProducto = parseInt(productosUsuarios[0].idAcumulativo) + 1;
+        let idProducto = productosUsuarios[productosUsuarios.length - 1].id + 1;
         console.log(req.body)
         let producto = {
             id: idProducto,
@@ -104,7 +107,7 @@ const productsController = {
             genero: req.body.edit_generes,
             precio: req.body.precio_pista,
             moneda: req.body.moneda,
-            idUser: 6,
+            idUser: 9,
             valoracion: 0
         }
 
@@ -118,7 +121,7 @@ const productsController = {
         //Escribo los cambios en el archivo
         fs.writeFileSync(path.join(__dirname, '../model/data/products.json'), productosUsuariosJSON);
 
-        res.redirect('/general');
+        return res.redirect("/general")
     }
 
 }
