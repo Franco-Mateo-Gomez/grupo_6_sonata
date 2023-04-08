@@ -121,10 +121,6 @@ label .boton_menu {
 /*tablet */
 @media only screen and (min-width: 501px) and (max-width: 794px) {
   
-  body {
-    background-color: #a68f72;
-  }
-
   .nav-menu li form input {
     width: 80%;
     height: 2.5rem;

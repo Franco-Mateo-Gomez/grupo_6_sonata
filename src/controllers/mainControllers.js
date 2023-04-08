@@ -7,6 +7,9 @@ const { render } = require("ejs");
 const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
 const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
 
+const datausersJSON = path.join(__dirname, '../model/data/users.json');
+const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
+
 const User = require(path.join(__dirname, "../model/User.js"));
 
 const mainController = {
@@ -95,7 +98,27 @@ const mainController = {
     user: (req, res) => {
         res.render("users/user");
     },
+    userConfigView:(req,res) =>{
+        let idUserSession = 9;
+        let userConfig = User.findById(idUserSession);
+        userConfig.clave = bcrypt.compareSync("1234",userConfig.clave);
+        res.render("users/userConfig", {userConfig:userConfig})
+    },
+    processUserConfig:(req,res) =>{
+        let idUserSession = 9;
+        let datosModificados = req.body;
 
+        console.log("user_name: "+req.body.user_name)
+        
+        let allUsers = User.getUsers();
+        let usuario = datausers.findIndex( user => user.id == idUserSession);
+        
+        datausers[usuario].nombreArtista = datosModificados.user_name || "EJEMPLO";
+
+        fs.writeFileSync(User.fileName, JSON.stringify(datausers, null, ' '));
+
+        res.render("users/userConfig", {userConfig: datausers[usuario]})
+    }
 }
 
 module.exports = mainController;

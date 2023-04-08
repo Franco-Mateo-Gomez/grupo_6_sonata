@@ -56,6 +56,14 @@ const User = {
         allUsers.push(newUser);
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
         return newUser;
+    },
+    modify: function(idUserSession, datosModificados){
+        let allUsers = this.getUsers();
+        let usuario = allUsers.findIndex( user => user.id == idUserSession);
+        
+        allUsers[usuario].nombreArtista = datosModificados.user_name;
+
+        fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
     }
 };
 

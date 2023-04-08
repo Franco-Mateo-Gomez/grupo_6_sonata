@@ -1,0 +1,120 @@
+@import url(general.css);
+@import url(styles_footer.css);
+
+body{
+    background-color: var(--marron_clarito);
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 130px;
+    flex-direction: column;
+}
+
+.encabezado_formulario{
+    width: 100%;
+    background: var(--naranja);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 5rem;
+}
+
+.encabezado_formulario h5{
+    width: 50%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--marron_clarito);
+}
+
+.contenedor_registro{
+    width: 800px;
+    max-width: 90%;
+    background: var(--marron_medio);
+    position: relative;
+    border-radius: 1rem;
+    height: fit-content;
+    margin: 30px;
+}
+
+.formulario_registro{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.campo_formulario_registro {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 5px;
+}
+
+.imagen_user {
+    background: var(--naranja);
+    color: var(--marron_clarito);
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 50%;
+    position: absolute;
+    border: 5px solid var(--marron_fuerte);
+    font-size: xx-large;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.campo_formulario_registro_botones{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; 
+}
+
+input[type="submit"], input[type="reset"] {
+    width: fit-content;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 2rem;
+    width: 40%;
+    font-weight: bolder;
+    color: var(--marron_clarito);
+}
+
+input[type="submit"]{
+    background-color: var(--naranja);
+}
+
+input[type="reset"]{
+    background-color: var(--negro);
+}
+
+.campo_formulario_registro input {
+    border: none;
+    padding: 0.4rem;
+    background: none;
+    border-bottom: solid 1px var(--negro);
+}
+
+input[type="file"] {
+    border: solid 1px var(--negro);
+    background-color: var(--negro);
+    color: white;
+    border-radius: 0.5rem;
+}
+
+@media only screen and (max-width: 794px) {
+    .encabezado_formulario h5{
+        display: none;
+    }
+}

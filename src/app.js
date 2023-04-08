@@ -3,6 +3,7 @@ const path = require ("path");
 const methodOverride = require('method-override');
 const session = require("express-session")
 const app = express();
+const bodyParser = require('body-parser');
 
 /*Routes*/
 const mainRoutes = require("./routes/main");
@@ -25,6 +26,7 @@ app.listen(port,()=>{
 /*Use Method Override*/
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+
 
 /*Use Express Session*/
 app.use(session({

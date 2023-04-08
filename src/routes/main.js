@@ -79,4 +79,7 @@ router.get("/about",mainController.aboutUs);
 
 router.get("/user",mainController.user);
 
+router.get("/userConfig/:userId", mainController.userConfigView);
+router.put("/userConfig/:userId", mainController.processUserConfig);
+
 module.exports=router;
