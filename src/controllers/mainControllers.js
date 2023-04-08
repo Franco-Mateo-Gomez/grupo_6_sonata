@@ -76,11 +76,12 @@ const mainController = {
             nombreCompleto: req.body.client_fullname,
             email: req.body.user_email,
             clave: bcrypt.hashSync(req.body.user_password, 10),
-            rutaImagen: "/images/users/" + req.file.filename,
+            img: "/images/users/" + req.file.filename,
             nombreArtista: req.body.user_name,
             descripcion: "Todavia no escribio una descripción.",
             valoracion: 0,
-            redes: []
+            redes: [],
+            genero:req.body.generes
         }
         User.create(newUser);
         return res.redirect("general");
