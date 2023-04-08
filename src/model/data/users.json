@@ -145,5 +145,16 @@
   "descripcion": "Todavia no escribio una descripción.",
   "valoracion": 0,
   "redes": []
+ },
+ {
+  "id": 10,
+  "nombreCompleto": "Abril dsad  dasd",
+  "email": "abril@gmail.com",
+  "clave": "$2b$10$BBxlawJKCVGwp1/sr9vdMudEklVBt1XSne2YftxDJ2F5OeFyqsOai",
+  "rutaImagen": "/images/users/user_image-1680103069319.png",
+  "nombreArtista": "Abril",
+  "descripcion": "Todavia no escribio una descripción.",
+  "valoracion": 0,
+  "redes": []
  }
 ]
