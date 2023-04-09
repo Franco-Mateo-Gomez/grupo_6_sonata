@@ -1,5 +1,6 @@
 const path = require("path");
-const fs = require("fs")
+const fs = require("fs");
+const notifier = require('node-notifier');
 const bcrypt = require('bcrypt');
 const { validationResult, body } = require("express-validator");
 const { render } = require("ejs");
@@ -105,19 +106,56 @@ const mainController = {
         res.render("users/userConfig", {userConfig:userConfig})
     },
     processUserConfig:(req,res) =>{
-        let idUserSession = 9;
-        let datosModificados = req.body;
 
-        console.log("user_name: "+req.body.user_name)
-        
+        let idUserSession = req.params.userId;
+        let datosModificados = req.body;
         let allUsers = User.getUsers();
         let usuario = datausers.findIndex( user => user.id == idUserSession);
         
-        datausers[usuario].nombreArtista = datosModificados.user_name || "EJEMPLO";
-
+        datausers[usuario].nombreArtista = datosModificados.user_name || datausers[usuario].nombreArtista;
+        datausers[usuario].email = datosModificados.user_email || datausers[usuario].email;
+        datausers[usuario].nombreCompleto = datosModificados.client_fullname || datausers[usuario].nombreCompleto;
+        
         fs.writeFileSync(User.fileName, JSON.stringify(datausers, null, ' '));
-
+        
         res.render("users/userConfig", {userConfig: datausers[usuario]})
+    },
+    processUserConfigImage:(req,res) =>{
+        let idUserSession = req.params.userId;
+        let datosModificados = req.body;
+        let allUsers = User.getUsers();
+        let usuario = datausers.findIndex( user => user.id == idUserSession);
+        
+        if (req.file) {
+            fs.unlinkSync(path.join(__dirname,"../../public"+datausers[usuario].img));
+            datausers[usuario].img = "/images/users/" + req.file.filename;
+        }
+        fs.writeFileSync(User.fileName, JSON.stringify(datausers, null, ' '));
+        res.redirect('/userConfig/'+idUserSession);
+    },
+    
+    processUserConfigPassword:(req,res) =>{
+        let idUserSession = req.params.userId;
+        let datosModificados = req.body;
+        let allUsers = User.getUsers();
+        let usuario = datausers.findIndex( user => user.id == idUserSession);
+        
+        if(req.body.user_password == req.body.user_passwordConfirmation){
+            datausers[usuario].clave = bcrypt.hashSync(req.body.user_password, 12);
+            notifier.notify({
+                title: '¡Felicitaciones!',
+                message: 'Contraseña modificada satisfactoriamente',
+            });
+              
+            return res.redirect('/userConfig/'+idUserSession);
+        }
+
+        // notifier.notify({
+        //     title: '¡Uff por poco!',
+        //     message: 'Las Contraseñas no coinciden, volver a intentar.',
+        // });
+        fs.writeFileSync(User.fileName, JSON.stringify(datausers, null, ' '));
+        return res.redirect('/userConfig/'+idUserSession);
     }
 }
 

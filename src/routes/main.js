@@ -7,6 +7,7 @@ const mainController = require("../controllers/mainControllers.js")
 const multer = require("multer");
 
 const {body} = require('express-validator')
+
  
 /*Multer config*/
 const storage = multer.diskStorage({
@@ -79,7 +80,8 @@ router.get("/about",mainController.aboutUs);
 
 router.get("/user",mainController.user);
 
-router.get("/userConfig/:userId", mainController.userConfigView);
+router.get("/userConfig/:userId",mainController.userConfigView);
 router.put("/userConfig/:userId", mainController.processUserConfig);
-
+router.put("/userConfigImage/:userId", upload.single("user_image"),validationsRegister, mainController.processUserConfigImage);
+router.put("/userConfigPassword/:userId", mainController.processUserConfigPassword);
 module.exports=router;

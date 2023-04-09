@@ -25,6 +25,7 @@ app.listen(port,()=>{
 
 /*Use Method Override*/
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(methodOverride("_method"));
 
 

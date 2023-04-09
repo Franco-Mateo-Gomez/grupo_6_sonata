@@ -22,31 +22,71 @@ main{
     height: 5rem;
 }
 
-.encabezado_formulario h5{
+.encabezado_formulario .encabezado_formulario_parte{
     width: 50%;
     text-align: center;
     font-size: 1.2rem;
     color: var(--marron_clarito);
 }
+.encabezado_formulario .encabezado_formulario_parte select{
+    width: 50%;
+    padding: 0.2rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 2rem;
+    font-weight: bold;
+    color: var(--naranja);
+}
+
+.encabezado_formulario .encabezado_formulario_parte h5{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
 
 .contenedor_registro{
     width: 800px;
     max-width: 90%;
-    background: var(--marron_medio);
     position: relative;
-    border-radius: 1rem;
     height: fit-content;
-    margin: 30px;
+    margin-bottom: 30px;
 }
 
 .formulario_registro{
     display: flex;
+    position: relative;
     flex-direction: column;
     height: fit-content;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 4rem;
+    border-radius: 2rem;
+    background: var(--marron_medio);
+    padding: 2rem 1rem;
+}
+.titulo_formulario {
+    background: var(--naranja);
+    color: var(--marron_clarito);
+    padding: 1rem;
+    position: absolute;
+    top: -7%;
+    border-radius: 2rem;
+    border: 4px solid var(--marron_fuerte);
+}
+
+.formulario_editarImagen{
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 4rem;
+    background: var(--marron_medio);
+    border-radius: 2rem;
+    padding: 2rem;
+    padding-top: 4rem;
+    position: relative;
 }
 
 .campo_formulario_registro {
@@ -54,9 +94,37 @@ main{
     flex-direction: column;
     width: 80%;
     padding: 5px;
+    margin: 20px 0;
 }
 
 .imagen_user {
+    background: var(--naranja);
+    color: var(--marron_clarito);
+    width: 9rem;
+    height: 9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 50%;
+    position: relative;
+    border: 5px solid var(--marron_fuerte);
+    font-size: xx-large;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.separacion_imagen{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    width:450px;
+    max-width: 90%;
+}
+
+.icon_user {
     background: var(--naranja);
     color: var(--marron_clarito);
     width: 7rem;
@@ -68,17 +136,16 @@ main{
     border-radius: 50%;
     position: absolute;
     border: 5px solid var(--marron_fuerte);
-    font-size: xx-large;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    font-size: 3rem;
 }
+
+
 .campo_formulario_registro_botones{
     width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0; 
+    padding: 10px 0;
 }
 
 input[type="submit"], input[type="reset"] {
@@ -114,7 +181,13 @@ input[type="file"] {
 }
 
 @media only screen and (max-width: 794px) {
-    .encabezado_formulario h5{
+    .encabezado_formulario .encabezado_formulario_parte{
         display: none;
+    }
+    .encabezado_formulario {
+        background: none;
+    }
+    .separacion_imagen{
+        width:750px;
     }
 }
