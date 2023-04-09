@@ -170,5 +170,17 @@
   "valoracion": 0,
   "redes": [],
   "genero": "classic"
+ },
+ {
+  "id": 12,
+  "nombreCompleto": "Admin",
+  "email": "admin@gmail.com",
+  "clave": "$2b$10$Ba9eNv2FWsuGOF3lCDi37ehRr.MwnRLVZh19xG8x2OuHPrEzexpP6",
+  "img": "/images/users/user_image-1680995429118.jpg",
+  "nombreArtista": "admin",
+  "descripcion": "Todavia no escribio una descripción.",
+  "valoracion": 0,
+  "redes": [],
+  "genero": "otro"
  }
 ]

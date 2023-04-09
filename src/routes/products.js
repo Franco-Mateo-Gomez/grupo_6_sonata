@@ -32,7 +32,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.get("/detail/:id", productsController.productDetail);
+router.get("/detail/:userId", productsController.productDetail);
 
 router.get("/:userId/admin-products", productsController.adminProducts);
 
