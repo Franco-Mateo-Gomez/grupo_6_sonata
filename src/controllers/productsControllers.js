@@ -1,19 +1,30 @@
+/*Import modules*/
 const path = require("path");
 const fs = require("fs")
+/*-------------*/
 
+/*Import JSON's*/
 const datausersJSON = path.join(__dirname, '../model/data/users.json');
 const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
 
 const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
 const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
+/*-------------*/
 
+/*Products Controller Methods*/
 const productsController = {
+
+    /*|VIEW| When users access to specific Artist -> Show list from their products*/
     productDetail: (req, res) => {
-        const idProducto = req.params.id;
 
-        const filtraProducto = dataProducts.find(product => product.id == idProducto);
-        const filtraUsuario = datausers.find(user => user.id == filtraProducto.idUser);
+        /* Require ID from path*/
+        const userId = req.params.userId;
 
+        /*Search from JSON*/
+        const filtraUsuario = datausers.find(user => user.id == userId);
+        const filtraProducto = dataProducts.find(product => product.idUser == filtraUsuario.id);
+
+        /*Show in page*/
         res.render("products/productDetail", { filtraProducto: filtraProducto, filtraUsuario: filtraUsuario });
     },
     productCreate: (req, res) => {
