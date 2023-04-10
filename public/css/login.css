@@ -45,6 +45,7 @@
     border-radius: 20px;
     color: #d9c6b0;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .login-form-content{
@@ -91,6 +92,7 @@
     border-radius: 20px;
     border: 4px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .form-login-forgot-password{
@@ -131,6 +133,7 @@
     border-top-right-radius:15px;
     border-top-left-radius:15px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 
@@ -138,6 +141,11 @@
     background-color: #f5f5f50e;
 }
 
+.error-msg{
+    margin-top: -3%;
+    font-weight: 500;
+    color: red;
+}
 
 @media (min-width:768px){
     .main-login{

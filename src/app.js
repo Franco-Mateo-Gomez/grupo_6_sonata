@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 
 /*Routes*/
 const mainRoutes = require("./routes/main");
+const userRoutes = require("./routes/user")
 const payingRoutes = require("./routes/paying");
 const productsRoutes = require("./routes/products");
 const generesRoutes = require("./routes/generes");
@@ -25,7 +26,7 @@ app.set("view engine","ejs");
 
 /*Port configuration*/
 app.listen(port,()=>{
-    console.log("Running on: http://localhost:"+port);
+    console.log("Running on: http://localhost:"+port+"/sonata");
 })
 
 /*Use Method Override*/
@@ -45,7 +46,8 @@ app.use(session({
 app.use(express.static(path.join(__dirname,'../public')));
 
 /*Use routes*/
-app.use("/",mainRoutes);
+app.use("/",userRoutes);
+app.use("/sonata",mainRoutes);
 app.use("/checkout",payingRoutes);
 app.use("/product",productsRoutes);
 app.use("/generes",generesRoutes);

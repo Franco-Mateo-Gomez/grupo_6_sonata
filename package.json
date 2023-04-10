@@ -4,8 +4,7 @@
   "description": "- **Servicios que ofrece el sitio:** Nuestro sitio pone a la venta proyectos de audio, creados por grupos o artistas emergentes. El contenido está orientado en múltiples géneros.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/app.js"
+    "dev": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +17,7 @@
   },
   "homepage": "https://github.com/Franco-Mateo-Gomez/grupo_6_sonata#readme",
   "dependencies": {
-    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
@@ -28,6 +27,7 @@
     "method-override": "^3.0.0",
     "multer": "^1.4.5-lts.1",
     "node-notifier": "^10.0.1",
+    "nodemon": "^2.0.22",
     "override": "^0.0.1"
   }
 }

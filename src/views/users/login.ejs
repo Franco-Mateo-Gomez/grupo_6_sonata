@@ -19,7 +19,7 @@
                 <img class="logo" src="/images/imagen_logo_sonata_v1.png" alt="logo Sonata">
             </div>
 
-            <a href="/general"><button class="login-button">Volver al Inicio</button></a>
+            <a href="/sonata"><button class="login-button">Volver al Inicio</button></a>
 
         </section>
 
@@ -28,16 +28,23 @@
 
             <h1 class="titulares">INICIAR SESIÓN</h1>
 
-            <form class="form-login" action="/login" method="post">
+            <form class="form-login" action="" method="post">
+
 
                 <label class="label-forms" for="">Email/Usuario</label>
-                <input type="text" name="user_email" required placeholder="Nombre de usuari@"></input>
-                <% if (locals.errors && errors.user_email) { %>
-                    <h6><%= errors.user_email.msg %></h6>
+                <input type="text" name="user_email"  placeholder="Nombre de usuari@" value="<%= locals.oldData ? oldData.user_email :null %>"></input>
+                <% if (locals.errors && errors.user_email ) { %>
+                    <div class="error-msg">
+                        <%=errors.user_email.msg%>
+                    </div>
                 <% } %>
-
                 <label class="label-forms" for="">Clave</label>
-                <input type="password" name="user_password" required placeholder="Contraseña"></input>
+                <input type="password" name="user_password"  placeholder="Contraseña" value="<%= locals.oldData ? oldData.user_password :null %>"></input>
+                <% if (locals.errors && errors.user_password ) { %>
+                    <div class="error-msg">
+                        <%=errors.user_password.msg%>
+                    </div>
+                <% } %>
 
                 <a class="form-login-submit" href="#">
                     <button type="submit">Ingresar</button>
@@ -54,7 +61,7 @@
 
             <div class="login-register-section">
                 <h5 class="recomendaciones">¿Eres nuevo?</h5>
-                <a href="#"><button>Crear cuenta</button></a>
+                <a href="/register"><button>Crear cuenta</button></a>
             </div>
 
         </section>
