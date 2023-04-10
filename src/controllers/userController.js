@@ -108,6 +108,11 @@ const userController = {
 
     },
     processUserConfig:(req,res) => {
+
+        if(!req.session.user_data){
+            res.redirect("/login");
+        }
+
         const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email);
 
         let datosModificados = req.body;
@@ -123,6 +128,11 @@ const userController = {
         res.redirect("/config")
     },
     processUserConfigImage:(req,res) =>{
+
+        if(!req.session.user_data){
+            res.redirect("/login");
+        }
+
         const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email);
 
         let datosModificados = req.body;
@@ -139,6 +149,11 @@ const userController = {
         res.redirect("/config");
     },
     processUserConfigPassword:(req,res) => {
+
+        if(!req.session.user_data){
+            res.redirect("/login");
+        }
+
         const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email);
 
         let usuario = datausers.findIndex( user => user.id == filtraUsuario.id);
