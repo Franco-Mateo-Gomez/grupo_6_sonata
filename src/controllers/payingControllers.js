@@ -24,6 +24,9 @@ const productList=[
 
 const payingController={
     checkout:(req,res) =>{
+        if(!req.session.user_data){
+            res.redirect("/login");
+        }
         res.render("products/productCart",{productList:productList});
     }
 }

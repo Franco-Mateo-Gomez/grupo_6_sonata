@@ -34,15 +34,15 @@ const upload = multer({ storage: storage });
 
 router.get("/detail/:userId", productsController.productDetail);
 
-router.get("/:userId/admin-products", productsController.adminProducts);
+router.get("/admin-products", productsController.adminProducts);
 
-router.get("/:userId/create", productsController.productCreate);
-router.post("/:userId/create", upload.single("imgPista"), productsController.create);
+router.get("/create", productsController.productCreate);
+router.post("/create", upload.single("imgPista"), productsController.create);
 
 router.get("/:userId/edit/:id", productsController.productEditView);
 router.put("/:userId/edit/:id", upload.single("imgPista"), productsController.productEdit);
 
-router.get("/:userId/edit-list", productsController.productEditList);
+router.get("/edit-list", productsController.productEditList);
 router.delete("/:userId/edit-list/:id", productsController.productDelete);
 
 

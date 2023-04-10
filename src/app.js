@@ -8,10 +8,15 @@ const bodyParser = require('body-parser');
 
 /*Routes*/
 const mainRoutes = require("./routes/main");
+const userRoutes = require("./routes/user")
 const payingRoutes = require("./routes/paying");
 const productsRoutes = require("./routes/products");
 const generesRoutes = require("./routes/generes");
+const cookieParser = require('cookie-parser');
 /*-----*/
+
+/*Middlewares*/
+const recordameMiddleware = require("./middlewares/recordameMiddleware")
 
 /*Express Methods declaration*/
 const app = express();
@@ -25,14 +30,18 @@ app.set("view engine","ejs");
 
 /*Port configuration*/
 app.listen(port,()=>{
-    console.log("Running on: http://localhost:"+port);
+    console.log("Running on: http://localhost:"+port+"/sonata");
 })
+
+
 
 /*Use Method Override*/
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
+/*Use Cookie-parser*/
+app.use(cookieParser());
 
 /*Use Express Session*/
 app.use(session({
@@ -41,11 +50,14 @@ app.use(session({
     saveUninitialized:false
 }));
 
+app.use(recordameMiddleware);
+
 /*Use Public folder*/
 app.use(express.static(path.join(__dirname,'../public')));
 
 /*Use routes*/
-app.use("/",mainRoutes);
+app.use("/",userRoutes);
+app.use("/sonata",mainRoutes);
 app.use("/checkout",payingRoutes);
 app.use("/product",productsRoutes);
 app.use("/generes",generesRoutes);
