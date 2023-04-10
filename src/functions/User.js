@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path')
 const User = {
     
-    fileName: path.join(__dirname,"./data/users.json"),
+    fileName: path.join(__dirname,"../model/data/users.json"),
    
     //Función para traer a todos los usuarios de la DB y convertirlo en un objeto JS.
     getUsers: function(){

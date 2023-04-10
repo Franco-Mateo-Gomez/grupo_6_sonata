@@ -18,11 +18,19 @@ const productsController = {
     productDetail: (req, res) => {
 
         /* Require ID from path*/
-        const userId = req.params.userId;
+        const productId = req.params.productId;
 
+        // console.log("ID USUARIO: "+userId)
+        // console.log("Data USUARIOA: ", datausers.find(user => user.id == userId))
+        // console.log("Data PRODUCTOS: ", dataProducts.find(product => product.idUser == userId))
         /*Search from JSON*/
-        const filtraUsuario = datausers.find(user => user.id == userId);
-        const filtraProducto = dataProducts.find(product => product.idUser == filtraUsuario.id);
+        
+        let filtraProducto = dataProducts.find(product => product.id == productId);
+        let filtraUsuario = datausers.find(user => user.id == filtraProducto.idUser);
+
+        if(!filtraProducto){
+            filtraProducto = dataProducts[0]
+        }
 
         /*Show in page*/
         res.render("products/productDetail", { filtraProducto: filtraProducto, filtraUsuario: filtraUsuario });
