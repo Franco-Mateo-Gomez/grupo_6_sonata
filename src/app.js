@@ -12,7 +12,11 @@ const userRoutes = require("./routes/user")
 const payingRoutes = require("./routes/paying");
 const productsRoutes = require("./routes/products");
 const generesRoutes = require("./routes/generes");
+const cookieParser = require('cookie-parser');
 /*-----*/
+
+/*Middlewares*/
+const recordameMiddleware = require("./middlewares/recordameMiddleware")
 
 /*Express Methods declaration*/
 const app = express();
@@ -29,11 +33,15 @@ app.listen(port,()=>{
     console.log("Running on: http://localhost:"+port+"/sonata");
 })
 
+
+
 /*Use Method Override*/
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
+/*Use Cookie-parser*/
+app.use(cookieParser());
 
 /*Use Express Session*/
 app.use(session({
@@ -41,6 +49,8 @@ app.use(session({
     resave: false,
     saveUninitialized:false
 }));
+
+app.use(recordameMiddleware);
 
 /*Use Public folder*/
 app.use(express.static(path.join(__dirname,'../public')));
