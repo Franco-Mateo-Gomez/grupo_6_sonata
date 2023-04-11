@@ -139,6 +139,7 @@ const productsController = {
         fs.writeFileSync(path.join(__dirname, '../model/data/products.json'), productosUsuariosJSON);
 
         return res.redirect("/general")
+        
     }
 
 }
