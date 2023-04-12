@@ -7,9 +7,18 @@ const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
 
 function recordameMiddleware(req,res,next) {
 
-    if(req.cookies.recordame !=undefined && req.session.user_data == undefined){
-        const filtraUsuario = datausers.find(user => user.email == req.cookies.recordame || user.nombreArtista == req.cookies.recordame);
-        req.session.user_data=filtraUsuario;
+    if(req.cookies && req.cookies.recordame){
+        let userOrEmail = req.cookies.recordame;
+        let filtraUsuario = datausers.find(user => user.email == userOrEmail || user.nombreArtista == userOrEmail);
+        
+        if(userOrEmail){
+            req.session.user_data=filtraUsuario;
+        }
+
+        if(req.session.user_data){
+            res.locals.user_data = req.session.user_data;
+        }
+        
     }
     next();
 }

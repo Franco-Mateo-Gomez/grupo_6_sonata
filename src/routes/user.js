@@ -57,6 +57,6 @@ router.put("/configImage",upload.single("user_image"),userController.processUser
 router.put("/configPassword",userController.processUserConfigPassword);
 
 /*Logout Path*/
-router.get("/logout",userController.logout);
+router.delete("/logout",userController.logout);
 
 module.exports = router;

@@ -32,10 +32,11 @@ const userController = {
 
             /*Save data in Session :) */
             req.session.user_data=req.body;
+            console.log(req.session.user_data);
             /*------------------------*/
 
             if(req.body.recordame !=undefined){
-                res.cookie("recordame",req.session.user_data,{maxAge:1800000});
+                res.cookie("recordame",req.session.user_data,{maxAge:1000 *60 *10});
                 console.log(req.cookies.recordame);
             }
 
