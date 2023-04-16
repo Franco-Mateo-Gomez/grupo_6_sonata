@@ -19,11 +19,6 @@ const productsController = {
 
         /* Require ID from path*/
         const productId = req.params.productId;
-
-        // console.log("ID USUARIO: "+userId)
-        // console.log("Data USUARIOA: ", datausers.find(user => user.id == userId))
-        // console.log("Data PRODUCTOS: ", dataProducts.find(product => product.idUser == userId))
-        /*Search from JSON*/
         
         let filtraProducto = dataProducts.find(product => product.id == productId);
         let filtraUsuario = datausers.find(user => user.id == filtraProducto.idUser);
@@ -36,7 +31,7 @@ const productsController = {
         res.render("products/productDetail", { filtraProducto: filtraProducto, filtraUsuario: filtraUsuario });
     },
     productCreate: (req, res) => {
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email);
+        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
         const idUser=filtraUsuario.id
         res.render("products/createProduct",{idUser})
     },
@@ -81,7 +76,7 @@ const productsController = {
             res.redirect("/login");
         }
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email);
+        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
         const filtraTraks = dataProducts.filter(productosUsuarios => productosUsuarios.idUser == filtraUsuario.id);
 
         res.render("products/editProductList", { filtraTraks: filtraTraks, filtraUsuario: filtraUsuario })
@@ -93,15 +88,14 @@ const productsController = {
             res.redirect("/login");
         }
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email);
+        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
         res.render("products/adminProducts", { filtraUsuario: filtraUsuario });
     },
 
     productDelete: (req, res) => {
         const idProductosUsuarios = req.params.id;
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email);
-
+        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
         const findTrack = dataProducts.findIndex(productosUsuarios => productosUsuarios.id == idProductosUsuarios && productosUsuarios.idUser == filtraUsuario.id);
 
         dataProducts.splice(findTrack, 1);
@@ -113,8 +107,7 @@ const productsController = {
     
     create: (req, res) => {
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email);
-        
+        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);        
         let producto = {
             id: dataProducts[dataProducts.length - 1].id + 1,
             img: "/images/products/" + req.file.filename,

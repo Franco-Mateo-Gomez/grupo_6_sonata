@@ -32,12 +32,10 @@ const userController = {
 
             /*Save data in Session :) */
             req.session.user_data=req.body;
-            console.log(req.session.user_data);
             /*------------------------*/
 
             if(req.body.recordame !=undefined){
-                res.cookie("recordame",req.session.user_data,{maxAge:1000 *60 *10});
-                console.log(req.cookies.recordame);
+                res.cookie("recordame",req.session.user_data.user_email,{maxAge:1000 *60 *10});
             }
 
             res.redirect("/general");
@@ -104,12 +102,14 @@ const userController = {
         res.redirect("/sonata")
     },
     configView:(req,res) => {
+        
+        console.log(req.session.user_data);
 
         if(!req.session.user_data){
             res.redirect("/login");
         }
         else{
-            const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email);
+            const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
             res.render("users/userConfig",{userConfig:filtraUsuario});
         }
 
@@ -120,7 +120,7 @@ const userController = {
             res.redirect("/login");
         }
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email);
+        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
 
         let datosModificados = req.body;
         let usuario = datausers.findIndex( user => user.id == filtraUsuario.id);
@@ -140,9 +140,8 @@ const userController = {
             res.redirect("/login");
         }
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email);
+        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
 
-        let datosModificados = req.body;
         let usuario = datausers.findIndex( user => user.id == filtraUsuario.id);
 
         if (req.file) {
@@ -161,7 +160,7 @@ const userController = {
             res.redirect("/login");
         }
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email);
+        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
 
         let usuario = datausers.findIndex( user => user.id == filtraUsuario.id);
 

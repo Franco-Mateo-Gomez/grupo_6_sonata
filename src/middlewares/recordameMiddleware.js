@@ -11,8 +11,8 @@ function recordameMiddleware(req,res,next) {
         let userOrEmail = req.cookies.recordame;
         let filtraUsuario = datausers.find(user => user.email == userOrEmail || user.nombreArtista == userOrEmail);
         
-        if(userOrEmail){
-            req.session.user_data=filtraUsuario;
+        if(filtraUsuario){
+            req.session.user_data=userOrEmail;
         }
 
         if(req.session.user_data){
