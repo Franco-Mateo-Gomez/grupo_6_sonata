@@ -21,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
 
     const Genre = sequelize.define(alias, colums, config);
 
-    //Relacionamos un Genero con muchos Albumos
+    //Relacionamos un Genero con muchos Albumes
     Genre.associate = function (models) {
         Genre.hasMany(models.Albums, {
             as: "albums", //Nombre de la relación

@@ -47,7 +47,11 @@ module.exports = (sequelize, dataTypes)=>{
             as: "genres", //Nombre de la relación
             foreignKey: "idGenre_Fk"
         })
+        Album.belongsTo(models.Composers,{
+            as: "composers", //Nombre de la relación
+            foreignKey: "idComposer_Fk"
+        })
     }
-
+    
     return Album;
 }

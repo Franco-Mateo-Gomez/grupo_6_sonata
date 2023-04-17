@@ -4,7 +4,8 @@ USE `SONATA`;
 CREATE TABLE `sonata`.`Users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `fullName` VARCHAR(50) NOT NULL,
-  `email` VARCHAR(50) NOT NULL,
+  `userName` VARCHAR(50) NOT NULL UNIQUE,
+  `email` VARCHAR(50) NOT NULL UNIQUE,
   `password` VARCHAR(255) NOT NULL,
   `image` VARCHAR(255) NOT NULL DEFAULT '/images/users/default.jpg',
   PRIMARY KEY (`id`));
@@ -60,7 +61,7 @@ ADD FOREIGN KEY (idOrder_Fk) REFERENCES Orders(id);
 ALTER TABLE OrdersAlbums MODIFY COLUMN idAlbum_Fk INT NOT NULL, 
 ADD FOREIGN KEY (idAlbum_Fk) REFERENCES Albums(id);
 
-ALTER TABLE Albums MODIFY COLUMN idGenre_Fk INT NOT NULL UNIQUE, 
+ALTER TABLE Albums MODIFY COLUMN idGenre_Fk INT NOT NULL, 
 ADD FOREIGN KEY (idGenre_Fk) REFERENCES Genres(id);
 
 ALTER TABLE Albums MODIFY COLUMN idComposer_Fk INT NOT NULL, 

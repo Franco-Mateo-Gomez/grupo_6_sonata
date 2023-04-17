@@ -11,7 +11,7 @@ const userController = require("../controllers/userController");
 const validaRegistro = require("../middlewares/validaRegister");
 const validarUsuario = require("../middlewares/validaLogin");
 
-
+let db = require('../database/models')
 /*Import JSON's*/
 const datausersJSON = path.join(__dirname, '../model/data/users.json');
 const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
@@ -59,4 +59,8 @@ router.put("/configPassword",userController.processUserConfigPassword);
 /*Logout Path*/
 router.get("/logout",userController.logout);
 
-module.exports = router;
+router.get("/ejemplo",(req,res)=>{
+    db.Albums.findAll({include:[{association: "genres"}, { association: "composers" }]}).then(albums => res.send(albums))
+});
+
+module.exports = router; 

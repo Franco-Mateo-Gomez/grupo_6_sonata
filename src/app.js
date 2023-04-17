@@ -56,7 +56,7 @@ app.use(recordameMiddleware);
 app.use(express.static(path.join(__dirname,'../public')));
 
 /*Use routes*/
-app.use("/",userRoutes);
+app.use("/", userRoutes);
 app.use("/sonata",mainRoutes);
 app.use("/checkout",payingRoutes);
 app.use("/product",productsRoutes);

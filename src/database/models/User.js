@@ -1,5 +1,6 @@
 module.exports = (sequelize, dataTypes)=>{
     let alias = "Users";
+
     let colums = {
         id:{
             type: dataTypes.INTEGER,
@@ -31,10 +32,12 @@ module.exports = (sequelize, dataTypes)=>{
             defaultValue:'/images/users/default.jpg'
         }
     }
+
     let config = {
         tableName: "users",
         timestamps: false
     }
+    
     const User = sequelize.define(alias, colums, config);
 
     return User;
