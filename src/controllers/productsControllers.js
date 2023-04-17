@@ -11,6 +11,9 @@ const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
 const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
 /*-------------*/
 
+/*Import Models Sequelize*/
+let db = require('../database/models')
+
 /*Products Controller Methods*/
 const productsController = {
 
@@ -121,6 +124,7 @@ const productsController = {
             idUser: filtraUsuario.id,
             valoracion: 0
         }
+
 
         //A la variable le agrego el nuevo usuario
         dataProducts.push(producto);

@@ -12,6 +12,9 @@ const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
 const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
 const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
 
+/*Import Models Sequelize*/
+let db = require('../database/models')
+
 const userController = {
     generalView:(req,res) =>{
 
@@ -93,7 +96,16 @@ const userController = {
             redes: [],
             genero:req.body.generes
         }
+
         datausers.push(newUser);
+        
+        db.Users.create({
+            fullName: req.body.client_fullname,
+            userName: req.body.user_name,
+            email:req.body.user_email,
+            password:bcrypt.hashSync(req.body.user_password, 10),
+            image:"/images/users/" + req.file.filename
+        })
 
         let usuariosJSON = JSON.stringify(datausers);
 
