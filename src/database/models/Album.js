@@ -51,6 +51,10 @@ module.exports = (sequelize, dataTypes)=>{
             as: "composers", //Nombre de la relación
             foreignKey: "idComposer_Fk"
         })
+        Album.hasMany(models.Songs,{
+            as: "songs", //Nombre de la relación
+            foreignKey: "idAlbum_Fk"
+        })
     }
     
     return Album;
