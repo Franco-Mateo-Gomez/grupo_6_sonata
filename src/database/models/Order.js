@@ -4,24 +4,24 @@ module.exports = function(sequelize, dataTypes){
         id:{
             type: dataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false, //NOT NULL
+            notNull: true,
             autoIncrement : true
         },
         status:{
             type: dataTypes.STRING,
-            allowNull: false //NOT NULL
+            notNull: true,
         },
         totalQuantity:{
             type: dataTypes.INTEGER,
-            allowNull: false, //NOT NULL
+            notNull: true,
         },
         totalPrice:{
             type: dataTypes.INTEGER,
-            allowNull: false, //NOT NULL
+            notNull: true,
         },
         date: {
             type: dataTypes.DATE,
-            allowNull: false
+            notNull: true,
         }
     }
     let config = {

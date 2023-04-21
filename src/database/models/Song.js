@@ -6,16 +6,16 @@ module.exports = (sequelize, dataTypes)=>{
         id:{
             type: dataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false, //NOT NULL
+            notNull: true,
             autoIncrement : true
         },
         name:{
             type: dataTypes.STRING,
-            allowNull: false //NOT NULL
+            notNull: true,
         },
         length:{
             type: dataTypes.BIGINT,
-            allowNull: false, //NOT NULL
+            notNull: true,
             defaultValue:'No posee una descripción'
         }
     };

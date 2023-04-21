@@ -5,13 +5,6 @@ const bcrypt = require("bcryptjs");
 const {validationResult} = require("express-validator")
 const User = require(path.join(__dirname, "../functions/User.js"));
 
-/*Import JSON's*/
-const datausersJSON = path.join(__dirname, '../model/data/users.json');
-const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
-
-const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
-const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
-
 /*Import Models Sequelize*/
 let db = require('../database/models')
 
@@ -66,7 +59,6 @@ const userController = {
 
         let userEmailVerification = User.findByField("email", req.body.user_email);
 
-
         if (userEmailVerification) {
 
             // Eliminar la imagen si se subió alguna
@@ -83,33 +75,27 @@ const userController = {
                 oldData: req.body
             })
         }
-
-        let newUser = {
-            id: datausers[datausers.length - 1].id + 1,
-            nombreCompleto: req.body.client_fullname,
-            email: req.body.user_email,
-            clave: bcrypt.hashSync(req.body.user_password, 10),
-            img: "/images/users/" + req.file.filename,
-            nombreArtista: req.body.user_name,
-            descripcion: "Todavia no escribio una descripción.",
-            valoracion: 0,
-            redes: [],
-            genero:req.body.generes
-        }
-
-        datausers.push(newUser);
         
-        db.Users.create({
-            fullName: req.body.client_fullname,
-            userName: req.body.user_name,
-            email:req.body.user_email,
-            password:bcrypt.hashSync(req.body.user_password, 10),
-            image:"/images/users/" + req.file.filename
-        })
+        let userType = req.body.typeUser;
 
-        let usuariosJSON = JSON.stringify(datausers);
-
-        fs.writeFileSync(path.join(__dirname, '../model/data/users.json'), usuariosJSON);
+        if(userType == "client") {
+            db.Users.create({
+                fullName: req.body.client_fullname,
+                userName: req.body.user_name,
+                email:req.body.user_email,
+                password:bcrypt.hashSync(req.body.user_password, 10),
+                image:"/images/users/" + req.file.filename
+           })
+        }
+        else{
+            db.Composers.create({
+                fullName: req.body.client_fullname,
+                userName: req.body.user_name,
+                email:req.body.user_email,
+                password:bcrypt.hashSync(req.body.user_password, 10),
+                image:"/images/users/" + req.file.filename
+            })
+        }
 
         res.redirect("/sonata")
     },
