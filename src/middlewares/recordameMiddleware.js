@@ -2,14 +2,22 @@ const path = require("path");
 const fs = require("fs")
 
 /*Import JSON's*/
-const datausersJSON = path.join(__dirname, '../model/data/users.json');
-const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
+// const datausersJSON = path.join(__dirname, '../model/data/users.json');
+// const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
 
-function recordameMiddleware(req,res,next) {
+let db = require('../database/models')
+
+async function recordameMiddleware(req,res,next) {
 
     if(req.cookies && req.cookies.recordame){
         let userOrEmail = req.cookies.recordame;
-        let filtraUsuario = datausers.find(user => user.email == userOrEmail || user.nombreArtista == userOrEmail);
+        // let filtraUsuario = datausers.find(user => user.email == userOrEmail || user.nombreArtista == userOrEmail);
+        
+        const filtraUsuario = await db.Users.findOne({where:{userName:userOrEmail}}) || 
+        await db.Users.findOne({where:{email:userOrEmail}}) ||
+
+        await db.Composers.findOne({where:{userName:userOrEmail}}) ||
+        await db.Composers.findOne({where:{email:userOrEmail}})
         
         if(filtraUsuario){
             req.session.user_data=userOrEmail;

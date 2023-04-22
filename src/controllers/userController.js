@@ -5,6 +5,13 @@ const bcrypt = require("bcryptjs");
 const {validationResult} = require("express-validator")
 const User = require(path.join(__dirname, "../functions/User.js"));
 
+/*Import JSON's*/
+const datausersJSON = path.join(__dirname, '../model/data/users.json');
+const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
+
+const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
+const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
+
 /*Import Models Sequelize*/
 let db = require('../database/models')
 
