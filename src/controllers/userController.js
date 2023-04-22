@@ -78,13 +78,15 @@ const userController = {
         
         let userType = req.body.typeUser;
 
+        let defaultUserImage = req.file ? "/images/users/" + req.file.filename : "/images/users/default.png";
+
         if(userType == "client") {
             db.Users.create({
                 fullName: req.body.client_fullname,
                 userName: req.body.user_name,
                 email:req.body.user_email,
                 password:bcrypt.hashSync(req.body.user_password, 10),
-                image:"/images/users/" + req.file.filename
+                image: defaultUserImage
            })
         }
         else{
@@ -93,7 +95,7 @@ const userController = {
                 userName: req.body.user_name,
                 email:req.body.user_email,
                 password:bcrypt.hashSync(req.body.user_password, 10),
-                image:"/images/users/" + req.file.filename
+                image: defaultUserImage
             })
         }
 
