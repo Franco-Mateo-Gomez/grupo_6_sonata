@@ -1,21 +1,21 @@
-module.exports = function(sequelize, dataTypes){
+module.exports = function (sequelize, dataTypes) {
     let alias = "Orders";
     let colums = {
-        id:{
+        id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             allowNull: false, //NOT NULL
-            autoIncrement : true
+            autoIncrement: true
         },
-        status:{
+        status: {
             type: dataTypes.STRING,
             allowNull: false //NOT NULL
         },
-        totalQuantity:{
+        totalQuantity: {
             type: dataTypes.INTEGER,
             allowNull: false, //NOT NULL
         },
-        totalPrice:{
+        totalPrice: {
             type: dataTypes.INTEGER,
             allowNull: false, //NOT NULL
         },
@@ -29,15 +29,20 @@ module.exports = function(sequelize, dataTypes){
         timestamps: false,
     }
     const Order = sequelize.define(alias, colums, config);
-    
+
     //Una orden tiene muchos albumes
-    Order.associate = function(models){
+    Order.associate = function (models) {
         Order.belongsToMany(models.Albums, {
             as: "albums", //Nombre de la relación
             through: "ordersalbums",
             foreignKey: "idOrder_Fk",
             otherkey: "idAlbum_Fk",
             timestamps: false
+        })
+        
+        Order.belongsTo(models.Users, {
+            as: "users", //Nombre de la relación
+            foreignKey: "idUser_Fk"
         })
     }
     return Order;

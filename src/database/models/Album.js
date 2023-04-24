@@ -31,6 +31,10 @@ module.exports = (sequelize, dataTypes)=>{
         dateUpload:{
             type: dataTypes.DATE,
             allowNull: false, //NOT NULL
+        },
+        price:{
+            type: dataTypes.INTEGER,
+            allowNull: false, //NOT NULL
         }
     };
 
@@ -54,6 +58,13 @@ module.exports = (sequelize, dataTypes)=>{
         Album.hasMany(models.Songs,{
             as: "songs", //Nombre de la relación
             foreignKey: "idAlbum_Fk"
+        })
+        Album.belongsToMany(models.Orders, {
+            as: "orders", //Nombre de la relación
+            through: "ordersalbums",
+            foreignKey: "idAlbum_Fk",
+            otherkey: "idOrder_Fk",
+            timestamps: false
         })
     }
     
