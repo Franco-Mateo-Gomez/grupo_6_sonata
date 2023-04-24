@@ -111,31 +111,39 @@ const productsController = {
     create: (req, res) => {
 
         const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);        
-        let producto = {
-            id: dataProducts[dataProducts.length - 1].id + 1,
-            img: "/images/products/" + req.file.filename,
-            nombreTrack: req.body.nombrePista,
-            duracion: "",
-            fechaPublicacion: "",
-            descripcionProducto: req.body.descripcion_pista,
-            genero: req.body.edit_generes,
-            precio: req.body.precio_pista,
-            moneda: req.body.moneda,
-            idUser: filtraUsuario.id,
-            valoracion: 0
-        }
+        
+        db.Songs.create({
+            name: req.body.nombrePista,
+            length: 3000
+        })
+        .then(createSong=>{
+            return res.redirect("/general") 
+        })
 
+        //* GUÍA PARA ÁLBUM *//
+        // let producto = {
+        //     id: dataProducts[dataProducts.length - 1].id + 1,
+        //     img: "/images/products/" + req.file.filename,
+        //     nombreTrack: req.body.nombrePista,
+        //     duracion: "",
+        //     fechaPublicacion: "",
+        //     descripcionProducto: req.body.descripcion_pista,
+        //     genero: req.body.edit_generes,
+        //     precio: req.body.precio_pista,
+        //     moneda: req.body.moneda,
+        //     idUser: filtraUsuario.id,
+        //     valoracion: 0
+        // }
 
-        //A la variable le agrego el nuevo usuario
-        dataProducts.push(producto);
+        /* SIN UTILIDAD */
+        // //A la variable le agrego el nuevo usuario
+        // dataProducts.push(producto);
 
-        //Convierto el objeto en un string
-        let productosUsuariosJSON = JSON.stringify(dataProducts);
+        // //Convierto el objeto en un string
+        // let productosUsuariosJSON = JSON.stringify(dataProducts);
 
-        //Escribo los cambios en el archivo
-        fs.writeFileSync(path.join(__dirname, '../model/data/products.json'), productosUsuariosJSON);
-
-        return res.redirect("/general")
+        // //Escribo los cambios en el archivo
+        // fs.writeFileSync(path.join(__dirname, '../model/data/products.json'), productosUsuariosJSON);
         
     }
 

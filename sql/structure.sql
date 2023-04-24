@@ -66,3 +66,14 @@ ADD FOREIGN KEY (idGenre_Fk) REFERENCES Genres(id);
 
 ALTER TABLE Albums MODIFY COLUMN idComposer_Fk INT NOT NULL, 
 ADD FOREIGN KEY (idComposer_Fk) REFERENCES Composers(id);
+
+# Modifica la tabla de compositores
+
+ALTER TABLE composers DROP COLUMN IF EXISTS name;
+
+ALTER TABLE composers 
+ADD IF NOT EXISTS email VARCHAR(150) NOT NULL,
+ADD IF NOT EXISTS fullName VARCHAR(150) NOT NULL,
+ADD IF NOT EXISTS image VARCHAR(255) NOT NULL DEFAULT '/images/users/default.jpg',
+ADD IF NOT EXISTS password VARCHAR(255) NOT NULL,
+ADD IF NOT EXISTS userName VARCHAR(150) NOT NULL;

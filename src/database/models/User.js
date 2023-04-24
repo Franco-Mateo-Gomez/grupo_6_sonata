@@ -5,30 +5,30 @@ module.exports = (sequelize, dataTypes)=>{
         id:{
             type: dataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false, //NOT NULL
+            notNull: true,
             autoIncrement : true
         },
         fullName:{
             type: dataTypes.STRING(50),
-            allowNull: false //NOT NULL
+            notNull: true,
         },
         userName:{
             type: dataTypes.STRING(50),
-            allowNull: false, //NOT NULL
+            notNull: true,
             unique: true
         },
         email:{
-            type: dataTypes.STRING(50),
-            allowNull: false, //NOT NULL
+            type: dataTypes.STRING(150),
+            notNull: true,
             unique: true
         },
         password:{
             type: dataTypes.STRING(255),
-            allowNull: false, //NOT NULL
+            notNull: true,
         },
         image:{
             type: dataTypes.STRING(255),
-            allowNull: false, //NOT NULL
+            notNull: true,
             defaultValue:'/images/users/default.jpg'
         }
     }

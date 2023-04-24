@@ -6,26 +6,26 @@ module.exports = (sequelize, dataTypes)=>{
         id:{
             type: dataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false, //NOT NULL
+            notNull: true,
             autoIncrement : true
         },
         name:{
-            type: dataTypes.STRING(50),
-            allowNull: false //NOT NULL
+            type: dataTypes.STRING(100),
+            notNull: true,
         },
         description:{
             type: dataTypes.TEXT,
-            allowNull: false, //NOT NULL
+            notNull: true,
             unique: true
         },
         image:{
             type: dataTypes.STRING(255),
-            allowNull: false, //NOT NULL
+            notNull: true,
             defaultValue:'/images/users/default.jpg'
         },
         rate:{
             type: dataTypes.TINYINT,
-            allowNull: false, //NOT NULL
+            notNull: true,
             unique: true
         },
         dateUpload:{

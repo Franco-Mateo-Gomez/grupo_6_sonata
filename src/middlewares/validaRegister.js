@@ -27,11 +27,7 @@ const validationsRegister = [
         let file = req.file;
         let acceptedExtensions = ['.jpg','.png'];
         
-
-        //Si no ahi nada en file por defecto tiene el valor undefined que negandolo es positivo
-        if (!file) {
-            throw new Error("Tienes que subir una imagen para tu perfil");
-        }else{
+        if(file){
             let fileExtension = path.extname(file.originalname)
             if(!acceptedExtensions.includes(fileExtension)){
                 throw new Error(`Las extensiones de los archivos permitidos son ${acceptedExtensions.join(", ")}`)

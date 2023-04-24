@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express")
 const path = require("path");
 const multer = require("multer");
 const fs = require("fs")
@@ -22,16 +22,22 @@ const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, path.join(__dirname, "../../public/images/users"));
     },
+
     //Definimos el nombre del archivo
-    filename: function (req, file, cb) {
+    filename: async function (req, file, cb) {
 
         let userId;
 
-        if (req.params.id) {
-            userId = req.params.id;
-        } else {
-            userId = datausers[datausers.length - 1].id + 1;
-        }
+        // Consulta a la BD el usuario
+        const usuarioDB = await db.Users.findByPk(req.params.id) || await db.Composers.findByPk(req.params.id);
+        
+        if(usuarioDB){
+                userId = usuarioDB.id;
+            }
+            else{
+                const ultimoUsuarioDB = await db.Users.max("id") || await db.Composers.max("id") ;
+                userId = ultimoUsuarioDB + 1;
+            }
 
         const extension = path.extname(file.originalname);
         
@@ -50,6 +56,7 @@ router.post("/login",validarUsuario,userController.loginUser);
 /*Register Path*/
 router.get("/register",userController.registerView);
 router.post("/register",upload.single("user_image"),validaRegistro,userController.registerUser);
+
 /*------------*/
 
 router.get("/config",userController.configView);
