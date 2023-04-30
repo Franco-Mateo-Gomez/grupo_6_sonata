@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+
+        <%for(let i=0; i < locals.Orders.length; i++ ){%>
+            <h2>User: <%=locals.Orders[i].users.userName %> </h2>
+            <li>ESTADO: <%=locals.Orders[i].status%> --- Precio Total: <%=locals.Orders[i].totalPrice%></li>
+            <ul>
+                <%for(let j=0; j < Object.keys(locals.Orders[i].albums).length; j++ ){%>
+                    <li><%=j+1%>: <%=locals.Orders[i].albums[j].name%> <br> </li>
+                <%}%>
+            </ul>
+        <%}%>
+
+    </ul> 
+</body>
+</html>

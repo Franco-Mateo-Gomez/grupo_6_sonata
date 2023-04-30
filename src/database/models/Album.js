@@ -35,7 +35,11 @@ module.exports = (sequelize, dataTypes)=>{
         },
         dateUpload:{
             type: dataTypes.DATE,
-            notNull: true,
+            allowNull: false, //NOT NULL
+        },
+        price:{
+            type: dataTypes.INTEGER,
+            allowNull: false, //NOT NULL
         }
     };
 
@@ -60,7 +64,5 @@ module.exports = (sequelize, dataTypes)=>{
         //     as: "songs", //Nombre de la relación
         //     foreignKey: "idAlbum_Fk"
         // })
+        }
     }
-    
-    return Album;
-}
