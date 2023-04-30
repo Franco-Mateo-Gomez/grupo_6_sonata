@@ -23,8 +23,13 @@ module.exports = (sequelize, dataTypes)=>{
             notNull: true,
             defaultValue:'/images/users/default.jpg'
         },
-        rate:{
-            type: dataTypes.TINYINT,
+        coin:{
+            type: dataTypes.STRING(5),
+            notNull: true,
+            unique: true
+        },
+        price:{
+            type: dataTypes.DECIMAL,
             notNull: true,
             unique: true
         },
@@ -44,17 +49,17 @@ module.exports = (sequelize, dataTypes)=>{
     //Relacionamos Albumes con un Genero
     Album.associate = function(models){
         Album.belongsTo(models.Genres,{
-            as: "genres", //Nombre de la relación
-            foreignKey: "idGenre_Fk"
-        })
-        Album.belongsTo(models.Composers,{
-            as: "composers", //Nombre de la relación
-            foreignKey: "idComposer_Fk"
-        })
-        Album.hasMany(models.Songs,{
-            as: "songs", //Nombre de la relación
-            foreignKey: "idAlbum_Fk"
-        })
+            as: "genreAlbum", //Nombre de la relación
+            foreignKey: "genereIdFk"
+        }),
+         Album.belongsTo(models.Composers,{
+             as: "composerAlbum", //Nombre de la relación
+             foreignKey: "composerIdFk"
+         })
+        // Album.hasMany(models.Songs,{
+        //     as: "songs", //Nombre de la relación
+        //     foreignKey: "idAlbum_Fk"
+        // })
     }
     
     return Album;

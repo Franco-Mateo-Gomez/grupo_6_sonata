@@ -12,16 +12,22 @@ const storage = multer.diskStorage({
         cb(null, path.join(__dirname, "../../public/images/products"));
     },
     //Filename config *
-    filename: function (req, file, cb) {
+    filename: async function (req, file, cb) {
         const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
         const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
 
-        let productoId;
+        let albumId;
 
-        if (req.params.id) {
-            productoId = req.params.id;
-        } else {
-            productoId = dataProducts[dataProducts.length - 1].id + 1;
+        // Consulta a la BD el Álbum
+        const albumDB = await db.Albums.findByPk(req.params.id);
+
+
+        if(albumDB){
+            albumId = albumDB.id;
+        }
+        else{
+            const ultimoAlbumDB = await db.Albums.max("id");
+            albumId = ultimoAlbumDB + 1;
         }
 
         const extension = path.extname(file.originalname);
@@ -36,8 +42,8 @@ router.get("/detail/:productId", productsController.productDetail);
 
 router.get("/admin-products", productsController.adminProducts);
 
-router.get("/create", productsController.productCreate);
-router.post("/create", upload.single("imgPista"), productsController.create);
+router.get("/create/album", productsController.productCreateAlbumView);
+router.post("/create/album", upload.single("imgPista"), productsController.productCreateAlbum);
 
 router.get("/:userId/edit/:id", productsController.productEditView);
 router.put("/:userId/edit/:id", upload.single("imgPista"), productsController.productEdit);

@@ -50,7 +50,7 @@ module.exports = (sequelize, dataTypes)=>{
     Composer.associate = function (models) {
         Composer.hasMany(models.Albums, {
             as: "albums", //Nombre de la relación
-            foreignKey: "idComposer_Fk"
+            foreignKey: "id"
         })
     }
 

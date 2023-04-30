@@ -25,8 +25,6 @@ const validations=[
         /* Use email or name from user*/
         const globalUser = emailUser || nameUser    
 
-        console.log(globalUser);
-
         if (!globalUser) {
             throw new Error("El usuario ingresado no existe");
         }

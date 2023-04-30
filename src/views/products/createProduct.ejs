@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Titulo e icono de la pestaña-->
-    <title>¡Bienvenidos a Sonata!</title>
+    <title>Crear Álbum</title>
     <link rel="shortcut icon" href="/images/imagen_logo_sonata_v1.png">
 
     <!--CDN FONT AWESOME-->
@@ -34,9 +34,9 @@
 
             </section>
 
-            <form class="form_productos" action="/product/create" method="POST" enctype="multipart/form-data">
+            <form class="form_productos" action="/product/create/album" method="POST" enctype="multipart/form-data">
                 <input type="file" name="imgPista" id="imagen_pista">
-                <h2 class="titulo_formulario">Subir pista</h2>
+                <h2 class="titulo_formulario">Subir Álbum</h2>
 
                 <section class="contenedor_formulario">
 
@@ -45,14 +45,14 @@
                         <div class="inputs_superiores">
 
                             <div>
-                                <label for="nombre_pista">Nombre de la pista:</label>
-                                <input class="input_personalizado_barra" type="text" name="nombrePista" id="nombre_pista">
+                                <label for="nombre_pista">Nombre del Álbum:</label>
+                                <input class="input_personalizado_barra" type="text" name="nombreAlbum" id="nombre_pista">
                             </div>
     
                             <div>
 
                                 <label for="genero_pista">Género:</label>
-                                <select class="list-generes" name="edit_generes">
+                                <select class="list-generes" name="genere">
 
                                     <option value="ROCK">
                                         ROCK
@@ -84,7 +84,7 @@
     
                         <div class="inputs_inferiores">
                             <label for="descripcion_pista">Descripción:</label>
-                            <textarea class="input_personalizado_fondo" name="descripcion_pista" id="descripcion_pista"></textarea>
+                            <textarea class="input_personalizado_fondo" name="descripcion_album" id="descripcion_pista"></textarea>
                         </div>
 
                         <label class="boton_subir_imagen" for="imagen_pista">Insertar imagen<i class="fa-solid fa-circle-plus"></i></label>
@@ -95,7 +95,7 @@
                     <section class="formulario_inferior">
                         <div>
                             <label for="precio_pista">Precio:</label>
-                            <input class="input_personalizado_barra" type="text" name="precio_pista" id="precio_pista">
+                            <input class="input_personalizado_barra" type="text" name="precio_album" id="precio_pista">
                         </div>
     
                         <div>

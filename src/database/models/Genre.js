@@ -4,9 +4,9 @@ module.exports = (sequelize, dataTypes) => {
     let colums = {
         id: {
             type: dataTypes.INTEGER,
-            primaryKey: true,
-            notNull: true,
-            autoIncrement: true
+             primaryKey: true,
+             notNull: true,
+             autoIncrement: true
         },
         name: {
             type: dataTypes.STRING(255),
@@ -24,8 +24,8 @@ module.exports = (sequelize, dataTypes) => {
     //Relacionamos un Genero con muchos Albumes
     Genre.associate = function (models) {
         Genre.hasMany(models.Albums, {
-            as: "albums", //Nombre de la relación
-            foreignKey: "idGenre_Fk"
+            as: "albums", 
+            foreignKey: "id"
         })
     }
 

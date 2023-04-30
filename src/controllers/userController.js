@@ -109,8 +109,6 @@ const userController = {
         res.redirect("/sonata")
     },
     configView:(req,res) => {
-        
-        console.log(req.session.user_data);
 
         if(!req.session.user_data){
             res.redirect("/login");

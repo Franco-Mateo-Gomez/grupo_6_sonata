@@ -31,12 +31,12 @@ const storage = multer.diskStorage({
         const usuarioDB = await db.Users.findByPk(req.params.id) || await db.Composers.findByPk(req.params.id);
         
         if(usuarioDB){
-                userId = usuarioDB.id;
-            }
-            else{
-                const ultimoUsuarioDB = await db.Users.max("id") || await db.Composers.max("id") ;
-                userId = ultimoUsuarioDB + 1;
-            }
+            userId = usuarioDB.id;
+        }
+        else{
+            const ultimoUsuarioDB = await db.Users.max("id") || await db.Composers.max("id") ;
+            userId = ultimoUsuarioDB + 1;
+        }
 
         const extension = path.extname(file.originalname);
         

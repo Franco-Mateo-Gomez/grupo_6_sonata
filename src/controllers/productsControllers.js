@@ -33,8 +33,14 @@ const productsController = {
         /*Show in page*/
         res.render("products/productDetail", { filtraProducto: filtraProducto, filtraUsuario: filtraUsuario });
     },
-    productCreate: (req, res) => {
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
+    productCreateAlbumView: async (req, res) => {
+
+        const dataLogin = req.session.user_data.user_email || req.session.user_data
+        
+        const filtraUsuario = 
+        await db.Composers.findOne({where:{userName:dataLogin}}) ||
+        await db.Composers.findOne({where:{email:dataLogin}});
+
         const idUser=filtraUsuario.id
         res.render("products/createProduct",{idUser})
     },
@@ -85,13 +91,22 @@ const productsController = {
         res.render("products/editProductList", { filtraTraks: filtraTraks, filtraUsuario: filtraUsuario })
     },
 
-    adminProducts: (req, res) => {
+    adminProducts: async (req, res) => {
 
         if(!req.session.user_data){
             res.redirect("/login");
         }
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
+        const dataLogin = req.session.user_data.user_email || req.session.user_data
+        
+        const filtraUsuario = 
+        await db.Composers.findOne({where:{userName:dataLogin}}) ||
+        await db.Composers.findOne({where:{email:dataLogin}});
+
+        if(!filtraUsuario){
+            res.send("Usted no es Artista :(")
+        }
+
         res.render("products/adminProducts", { filtraUsuario: filtraUsuario });
     },
 
@@ -108,13 +123,29 @@ const productsController = {
         res.redirect("/product/edit-list");
     },
     
-    create: (req, res) => {
+    productCreateAlbum: async (req, res) => {
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);        
-        
-        db.Songs.create({
-            name: req.body.nombrePista,
-            length: 3000
+        const dataLogin = req.session.user_data.user_email || req.session.user_data
+
+        const filtraUsuario = 
+        await db.Composers.findOne({where:{userName:dataLogin}}) ||
+        await db.Composers.findOne({where:{email:dataLogin}});
+
+        const idUser=filtraUsuario.id
+
+        const filtraGenero = await db.Genres.findOne({where:{name:req.body.genere}});
+
+        let defaultAlbumImage = req.file ? "/images/products/albums/" + req.file.filename : "/images/products/albums/default.jpg";
+
+        db.Albums.create({
+            name: req.body.nombreAlbum,
+            description: req.body.descripcion_album,
+            image: defaultAlbumImage,
+            coin: req.body.moneda,
+            price: req.body.precio_album,
+            composerIdFk: idUser,
+            genereIdFk: filtraGenero.id,
+
         })
         .then(createSong=>{
             return res.redirect("/general") 
