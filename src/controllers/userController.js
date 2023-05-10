@@ -38,7 +38,7 @@ const userController = {
             /*------------------------*/
 
             if(req.body.recordame !=undefined){
-                res.cookie("recordame",req.session.user_data.user_email,{maxAge:1000 *60 *10});
+                res.cookie("recordame",req.session.user_data.user_email,{maxAge:1000 *60 *30});
             }
 
             res.redirect("/general");

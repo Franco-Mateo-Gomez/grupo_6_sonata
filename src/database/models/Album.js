@@ -35,11 +35,11 @@ module.exports = (sequelize, dataTypes)=>{
         },
         dateUpload:{
             type: dataTypes.DATE,
-            allowNull: false, //NOT NULL
+            allowNull: true, //NOT NULL
         },
-        price:{
-            type: dataTypes.INTEGER,
-            allowNull: false, //NOT NULL
+        totalLength:{
+            type: dataTypes.BIGINT,
+            allowNull: true, //NOT NULL
         }
     };
 
