@@ -16,11 +16,11 @@ const validations=[
     /*Second stage => Find user in DATABASE*/
     .custom (async(value, { req }) => {
 
-        const emailUser = await db.User.findOne({where:{email:value}}) ||
-        await db.Composer.findOne({where:{email:value}})
+        const emailUser = await db.Users.findOne({where:{email:value}}) ||
+        await db.Composers.findOne({where:{email:value}})
 
-        const nameUser = await db.User.findOne({where:{userName:value}}) ||
-        await db.Composer.findOne({where:{userName:value}})
+        const nameUser = await db.Users.findOne({where:{userName:value}}) ||
+        await db.Composers.findOne({where:{userName:value}})
 
         /* Use email or name from user*/
         const globalUser = emailUser || nameUser    
