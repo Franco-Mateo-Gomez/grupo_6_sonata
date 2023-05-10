@@ -62,7 +62,6 @@ app.use("/checkout",payingRoutes);
 app.use("/product",productsRoutes);
 app.use("/generes",generesRoutes);
 
-
 /*Page NOT FOUND*/
 app.use((req,res,next) => {
     res.status(404).render('not-found')

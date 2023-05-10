@@ -6,31 +6,31 @@ module.exports = (sequelize, dataTypes)=>{
         id:{
             type: dataTypes.INTEGER,
             primaryKey: true,
-            notNull: true,
+            allowNull: false,
             autoIncrement : true
         },
         name:{
             type: dataTypes.STRING(100),
-            notNull: true,
+            allowNull: false,
         },
         description:{
             type: dataTypes.TEXT,
-            notNull: true,
+            allowNull: false,
             unique: true
         },
         image:{
             type: dataTypes.STRING(255),
-            notNull: true,
+            allowNull: false,
             defaultValue:'/images/users/default.jpg'
         },
         coin:{
             type: dataTypes.STRING(5),
-            notNull: true,
+            allowNull: false,
             unique: true
         },
         price:{
             type: dataTypes.DECIMAL,
-            notNull: true,
+            allowNull: false,
             unique: true
         },
         dateUpload:{
@@ -65,4 +65,5 @@ module.exports = (sequelize, dataTypes)=>{
         //     foreignKey: "idAlbum_Fk"
         // })
         }
+        return Album;
     }

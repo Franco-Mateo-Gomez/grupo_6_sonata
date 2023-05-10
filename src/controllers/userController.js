@@ -13,7 +13,7 @@ const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
 const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
 
 /*Import Models Sequelize*/
-let db = require('../database/models')
+let db = require('../database/models/index')
 
 const userController = {
     generalView:(req,res) =>{
@@ -96,15 +96,15 @@ const userController = {
                 image: defaultUserImage
            })
         }
-        else{
-            db.Composers.create({
-                fullName: req.body.client_fullname,
-                userName: req.body.user_name,
-                email:req.body.user_email,
-                password:bcrypt.hashSync(req.body.user_password, 10),
-                image: defaultUserImage
-            })
-        }
+         else{
+             db.Composers.create({
+                 fullName: req.body.client_fullname,
+                 userName: req.body.user_name,
+                 email:req.body.user_email,
+                 password:bcrypt.hashSync(req.body.user_password, 10),
+                 image: defaultUserImage
+             })
+         }
 
         res.redirect("/sonata")
     },
