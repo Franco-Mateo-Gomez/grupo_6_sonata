@@ -14,28 +14,28 @@
 
         <main class="main-tracks">
             <div class="main-header">
-                <h3>LISTADO DE PISTAS</h3>
+                <h3>LISTADO DE ÁLBUMES</h3>
             </div>
 
             <section class="tracks">
 
-                <%filtraTraks.forEach(function(track) { %>
-
+                <%filtraAlbums.forEach(function(album) { %>
+                    
                     <article class="track-card">
                         <div class="track-card-img">
-                            <img src="<%=track.img%>" alt="imagen_artista">
+                            <img src="<%=album.image%>" alt="imagen_Album">
                             <div class="track-card-name">
                                 <h4>
-                                    <%=track.nombreTrack%>
+                                    <%=album.name%>
                                 </h4>
                             </div>
                         </div>
                         <div class="track-button">
-                            <a href="/product/<%=filtraUsuario.id%>/edit/<%=track.id%>">
+                            <a href="/product/<%=filtraUsuario.id%>/edit/<%=album.id%>">
                                 <button id="button-edit">EDITAR</button>
                             </a>
                             <a href="">
-                                <form action="/product/<%=filtraUsuario.id%>/edit-list/<%=track.id%>?_method=DELETE"
+                                <form action="/product/<%=filtraUsuario.id%>/edit-list/<%=album.id%>?_method=DELETE"
                                     method="post">
                                     <button id="button-delete" type="submit">ELIMINAR</button>
                                 </form>

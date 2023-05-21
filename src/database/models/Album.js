@@ -6,40 +6,40 @@ module.exports = (sequelize, dataTypes)=>{
         id:{
             type: dataTypes.INTEGER,
             primaryKey: true,
-            notNull: true,
+            allowNull: false,
             autoIncrement : true
         },
         name:{
             type: dataTypes.STRING(100),
-            notNull: true,
+            allowNull: false,
         },
         description:{
             type: dataTypes.TEXT,
-            notNull: true,
+            allowNull: false,
             unique: true
         },
         image:{
             type: dataTypes.STRING(255),
-            notNull: true,
+            allowNull: false,
             defaultValue:'/images/users/default.jpg'
         },
         coin:{
             type: dataTypes.STRING(5),
-            notNull: true,
+            allowNull: false,
             unique: true
         },
         price:{
             type: dataTypes.DECIMAL,
-            notNull: true,
+            allowNull: false,
             unique: true
         },
         dateUpload:{
             type: dataTypes.DATE,
-            allowNull: false, //NOT NULL
+            allowNull: true, //NOT NULL
         },
-        price:{
-            type: dataTypes.INTEGER,
-            allowNull: false, //NOT NULL
+        totalLength:{
+            type: dataTypes.BIGINT,
+            allowNull: true, //NOT NULL
         }
     };
 
@@ -64,6 +64,6 @@ module.exports = (sequelize, dataTypes)=>{
         //     as: "songs", //Nombre de la relación
         //     foreignKey: "idAlbum_Fk"
         // })
+        }
+        return Album;
     }
-    return Album;
-}

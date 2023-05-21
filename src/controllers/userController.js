@@ -13,7 +13,7 @@ const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
 const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
 
 /*Import Models Sequelize*/
-let db = require('../database/models')
+let db = require('../database/models/index')
 
 const userController = {
     generalView:(req,res) =>{
@@ -38,7 +38,7 @@ const userController = {
             /*------------------------*/
 
             if(req.body.recordame !=undefined){
-                res.cookie("recordame",req.session.user_data.user_email,{maxAge:1000 *60 *10});
+                res.cookie("recordame",req.session.user_data.user_email,{maxAge:1000 *60 *30});
             }
 
             res.redirect("/general");
@@ -96,90 +96,160 @@ const userController = {
                 image: defaultUserImage
            })
         }
-        else{
-            db.Composers.create({
-                fullName: req.body.client_fullname,
-                userName: req.body.user_name,
-                email:req.body.user_email,
-                password:bcrypt.hashSync(req.body.user_password, 10),
-                image: defaultUserImage
-            })
-        }
+         else{
+             db.Composers.create({
+                 fullName: req.body.client_fullname,
+                 userName: req.body.user_name,
+                 email:req.body.user_email,
+                 password:bcrypt.hashSync(req.body.user_password, 10),
+                 image: defaultUserImage
+             })
+         }
 
         res.redirect("/sonata")
     },
-    configView:(req,res) => {
+    configView: async (req,res) => {
+
+        const dataLogin = req.session.user_data.user_email || req.session.user_data
+        
+        const filtraUsuario = 
+        await db.Composers.findOne({where:{userName:dataLogin}}) ||
+        await db.Composers.findOne({where:{email:dataLogin}}) ||
+        await db.Users.findOne({where:{userName:dataLogin}}) ||
+        await db.Users.findOne({where:{email:dataLogin}});
 
         if(!req.session.user_data){
             res.redirect("/login");
         }
         else{
-            const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
             res.render("users/userConfig",{userConfig:filtraUsuario});
         }
 
     },
-    processUserConfig:(req,res) => {
-
+    processUserConfig: async (req,res) => {
+        
         if(!req.session.user_data){
             res.redirect("/login");
         }
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
+        const dataLogin = req.session.user_data.user_email || req.session.user_data
 
         let datosModificados = req.body;
-        let usuario = datausers.findIndex( user => user.id == filtraUsuario.id);
 
-        datausers[usuario].nombreArtista = datosModificados.user_name || datausers[usuario].nombreArtista;
-        datausers[usuario].email = datosModificados.user_email || datausers[usuario].email;
-        datausers[usuario].nombreCompleto = datosModificados.client_fullname || datausers[usuario].nombreCompleto;
-        
-        let usuariosJSON = JSON.stringify(datausers);
-        fs.writeFileSync(path.join(__dirname, '../model/data/users.json'), usuariosJSON);
-        
+        const filtraUsuario = 
+        await db.Users.findOne({where:{userName:dataLogin}}) ||
+        await db.Users.findOne({where:{email:dataLogin}}) || null;
+
+        const filtraComposer = 
+        await db.Composers.findOne({where:{userName:dataLogin}}) ||
+        await db.Composers.findOne({where:{email:dataLogin}}) || null;
+
+        if (filtraUsuario != null){
+            const modificaUser = await db.Users.update({
+                fullName: datosModificados.client_fullname,
+                userName: datosModificados.user_name,
+                email: datosModificados.user_email,
+             },
+             {where:{id:filtraUsuario.id}}
+             );
+
+        }
+
+        if (filtraComposer != null){
+            const modificaComposer = await db.Composers.update({
+                fullName: datosModificados.client_fullname,
+                userName: datosModificados.user_name,
+                email: datosModificados.user_email,
+                password: datosModificados.user_password,
+             },
+             {where:{id:filtraComposer.id}}
+             );
+        }
         res.redirect("/config")
     },
-    processUserConfigImage:(req,res) =>{
+    processUserConfigImage: async (req,res) =>{
+
+        const dataLogin = req.session.user_data.user_email || req.session.user_data
 
         if(!req.session.user_data){
             res.redirect("/login");
         }
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
+        const filtraUsuario = 
+        await db.Users.findOne({where:{userName:dataLogin}}) ||
+        await db.Users.findOne({where:{email:dataLogin}}) || null;
 
-        let usuario = datausers.findIndex( user => user.id == filtraUsuario.id);
+        const filtraComposer = 
+        await db.Composers.findOne({where:{userName:dataLogin}}) ||
+        await db.Composers.findOne({where:{email:dataLogin}}) || null;
 
-        if (req.file) {
-            fs.unlinkSync(path.join(__dirname,"../../public"+datausers[usuario].img));
-            datausers[usuario].img = "/images/users/" + req.file.filename;
+        if (filtraUsuario != null){
+            if (req.file) {
+                const modificaImg = await db.Users.update({
+                    image: "/images/users/" + req.file.filename,
+                },
+                {where:{id:filtraUsuario.id}
+            });
+            }
         }
-
-        let usuariosJSON = JSON.stringify(datausers);
-        fs.writeFileSync(path.join(__dirname, '../model/data/users.json'), usuariosJSON);
-
+        if (filtraComposer != null){
+            if (req.file) {
+                const modificaImg = await db.Composers.update({
+                    image: "/images/users/" + req.file.filename,
+                },
+                {where:{id:filtraComposer.id}
+            });
+            }
+        }
         res.redirect("/config");
     },
-    processUserConfigPassword:(req,res) => {
+
+    processUserConfigPassword: async (req,res) => {
+
+        const dataLogin = req.session.user_data.user_email || req.session.user_data
 
         if(!req.session.user_data){
             res.redirect("/login");
         }
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
+        const filtraUsuario = 
+        await db.Users.findOne({where:{userName:dataLogin}}) ||
+        await db.Users.findOne({where:{email:dataLogin}}) || null;
 
-        let usuario = datausers.findIndex( user => user.id == filtraUsuario.id);
+        const filtraComposer = 
+        await db.Composers.findOne({where:{userName:dataLogin}}) ||
+        await db.Composers.findOne({where:{email:dataLogin}}) || null;
 
-        if(req.body.user_password == req.body.user_passwordConfirmation){
-            datausers[usuario].clave = bcrypt.hashSync(req.body.user_password, 12);
+
+        if (filtraUsuario != null){
+            if(req.body.user_password == req.body.user_passwordConfirmation){
+                
+                const modificaPasswd = await db.Users.update({
+                    password: bcrypt.hashSync(req.body.user_password, 12),
+                },
+                {where:{id:filtraUsuario.id}
+            })
             notifier.notify({
                 title: '¡Felicitaciones!',
                 message: 'Contraseña modificada satisfactoriamente',
             });
-            return res.redirect("/config");
         }
+        }
+        if (filtraComposer != null){
+            if(req.body.user_password == req.body.user_passwordConfirmation){
+                const modificaPasswd = await db.Composers.update({
+                    password: bcrypt.hashSync(req.body.user_password, 12),
+                },
+                {where:{id:filtraComposer.id}
+            })
+            notifier.notify({
+                title: '¡Felicitaciones!',
+                message: 'Contraseña modificada satisfactoriamente',
+            });
+            }
+        }
+        return res.redirect("/config");
 
-        let usuariosJSON = JSON.stringify(datausers);
-        fs.writeFileSync(path.join(__dirname, '../model/data/users.json'), usuariosJSON);
     },
     logout:(req,res) => {
         delete req.session.user_data;

@@ -45,50 +45,65 @@ const productsController = {
         res.render("products/createProduct",{idUser})
     },
 
-    productEditView: (req, res) => {
+    productEditView: async (req, res) => {
 
-        const idProductosUsuarios = req.params.id;
-        const idUser = req.params.userId;
+        const idAlbum = req.params.id;
 
-        const filtraUsuario = datausers.find(user => user.id == idUser);
-        const filtraTrack = dataProducts.find(productosUsuarios => productosUsuarios.id == idProductosUsuarios && productosUsuarios.idUser == idUser);
+        const dataLogin = req.session.user_data.user_email || req.session.user_data
 
-        res.render("products/editProduct", { filtraTrack:filtraTrack, filtraUsuario:filtraUsuario });
+        const filtraUsuario = 
+        await db.Composers.findOne({where:{userName:dataLogin}}) ||
+        await db.Composers.findOne({where:{email:dataLogin}});
+        
+        const filtraAlbum = await db.Albums.findByPk(idAlbum,{
+            include:[
+                {model:db.Genres,as: 'genreAlbum'}
+            ]
+        }); 
+
+        res.render("products/editAlbum", { filtraAlbum:filtraAlbum, filtraUsuario:filtraUsuario });
 
     },
 
-    productEdit: (req, res) => {
-        const idProductosUsuarios = req.params.id;
-        const userId = req.params.userId;
+    productEdit: async (req, res) => {
+        const idAlbum = req.params.id;
         const datosModificados = req.body;
 
-        const findTrack = dataProducts.findIndex(productosUsuarios => productosUsuarios.id == idProductosUsuarios && productosUsuarios.idUser == userId);
+         const filtraAlbum = await db.Albums.update({
+             name: datosModificados.nombrePista,
+             description: datosModificados.descripcionProducto,
+             price: datosModificados.nuevoPrecio,
+             coin: datosModificados.moneda,
+             genereIdFk: datosModificados.generes
+         },
+         {where:{id:idAlbum}}
+         );
 
-        dataProducts[findTrack].nombreTrack = datosModificados.nombrePista;
-        dataProducts[findTrack].genero = datosModificados.generes;
-        dataProducts[findTrack].descripcionProductosUsuarios = datosModificados.descripcionProductosUsuarios;
-        dataProducts[findTrack].precio = datosModificados.nuevoPrecio;
-        dataProducts[findTrack].moneda = datosModificados.moneda;
+         if (req.file) {
+             filtraAlbum.image = "/images/products/" + req.file.filename;
+         }
 
-        if (req.file) {
-            dataProducts[findTrack].img = "/images/products/" + req.file.filename;
-        }
-
-        fs.writeFileSync(dataProductsJSON, JSON.stringify(dataProducts));
-
-        res.render("index", { albumes: dataProducts })
+         res.render("index", { albumes: dataProducts })
     },
 
-    productEditList: (req, res) => {
+    productEditList: async (req, res) => {
 
         if(!req.session.user_data){
             res.redirect("/login");
         }
-
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
-        const filtraTraks = dataProducts.filter(productosUsuarios => productosUsuarios.idUser == filtraUsuario.id);
-
-        res.render("products/editProductList", { filtraTraks: filtraTraks, filtraUsuario: filtraUsuario })
+        
+        const dataLogin = req.session.user_data.user_email || req.session.user_data;
+        
+        const filtraUsuario = 
+        await db.Composers.findOne({where:{userName:dataLogin}}) ||
+        await db.Composers.findOne({where:{email:dataLogin}});
+        
+        const filtraAlbums = await db.Albums.findAll({
+            where: {
+              composerIdFk: filtraUsuario.id
+            }
+          }); 
+        res.render("products/editAlbumtList", { filtraAlbums: filtraAlbums, filtraUsuario: filtraUsuario })
     },
 
     adminProducts: async (req, res) => {
@@ -110,15 +125,11 @@ const productsController = {
         res.render("products/adminProducts", { filtraUsuario: filtraUsuario });
     },
 
-    productDelete: (req, res) => {
-        const idProductosUsuarios = req.params.id;
+    productDelete: async (req, res) => {
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
-        const findTrack = dataProducts.findIndex(productosUsuarios => productosUsuarios.id == idProductosUsuarios && productosUsuarios.idUser == filtraUsuario.id);
+        const idAlbum = req.params.id;
 
-        dataProducts.splice(findTrack, 1);
-
-        fs.writeFileSync(dataProductsJSON, JSON.stringify(dataProducts));
+        const filtraAlbum = await db.Albums.destroy({ where: { id: idAlbum }});
 
         res.redirect("/product/edit-list");
     },
@@ -151,31 +162,6 @@ const productsController = {
             return res.redirect("/general") 
         })
 
-        //* GUÍA PARA ÁLBUM *//
-        // let producto = {
-        //     id: dataProducts[dataProducts.length - 1].id + 1,
-        //     img: "/images/products/" + req.file.filename,
-        //     nombreTrack: req.body.nombrePista,
-        //     duracion: "",
-        //     fechaPublicacion: "",
-        //     descripcionProducto: req.body.descripcion_pista,
-        //     genero: req.body.edit_generes,
-        //     precio: req.body.precio_pista,
-        //     moneda: req.body.moneda,
-        //     idUser: filtraUsuario.id,
-        //     valoracion: 0
-        // }
-
-        /* SIN UTILIDAD */
-        // //A la variable le agrego el nuevo usuario
-        // dataProducts.push(producto);
-
-        // //Convierto el objeto en un string
-        // let productosUsuariosJSON = JSON.stringify(dataProducts);
-
-        // //Escribo los cambios en el archivo
-        // fs.writeFileSync(path.join(__dirname, '../model/data/products.json'), productosUsuariosJSON);
-        
     }
 
 }
