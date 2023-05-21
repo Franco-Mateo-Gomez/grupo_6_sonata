@@ -3,7 +3,7 @@ const passwdSQL = '45432465' || '' || null || 'root'
 module.exports = {
   "development": {
     "username": "root",
-    "password": '',
+    "password": passwdSQL,
     "database": "sonata", //Modificar si es q lo llamamos diferente
     "host": "127.0.0.1",
     "dialect": "mysql"

@@ -64,5 +64,6 @@ module.exports = (sequelize, dataTypes)=>{
         //     as: "songs", //Nombre de la relación
         //     foreignKey: "idAlbum_Fk"
         // })
-        }
     }
+    return Album;
+}
