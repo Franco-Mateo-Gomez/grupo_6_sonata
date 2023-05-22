@@ -1,3 +1,5 @@
+const { reconstructFieldPath } = require("express-validator/src/select-fields");
+
 module.exports = (sequelize, dataTypes)=>{
 
     let alias = "Albums";
@@ -65,4 +67,5 @@ module.exports = (sequelize, dataTypes)=>{
         //     foreignKey: "idAlbum_Fk"
         // })
         }
+        return Album;
     }
