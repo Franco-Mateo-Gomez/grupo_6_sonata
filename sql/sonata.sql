@@ -1,3 +1,12 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 22-05-2023 a las 06:22:25
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -28,47 +37,8 @@ CREATE TABLE `albums` (
   `price` decimal(10,0) NOT NULL,
   `coin` varchar(5) NOT NULL,
   `genereIdFk` int(11) DEFAULT NULL,
-  `composerIdFk` int(11) DEFAULT NULL
+  `composerIdFk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `albums`
---
-
-INSERT INTO `albums` (`id`, `name`, `description`, `image`, `totalLength`, `dateUpload`, `price`, `coin`, `genereIdFk`, `composerIdFk`) VALUES
-(14, 'Alb1', '123123123', '/images/products/albums/default.jpg', 0, '0000-00-00', 15, 'ARS', NULL, NULL),
-(15, 'Álbum 1', 'Lorem ipsum qweqweufewifwmomoiqwmiqrmw', '/images/products/albums/default.jpg', 0, '0000-00-00', 20, 'ARS', NULL, NULL),
-(16, 'A2', 'qqqqqq', '/images/products/albums/default.jpg', 0, '0000-00-00', 1, 'ARS', NULL, NULL),
-(17, 'A3', 'qwertyqwertyqwertyqwertyqwerty', '/images/products/albums/default.jpg', 0, '0000-00-00', 15, 'ARS', NULL, 5),
-(18, 'A4', '2qwerty3qwerty4qwerty5', '/images/products/albums/default.jpg', 0, '0000-00-00', 20, 'ARS', 1, 5),
-(19, 'A5', 'Album de prueba N°5', '/images/products/albums/default.jpg', 0, '0000-00-00', 30, 'ARS', 2, 5);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `composers`
---
-
-CREATE TABLE `composers` (
-  `id` int(11) NOT NULL,
-  `description` varchar(255) NOT NULL DEFAULT 'No posee una descripción',
-  `email` varchar(150) NOT NULL,
-  `fullName` varchar(150) NOT NULL,
-  `image` varchar(255) NOT NULL DEFAULT '/images/users/default.jpg',
-  `password` varchar(255) NOT NULL,
-  `userName` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `composers`
---
-
-INSERT INTO `composers` (`id`, `description`, `email`, `fullName`, `image`, `password`, `userName`) VALUES
-(1, 'No posee una descripción', 'Fadmin@gmail.com', 'Admin', '/images/users/idUser20.jpg', '$2a$10$LonKEKnFh0bq40kcUq1uM.226f4b2i0BYYbUe70QnGkxqag0Cee.S', 'admin'),
-(2, 'No posee una descripción', 'hola12@gmail.com', 'Hola12', '/images/users/default.png', '$2a$10$02lTWsqHZX6oSYnUXorF3./1kjhPduXelDX1P1dovcTbaUPRJJlQ2', 'Hola12'),
-(3, 'No posee una descripción', 'h3@gmail.com', 'H3', '/images/users/idUser6.jpg', '$2a$10$00n5n5VjVI9Ga.JH0qsaWefliTn.ml8XA1m/RjpQiiq22AmZX5gpe', 'H3'),
-(4, 'No posee una descripción', 'h5@gmail.com', 'H5', '/images/users/idUser7.jpg', '$2a$10$WWLtOR8PCZBUPRPFLRzQNOPa58aHOhTvYMjm1UFZ2ogmmi3CU0xCS', 'H5'),
-(5, 'No posee una descripción', 'h11@gmail.com', 'H11', '/images/users/idUser11.jpg', '$2a$10$vCb3AybLINCRlYFtYtNpm.Y4cMOzT5/Ua.kz/wtTVj4.FW0xU2S/u', 'H11');
 
 -- --------------------------------------------------------
 
@@ -87,7 +57,11 @@ CREATE TABLE `genres` (
 
 INSERT INTO `genres` (`id`, `name`) VALUES
 (1, 'Rock'),
-(2, 'Pop');
+(2, 'Pop'),
+(3, 'Classic'),
+(4, 'Electronic'),
+(5, 'Hip-Hop'),
+(6, 'Otro');
 
 -- --------------------------------------------------------
 
@@ -137,25 +111,17 @@ CREATE TABLE `users` (
   `userName` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL DEFAULT '/images/users/default.jpg'
+  `image` varchar(255) NOT NULL DEFAULT '/images/users/default.jpg',
+  `isComposer` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Volcado de datos para la tabla `users` + Pueden agregar más
 --
 
-INSERT INTO `users` (`id`, `fullName`, `userName`, `email`, `password`, `image`) VALUES
-(1, '131123123123', '123123', 'hola@gmail.com', '$2a$10$gMPCaaIHJxHEe5sLDE20V.yLfuKrW9XSITuJtXrVdbLr.Y4PqSJLK', '/images/users/idUser20.jpg'),
-(2, '123123123', 'Hola11', 'hola@gmail.com.arararar', '$2a$10$1p4ibxQuHuVHig9IW9LETOXl8PfAya6SRVK04Lqb47Du9DU7MkK9G', '/images/users/idUser20.jpg'),
-(3, 'Hola100', 'Hola100', 'hola100@gmail.com', '$2a$10$a79TvwzadfN/F7h7kEgOF.bG9/V8SeURX8DSX/NTgGfaJ0QCCgI5q', '/images/users/idUserundefined.jpg'),
-(4, 'H1', 'H1', 'h1@gmail.com', '$2a$10$h2KiRTNGIqQhZIneno2tpegtAWvQXZ.oOOqu6LAD8pKh4krIq9SJC', '/images/users/idUser[object Promise]1.jpg'),
-(5, 'H2', 'H2', 'h2@gmail.com', '$2a$10$ZovN7MHC8eLBKriyrHOWeulXK00XK7W3LSgHiZNFhXZxL8QxHZYie', '/images/users/idUser5.jpg'),
-(6, 'H4', 'H4', 'h4@gmail.com', '$2a$10$Te/JE0MIUYYJWPv3TKgTPODj.p4EgLbRSCWqhkfLynEEOglu7zPb2', '/images/users/idUser6.jpg'),
-(7, 'H6', 'H6', 'h6@gmail.com', '$2a$10$G5I1jv/eZtelOJUs5HoZOePlR.gAKqA1naEUN4dhZXHQ10N5ZPZh.', '/images/users/idUser7.jpg'),
-(8, 'H7', 'H7', 'h7@gmail.com', '$2a$10$yx4MMCdgFwqu1a82QzTvU.xei7E962RZka1ysFYFlpD6qCrsBjASK', '/images/users/idUser8.jpg'),
-(9, 'H8', 'H8', 'h8@gmail.com', '$2a$10$WmV/kQ9d/Q4XcbgdNEGs/er2MOhQqG7I1UQ03VS55RZdX2J.jUJGW', '/images/users/default.png'),
-(10, 'H10', 'H10', 'h10@gmail.com', '$2a$10$L1kkCxbIISdgYvQqka7Oru0gLnLZLtCC5wSETs3hH6l6Tzc3orFeu', '/images/users/default.png'),
-(11, 'userLogin', 'userLogin', 'userlogin@gmail.com', '$2a$10$ZqJ6drsQ0y7RJ/gRXy84TO7WtiJryYdWypkJA5CAw1hoFmUcR.4Ke', '/images/users/default.png');
+INSERT INTO `users` (`id`, `fullName`, `userName`, `email`, `password`, `image`, `isComposer`) VALUES
+(21, 'Matuu Gomez', 'Matuu', 'matuu@gmail.com', '$2a$10$./tXa/iHPvcpcF/7GEZ1G.p925.HGhjC9mbahFvw/WAjCMI5Jz7Y2', '/images/users/default.png', 0),
+(22, 'Matuu Gomez DJ', 'MatuuDJ', 'matuDJ@gmail.com', '$2a$10$PxJSYT.g5doBEmjWIenUUOY4LdZ3oAvUx2wnteQs8877ywnsW8Vom', '/images/users/default.png', 1);
 
 --
 -- Índices para tablas volcadas
@@ -166,13 +132,8 @@ INSERT INTO `users` (`id`, `fullName`, `userName`, `email`, `password`, `image`)
 --
 ALTER TABLE `albums`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `genereIdFk` (`genereIdFk`);
-
---
--- Indices de la tabla `composers`
---
-ALTER TABLE `composers`
-  ADD PRIMARY KEY (`id`);
+  ADD KEY `genereIdFk` (`genereIdFk`),
+  ADD KEY `composerIdFk` (`composerIdFk`);
 
 --
 -- Indices de la tabla `genres`
@@ -218,19 +179,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `albums`
 --
 ALTER TABLE `albums`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT de la tabla `composers`
---
-ALTER TABLE `composers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `orders`
@@ -254,7 +209,7 @@ ALTER TABLE `songs`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restricciones para tablas volcadas
@@ -265,7 +220,7 @@ ALTER TABLE `users`
 --
 ALTER TABLE `albums`
   ADD CONSTRAINT `albums_ibfk_3` FOREIGN KEY (`genereIdFk`) REFERENCES `genres` (`id`),
-  ADD CONSTRAINT `albums_ibfk_4` FOREIGN KEY (`genereIdFk`) REFERENCES `composers` (`id`);
+  ADD CONSTRAINT `albums_ibfk_4` FOREIGN KEY (`composerIdFk`) REFERENCES `users` (`id`);
 
 --
 -- Filtros para la tabla `orders`

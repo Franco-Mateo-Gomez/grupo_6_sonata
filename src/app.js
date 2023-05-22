@@ -30,7 +30,7 @@ app.set("view engine","ejs");
 
 /*Port configuration*/
 app.listen(port,()=>{
-    console.log("Running on: http://localhost:"+port+"/sonata");
+    console.log("Running on: http://localhost:"+port);
 })
 
 
@@ -56,8 +56,8 @@ app.use(recordameMiddleware);
 app.use(express.static(path.join(__dirname,'../public')));
 
 /*Use routes*/
-app.use("/", userRoutes);
-app.use("/sonata",mainRoutes);
+app.use("/", mainRoutes);
+app.use("/config",userRoutes);
 app.use("/checkout",payingRoutes);
 app.use("/product",productsRoutes);
 app.use("/generes",generesRoutes);

@@ -1,21 +1,12 @@
 const express = require("express")
 const path = require("path");
 const multer = require("multer");
-const fs = require("fs")
-const {body} = require("express-validator")
 
 const router = express.Router();
 
 const userController = require("../controllers/userController");
 
-const validaRegistro = require("../middlewares/validaRegister");
-const validarUsuario = require("../middlewares/validaLogin");
-
 let db = require('../database/models');
-
-/*Import JSON's*/
-const datausersJSON = path.join(__dirname, '../model/data/users.json');
-const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
 
 /*Multer config*/
 const storage = multer.diskStorage({
@@ -29,7 +20,7 @@ const storage = multer.diskStorage({
         let userId;
 
         // Consulta a la BD el usuario
-        const usuarioDB = await db.Users.findByPk(req.params.id) || await db.Composers.findByPk(req.params.id);
+        const usuarioDB = await db.Users.findByPk(req.params.id);
         
         if(usuarioDB){
             userId = usuarioDB.id;
@@ -47,25 +38,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.get("/general",userController.generalView);
-
-/*Login Path*/
-router.get("/login",userController.loginView);
-router.post("/login",validarUsuario,userController.loginUser);
-
-/*Register Path*/
-router.get("/register",userController.registerView);
-router.post("/register",upload.single("user_image"),validaRegistro,userController.registerUser);
-
-/*------------*/
-
-router.get("/config",userController.configView);
-router.put("/config",userController.processUserConfig);
-router.put("/configImage",upload.single("user_image"),userController.processUserConfigImage);
-router.put("/configPassword",userController.processUserConfigPassword);
-
-/*Logout Path*/
-router.get("/logout",userController.logout);
+router.get("/",userController.configView);
+router.put("/",userController.processUserConfig);
+router.put("/image",upload.single("user_image"),userController.processUserConfigImage);
+router.put("/password",userController.processUserConfigPassword);
 
 router.get("/ejemplo",(req,res)=>{
     db.Orders.findAll({include:[{association:"albums"},{association:"users"}]}).then(albums => res.render("ejemplo", {Orders: albums}))

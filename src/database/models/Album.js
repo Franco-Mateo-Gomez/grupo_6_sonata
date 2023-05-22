@@ -56,7 +56,7 @@ module.exports = (sequelize, dataTypes)=>{
             as: "genreAlbum", //Nombre de la relación
             foreignKey: "genereIdFk"
         }),
-         Album.belongsTo(models.Composers,{
+         Album.belongsTo(models.Users,{
              as: "composerAlbum", //Nombre de la relación
              foreignKey: "composerIdFk"
          })

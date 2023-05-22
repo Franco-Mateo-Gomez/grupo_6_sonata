@@ -1,19 +1,18 @@
-const path = require("path");
-const fs = require("fs")
 const notifier = require('node-notifier');
 const bcrypt = require("bcryptjs");
 const {validationResult} = require("express-validator")
-const User = require(path.join(__dirname, "../functions/User.js"));
+const userFunctions = require("../functions/User");
 
-/*Import JSON's*/
-const datausersJSON = path.join(__dirname, '../model/data/users.json');
-const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
-
+//*Temporal----------------
+const path = require("path");
+const fs = require("fs")
 const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
 const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
+//-------------------------
 
 /*Import Models Sequelize*/
-let db = require('../database/models/index')
+let db = require('../database/models');
+const { error } = require('console');
 
 const userController = {
     generalView:(req,res) =>{
@@ -48,7 +47,7 @@ const userController = {
     registerView:(req,res) => {
         res.render("users/register");
     },
-    registerUser:(req,res) =>{
+    registerUser: async (req,res) =>{
 
         const resultValidation = validationResult(req);
 
@@ -64,7 +63,7 @@ const userController = {
             })
         }
 
-        let userEmailVerification = User.findByField("email", req.body.user_email);
+        const userEmailVerification = await db.Users.findOne({ where: { email: req.body.user_email }});
 
         if (userEmailVerification) {
 
@@ -87,170 +86,111 @@ const userController = {
 
         let defaultUserImage = req.file ? "/images/users/" + req.file.filename : "/images/users/default.png";
 
-        if(userType == "client") {
-            db.Users.create({
+        // User default data
+        let createUser = {
                 fullName: req.body.client_fullname,
                 userName: req.body.user_name,
                 email:req.body.user_email,
                 password:bcrypt.hashSync(req.body.user_password, 10),
                 image: defaultUserImage
-           })
+        }
+
+        if(userType == "client") {
+            await db.Users.create(createUser);
         }
          else{
-             db.Composers.create({
-                 fullName: req.body.client_fullname,
-                 userName: req.body.user_name,
-                 email:req.body.user_email,
-                 password:bcrypt.hashSync(req.body.user_password, 10),
-                 image: defaultUserImage
-             })
+            createUser.isComposer = 1;  // If is composer -> Change default value from 0 to 1
+            await db.Users.create(createUser);
          }
 
-        res.redirect("/sonata")
+        res.redirect("/")
     },
+
     configView: async (req,res) => {
-
-        const dataLogin = req.session.user_data.user_email || req.session.user_data
         
-        const filtraUsuario = 
-        await db.Composers.findOne({where:{userName:dataLogin}}) ||
-        await db.Composers.findOne({where:{email:dataLogin}}) ||
-        await db.Users.findOne({where:{userName:dataLogin}}) ||
-        await db.Users.findOne({where:{email:dataLogin}});
+            const dataLogin = await userFunctions.getDataLogin(req,res);
 
-        if(!req.session.user_data){
-            res.redirect("/login");
-        }
-        else{
-            res.render("users/userConfig",{userConfig:filtraUsuario});
-        }
+            if (dataLogin != null ){
+                const findUser = await userFunctions.findInDB(req,res);
+                res.render("users/userConfig",{userConfig:findUser});
+            }
+            else{
+                res.redirect("/login");
+            }
 
     },
     processUserConfig: async (req,res) => {
         
-        if(!req.session.user_data){
-            res.redirect("/login");
-        }
+        const dataLogin = await userFunctions.getDataLogin(req,res);
 
-        const dataLogin = req.session.user_data.user_email || req.session.user_data
+            if (dataLogin != null ){
+                const findUser = await userFunctions.findInDB(req,res);
 
-        let datosModificados = req.body;
+                const datosModificados = req.body;
 
-        const filtraUsuario = 
-        await db.Users.findOne({where:{userName:dataLogin}}) ||
-        await db.Users.findOne({where:{email:dataLogin}}) || null;
+               await db.Users.update({
+                    fullName: datosModificados.client_fullname,
+                    userName: datosModificados.user_name,
+                    email: datosModificados.user_email,
+                 },{where:{id:findUser.id}});
 
-        const filtraComposer = 
-        await db.Composers.findOne({where:{userName:dataLogin}}) ||
-        await db.Composers.findOne({where:{email:dataLogin}}) || null;
+                 res.redirect("/config");
+            }
+            else{
+                res.redirect("/login");
+            }
 
-        if (filtraUsuario != null){
-            const modificaUser = await db.Users.update({
-                fullName: datosModificados.client_fullname,
-                userName: datosModificados.user_name,
-                email: datosModificados.user_email,
-             },
-             {where:{id:filtraUsuario.id}}
-             );
-
-        }
-
-        if (filtraComposer != null){
-            const modificaComposer = await db.Composers.update({
-                fullName: datosModificados.client_fullname,
-                userName: datosModificados.user_name,
-                email: datosModificados.user_email,
-                password: datosModificados.user_password,
-             },
-             {where:{id:filtraComposer.id}}
-             );
-        }
-        res.redirect("/config")
     },
     processUserConfigImage: async (req,res) =>{
 
-        const dataLogin = req.session.user_data.user_email || req.session.user_data
+        const dataLogin = await userFunctions.getDataLogin(req,res);
 
-        if(!req.session.user_data){
+        if (dataLogin != null ){
+
+            const findUser = await userFunctions.findInDB(req,res);
+
+            if (req.file) {
+                await db.Users.update({
+                    image: "/images/users/" + req.file.filename,
+                },
+                {where:{id:findUser.id}});
+            }
+            return res.redirect("/config");
+        }
+        else{
             res.redirect("/login");
         }
 
-        const filtraUsuario = 
-        await db.Users.findOne({where:{userName:dataLogin}}) ||
-        await db.Users.findOne({where:{email:dataLogin}}) || null;
-
-        const filtraComposer = 
-        await db.Composers.findOne({where:{userName:dataLogin}}) ||
-        await db.Composers.findOne({where:{email:dataLogin}}) || null;
-
-        if (filtraUsuario != null){
-            if (req.file) {
-                const modificaImg = await db.Users.update({
-                    image: "/images/users/" + req.file.filename,
-                },
-                {where:{id:filtraUsuario.id}
-            });
-            }
-        }
-        if (filtraComposer != null){
-            if (req.file) {
-                const modificaImg = await db.Composers.update({
-                    image: "/images/users/" + req.file.filename,
-                },
-                {where:{id:filtraComposer.id}
-            });
-            }
-        }
-        res.redirect("/config");
     },
 
     processUserConfigPassword: async (req,res) => {
 
-        const dataLogin = req.session.user_data.user_email || req.session.user_data
+        const dataLogin = await userFunctions.getDataLogin(req,res);
 
-        if(!req.session.user_data){
-            res.redirect("/login");
-        }
+            if (dataLogin != null ){
+                const findUser = await userFunctions.findInDB(req,res);
 
-        const filtraUsuario = 
-        await db.Users.findOne({where:{userName:dataLogin}}) ||
-        await db.Users.findOne({where:{email:dataLogin}}) || null;
-
-        const filtraComposer = 
-        await db.Composers.findOne({where:{userName:dataLogin}}) ||
-        await db.Composers.findOne({where:{email:dataLogin}}) || null;
-
-
-        if (filtraUsuario != null){
-            if(req.body.user_password == req.body.user_passwordConfirmation){
-                
-                const modificaPasswd = await db.Users.update({
-                    password: bcrypt.hashSync(req.body.user_password, 12),
-                },
-                {where:{id:filtraUsuario.id}
-            })
-            notifier.notify({
-                title: '¡Felicitaciones!',
-                message: 'Contraseña modificada satisfactoriamente',
-            });
-        }
-        }
-        if (filtraComposer != null){
-            if(req.body.user_password == req.body.user_passwordConfirmation){
-                const modificaPasswd = await db.Composers.update({
-                    password: bcrypt.hashSync(req.body.user_password, 12),
-                },
-                {where:{id:filtraComposer.id}
-            })
-            notifier.notify({
-                title: '¡Felicitaciones!',
-                message: 'Contraseña modificada satisfactoriamente',
-            });
+                if (findUser != null){
+                    if(req.body.user_password == req.body.user_passwordConfirmation){
+                        
+                        await db.Users.update({
+                            password: bcrypt.hashSync(req.body.user_password, 12),
+                        },
+                        {where:{id:findUser.id}
+                    })
+                    notifier.notify({
+                        title: '¡Felicitaciones!',
+                        message: 'Contraseña modificada satisfactoriamente',
+                    });
+                }
+                return res.redirect("/config");
             }
-        }
-        return res.redirect("/config");
-
+            else{
+                res.redirect("/login");
+            }
+            }
     },
+
     logout:(req,res) => {
         delete req.session.user_data;
         res.render("frontPage");

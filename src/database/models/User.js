@@ -30,6 +30,11 @@ module.exports = (sequelize, dataTypes)=>{
             type: dataTypes.STRING(255),
             allowNull: false,
             defaultValue:'/images/users/default.jpg'
+        },
+        isComposer:{
+            type: dataTypes.TINYINT,
+            allowNull: false,
+            defaultValue: 0
         }
     }
 
@@ -43,6 +48,10 @@ module.exports = (sequelize, dataTypes)=>{
         User.hasMany(models.Orders,{
             as: "orders", //Nombre de la relación
             foreignKey: "idUser_Fk"
+        }),
+        User.hasMany(models.Albums, {
+            as: "albums", //Nombre de la relación
+            foreignKey: "id"
         })
     }
     
