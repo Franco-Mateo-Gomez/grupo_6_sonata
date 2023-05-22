@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2023 a las 06:22:25
+-- Tiempo de generación: 22-05-2023 a las 16:11:00
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -39,6 +39,13 @@ CREATE TABLE `albums` (
   `genereIdFk` int(11) DEFAULT NULL,
   `composerIdFk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `albums`
+--
+
+INSERT INTO `albums` (`id`, `name`, `description`, `image`, `totalLength`, `dateUpload`, `price`, `coin`, `genereIdFk`, `composerIdFk`) VALUES
+(24, 'Skrillex Remakes', 'Lorem Lorem', '/images/products/albums/idProduct24.png', 0, '0000-00-00', 2, 'USD', 4, 22);
 
 -- --------------------------------------------------------
 
@@ -112,16 +119,17 @@ CREATE TABLE `users` (
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL DEFAULT '/images/users/default.jpg',
-  `isComposer` tinyint(4) NOT NULL DEFAULT 0
+  `isComposer` tinyint(4) NOT NULL DEFAULT 0,
+  `description` varchar(150) NOT NULL DEFAULT 'Nuevo artista'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `users` + Pueden agregar más
+-- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `fullName`, `userName`, `email`, `password`, `image`, `isComposer`) VALUES
-(21, 'Matuu Gomez', 'Matuu', 'matuu@gmail.com', '$2a$10$./tXa/iHPvcpcF/7GEZ1G.p925.HGhjC9mbahFvw/WAjCMI5Jz7Y2', '/images/users/default.png', 0),
-(22, 'Matuu Gomez DJ', 'MatuuDJ', 'matuDJ@gmail.com', '$2a$10$PxJSYT.g5doBEmjWIenUUOY4LdZ3oAvUx2wnteQs8877ywnsW8Vom', '/images/users/default.png', 1);
+INSERT INTO `users` (`id`, `fullName`, `userName`, `email`, `password`, `image`, `isComposer`, `description`) VALUES
+(21, 'Matuu Gomez', 'Matuu', 'matuu@gmail.com', '$2a$10$./tXa/iHPvcpcF/7GEZ1G.p925.HGhjC9mbahFvw/WAjCMI5Jz7Y2', '/images/users/default.png', 0, 'Nuevo artista'),
+(22, 'Matuu Gomez DJ', 'MatuuDJ', 'matuDJ@gmail.com', '$2a$10$PxJSYT.g5doBEmjWIenUUOY4LdZ3oAvUx2wnteQs8877ywnsW8Vom', '/images/users/default.png', 1, 'Nuevo artista');
 
 --
 -- Índices para tablas volcadas
@@ -179,7 +187,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `albums`
 --
 ALTER TABLE `albums`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `genres`
