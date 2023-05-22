@@ -31,6 +31,10 @@ module.exports = (sequelize, dataTypes)=>{
             allowNull: false,
             defaultValue:'/images/users/default.jpg'
         },
+        description:{
+            type:dataTypes.STRING(150),
+            defaultValue:"Nuevo artista"
+        },
         isComposer:{
             type: dataTypes.TINYINT,
             allowNull: false,
@@ -51,7 +55,7 @@ module.exports = (sequelize, dataTypes)=>{
         }),
         User.hasMany(models.Albums, {
             as: "albums", //Nombre de la relación
-            foreignKey: "id"
+            foreignKey: "composerIdFk"
         })
     }
     

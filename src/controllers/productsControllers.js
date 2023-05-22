@@ -1,15 +1,5 @@
 /*Import modules*/
-const path = require("path");
-const fs = require("fs")
 const userFunctions = require("../functions/User");
-/*-------------*/
-
-/*Import JSON's*/
-const datausersJSON = path.join(__dirname, '../model/data/users.json');
-const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
-
-const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
-const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
 /*-------------*/
 
 /*Import Models Sequelize*/
@@ -19,20 +9,19 @@ let db = require('../database/models')
 const productsController = {
 
     /*|VIEW| When users access to specific Artist -> Show list from their products*/
-    productDetail: (req, res) => {
+    productDetail: async (req, res) => {
 
-        /* Require ID from path*/
-        const productId = req.params.productId;
-        
-        let filtraProducto = dataProducts.find(product => product.id == productId);
-        let filtraUsuario = datausers.find(user => user.id == filtraProducto.idUser);
+        const idAlbum = req.params.productId;
+        const listUsers = await db.Users.findAll({});
+        const composerIds = listUsers.map(user => user.id);
 
-        if(!filtraProducto){
-            filtraProducto = dataProducts[0]
-        }
+        const albumInDb = await db.Albums.findOne({where:{id:idAlbum,composerIdFk:composerIds},include:[{ model: db.Genres, as: 'genreAlbum'}]})
+
+        const findUser = await db.Users.findOne({ where: { id: albumInDb.composerIdFk }});
 
         /*Show in page*/
-        res.render("products/productDetail", { filtraProducto: filtraProducto, filtraUsuario: filtraUsuario });
+        res.render("products/productDetail", { filtraProducto: albumInDb, filtraUsuario: findUser });
+        
     },
     productCreateAlbumView: async (req, res) => {
 
@@ -74,21 +63,25 @@ const productsController = {
         const idAlbum = req.params.id;
         const datosModificados = req.body;
 
-         const filtraAlbum = await db.Albums.update({
-             name: datosModificados.nombrePista,
-             description: datosModificados.descripcionProducto,
-             price: datosModificados.nuevoPrecio,
-             coin: datosModificados.moneda,
-             genereIdFk: datosModificados.generes
+        if (req.file) {
+            await db.Albums.update({
+             image : "/images/products/albums/" + req.file.filename,
+            },
+            {where:{id:idAlbum}}
+            );
+         }
+
+        await db.Albums.update({
+            name: datosModificados.nombrePista,
+            description: datosModificados.descripcionProducto,
+            price: datosModificados.nuevoPrecio,
+            coin: datosModificados.moneda,
+            genereIdFk: datosModificados.generes
          },
          {where:{id:idAlbum}}
          );
 
-         if (req.file) {
-             filtraAlbum.image = "/images/products/" + req.file.filename;
-         }
-
-         res.render("index", { albumes: dataProducts })
+         return res.redirect("/general")
     },
 
     productEditList: async (req, res) => {
