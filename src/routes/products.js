@@ -6,15 +6,15 @@ const fs = require("fs")
 
 const productsController = require("../controllers/productsControllers.js");
 
+let db = require('../database/models')
+
 /*Multer config*/
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, "../../public/images/products"));
+        cb(null, path.join(__dirname, "../../public/images/products/albums"));
     },
     //Filename config *
     filename: async function (req, file, cb) {
-        const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
-        const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
 
         let albumId;
 
@@ -32,7 +32,7 @@ const storage = multer.diskStorage({
 
         const extension = path.extname(file.originalname);
         
-        cb(null, "idProduct" + productoId + extension);
+        cb(null, "idProduct" + albumId + extension);
     }
 });
 

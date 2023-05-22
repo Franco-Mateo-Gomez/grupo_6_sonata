@@ -1,14 +1,5 @@
 /*Import modules*/
-const path = require("path");
-const fs = require("fs")
-/*-------------*/
-
-/*Import JSON's*/
-const datausersJSON = path.join(__dirname, '../model/data/users.json');
-const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
-
-const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
-const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
+const userFunctions = require("../functions/User");
 /*-------------*/
 
 /*Import Models Sequelize*/
@@ -18,164 +9,158 @@ let db = require('../database/models')
 const productsController = {
 
     /*|VIEW| When users access to specific Artist -> Show list from their products*/
-    productDetail: (req, res) => {
+    productDetail: async (req, res) => {
 
-        /* Require ID from path*/
-        const productId = req.params.productId;
-        
-        let filtraProducto = dataProducts.find(product => product.id == productId);
-        let filtraUsuario = datausers.find(user => user.id == filtraProducto.idUser);
+        const idAlbum = req.params.productId;
+        const listUsers = await db.Users.findAll({});
+        const composerIds = listUsers.map(user => user.id);
 
-        if(!filtraProducto){
-            filtraProducto = dataProducts[0]
-        }
+        const albumInDb = await db.Albums.findOne({where:{id:idAlbum,composerIdFk:composerIds},include:[{ model: db.Genres, as: 'genreAlbum'}]})
+
+        const findUser = await db.Users.findOne({ where: { id: albumInDb.composerIdFk }});
 
         /*Show in page*/
-        res.render("products/productDetail", { filtraProducto: filtraProducto, filtraUsuario: filtraUsuario });
+        res.render("products/productDetail", { filtraProducto: albumInDb, filtraUsuario: findUser });
+        
     },
     productCreateAlbumView: async (req, res) => {
 
-        const dataLogin = req.session.user_data.user_email || req.session.user_data
+        const dataLogin = await userFunctions.getDataLogin(req,res);
         
-        const filtraUsuario = 
-        await db.Composers.findOne({where:{userName:dataLogin}}) ||
-        await db.Composers.findOne({where:{email:dataLogin}});
-
-        const idUser=filtraUsuario.id
-        res.render("products/createProduct",{idUser})
-    },
-
-    productEditView: (req, res) => {
-
-        const idProductosUsuarios = req.params.id;
-        const idUser = req.params.userId;
-
-        const filtraUsuario = datausers.find(user => user.id == idUser);
-        const filtraTrack = dataProducts.find(productosUsuarios => productosUsuarios.id == idProductosUsuarios && productosUsuarios.idUser == idUser);
-
-        res.render("products/editProduct", { filtraTrack:filtraTrack, filtraUsuario:filtraUsuario });
-
-    },
-
-    productEdit: (req, res) => {
-        const idProductosUsuarios = req.params.id;
-        const userId = req.params.userId;
-        const datosModificados = req.body;
-
-        const findTrack = dataProducts.findIndex(productosUsuarios => productosUsuarios.id == idProductosUsuarios && productosUsuarios.idUser == userId);
-
-        dataProducts[findTrack].nombreTrack = datosModificados.nombrePista;
-        dataProducts[findTrack].genero = datosModificados.generes;
-        dataProducts[findTrack].descripcionProductosUsuarios = datosModificados.descripcionProductosUsuarios;
-        dataProducts[findTrack].precio = datosModificados.nuevoPrecio;
-        dataProducts[findTrack].moneda = datosModificados.moneda;
-
-        if (req.file) {
-            dataProducts[findTrack].img = "/images/products/" + req.file.filename;
+        if (dataLogin != null ){
+            const findUser = await userFunctions.findInDB(req,res);
+            const idUser=findUser.id
+            res.render("products/createProduct",{idUser});
         }
-
-        fs.writeFileSync(dataProductsJSON, JSON.stringify(dataProducts));
-
-        res.render("index", { albumes: dataProducts })
-    },
-
-    productEditList: (req, res) => {
-
-        if(!req.session.user_data){
+        else{
             res.redirect("/login");
         }
+        
+    },
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
-        const filtraTraks = dataProducts.filter(productosUsuarios => productosUsuarios.idUser == filtraUsuario.id);
+    productEditView: async (req, res) => {
 
-        res.render("products/editProductList", { filtraTraks: filtraTraks, filtraUsuario: filtraUsuario })
+        const idAlbum = req.params.id;
+
+        const dataLogin = await userFunctions.getDataLogin(req,res);
+
+        if (dataLogin != null ){
+            const findUser = await userFunctions.findInDB(req,res);
+            const filtraAlbum = await db.Albums.findByPk(idAlbum,{
+                include:[
+                    {model:db.Genres,as: 'genreAlbum'}
+                ]
+            }); 
+            res.render("products/editAlbum", { filtraAlbum:filtraAlbum, filtraUsuario:findUser });
+        }
+        else{
+            res.redirect("/login");
+        } 
+
+    },
+
+    productEdit: async (req, res) => {
+        const idAlbum = req.params.id;
+        const datosModificados = req.body;
+
+        if (req.file) {
+            await db.Albums.update({
+             image : "/images/products/albums/" + req.file.filename,
+            },
+            {where:{id:idAlbum}}
+            );
+         }
+
+        await db.Albums.update({
+            name: datosModificados.nombrePista,
+            description: datosModificados.descripcionProducto,
+            price: datosModificados.nuevoPrecio,
+            coin: datosModificados.moneda,
+            genereIdFk: datosModificados.generes
+         },
+         {where:{id:idAlbum}}
+         );
+
+         return res.redirect("/general")
+    },
+
+    productEditList: async (req, res) => {
+ 
+        const dataLogin = await userFunctions.getDataLogin(req,res);
+
+        if (dataLogin != null ){
+            const findUser = await userFunctions.findInDB(req,res);
+            const filtraAlbums = await db.Albums.findAll({
+                where: {
+                  composerIdFk: findUser.id
+                }
+              }); 
+            res.render("products/editAlbumtList", { filtraAlbums: filtraAlbums, filtraUsuario: findUser })
+        }
+        else{
+            res.redirect("/login");
+        }
+        
     },
 
     adminProducts: async (req, res) => {
 
-        if(!req.session.user_data){
+        const dataLogin = await userFunctions.getDataLogin(req,res);
+        
+        if (dataLogin != null ){
+            const findUser = await userFunctions.findInDB(req,res);
+            if(findUser.isComposer != 1){
+                res.redirect("/general")
+            }
+            else{
+                res.render("products/adminProducts", { filtraUsuario: findUser });
+            }
+        }
+        else{
             res.redirect("/login");
         }
 
-        const dataLogin = req.session.user_data.user_email || req.session.user_data
-        
-        const filtraUsuario = 
-        await db.Composers.findOne({where:{userName:dataLogin}}) ||
-        await db.Composers.findOne({where:{email:dataLogin}});
-
-        if(!filtraUsuario){
-            res.send("Usted no es Artista :(")
-        }
-
-        res.render("products/adminProducts", { filtraUsuario: filtraUsuario });
     },
 
-    productDelete: (req, res) => {
-        const idProductosUsuarios = req.params.id;
+    productDelete: async (req, res) => {
 
-        const filtraUsuario = datausers.find(user => user.email == req.session.user_data.user_email || user.nombreArtista === req.session.user_data.user_email || user.email == req.session.user_data || user.nombreArtista === req.session.user_data);
-        const findTrack = dataProducts.findIndex(productosUsuarios => productosUsuarios.id == idProductosUsuarios && productosUsuarios.idUser == filtraUsuario.id);
+        const idAlbum = req.params.id;
 
-        dataProducts.splice(findTrack, 1);
-
-        fs.writeFileSync(dataProductsJSON, JSON.stringify(dataProducts));
+        await db.Albums.destroy({ where: { id: idAlbum }});
 
         res.redirect("/product/edit-list");
     },
     
     productCreateAlbum: async (req, res) => {
 
-        const dataLogin = req.session.user_data.user_email || req.session.user_data
+        const dataLogin = await userFunctions.getDataLogin(req,res);
 
-        const filtraUsuario = 
-        await db.Composers.findOne({where:{userName:dataLogin}}) ||
-        await db.Composers.findOne({where:{email:dataLogin}});
+        if (dataLogin != null ){
+            const findUser = await userFunctions.findInDB(req,res);
+            const idUser=findUser.id
 
-        const idUser=filtraUsuario.id
+            const filtraGenero = await db.Genres.findOne({where:{name:req.body.genere}});
 
-        const filtraGenero = await db.Genres.findOne({where:{name:req.body.genere}});
+            let defaultAlbumImage = req.file ? "/images/products/albums/" + req.file.filename : "/images/products/albums/default.jpg";
 
-        let defaultAlbumImage = req.file ? "/images/products/albums/" + req.file.filename : "/images/products/albums/default.jpg";
+            db.Albums.create({
+                name: req.body.nombreAlbum,
+                description: req.body.descripcion_album,
+                image: defaultAlbumImage,
+                coin: req.body.moneda,
+                price: req.body.precio_album,
+                composerIdFk: idUser,
+                genereIdFk: filtraGenero.id,
 
-        db.Albums.create({
-            name: req.body.nombreAlbum,
-            description: req.body.descripcion_album,
-            image: defaultAlbumImage,
-            coin: req.body.moneda,
-            price: req.body.precio_album,
-            composerIdFk: idUser,
-            genereIdFk: filtraGenero.id,
+            })
+            .then(createSong=>{
+                return res.redirect("/general") 
+            })
+        }
+        else{
+            res.redirect("/login");
+        }
 
-        })
-        .then(createSong=>{
-            return res.redirect("/general") 
-        })
-
-        //* GUÍA PARA ÁLBUM *//
-        // let producto = {
-        //     id: dataProducts[dataProducts.length - 1].id + 1,
-        //     img: "/images/products/" + req.file.filename,
-        //     nombreTrack: req.body.nombrePista,
-        //     duracion: "",
-        //     fechaPublicacion: "",
-        //     descripcionProducto: req.body.descripcion_pista,
-        //     genero: req.body.edit_generes,
-        //     precio: req.body.precio_pista,
-        //     moneda: req.body.moneda,
-        //     idUser: filtraUsuario.id,
-        //     valoracion: 0
-        // }
-
-        /* SIN UTILIDAD */
-        // //A la variable le agrego el nuevo usuario
-        // dataProducts.push(producto);
-
-        // //Convierto el objeto en un string
-        // let productosUsuariosJSON = JSON.stringify(dataProducts);
-
-        // //Escribo los cambios en el archivo
-        // fs.writeFileSync(path.join(__dirname, '../model/data/products.json'), productosUsuariosJSON);
-        
     }
 
 }

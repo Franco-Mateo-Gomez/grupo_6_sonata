@@ -9,19 +9,19 @@ module.exports = function (sequelize, dataTypes) {
         },
         status: {
             type: dataTypes.STRING,
-            notNull: true,
+            allowNull: false,
         },
         totalQuantity: {
             type: dataTypes.INTEGER,
-            notNull: true,
+            allowNull: false,
         },
         totalPrice: {
             type: dataTypes.INTEGER,
-            notNull: true,
+            allowNull: false,
         },
         date: {
             type: dataTypes.DATE,
-            notNull: true,
+            allowNull: false,
         }
     }
     let config = {

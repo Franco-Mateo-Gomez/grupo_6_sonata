@@ -1,26 +1,21 @@
 const { body } = require("express-validator");
-const fs = require("fs")
-const path = require("path");
 const bcrypt = require("bcryptjs");
 
 let db = require('../database/models')
 
-/*Import JSON's*/
-// const datausersJSON = path.join(__dirname, '../model/data/users.json');
-// const datausers = JSON.parse(fs.readFileSync(datausersJSON, 'utf-8'));
 
 const validations=[
+
     /*USER VALIDATION*/
     body("user_email").notEmpty().withMessage("Debes escribir el nombre")
     
-    /*Second stage => Find user in DATABASE*/
+    /*Second stage --> Find user in DATABASE*/
     .custom (async(value, { req }) => {
 
-        const emailUser = await db.Users.findOne({where:{email:value}}) ||
-        await db.Composers.findOne({where:{email:value}})
+        // Login from email or nameUser
+        const emailUser = await db.Users.findOne({where:{email:value}});
 
-        const nameUser = await db.Users.findOne({where:{userName:value}}) ||
-        await db.Composers.findOne({where:{userName:value}})
+        const nameUser = await db.Users.findOne({where:{userName:value}});
 
         /* Use email or name from user*/
         const globalUser = emailUser || nameUser    
@@ -28,6 +23,7 @@ const validations=[
         if (!globalUser) {
             throw new Error("El usuario ingresado no existe");
         }
+
         /*Save User if exists*/
         req.user = globalUser;
         return true;
