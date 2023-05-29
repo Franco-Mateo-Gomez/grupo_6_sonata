@@ -17,7 +17,7 @@ const validatePasswordConfirmation = (value, { req }) => {
 
 //Validaciones de los campos del formulario de registro
 const validationsRegister = [
-    body("client_fullname").notEmpty().withMessage("Tienes que ingresar tu nombre completo"),
+    body("client_fullname").isString().withMessage("No se admiten números"),
     body("user_email").notEmpty().withMessage("Tienes que ingresar tu correo electronico"),
     body("user_password").notEmpty().withMessage("Tienes que ingresar una contraseña"),
     body("user_passwordConfirmation").notEmpty().withMessage("Tienes que confirmar tu contraseña").custom(validatePasswordConfirmation),

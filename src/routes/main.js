@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
         let userId;
 
         // Consulta a la BD el usuario
-        const usuarioDB = await db.Users.findByPk(req.params.id) || await db.Composers.findByPk(req.params.id);
+        const usuarioDB = await db.Users.findByPk(req.params.id)
         
         if(usuarioDB){
             userId = usuarioDB.id;
@@ -32,6 +32,8 @@ const storage = multer.diskStorage({
             const ultimoUsuarioDB = await db.Users.max("id") || await db.Composers.max("id") ;
             userId = ultimoUsuarioDB + 1;
         }
+
+        
 
         const extension = path.extname(file.originalname);
         
