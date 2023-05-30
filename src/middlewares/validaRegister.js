@@ -19,7 +19,7 @@ const validatePasswordConfirmation = (value, { req }) => {
 const validationsRegister = [
     body("client_fullname")
         .notEmpty().withMessage("Tienes que ingresar tu nombre completo")
-        .isLength({min: 6}).withMessage("El nombre debe contener al menos 6 caracteres"),
+        .isLength({min: 2}).withMessage("El nombre debe contener al menos 2 caracteres"),
     body("user_email")
         .notEmpty().withMessage("Tienes que ingresar tu correo electronico")
         .isEmail().withMessage("El email no es valido"),
