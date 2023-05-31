@@ -17,15 +17,24 @@ const validatePasswordConfirmation = (value, { req }) => {
 
 //Validaciones de los campos del formulario de registro
 const validationsRegister = [
-    body("client_fullname").isString().withMessage("No se admiten números"),
-    body("user_email").notEmpty().withMessage("Tienes que ingresar tu correo electronico"),
-    body("user_password").notEmpty().withMessage("Tienes que ingresar una contraseña"),
-    body("user_passwordConfirmation").notEmpty().withMessage("Tienes que confirmar tu contraseña").custom(validatePasswordConfirmation),
-    body("user_name").notEmpty().withMessage("Tienes que ingresar un nombre de usuario"),
+    body("client_fullname")
+        .notEmpty().withMessage("Tienes que ingresar tu nombre completo")
+        .isLength({min: 2}).withMessage("El nombre debe contener al menos 2 caracteres"),
+    body("user_email")
+        .notEmpty().withMessage("Tienes que ingresar tu correo electronico")
+        .isEmail().withMessage("El email no es valido"),
+    body("user_password")
+        .notEmpty().withMessage("Tienes que ingresar una contraseña")
+        .isLength({min: 8}).withMessage("La contraseña debe contener al menos 8 coracteres"),
+    body("user_passwordConfirmation")
+        .notEmpty().withMessage("Tienes que confirmar tu contraseña").custom(validatePasswordConfirmation),
+    body("user_name")
+        .notEmpty().withMessage("Tienes que ingresar un nombre de usuario")
+        .isLength({min: 6}).withMessage("El nombre de usuario debe tener al menos 6 caracteres"),
     
     body("user_image").custom((value, { req })=>{
         let file = req.file;
-        let acceptedExtensions = ['.jpg','.png'];
+        let acceptedExtensions = ['.jpg','.png','.jpeg','gif'];
         
         if(file){
             let fileExtension = path.extname(file.originalname)
@@ -39,3 +48,4 @@ const validationsRegister = [
 ];
 
 module.exports = validationsRegister;
+
