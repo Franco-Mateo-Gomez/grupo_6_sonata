@@ -78,14 +78,13 @@ window.onload = function(){
         let imagen = document.querySelector('#imagen_pista') 
         let errorImagen = document.querySelector('.error_imagen')
         if (imagen.value == ''){
-            errorImagen.innerHTML = 'Ingrese una imagen'
-            const file = imagen.files[0];
-            console.log (file.name.split('.').pop() + 'extension')
-      //      const fileName = file.value;
-        //    const fileExtension = fileName.split('.').pop();
-          //  console.log('Extensión del archivo:', fileExtension);
+            errorImagen.innerHTML = 'Ingrese una imagen'          
         }
+        else{
+        const file = imagen.files[0];
+            console.log (file.name.split('.').pop() + 'extension')
         console.log (imagen.value)
+        }
     })
     
     
