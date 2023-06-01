@@ -29,7 +29,7 @@ const storage = multer.diskStorage({
             userId = usuarioDB.id;
         }
         else{
-            const ultimoUsuarioDB = await db.Users.max("id") || await db.Composers.max("id") ;
+            const ultimoUsuarioDB = await db.Users.max("id");
             userId = ultimoUsuarioDB + 1;
         }
 

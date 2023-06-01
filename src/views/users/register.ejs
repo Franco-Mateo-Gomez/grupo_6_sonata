@@ -30,27 +30,29 @@
                     <div class="campo_formulario_registro">
                         <label for="user_name">Nombre de usuario: </label>
                         <input placeholder="Ejemplo: Artemis402" id="user_name" name="user_name" type="text" value="<%=locals.oldData?oldData.user_name:null%>">
+                        
                         <% if (locals.errors && errors.user_name) { %>
                             <h6 style="color: red;"><%=errors.user_name.msg%></h6>
                         <% } %>
-                        <h6 class="user_name_errors_front" style="color:red"></h6>
                     </div>
 
                     <div class="campo_formulario_registro">
                         <label for="user_email">Correo electronico: </label>
                         <input placeholder="Ejemplo: artemisIris@dominio.com" id="user_email" name="user_email" type="email" value="<%=locals.oldData?oldData.user_email:null%>">
+                        
                         <% if (locals.errors && errors.user_email) { %>
                             <h6 style="color: red;"><%=errors.user_email.msg%></h6>
                         <% } %>
+
                     </div>
 
                     <div class="campo_formulario_registro">
                         <label for="client_fullname">Nombre completo: </label>
                         <input id="client_fullname" placeholder="Ejemplo: Artemisa Iris Herrera" name="client_fullname" type="text" value="<%=locals.oldData?oldData.client_fullname:null%>">
+                        
                         <% if (locals.errors && errors.client_fullname) { %>
                             <h6 style="color: red;"><%=errors.client_fullname.msg%></h6>
                         <% } %>
-                        <h6 class="fullname_errors_front" style="color:red"></h6>
                     </div>
 
                     <div>
@@ -72,9 +74,11 @@
                     <div class="campo_formulario_registro">
                         <label for="user_image">Imagen de perfil: </label>
                         <input type="file" name="user_image" id="user_image">
+                        
                         <% if (locals.errors && errors.user_image) { %>
                             <h6 style="color: red;"><%=errors.user_image.msg%></h6>
                         <% } %>
+                        
                     </div>
 
                     <div class="campo_formulario_registro">
@@ -88,9 +92,11 @@
                     <div class="campo_formulario_registro">
                         <label for="user_passwordConfirmation">Confirmar contraseña: </label>
                         <input id="user_passwordConfirmation" name="user_passwordConfirmation" type="password">
+                       
                         <% if (locals.errors && errors.user_passwordConfirmation) { %>
                             <h6 style="color: red;"><%=errors.user_passwordConfirmation.msg%></h6>
                         <% } %>
+
                     </div>
 
                     <div>

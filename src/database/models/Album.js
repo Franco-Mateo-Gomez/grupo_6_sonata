@@ -1,5 +1,3 @@
-const { reconstructFieldPath } = require("express-validator/src/select-fields");
-
 module.exports = (sequelize, dataTypes)=>{
 
     let alias = "Albums";

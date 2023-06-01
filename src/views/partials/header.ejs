@@ -1,41 +1,82 @@
-
 <header>
+    
     <div>
         <a href="/general"><img class="logo" src="/images/imagen_logo_sonata_v2.png" alt=""></a>
     </div>
-    <input type="checkbox" name="" id="check">
+    
+
     <label for="check">
         <i class="boton_menu fa-solid fa-bars"></i>
     </label>
 
     <ul class="nav-menu">
-        <li class="btn btn-home"><a href="/general"><i class="icono-home fa-solid fa-house"></i> HOME</a></li>
-        
-        <li class="btn btn-carrito"><a href="/checkout"><i class="fa-solid fa-cart-shopping"></i></a></li>
-        
+        <li class="btn btn-home"><a href="/general"><i class="icono-home fa-solid fa-house"></i> Home</a></li>
+
+        <li class="btn btn-carrito"><a href="/checkout"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+
         <li class="btn btn-busqueda">
-            
-            <form action="" method="get">
-                <input type="search" placeholder="Buscar artista">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <form class="formulario_buscador" action="">
+                <input class="campo_formulario" type="search" placeholder="Buscar artista">
+                <button class="boton_formulario" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </li>
 
-        <input type="checkbox" id="usuario_check">
-        
-        <li class="btn-usuario">
-                <label for="usuario_check">
-                    <i class="fa-solid fa-user"></i>
-                </label>
-
-            <span class="flecha_usuario"></span>
-            
-        </li>
-
-        <section class="botones_usuario">
-            <li> <a href="/product/admin-products">Administración de Producto</a> </li>
-            <li> <a href="/config">Configuracion del usuario</a> </li>
-            <li> <a href="/logout">Salir de la cuenta</a> </li>
-        </section>
     </ul>
+
+    <!--Boton de usuario o menú-->
+    <div class="btn-usuario-x" for="usuario_check">
+        <i class="fa-solid fa-user"></i>
+    </div>
+
 </header>
+
+<section class="menu_desplegable">
+    <nav class="contenedor_menu_desplegable">
+        <div class="buscador_menu_desplegable">
+            <form class="formulario_buscador" action="">
+                <input class="campo_formulario" type="search" placeholder="Buscar artista">
+                <button class="boton_formulario" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+
+        <section class="usuario_datos">
+            <div class="ancho_contenedor_usario_datos" >
+                <div class="contenedor_usario_datos">
+                    <section class="contenedor_imagen_de_usuario">
+                        <img class="imagen_de_usuario" src="/images/imagen_logo_sonata_v1.png" alt="" srcset="">
+                    </section>
+                    <h2>@SonataUser</h2>
+                    
+                </div>
+
+                <div class="submenu-boton">
+                    <span id="submenu" href="">Administración<i
+                            class="fa-solid fa-chevron-down flecha_submenu-boton"></i></span>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="submenu-container">
+            <div class="menu-boton"> <a href="/product/admin-products"><i class="fa-solid fa-compact-disc"></i> Productos</a> </div>
+            <div class="menu-boton"> <a href="/config"><i class="fa-solid fa-user-gear"></i> Configuración</a> </div>
+        </div>
+
+        <ul>
+            <li class="menu-boton" >
+                <a href=""></i><i class="fa-solid fa-house"></i> Home</a>
+            </li>
+
+            <li class="menu-boton">
+                <a href="/checkout"><i class="fa-solid fa-cart-shopping"></i> Carrito</a>
+            </li>
+            
+        </ul>
+
+        <div class="menu-boton logout">
+            <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</a> 
+        </div>
+    </nav>
+
+    
+</section>
