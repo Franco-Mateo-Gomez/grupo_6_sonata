@@ -29,8 +29,7 @@ const productsController = {
         
         if (dataLogin != null ){
             const findUser = await userFunctions.findInDB(req,res);
-            const idUser=findUser.id
-            res.render("products/createProduct",{idUser});
+            res.render("products/createProduct",{user:findUser});
         }
         else{
             res.redirect("/login");
@@ -51,7 +50,7 @@ const productsController = {
                     {model:db.Genres,as: 'genreAlbum'}
                 ]
             }); 
-            res.render("products/editAlbum", { filtraAlbum:filtraAlbum, filtraUsuario:findUser });
+            res.render("products/editAlbum", { filtraAlbum:filtraAlbum, user:findUser });
         }
         else{
             res.redirect("/login");
@@ -95,7 +94,7 @@ const productsController = {
                   composerIdFk: findUser.id
                 }
               }); 
-            res.render("products/editAlbumtList", { filtraAlbums: filtraAlbums, filtraUsuario: findUser })
+            res.render("products/editAlbumtList", { filtraAlbums: filtraAlbums, user: findUser })
         }
         else{
             res.redirect("/login");
@@ -113,7 +112,7 @@ const productsController = {
                 res.redirect("/general")
             }
             else{
-                res.render("products/adminProducts", { filtraUsuario: findUser });
+                res.render("products/adminProducts", { user: findUser });
             }
         }
         else{

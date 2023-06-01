@@ -12,12 +12,22 @@ const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
 
 /*Import Models Sequelize*/
 let db = require('../database/models');
-const { error } = require('console');
+const { error, log } = require('console');
 
 const userController = {
-    generalView:(req,res) =>{
+    generalView: async (req,res) =>{
 
-        res.render("index",{ albumes: dataProducts });
+        const dataLogin = await userFunctions.getDataLogin(req,res);
+
+            if (dataLogin != null ){
+                const findUser = await userFunctions.findInDB(req,res);
+                res.render("index",{ albumes: dataProducts, user: findUser });
+            }
+            else{
+                res.redirect("/login");
+            }
+
+        
     },
     loginView: (req,res) =>{
         res.render("users/login");
@@ -112,7 +122,7 @@ const userController = {
 
             if (dataLogin != null ){
                 const findUser = await userFunctions.findInDB(req,res);
-                res.render("users/userConfig",{userConfig:findUser});
+                res.render("users/userConfig",{userConfig:findUser, user: findUser});
             }
             else{
                 res.redirect("/login");
@@ -193,6 +203,7 @@ const userController = {
 
     logout:(req,res) => {
         delete req.session.user_data;
+        res.clearCookie("recordame");
         res.render("frontPage");
     }
 }

@@ -1,3 +1,4 @@
+
 const mainController = {
     front: (req, res) => {
         res.render("frontPage");
