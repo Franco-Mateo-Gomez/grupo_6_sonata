@@ -23,6 +23,7 @@ main {
   width: 18rem;
   height: 15rem;
   border-radius: 0 2rem 0 2rem;
+  flex-direction: column;
 }
 
 .contenedor_boton_imagen {
@@ -154,6 +155,7 @@ button[type="reset"] {
   border: none;
   border-bottom: 2px solid black;
   height: 1.5rem;
+  width: 200px
 }
 
 .boton_subir_imagen{
@@ -196,4 +198,23 @@ button[type="reset"] {
     text-align: center;
     gap: 1rem;
   }
+
+}
+
+.errorNombre, .errorGenero, .error_descripcion, .error_precio, .error_moneda{
+  color: red;
+  width: 100%;
+
+ 
+}
+
+.error_imagen{
+  color: red;
+  width: 100%;
+  text-align: center;
+}
+
+.contenedor_input_genero{
+  width: 40%;
+
 }

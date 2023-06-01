@@ -7,7 +7,32 @@
 const fs = require('fs');
 const path = require('path')
 
+/*Import Models Sequelize*/
+let db = require('../database/models');
+
 const User = {
+
+    /* Frequently used */
+    getDataLogin : async (req, res) => {
+        if (!req.session.user_data || req.session.user_data === undefined) {
+            return null;
+        } else {
+          const dataLogin = req.session.user_data.user_email || req.session.user_data;
+          return dataLogin;
+        }
+      },
+    findInDB: async (req,res) => {
+        const dataLogin = await User.getDataLogin(req, res);
+
+        try{
+            const userInDb = await db.Users.findOne({where:{userName:dataLogin}}) || await db.User.findOne({where:{email:dataLogin}});
+            return userInDb;
+        }
+        catch{
+            res.redirect("/login")
+        }
+    },
+     /* --- Frequently used --- */
 
     fileName: path.join(__dirname,"../model/data/users.json"),
    

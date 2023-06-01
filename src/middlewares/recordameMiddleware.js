@@ -1,6 +1,3 @@
-const path = require("path");
-const fs = require("fs");
-
 let db = require('../database/models')
 
 async function recordameMiddleware(req,res,next) {
@@ -9,10 +6,7 @@ async function recordameMiddleware(req,res,next) {
         let userOrEmail = req.cookies.recordame;
         
         const filtraUsuario = await db.Users.findOne({where:{userName:userOrEmail}}) || 
-        await db.Users.findOne({where:{email:userOrEmail}}) ||
-
-        await db.Composers.findOne({where:{userName:userOrEmail}}) ||
-        await db.Composers.findOne({where:{email:userOrEmail}})
+        await db.Users.findOne({where:{email:userOrEmail}});
         
         if(filtraUsuario){
             req.session.user_data=userOrEmail;

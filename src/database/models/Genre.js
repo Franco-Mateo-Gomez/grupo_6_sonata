@@ -24,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
     //Relacionamos un Genero con muchos Albumes
     Genre.associate = function (models) {
         Genre.hasMany(models.Albums, {
-            as: "albums", 
+            as: "genreAlbum", 
             foreignKey: "genereIdFk"
         })
     }

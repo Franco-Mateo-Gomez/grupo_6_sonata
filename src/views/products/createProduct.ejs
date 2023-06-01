@@ -31,7 +31,7 @@
                 <div class="contenedor_boton_imagen">
                     <label for="imagen_pista"><i class="fa-solid fa-circle-plus"></i></label>
                 </div>
-
+                <div class="error_imagen"></div>
             </section>
 
             <form class="form_productos" action="/product/create/album" method="POST" enctype="multipart/form-data">
@@ -44,35 +44,42 @@
 
                         <div class="inputs_superiores">
 
-                            <div>
+                            <div class="contenedor_input_nombre">
                                 <label for="nombre_pista">Nombre del Álbum:</label>
-                                <input class="input_personalizado_barra" type="text" name="nombreAlbum"
-                                    id="nombre_pista">
-                                <div class="errorNombre"></div>
-                            </div>
+                                <div>
+                                <input class="input_personalizado_barra" type="text" name="nombreAlbum" id="nombre_pista">
+                                <div class="errorNombre">
+                                </div>
 
-                            <div>
+                                </div>
+                            </div>
+    
+                            <div class="contenedor_input_genero">
 
                                 <label for="genero_pista">Género:</label>
                                 <select class="list-generes" name="genere">
+                                    
+                                    <option value="Ninguno">
+                                        Ninguno
+                                    </option>
 
-                                    <option value="ROCK">
+                                    <option value="Rock">
                                         ROCK
                                     </option>
-
-                                    <option value="POP">
-                                        POP
+                            
+                                    <option value="Pop">
+                                       POP
                                     </option>
-
-                                    <option value="CLASICA">
+                            
+                                    <option value="Classic">
                                         CLÁSICA
                                     </option>
 
-                                    <option value="ELECTRONICA">
+                                    <option value="Electronic">
                                         ELECTRÓNICA
                                     </option>
 
-                                    <option value="HIP-HOP">
+                                    <option value="Hip-Hop">
                                         HIP-HOP
                                     </option>
 
@@ -81,13 +88,15 @@
                                     </option>
 
                                 </select>
-                            </div>
+                                <div class="errorGenero"></div>
+                    
+                        </div>
                         </div>
 
                         <div class="inputs_inferiores">
                             <label for="descripcion_pista">Descripción:</label>
-                            <textarea class="input_personalizado_fondo" name="descripcion_album"
-                                id="descripcion_pista"></textarea>
+                            <textarea class="input_personalizado_fondo" name="descripcion_album" id="descripcion_pista"></textarea>
+                            <div class="error_descripcion"></div>
                         </div>
 
                         <label class="boton_subir_imagen" for="imagen_pista">Insertar imagen<i
@@ -100,23 +109,29 @@
                         <div>
                             <label for="precio_pista">Precio:</label>
                             <input class="input_personalizado_barra" type="text" name="precio_album" id="precio_pista">
+                            <div class="error_precio"></div>
                         </div>
 
                         <div>
                             <label for="moneda_pista">Moneda:</label>
                             <select class="checkout-moneda" name="moneda">
+                                <option value="Ninguno" selected>
+                                    Ninguno
+                                </option>
+
                                 <option value="USD">
                                     USD
                                 </option>
-
-                                <option value="ARS" selected>
-                                    ARS
+                        
+                                <option value="ARS" >
+                                   ARS
                                 </option>
 
                                 <option value="EUR">
                                     EUR
                                 </option>
                             </select>
+                            <div class="error_moneda"></div>
                         </div>
                     </section>
                 </section>
@@ -130,7 +145,8 @@
         </main>
         <!--Footer-->
         <%- include('../partials/footer') %>
-            <script src="/scripts/validaciones/validator.js"> </script>
+
+        <script src="/scripts/validaciones/validatorCreateProduct.js"> </script>
 </body>
 
 </html>
