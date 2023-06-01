@@ -12,7 +12,6 @@ const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
 
 /*Import Models Sequelize*/
 let db = require('../database/models');
-const { error, log } = require('console');
 
 const userController = {
     generalView: async (req,res) =>{
