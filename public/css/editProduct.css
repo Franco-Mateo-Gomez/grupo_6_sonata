@@ -86,7 +86,6 @@ main {
 .inputs_superiores div {
   display: flex;
   flex-direction: column;
-  width: 40%;
 }
 
 .inputs_inferiores {

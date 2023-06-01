@@ -22,14 +22,46 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.9/dist/draggable.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.9/dist/draggable.min.js"></script>
 
-
 </head>
 
 <body>
+
     <%- include('./partials/header') %>
 
-        <main>
+        <section class="presentacion">
+            <section class="presentacion_marca">
+                <h2 id="typed-text">WELCOME TO <br> SONATA</h2>
+            </section>
 
+            <img class="imagen_presentacion_movil" src="images/banner/personaPresentacion.png" alt="">
+
+            <span class="btn_fondoColor" href="">
+                <i class="fa-solid fa-moon"></i>
+            </span>
+
+            <section class="presentacion_productos">
+                <img src="images/banner/banner1.jpeg" alt="">
+                <h2 id="text_imagen_banner">
+                    <div class="estilo_imagen_banner"><i class="fa-solid fa-music fa-beat-fade"></i> The
+                        best<br>experience <i class="fa-solid fa-music fa-beat-fade"></i></div>
+                </h2>
+            </section>
+
+            <div class="particulas">
+                <span><i class="fa-solid fa-music fa-beat"></i></span>
+                <span><i class="fa-solid fa-music fa-beat"></i></span>
+                <span><i class="fa-solid fa-music fa-beat"></i></span>
+                <span><i class="fa-solid fa-music fa-beat"></i></span>
+                <span><i class="fa-solid fa-music fa-beat"></i></span>
+                <span><i class="fa-solid fa-music fa-beat"></i></span>
+                <span><i class="fa-solid fa-music fa-beat"></i></span>
+                <span><i class="fa-solid fa-music fa-beat"></i></span>
+                <span><i class="fa-solid fa-music fa-beat"></i></span>
+                <span><i class="fa-solid fa-music fa-beat"></i></span>
+            </div>
+        </section>
+
+        <main>
             <!--SLIDER DE ALBUMES POPULARES-->
             <section class="slider_album_populares">
                 <div class="container">
@@ -43,41 +75,137 @@
                     </div>
                 </div>
             </section>
+        </main>
 
-            <section class="slider_alubum_generos">
+        <section class="filtrador">
 
-                <article class="generos_album">
-                    <input type="radio" name="filtro" id="pop">
-                    <input type="radio" name="filtro" id="rock">
-                    <input type="radio" name="filtro" checked id="todo">
-                    <input type="radio" name="filtro" id="x">
-    
-                    <section class="botones_filtro">
-                        <label for="todo">Todo</label>
-    
-                        <label for="rock">Rock</label>
-    
-                        <label for="pop">Pop</label>
-    
-                        <label for="x">×</label>
-                    </section>
-    
-                    <figure id="filtro">
-                        <img src="images/imagen_album1.jpg" class="todo rock">
-                        <img src="images/imagen_album2.jpg" class="todo pop">
-                        <img src="images/imagen_album3.jpg" class="todo pop">
-                        <img src="images/imagen_album4.jpg" class="todo rock">
-                        <img src="images/imagen_album5.jpg" class="todo rock">
-                        <img src="images/imagen_album6.jpg" class="todo pop">
-                        <img src="images/imagen_album7.jpg" class="todo rock">
-                        <img src="images/imagen_album1.jpg" class="todo pop">
-                    </figure>
-    
-                </article>
+            <section class="filtrador_contenedor_botones">
+                
+                <section class="contenedor_boton_desplegable">
+                    <h2>Últimos Albumes</h2>
+                    <span class="boton_generos">Seleccionar generos <i class="fa-solid fa-chevron-down flecha_submenu-boton"></i></span>
+                </section>
+               
+                <section class="filtrador_botones">
+                    <span class="boton_filtrador" id="rock">Rock</span>
+                    <span class="boton_filtrador" id="pop">pop</span>
+                    <span class="boton_filtrador" id="clásica">Clasica</span>
+                    <span class="boton_filtrador" id="rap">Rap</span>
+                    <span class="boton_filtrador" id="todo">Todo</span>
+                    <span class="boton_filtrador" id="nada"><i class="fa-solid fa-xmark"></i></span>
+                </section>
+
+                <a class="vermas" href="">Ver Más <i class="fa-solid fa-arrow-right"></i></a>
+
             </section>
 
-            
-        </main>
+            <section class="contenedor_albumes_filtrar">
+                <div class="tarjeta_album todo rock">
+
+                    <section class="titulo_tarjeta_album">
+                        <h2>Album Nº1</h2>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </section>
+
+                    <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album1.jpg">
+
+                    <div class="fondo_imagen">
+                        <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    </div>
+
+                    <h3 class="precio_tarjeta_album">$130</h3>
+
+                </div>
+
+
+                <div class="tarjeta_album todo pop">
+                    <section class="titulo_tarjeta_album">
+                        <h2>Album Nº2</h2>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </section>
+                    <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album3.jpg">
+                    <div class="fondo_imagen">
+                        <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    </div>
+                    <h3 class="precio_tarjeta_album">$130</h3>
+                </div>
+
+                <div class="tarjeta_album todo rock">
+                    <section class="titulo_tarjeta_album">
+                        <h2>Album Nº3</h2>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </section>
+                    <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album4.jpg">
+                    <div class="fondo_imagen">
+                        <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    </div>
+                    <h3 class="precio_tarjeta_album">$130</h3>
+                </div>
+
+                <div class="tarjeta_album todo rock">
+                    <section class="titulo_tarjeta_album">
+                        <h2>Album Nº4</h2>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </section>
+                    <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album5.jpg">
+                    <div class="fondo_imagen">
+                        <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    </div>
+                    <h3 class="precio_tarjeta_album">$130</h3>
+                </div>
+
+                <div class="tarjeta_album todo pop">
+                    <section class="titulo_tarjeta_album">
+                        <h2>Album Nº5</h2>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </section>
+                    <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album6.jpg">
+                    <div class="fondo_imagen">
+                        <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    </div>
+                    <h3 class="precio_tarjeta_album">$130</h3>
+                </div>
+
+
+                <div class="tarjeta_album todo pop">
+                    <section class="titulo_tarjeta_album">
+                        <h2>Album Nº2</h2>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </section>
+                    <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album3.jpg">
+                    <div class="fondo_imagen">
+                        <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    </div>
+                    <h3 class="precio_tarjeta_album">$130</h3>
+                </div>
+
+                <div class="tarjeta_album todo rock">
+                    <section class="titulo_tarjeta_album">
+                        <h2>Album Nº3</h2>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </section>
+                    <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album4.jpg">
+                    <div class="fondo_imagen">
+                        <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    </div>
+                    <h3 class="precio_tarjeta_album">$130</h3>
+                </div>
+
+                <div class="tarjeta_album todo rock">
+                    <section class="titulo_tarjeta_album">
+                        <h2>Album Nº4</h2>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </section>
+                    <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album5.jpg">
+                    <div class="fondo_imagen">
+                        <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    </div>
+                    <h3 class="precio_tarjeta_album">$130</h3>
+                </div>
+            </section>
+
+        </section>
+
 
         <!--Footer-->
         <%- include('./partials/footer') %>
@@ -90,6 +218,8 @@
             <!-- Initialize Swiper -->
             <script src="/scripts/script-slider-responsive.js"></script>
             <script src="/scripts/script-slider-generos.js"></script>
+            <script src="/scripts/barra-navegacion.js"></script>
+            <script src="/scripts/filtrador.js"></script>
 </body>
 
 </html>
