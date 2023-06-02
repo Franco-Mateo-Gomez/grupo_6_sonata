@@ -1,5 +1,6 @@
 const { body } = require("express-validator");
 const bcrypt = require("bcryptjs");
+const { Op } = require('sequelize');
 
 let db = require('../database/models')
 
@@ -13,12 +14,9 @@ const validations=[
     .custom (async(value, { req }) => {
 
         // Login from email or nameUser
-        const emailUser = await db.Users.findOne({where:{email:value}});
-
-        const nameUser = await db.Users.findOne({where:{userName:value}});
-
         /* Use email or name from user*/
-        const globalUser = emailUser || nameUser    
+        const globalUser = await db.Users.findOne({
+            where: {[Op.or]: [{ userName: value }, { email: value }]}});
 
         if (!globalUser) {
             throw new Error("El usuario ingresado no existe");

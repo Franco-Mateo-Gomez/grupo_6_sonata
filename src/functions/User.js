@@ -9,6 +9,7 @@ const path = require('path')
 
 /*Import Models Sequelize*/
 let db = require('../database/models');
+const { Op } = require('sequelize');
 
 const User = {
 
@@ -24,12 +25,15 @@ const User = {
     findInDB: async (req,res) => {
         const dataLogin = await User.getDataLogin(req, res);
 
-        try{
-            const userInDb = await db.Users.findOne({where:{userName:dataLogin}}) || await db.User.findOne({where:{email:dataLogin}});
+
+        try {
+            const userInDb = await db.Users.findOne({
+              where: {[Op.or]: [{ userName: dataLogin }, { email: dataLogin }]}});
             return userInDb;
-        }
-        catch{
-            res.redirect("/login")
+          }
+        catch (error){
+            console.log(error);
+            return null
         }
     },
      /* --- Frequently used --- */

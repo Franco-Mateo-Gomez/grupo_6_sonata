@@ -14,6 +14,7 @@ const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
 let db = require('../database/models');
 
 const userController = {
+
     generalView: async (req,res) =>{
 
         const dataLogin = await userFunctions.getDataLogin(req,res);
@@ -25,7 +26,6 @@ const userController = {
             else{
                 res.redirect("/login");
             }
-
         
     },
     loginView: (req,res) =>{
@@ -42,7 +42,7 @@ const userController = {
         else{
 
             /*Save data in Session :) */
-            req.session.user_data=req.body;
+            req.session.user_data=req.body.user_email;
             /*------------------------*/
 
             if(req.body.recordame !=undefined){
