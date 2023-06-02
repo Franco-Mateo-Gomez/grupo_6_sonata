@@ -3,12 +3,7 @@ const bcrypt = require("bcryptjs");
 const {validationResult} = require("express-validator")
 const userFunctions = require("../functions/User");
 
-//*Temporal----------------
-const path = require("path");
 const fs = require("fs")
-const dataProductsJSON = path.join(__dirname, '../model/data/products.json');
-const dataProducts = JSON.parse(fs.readFileSync(dataProductsJSON, 'utf-8'));
-//-------------------------
 
 /*Import Models Sequelize*/
 let db = require('../database/models');
@@ -21,7 +16,9 @@ const userController = {
 
             if (dataLogin != null ){
                 const findUser = await userFunctions.findInDB(req,res);
-                res.render("index",{ albumes: dataProducts, user: findUser });
+                const popularAlbums = await db.Albums.findAll({limit: 5})
+
+                res.render("index",{ albumes: popularAlbums, user: findUser });
             }
             else{
                 res.redirect("/login");

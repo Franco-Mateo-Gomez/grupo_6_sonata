@@ -33,7 +33,7 @@
                         <div class="valoracion">
                             <h2>Valoración del Artista:</h2>
                             <% for (let i=0; i<5; i++){ %>
-                                <% if(i<filtraUsuario.valoracion){ %>
+                                <% if(i<user.valoracion){ %>
                                     <i class="fa-solid fa-star" style="color:yellow"></i>
                                 <% } else{ %>
                                   <i class="fa-solid fa-star"></i>
@@ -48,10 +48,10 @@
                     <div class="informacion_artista_right">
 
                         <!--NOMBRE DEL ARTISTA-->
-                        <h2 class="nombre_artista"><%=filtraUsuario.userName%></h2>
+                        <h2 class="nombre_artista"><%=user.userName%></h2>
 
                         <!--DESCRIPCION DEL ARTISTA-->
-                        <p class="descripcion_artista"><%=filtraUsuario.description%></p>
+                        <p class="descripcion_artista"><%=user.description%></p>
 
                     </div>
 
@@ -69,7 +69,7 @@
                             <i class="fa-solid fa-chevron-left"></i>
                         </button>
 
-                        <!--IMAGEN DEL ARTISTA-->
+                        <!--IMAGEN DEL ÁLBUM-->
                         <img src=<%=filtraProducto.image%> alt="Imagen de un album">
 
                         <button class="boton_right" type="button">

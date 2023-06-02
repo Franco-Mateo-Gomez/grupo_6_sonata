@@ -2,17 +2,17 @@
     
     <div class="swiper-slide">
 
-        
+
         <!--IMAGEN DEL ALBUM DEL SLIDER POPULAR-->
-        <img src=<%=albumes[i].img%> />
+        <img src=<%=albumes[i].image%> />
 
         <!--PRECIO DEL ALBUM DEL SLIDER POPULAR-->
-        <h3 class="precio_album">$<%=albumes[i].precio%></h3>
+        <h3 class="precio_album">$<%=albumes[i].price%></h3>
 
         <div class="descripcion_album">
 
             <!--NOMBRE DEL ALBUM DEL SLIDER POPULAR-->
-            <h3><%=albumes[i].nombreTrack%></h3>
+            <h3><%=albumes[i].name%></h3>
 
             <div class="subdescripcion_album">
 
@@ -20,7 +20,8 @@
                 <a class="descripcion_boton" href=<%="/product/detail/"+albumes[i].id%>>Ver Album</a>
 
                 <!--CALIFICACIÓN DEL ALBUM DEL SLIDER POPULAR-->
-                <div class="calificacion">
+                
+                <!-- <div class="calificacion">
                     <span><%=albumes[i].valoracion%></span>
                     
                     <% for (let j=0; j<5; j++){ %>
@@ -33,7 +34,7 @@
 
                     <% } %>
 
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
