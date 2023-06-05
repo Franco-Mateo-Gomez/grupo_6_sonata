@@ -1,0 +1,315 @@
+/*FILTRADOR CONTENEDOR*/
+.filtrador {
+  background: var(--marron_clarito);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*BOTON OCULTO QUE DESPLIEGA LISTA DE GENEROS EN MOVILES Y TABLETS*/
+.boton_generos {
+  display: none;
+}
+
+.contenedor_albumes_filtrar {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.5rem;
+  margin: 30px auto;
+}
+
+.filtrador_contenedor_botones {
+  width: 100%;
+  background: var(--naranja);
+  padding: 1rem;
+  margin: 1rem 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 2rem;
+  color: var(--marron_fuerte);
+  position: relative;
+}
+.filtrador_contenedor_botones h2 {
+  color: var(--marron_clarito);
+  font-weight: 900;
+}
+
+#nada {
+  background: var(--marron_fuerte);
+  color: var(--marron_clarito);
+  width: 2rem;
+  height: 100%;
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vermas {
+  color: var(--marron_clarito);
+  font-weight: 900;
+}
+
+/*ESTILOS DE TARJETA DE PRODUCTOS-------------------------------------------*/
+.tarjeta_album {
+  position: relative;
+  display: flex;
+  background-color: rgb(228 223 222 / 69%);
+  box-shadow: 6px 4px 6px rgb(87 80 80 / 50%);
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.tarjeta_album img {
+  width: 260px;
+  height: 260px;
+  border-radius: 10px;
+}
+
+.fondo_imagen {
+  width: 0px;
+  height: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  position: absolute;
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  z-index: 1;
+  transition: width 0.6s ease-in;
+  transition: height 0.6s ease-in;
+  overflow: hidden;
+  transition: overflow 0.6s ease-in;
+}
+
+.fondo_imagen_tamaño {
+  width: 260px;
+  height: 260px;
+  transition: overflow 0.6s ease-out;
+  transition: width 0.6s ease-out;
+  transition: height 0.6s ease-out;
+  overflow: visible;
+}
+
+.titulo_tarjeta_album {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-radius: 0px 0px 10px 10px;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 3px solid white;
+  z-index: 2;
+}
+
+.titulo_tarjeta_album h2,
+.titulo_tarjeta_album i {
+  font-size: 17px;
+  color: white;
+  padding: 0.7rem;
+}
+
+.titulo_tarjeta_album i {
+  color: var(--marron_clarito);
+  background: var(--naranja);
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 15px;
+}
+
+.precio_tarjeta_album {
+  position: absolute;
+  top: 0;
+  padding: 0.1rem 1rem;
+  left: 0;
+  background-color: var(--naranja);
+  color: white;
+  border-radius: 10px 0px 10px 0px;
+  z-index: 2;
+}
+.boton_verProducto {
+  background: var(--naranja);
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  color: white;
+  font-weight: 900;
+  border: 3px solid white;
+  cursor: pointer;
+  transition: background 0.3s ease-in;
+}
+.boton_verProducto:hover {
+  background-color: #ff8276;
+}
+
+.visible-filtro {
+  display: block;
+  width: 50px;
+}
+
+.invisible-filtro {
+  display: none;
+}
+
+/*FIN------------------------------ESTILOS DE TARJETA DE PRODUCTOS*/
+
+
+
+/*CONTENEDOR DE GENEROS VERSION DESKTOP------------------------------*/
+.section_generos {
+  height: 150px;
+  background: var(--marron_clarito);
+  color: white;
+  position: relative;
+  display: flex;
+}
+
+.contenedor_genero {
+  width: 200vw;
+  display: flex;
+  flex-direction: row;
+  transition: transform 1s ease 0s;
+}
+.division {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.genero {
+  background: var(--marron_medio);
+  padding: 1rem;
+  width: 200px;
+  height: 100px;
+  border: 2px solid var(--marron_clarito);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%); /* Centrar verticalmente */
+  z-index: 1;
+  margin-left: 5px;
+}
+
+.next {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%); /* Centrar verticalmente */
+  z-index: 1;
+  margin-right: 5px;
+  
+}
+.botonDesplazamientoFiltrador{
+  background: var(--naranja);
+  width: 20px;
+  height: 20px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: background 0.5s ease;
+}
+.botonDesplazamientoFiltrador:hover{
+  background: #ff8479;
+}
+
+.filtrador_botones_desplegable{
+  display: none;
+}
+
+/* Escritorio grande */
+@media only screen and (min-width: 650px) and (max-width: 1600px) {
+  .filtrador{
+    padding: unset;
+  }
+  .filtrador_contenedor_botones {
+    margin: unset;
+    margin-top: 10px;
+    border-radius: unset;
+  }
+  .section_generos{
+    height: fit-content;
+  }
+}
+
+/*tablet */
+@media only screen and (min-width: 0px) and (max-width: 649px) {
+  .section_generos{
+    display: none;
+  }
+  .filtrador_botones_desplegable {
+    position: absolute;
+    background: antiquewhite;
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+    top: 100%;
+    left: 10%;
+    z-index: 4;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .boton_generos {
+    display: block;
+  }
+
+  #nada {
+    background: rgb(24, 25, 26);
+    width: 100%;
+    padding: 0.6rem;
+    gap: 1rem;
+    margin: unset;
+  }
+
+  #nada::before {
+    content: "Ocultar Todo";
+    color: var(--marron_clarito);
+  }
+  .filtrador_botones_desplegable span{
+    padding: 0.6rem;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .filtrador_botones_desplegable span:hover{
+    background-color: var(--marron_medio);
+  } 
+}
+
+.visibleMenuDesplegableGeneros {
+  max-height: 500px; /* Ajusta el valor según el contenido máximo del submenú */
+  width: 80%;
+  transition: max-height 0.5s ease-in-out;
+}
+
+/*CLASE QUE SE ACTIVA CUANDO SE PRESIONA UN BOTON DE GENERO*/
+.seleccionada{
+  background: #8a6d4d;
+}
