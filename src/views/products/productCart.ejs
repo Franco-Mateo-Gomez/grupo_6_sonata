@@ -103,38 +103,45 @@
                     <div class="checkout-form-fields-user">
                         <label class="label-forms" for="full_name">NOMBRE Y APELLIDO COMPLETO</label>
                             <input type="text" id="full_name" name="full_name" required placeholder="Nombre completo"></input>
-                    </div>
+                            <div class="error_nombre"> </div>
+                        </div>
+
 
                     <div class="checkout-form-email-country">
                         <div class="form-fields-email">
                             <label class="label-forms" for="email">DIRECCIÓN DE CORREO ELECTRÓNICO</label>
                             <input type="email" id="email" name="email" required placeholder="Correo"></input>
+                            <div class="error_correo"> </div>
                         </div>
 
                         <div class="form-fields-country">
                             <label class="label-forms" for="pais">PAÍS</label>
                             <select id="select-checkout-country" name="pais">
-                                <option value="Argentina" selected>Argentina</option>
+                                <option value="Ninguno" selected>Ninguno</option>
+                                <option value="Argentina">Argentina</option>
                                 <option value="Brazil">Brasil</option>
                                 <option value="Chile">Chile</option>
                                 <option value="Mexico">México</option>
                                 <option value="USA">Estados Unidos</option>
                             </select>
                         </div>
+                        <div class="error_pais"></div>
                     </div>
 
 
                     <div class="checkout-form-city-postal">
                         <label class="label-forms" for="city">CIUDAD</label>
                         <input type="text" id="city" name="city" required placeholder="Ciudad"></input>
-
+                        <div class="error_ciudad"> </div>
                         <label class="label-forms" for="postal">CÓDIGO POSTAL</label>
                         <input type="text" id="postal" name="postal" required placeholder="N° de código postal"></input>
+                        <div class="error_codigo"></div>
                     </div>
 
                     <div class="checkout-form-fields-user">
                         <label class="label-forms" for="address">DIRECCIÓN</label>
                         <input type="text" id="address" name="address" required placeholder="Dirección"></input>
+                        <div class="errorDireccion"></div>
                     </div>
 
                     <div class="checkout-buttons">

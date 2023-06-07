@@ -43,6 +43,7 @@ router.put("/",userController.processUserConfig);
 router.put("/image",upload.single("user_image"),userController.processUserConfigImage);
 router.put("/password",userController.processUserConfigPassword);
 
+
 router.get("/ejemplo",(req,res)=>{
     db.Orders.findAll({include:[{association:"albums"},{association:"users"}]}).then(albums => res.render("ejemplo", {Orders: albums}))
 });
