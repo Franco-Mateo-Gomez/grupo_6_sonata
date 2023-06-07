@@ -1,0 +1,10 @@
+.error_usuario, .error_correo, .error_nombre{
+    color: red;
+    width: 100%;
+    text-align: center;
+}
+
+.error_contra, .error_confirmar{
+    color: red;
+    width: 100%;
+}
