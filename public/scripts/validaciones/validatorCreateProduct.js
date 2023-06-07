@@ -80,6 +80,7 @@ window.onload = function () {
         let errorImagen = document.querySelector('.error_imagen')
         if (imagen.value == '') {
             errorImagen.innerHTML = 'Ingrese una imagen'
+            errores=1
         }
         else {
             const file = imagen.files[0];

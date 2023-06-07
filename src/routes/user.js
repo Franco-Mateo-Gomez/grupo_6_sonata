@@ -5,7 +5,9 @@ const multer = require("multer");
 const router = express.Router();
 
 const userController = require("../controllers/userController");
-
+const validaConfImagen = require("../middlewares/validaConfImagen");
+const validaCredenciales = require ("../middlewares/validaCredenciales");
+const validaContrasenia =require ("../middlewares/validaContrasenia");
 let db = require('../database/models');
 
 /*Multer config*/
@@ -39,9 +41,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.get("/",userController.configView);
-router.put("/",userController.processUserConfig);
-router.put("/image",upload.single("user_image"),userController.processUserConfigImage);
-router.put("/password",userController.processUserConfigPassword);
+router.put("/", validaCredenciales,userController.processUserConfig);
+router.put("/image", validaConfImagen,upload.single("user_image"),userController.processUserConfigImage);
+router.put("/password", validaContrasenia,userController.processUserConfigPassword);
 
 
 router.get("/ejemplo",(req,res)=>{

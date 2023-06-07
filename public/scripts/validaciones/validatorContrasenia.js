@@ -1,4 +1,4 @@
-window.onload = function () {
+
 
     let formulario = document.querySelector('.formulario_contraseña');
     formulario.addEventListener('submit', (e) => {
@@ -7,9 +7,10 @@ window.onload = function () {
 
         let contrasenia = document.querySelector('#user_password')
         let errorContra = document.querySelector('.error_contra')
-        if (contrasenia.value == '')
+        if (contrasenia.value == '') {
             errorContra.innerHTML = 'Tienes que agregar una contraseña.'
         errores = 1
+        }
 
         if (contrasenia.value.length < 8) {
             errorContra.innerHTML = 'La contraseña debe contener al menos 8 caracteres.'
@@ -30,11 +31,10 @@ window.onload = function () {
             errorConfirmar.innerHTML = ''
         }
 
-        console.log(errores)
+       console.log(errores)
         if (errores == 0) {
             formulario.submit();
         }
 
     })
 
-}

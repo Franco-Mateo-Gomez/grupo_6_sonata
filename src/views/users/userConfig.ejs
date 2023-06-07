@@ -51,13 +51,12 @@
 
                     <div class="campo_formulario_registro">
                         <label for="user_email">Correo electronico: </label>
-                        <input value="<%=userConfig.email%>" placeholder="Ejemplo: artemisIris@dominio.com" id="user_email" name="user_email" type="email">
-                        <div class="error_correo"> </div>
+                        <input value="<%=userConfig.email%>" placeholder="Ejemplo: artemisIris@dominio.com" id="user_email" name="user_email" type="email" readonly>
                     </div>
 
                     <div class="campo_formulario_registro">
                         <label for="client_fullname">Nombre completo: </label>
-                        <input value="<%=userConfig.fullName%>" id="client_fullname" placeholder="Ejemplo: Artemisa Iris Herrera" name="client_fullname" type="text">
+                        <input value="<%=userConfig.fullName%>" id="client_fullname" name="client_fullname" type="text">
                         <div class="error_nombre"> </div>
                     </div>
 
@@ -78,6 +77,7 @@
                         <div class="campo_formulario_registro">
                             <label for="user_image">Imagen de perfil: </label>
                             <input type="file" name="user_image" id="user_image">
+                            <div class="errorImagen"> </div>
                         </div>
 
                         <div class="campo_formulario_registro_botones">
@@ -115,6 +115,7 @@
         <!--Footer-->
         <%- include('../partials/footer') %>
         <script src="/scripts/validaciones/validatorCredenciales.js"> </script>
+        <script src="/scripts/validaciones/validatorConfImagen.js"> </script>
         <script src="/scripts/validaciones/validatorContrasenia.js"> </script>
 </body>
 

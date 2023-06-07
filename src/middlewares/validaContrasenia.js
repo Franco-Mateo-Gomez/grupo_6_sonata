@@ -1,5 +1,12 @@
 const { check } = require("express-validator");
 
+const validatePasswordConfirmation = (value, { req }) => {
+    if (value !== req.body.user_password) {
+      throw new Error('La confirmación de la contraseña no coincide con la contraseña');
+    }
+    return true;
+};
+
 let validationsContra = [
     check("user_password")
         .notEmpty().withMessage('Tienes que ingresar una contraseña')
