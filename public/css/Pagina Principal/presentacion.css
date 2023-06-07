@@ -1,0 +1,319 @@
+/*Contenedor Principal*/
+.presentacion {
+  height: 100vh;
+  display: flex;
+  background: linear-gradient(
+    241deg,
+    rgba(152, 100, 16, 0.55) 0%,
+    #d95a4e 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+/*FIN------------------------------Contenedor Principal*/
+
+
+/*BOTÓN CAMBIO DE FONDO*/
+.cambio_fondoColor {
+  background: linear-gradient(241deg, #00000087 0%, rgb(0, 0, 0) 100%);
+}
+
+.btn_fondoColor {
+  position: absolute;
+  padding: 1rem;
+  width: 40px;
+  bottom: 10px;
+  border-radius: 100%;
+  display: flex;
+  left: 20px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(200px);
+  background: antiquewhite;
+  color: var(--marron_fuerte);
+  z-index: 12;
+}
+/*FIN---------------------------BOTÓN CAMBIO DE FONDO*/
+
+/*CONTENEDOR DE TEXTO DE BIENVENIDA Y BOTON DE VER TODOS LOS PRODUCTOS*/
+.presentacion_marca {
+  height: 80%;
+  width: 55%;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  z-index: 2;
+}
+
+.presentacion_marca h2 {
+  color: var(--marron_fuerte);
+  font-size: 3.4rem;
+  font-style: italic;
+  font-weight: 900;
+  font-family: "Montserrat";
+  background-image: linear-gradient(to right, #8f1109, #ed683d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /*text-shadow: 1px 2px 4px rgba(255, 255, 255, 0.1);*/
+  text-shadow: 9px 1px 1px rgb(246 225 219);
+}
+
+.presentacion_marca div {
+  border-top: 6px solid var(--marron_fuerte);
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 6px solid var(--marron_fuerte);
+}
+
+.presentacion_marca div h2 {
+  font-size: 1.5rem;
+}
+
+/*Botón debajo del texto "WELCOME TO SONATA"*/
+
+.boton_presentacion_productos {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton_presentacion_productos a {
+  padding: 0.6rem 1rem;
+  background: #9d261c;
+  color: white;
+  border: 2px solid var(--marron_clarito);
+  border-radius: 2rem;
+  transition: background 0.4s ease;
+}
+
+.boton_presentacion_productos a:hover {
+  background: var(--marron_clarito);
+  color: var(--marron_fuerte);
+}
+
+.imagen_presentacion_movil {
+  display: none;
+}
+/*FIN---------------------------PRESENTACION MARCA*/
+
+
+/*CONTENEDOR DE PRESENTACION DE PRODUCTOS TEXTO E IMAGEN FLOTANDO*/
+.presentacion_productos {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    position: relative;
+    z-index: 2;
+}
+
+/*TEXTO INCLINADO SOBRE LA IMAGEN FLOTANDO*/
+h2#text_imagen_banner {
+  position: absolute;
+  transform: skewY(-16.5deg) scaleX(1);
+  bottom: 20%;
+
+  border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+  width: 90%;
+  text-align: center;
+
+  background: linear-gradient(241deg, rgb(160 39 28) 0%, #8f110987 100%);
+  border: 3px solid #f6e1db;
+}
+
+.estilo_imagen_banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+
+  color: #f6e1db;
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: "Montserrat";
+}
+
+/*LA IMAGEN FLOTANDO*/
+.presentacion_productos img {
+  width: 300px;
+  border-radius: 10rem 3rem 10rem 4rem;
+  box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.05),
+    15px 25px 10px rgba(0, 0, 0, 0.05), 15px 20px 20px rgba(0, 0, 0, 0.05),
+    inset -10px -10px 15px rgba(255, 255, 255, 0.09);
+  animation: floatAnimation 3s ease-in-out infinite; /* Aplica la animación */
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translate(0, 0); /* Estado inicial */
+  }
+  50% {
+    transform: translate(15px, 15px); /* Primera mitad de la animación */
+  }
+  100% {
+    transform: translate(0, 0); /* Estado final */
+  }
+}
+
+/*FIN----------------------------------CONTENEDOR DE IMAGEN FLOTANDO*/
+
+
+/*MEDIA QUERYS PARA ADAPTARSE A TAMAÑOS DE PANTALLAS*/
+
+/*tablet */
+@media only screen and (min-width: 501px) and (max-width: 649px) {
+  
+    /*PRESENTACION*/
+  .presentacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .presentacion_productos {
+    display: none;
+  }
+
+  .presentacion_marca {
+    width: 100%;
+  }
+
+  .imagen_presentacion_movil {
+    display: block;
+    height: 90%;
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+  }
+}
+
+/* Teléfonos */
+@media only screen and (min-width: 0px) and (max-width: 500px) {
+
+  /*PRESENTACION*/
+  .presentacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .presentacion_marca h2 {
+    width: 100%;
+    height: fit-content;
+    font-size: 3rem;
+  }
+
+  .imagen_presentacion_movil {
+    display: block;
+    height: 90%;
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+  }
+
+  .presentacion_marca {
+    width: 100%;
+  }
+}
+
+
+/*PARTICULAS DE FONDO*/
+.particulas span {
+  position: absolute;
+  bottom: -50px;
+  animation: animate 10s linear infinite;
+  font-size: 0.7rem;
+  color: #ba4f1d;
+  background: white;
+  border-radius: 50% 50% 60% 50%;
+  padding: 0.3rem;
+}
+.particulas span:nth-child(1) {
+  left: 0;
+  animation-delay: 0.6s;
+}
+.particulas span:nth-child(2) {
+  left: 10%;
+  animation-delay: 3s;
+}
+.particulas span:nth-child(3) {
+  left: 20%;
+  animation-delay: 2s;
+}
+.particulas span:nth-child(4) {
+  left: 30%;
+  animation-delay: 5s;
+}
+.particulas span:nth-child(5) {
+  left: 40%;
+  animation-delay: 1s;
+}
+.particulas span:nth-child(6) {
+  left: 50%;
+  animation-delay: 7s;
+}
+.particulas span:nth-child(7) {
+  left: 60%;
+  animation-delay: 6s;
+}
+.particulas span:nth-child(8) {
+  left: 70%;
+  animation-delay: 8s;
+}
+.particulas span:nth-child(9) {
+  left: 80%;
+  animation-delay: 6s;
+}
+.particulas span:nth-child(10) {
+  left: 90%;
+  animation-delay: 4s;
+}
+
+@keyframes animate {
+  0% {
+    bottom: 0;
+    margin-left: 90px;
+    margin-right: 0;
+    opacity: 1;
+  }
+  20% {
+    bottom: 20%;
+    margin-left: 0;
+    margin-right: 90px;
+    opacity: 0.8;
+  }
+  40% {
+    bottom: 40%;
+    margin-left: 90px;
+    margin-right: 0;
+    opacity: 0.6;
+  }
+  60% {
+    bottom: 60%;
+    margin-left: 0;
+    margin-right: 90px;
+    opacity: 0.4;
+  }
+  80% {
+    bottom: 80%;
+    margin-left: 90px;
+    margin-right: 0;
+    opacity: 0.2;
+  }
+  100% {
+    bottom: 100%;
+    margin-left: 0;
+    margin-right: 90px;
+    opacity: 0;
+  }
+}
+/*FIN------------------------------------------PARTICULAS DE FONDO*/

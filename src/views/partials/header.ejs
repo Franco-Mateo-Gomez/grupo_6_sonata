@@ -6,7 +6,7 @@
 <header>
     
     <div>
-        <a href="/"><img class="logo" src="/images/imagen_logo_sonata_v2.png" alt=""></a>
+        <a href="/general"><img class="logo" src="/images/imagen_logo_sonata_v2.png" alt=""></a>
     </div>
     
 
@@ -48,9 +48,11 @@
             <div class="ancho_contenedor_usario_datos" >
                 <div class="contenedor_usario_datos">
                     <section class="contenedor_imagen_de_usuario">
-                        <img class="imagen_de_usuario" src=<%=user.image%> alt="" srcset="">
+                        <script>
+                           let rutaImagenUsuario = "<%=user.image%>";
+                        </script>
                     </section>
-                    <h2><%=user.userName%></h2>
+                    <h2>@<%=user.userName%></h2>
                     
                 </div>
 
@@ -86,4 +88,5 @@
     
 </section>
 
-<script src="/scripts/barra-navegacion.js"></script>
+<script src="/scripts/menuDesplegable.js"></script>
+<script src="/scripts/submenuDesplegable.js"></script>

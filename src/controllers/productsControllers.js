@@ -20,7 +20,7 @@ const productsController = {
         const findUser = await db.Users.findOne({ where: { id: albumInDb.composerIdFk }});
 
         /*Show in page*/
-        res.render("products/productDetail", { filtraProducto: albumInDb, filtraUsuario: findUser });
+        res.render("products/productDetail", { filtraProducto: albumInDb, user: findUser });
         
     },
     productCreateAlbumView: async (req, res) => {
@@ -150,6 +150,7 @@ const productsController = {
                 price: req.body.precio_album,
                 composerIdFk: idUser,
                 genereIdFk: filtraGenero.id,
+                dateUpload: new Date(),
 
             })
             .then(createSong=>{
