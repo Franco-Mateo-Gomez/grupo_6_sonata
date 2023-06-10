@@ -1,0 +1,75 @@
+.tarjetas_ofertas {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tarjeta_album_ofertas {
+  width: 300px;
+  height: 300px;
+  background-color: var(--naranja);
+  border-radius: 0.2rem;
+}
+
+.tarjeta_album_ofertasFondo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("/images/index/texturaTarjetaOfertas.png");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0.2rem;
+  position: relative;
+}
+
+.imagen_tarjeta_album_oferta {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+}
+
+.tarjeta_album_ofertas_titulo {
+  position: absolute;
+  top: 0;
+}
+
+.tarjeta_album_ofertas_descripcion {
+  position: absolute;
+  bottom: 20px;
+  display: none;
+}
+
+.tarjeta_album_ofertas_boton {
+  position: absolute;
+  bottom: 0;
+}
+
+.anuncio_oferta {
+  position: absolute;
+  bottom: 20%;
+  right: 20%;
+  border: 3px solid #685b11f5;
+  border-style: dashed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  box-shadow: 0px -3px 20px rgb(24, 25, 26);
+}
+
+.anuncio_oferta h3 {
+  width: 60px;
+  height: 60px;
+  background: #887719f5;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 900;
+  font-size: 1rem;
+}
