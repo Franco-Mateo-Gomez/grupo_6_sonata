@@ -13,6 +13,7 @@
     <!--CUSTOM CSS-->
     <link rel="stylesheet" href="/css/styles_header.css">
     <link rel="stylesheet" href="/css/styles_footer.css">
+    <link rel="stylesheet" href="/css/styles_validaciones.css">
 </head>
 
 <body>
@@ -45,16 +46,18 @@
                     <div class="campo_formulario_registro">
                         <label for="user_name">Nombre de usuario: </label>
                         <input value="<%=userConfig.userName%>" placeholder="Ejemplo: Artemis402" id="user_name" name="user_name" type="text">
+                        <div class="error_usuario"> </div>
                     </div>
 
                     <div class="campo_formulario_registro">
                         <label for="user_email">Correo electronico: </label>
-                        <input value="<%=userConfig.email%>" placeholder="Ejemplo: artemisIris@dominio.com" id="user_email" name="user_email" type="email">
+                        <input value="<%=userConfig.email%>" placeholder="Ejemplo: artemisIris@dominio.com" id="user_email" name="user_email" type="email" readonly>
                     </div>
 
                     <div class="campo_formulario_registro">
                         <label for="client_fullname">Nombre completo: </label>
-                        <input value="<%=userConfig.fullName%>" id="client_fullname" placeholder="Ejemplo: Artemisa Iris Herrera" name="client_fullname" type="text">
+                        <input value="<%=userConfig.fullName%>" id="client_fullname" name="client_fullname" type="text">
+                        <div class="error_nombre"> </div>
                     </div>
 
                     <div class="campo_formulario_registro_botones">
@@ -74,6 +77,7 @@
                         <div class="campo_formulario_registro">
                             <label for="user_image">Imagen de perfil: </label>
                             <input type="file" name="user_image" id="user_image">
+                            <div class="errorImagen"> </div>
                         </div>
 
                         <div class="campo_formulario_registro_botones">
@@ -84,16 +88,18 @@
 
                 </form>
 
-                <form action="/config/password/?_method=put"  method="post"  class="formulario_registro">
+                <form action="/config/password/?_method=put"  method="post"  class="formulario_contraseña">
                     <h2 class="titulo_formulario">Contraseña del Usuario</h2>
                     <div class="campo_formulario_registro">
                         <label for="user_password">Ingrese una nueva contraseña: </label>
                         <input id="user_password" name="user_password" type="password">
+                        <div class="error_contra"> </div>
                     </div>
 
                     <div class="campo_formulario_registro">
                         <label for="user_passwordConfirmation">Confirmar su nueva contraseña: </label>
                         <input id="user_passwordConfirmation" name="user_passwordConfirmation" type="password">
+                        <div class="error_confirmar"> </div>
                     </div>
 
 
@@ -108,6 +114,9 @@
         </main>
         <!--Footer-->
         <%- include('../partials/footer') %>
+        <script src="/scripts/validaciones/validatorCredenciales.js"> </script>
+        <script src="/scripts/validaciones/validatorConfImagen.js"> </script>
+        <script src="/scripts/validaciones/validatorContrasenia.js"> </script>
 </body>
 
 </html>

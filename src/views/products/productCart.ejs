@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="/css/modal.css">
     <title>Detalles de compra</title>
 </head>
+
 <body>
 
     <main class="main-checkout">
@@ -28,11 +30,11 @@
                     <option value="USD">
                         USD
                     </option>
-            
+
                     <option value="ARS" selected>
-                       ARS
+                        ARS
                     </option>
-            
+
                     <option value="EUR">
                         EUR
                     </option>
@@ -40,31 +42,35 @@
             </section>
 
             <details>
-                
+
                 <summary>
                     <div class="summary-header">
                         <p>Mostrar productos</p> <span class="fa-sharp fa-solid fa-circle-arrow-down"></span>
                     </div>
                     <h4>$0.00</h4>
                 </summary>
-                
-                    <%productList.forEach(function(producto) { %>
+
+                <%productList.forEach(function(producto) { %>
 
                     <!--Product list - mobile version-->
                     <div class="checkout-summary-products">
                         <img src="<%=producto.image %>" alt="imagen de producto">
-                        
+
                         <div class="checkout-summary-products-details">
                             <div>
-                                <h4><%=producto.name %></h4>
+                                <h4>
+                                    <%=producto.name %>
+                                </h4>
                             </div>
                             <div class="checkout-summary-products-details-bottom">
                                 <a href="#">
                                     <button>Eliminar</button>
                                 </a>
                                 <div class="checkout-summary-products-details-bottom-price">
-                                    <h4>$<%=producto.precio %></h4>
-                                    <h6>$<%=producto.moneda %></h6>
+                                    <h4>$<%=producto.precio %>
+                                    </h4>
+                                    <h6>$<%=producto.moneda %>
+                                    </h6>
                                 </div>
                             </div>
                         </div>
@@ -73,13 +79,13 @@
                     <% }); %>
 
             </details>
-             <!--END Product list on mobile-->
+            <!--END Product list on mobile-->
 
-             <!--Express payment methods-->
+            <!--Express payment methods-->
             <div class="header-checkout">
                 <h2 class="titulares">Pago</h2>
                 <p>Seleccione el método de pago</p>
-    
+
                 <div class="checkout-payiments-apps">
                     <button id="tarjeta"></button>
                     <button id="paypal"></button>
@@ -89,46 +95,53 @@
             <!--END Express payment methods-->
 
             <div class="checkout-client-information">
-                
+
                 <h2 class="titulares">Información del cliente</h2>
 
-                <form class="checkout-form-container"action="" method="post">
+                <form class="checkout-form-container" action="" method="post">
 
                     <div class="checkout-form-fields-user">
                         <label class="label-forms" for="full_name">NOMBRE Y APELLIDO COMPLETO</label>
-                        <input type="text" id="full_name" name="full_name" required placeholder="Nombre completo"></input>
-                    </div>
+                            <input type="text" id="full_name" name="full_name" required placeholder="Nombre completo"></input>
+                            <div class="error_nombre"> </div>
+                        </div>
+
 
                     <div class="checkout-form-email-country">
                         <div class="form-fields-email">
                             <label class="label-forms" for="email">DIRECCIÓN DE CORREO ELECTRÓNICO</label>
                             <input type="email" id="email" name="email" required placeholder="Correo"></input>
+                            <div class="error_correo"> </div>
                         </div>
-    
+
                         <div class="form-fields-country">
                             <label class="label-forms" for="pais">PAÍS</label>
                             <select id="select-checkout-country" name="pais">
-                                <option value="Argentina" selected>Argentina</option>
+                                <option value="Ninguno" selected>Ninguno</option>
+                                <option value="Argentina">Argentina</option>
                                 <option value="Brazil">Brasil</option>
                                 <option value="Chile">Chile</option>
                                 <option value="Mexico">México</option>
                                 <option value="USA">Estados Unidos</option>
                             </select>
                         </div>
+                        <div class="error_pais"></div>
                     </div>
-                    
+
 
                     <div class="checkout-form-city-postal">
                         <label class="label-forms" for="city">CIUDAD</label>
                         <input type="text" id="city" name="city" required placeholder="Ciudad"></input>
-
+                        <div class="error_ciudad"> </div>
                         <label class="label-forms" for="postal">CÓDIGO POSTAL</label>
                         <input type="text" id="postal" name="postal" required placeholder="N° de código postal"></input>
+                        <div class="error_codigo"></div>
                     </div>
 
                     <div class="checkout-form-fields-user">
                         <label class="label-forms" for="address">DIRECCIÓN</label>
                         <input type="text" id="address" name="address" required placeholder="Dirección"></input>
+                        <div class="errorDireccion"></div>
                     </div>
 
                     <div class="checkout-buttons">
@@ -139,13 +152,13 @@
 
                 </form>
             </div>
-            
+
         </section>
 
         <!--Products section-->
 
         <section class="checkout-payment-method-desktop">
-            
+
             <div class="checkout-products-coin-desktop">
                 <header>
                     <h3>Moneda:</h3>
@@ -154,11 +167,11 @@
                     <option value="USD">
                         USD
                     </option>
-            
+
                     <option value="ARS" selected>
-                       ARS
+                        ARS
                     </option>
-            
+
                     <option value="EUR">
                         EUR
                     </option>
@@ -169,26 +182,32 @@
 
                 <%productList.forEach(function(producto) { %>
 
-                <div class="checkout-summary-products-desktop">
+                    <div class="checkout-summary-products-desktop">
 
-                    <img src="<%=producto.image %>" alt="imagen de producto">
-                        
-                    <div class="checkout-summary-products-details-desktop">
-                        <div class="checkout-summary-products-details-desktop-description">
-                            <h4><%=producto.name %></h4>
-                        </div>
-                        <div class="checkout-summary-products-details-bottom-desktop">
-                            <a href="#">
-                                <button>Eliminar</button>
-                            </a>
-                            <div class="checkout-summary-products-details-bottom-price-desktop">
-                                <h4>$<%=producto.precio %><h6><%=producto.moneda%></h6></h4>
+                        <img src="<%=producto.image %>" alt="imagen de producto">
+
+                        <div class="checkout-summary-products-details-desktop">
+                            <div class="checkout-summary-products-details-desktop-description">
+                                <h4>
+                                    <%=producto.name %>
+                                </h4>
+                            </div>
+                            <div class="checkout-summary-products-details-bottom-desktop">
+                                <a href="#">
+                                    <button>Eliminar</button>
+                                </a>
+                                <div class="checkout-summary-products-details-bottom-price-desktop">
+                                    <h4>$<%=producto.precio %>
+                                            <h6>
+                                                <%=producto.moneda%>
+                                            </h6>
+                                    </h4>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <% }); %>
+
+                    <% }); %>
 
             </div>
 
@@ -199,7 +218,7 @@
                     <h3>ARS</h3>
                 </div>
             </footer>
-            
+
         </section>
     </main>
 
@@ -211,8 +230,8 @@
         </header>
 
         <main>
-            <form class="modal-form-container"action="" method="post">
-                
+            <form class="modal-form-container" action="" method="post">
+
                 <div class="modal-form-fields-user">
                     <label class="label-forms" for="card_name">Nombre completo del titular:</label>
                     <input type="text" id="card_name" name="card_name" required placeholder="Nombre completo"></input>
@@ -220,7 +239,8 @@
 
                 <div class="modal-form-fields-user">
                     <label class="label-forms" for="card_number">Número de tarjeta de débito/crédito:</label>
-                    <input type="number" id="card_number" name="card_number" required placeholder="0000 - 0000 - 0000 - 0000"></input>
+                    <input type="number" id="card_number" name="card_number" required
+                        placeholder="0000 - 0000 - 0000 - 0000"></input>
                 </div>
 
                 <div class="modal-form-fields-date-cvc">
@@ -234,7 +254,7 @@
                         <label class="label-forms" for="card_cvc">CVC:</label>
                         <input type="number" id="card_cvc" name="card_cvc" required></input>
                     </div>
-    
+
                 </div>
 
                 <div class="checkout-buttons">
@@ -245,9 +265,11 @@
 
             </form>
         </main>
-        
+
     </dialog>
 
     <script src="/scripts/script-checkout-modal.js"></script>
+    
 </body>
+
 </html>
