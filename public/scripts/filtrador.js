@@ -1,3 +1,4 @@
+
 let contenedorAlbumes = document.querySelector(".contenedor_albumes_filtrar");
 let albumes = document.querySelector(".contenedor_albumes_filtrar").children;
 let botones = document.querySelector(".filtrador_botones").children;
@@ -46,7 +47,7 @@ botonNada.addEventListener("click", () => {
 
 
 
-for (let i = 0; i < botones.length - 1; i++) {
+for (let i = 0; i < botones_desplegable.length - 1; i++) {
 
     botones_desplegable[i].addEventListener("click", () => {
         let eleccion = botones_desplegable[i].id + "";
@@ -122,12 +123,30 @@ let botonNext = document.querySelector(".next");
 let contenedorFiltros = document.querySelector(".contenedor_genero");
 let desplazamiento = 0; // Inicialmente no hay desplazamiento
 
+let cajasAnchoReferencia = document.querySelectorAll(".genero");
+let arrayCajasAnchoReferencia = Array.from(cajasAnchoReferencia);
+let sumatoriaAnchoCaja = arrayCajasAnchoReferencia.reduce((acumulador, anchoCaja) => {
+    return acumulador + anchoCaja.offsetWidth;
+}, 0);
+
+let cantidad = parseInt(arrayCajasAnchoReferencia.length / 2);
+let limiteDesplazamientoDerecha = arrayCajasAnchoReferencia[2].offsetWidth * cantidad;
+
 botonPrev.addEventListener("click", () => {
-    desplazamiento += 240; // Suma 100vw al desplazamiento acumulativo
+    desplazamiento += 240;
     contenedorFiltros.style.transform = `translateX(${desplazamiento}px)`;
+    if (desplazamiento > 0) {
+        contenedorFiltros.style.transform = `translateX(0px)`;
+        desplazamiento -= 240;
+    }
 });
 
 botonNext.addEventListener("click", () => {
-    desplazamiento -= 240; // Resta 100vw al desplazamiento acumulativo
+    desplazamiento -= 240;
     contenedorFiltros.style.transform = `translateX(${desplazamiento}px)`;
+
+    if (desplazamiento < (-1*sumatoriaAnchoCaja)+limiteDesplazamientoDerecha) {
+        contenedorFiltros.style.transform = `translateX(${(-1*sumatoriaAnchoCaja)+limiteDesplazamientoDerecha}px)`;
+        desplazamiento += 240;
+    }
 });

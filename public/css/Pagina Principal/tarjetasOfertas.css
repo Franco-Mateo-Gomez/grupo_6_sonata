@@ -7,9 +7,10 @@
 
 .tarjeta_album_ofertas {
   width: 300px;
-  height: 300px;
-  background-color: var(--naranja);
+  height: 320px;
+  background: var(--naranja);
   border-radius: 0.2rem;
+  padding: 1rem 0;
 }
 
 .tarjeta_album_ofertasFondo {
@@ -35,6 +36,15 @@
 .tarjeta_album_ofertas_titulo {
   position: absolute;
   top: 0;
+  color: var(--marron_fuerte);
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 900;
+  font-family: "Montserrat";
+  background-image: linear-gradient(to right, #8f1109, #ed683d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 6px 1px 1px rgb(246 225 219);
 }
 
 .tarjeta_album_ofertas_descripcion {
@@ -46,6 +56,10 @@
 .tarjeta_album_ofertas_boton {
   position: absolute;
   bottom: 0;
+  background: var(--negro);
+  color: var(--marron_clarito);
+  padding: 0.2rem 2rem;
+  border-radius: 1rem;
 }
 
 .anuncio_oferta {
