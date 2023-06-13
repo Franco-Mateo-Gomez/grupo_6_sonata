@@ -4,6 +4,7 @@ const path = require ("path");
 const methodOverride = require('method-override');
 const session = require("express-session")
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 /*-----------*/
 
 /*Routes*/
@@ -12,7 +13,10 @@ const userRoutes = require("./routes/user")
 const payingRoutes = require("./routes/paying");
 const productsRoutes = require("./routes/products");
 const generesRoutes = require("./routes/generes");
-const cookieParser = require('cookie-parser');
+
+/* Api --> Routes */
+const apiProducts = require("./routes/apis/products");
+const apiFetchProducts = require("./routes/apis/fetchProducts")
 /*-----*/
 
 /*Middlewares*/
@@ -32,8 +36,6 @@ app.set("view engine","ejs");
 app.listen(port,()=>{
     console.log("Running on: http://localhost:"+port);
 })
-
-
 
 /*Use Method Override*/
 app.use(express.urlencoded({ extended: true }));
@@ -61,6 +63,11 @@ app.use("/config",userRoutes);
 app.use("/checkout",payingRoutes);
 app.use("/product",productsRoutes);
 app.use("/generes",generesRoutes);
+app.use("/api/products",apiProducts);
+
+/* --TEMPORAL --API usage example */
+app.use("/api/fetch",apiFetchProducts)
+/*----------------------------------*/
 
 /*Page NOT FOUND*/
 app.use((req,res,next) => {
