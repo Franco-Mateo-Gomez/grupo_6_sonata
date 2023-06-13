@@ -21,10 +21,16 @@ const apiProductsController = {
             genres[genreName] = AlbumInGenre.length // --> Add new property [nameGenre] = Total Albums in Genre
         });
 
+        const addDetailInAlbum = Albums.map(album => {
+            const albumData = album.toJSON(); // Convert to JSON version
+            albumData.detail = "/api/products/" + album.id; // Add new property [detail]
+            return albumData;
+          });
+
         const data = {
             count: long,
             countByGenre: genres,
-            albums: Albums,
+            albums: addDetailInAlbum,
         }
 
         res.json(data);
