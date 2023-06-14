@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const session = require("express-session")
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require ("cors");
 /*-----------*/
 
 /*Routes*/
@@ -53,6 +54,7 @@ app.use(session({
 }));
 
 app.use(recordameMiddleware);
+app.use(cors());
 
 /*Use Public folder*/
 app.use(express.static(path.join(__dirname,'../public')));
