@@ -1,0 +1,101 @@
+@import url(../general.css);
+
+body{
+    height: 100vh;
+    background-color: var(--marron_clarito);
+}
+
+img{
+    width: 100%;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    height: 60%;
+    margin: auto;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8%;
+}
+
+form input{
+    width: 100%;
+    padding: 5%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--negro);
+}
+
+.listAlbums{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+}
+
+#results{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.descripcion_album{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: var(--marron_fuerte);
+    margin: 1.5%;
+    padding: 6%;
+    border: 3px solid var(--negro);
+}
+
+.description_album_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    color: var(--marron_clarito);
+}
+
+.description_album_container a{
+    color: var(--marron_clarito);
+    border-bottom: 2px solid var(--marron_clarito);
+}
+
+@media (min-width:425px){
+    main {
+        height: 95vh;
+    }
+    main header{
+        margin-top: 15%;
+    }
+}
+
+@media (min-width:1024px){
+    main {
+        height: 100vh;
+    }
+    main header{
+        margin-top: 25%;
+    }
+    .listAlbums{
+        padding: 3%;
+    }
+}
