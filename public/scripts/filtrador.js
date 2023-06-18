@@ -1,4 +1,3 @@
-
 let contenedorAlbumes = document.querySelector(".contenedor_albumes_filtrar");
 let albumes = document.querySelector(".contenedor_albumes_filtrar").children;
 let botones = document.querySelector(".filtrador_botones").children;

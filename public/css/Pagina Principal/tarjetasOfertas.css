@@ -1,13 +1,53 @@
+body{
+  background-color: var(--marron_clarito);
+}
+.contenedor_ofertas{
+  background: var(--naranja);
+}
+
+.contenedor_ofertas .contenedor_ofertas_titulo{
+  text-align: center;
+    color: var(--marron_fuerte);
+    font-size: 3.4rem;
+    font-style: italic;
+    font-weight: 900;
+    font-family: "Montserrat";
+    background-image: linear-gradient(to right, #8f1109, #ed683d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 9px 1px 1px rgb(246 225 219);
+    padding: 1rem 0 1rem 0;
+
+}
+
+
+.contenedor_ofertas_slider {
+  display: flex;
+  overflow: hidden;
+  height: fit-content;
+  align-items: center;
+}
+.oferta_imagen {
+  transform: scaleX(-1);
+  position: relative;
+  bottom: 0;
+  width: 300px;
+  align-self: self-end;
+  margin: 0rem 2rem;
+}
+
 .tarjetas_ofertas {
-  height: 100vh;
+  height: fit-content;
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  gap: 2rem;
 }
 
 .tarjeta_album_ofertas {
-  width: 300px;
-  height: 320px;
+  width: 260px; /*300*/
+  height: 300px;/*320*/
   background: var(--naranja);
   border-radius: 0.2rem;
   padding: 1rem 0;
@@ -35,7 +75,7 @@
 
 .tarjeta_album_ofertas_titulo {
   position: absolute;
-  top: 0;
+  top: -10px;
   color: var(--marron_fuerte);
   font-size: 2rem;
   font-style: italic;
@@ -86,4 +126,38 @@
   color: white;
   font-weight: 900;
   font-size: 1rem;
+}
+
+
+
+.banner_publicidad {
+  height: fit-content;
+  margin: 0 auto;
+  padding: 1rem;
+  background: var(--marron_clarito);
+  width: 100%;
+}
+.banner_publicidad img{
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 5px 4px var(--marron_medio);
+
+}
+
+/*SWIPER SLIDER*/
+
+.swiper{
+    padding: 1rem;
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  opacity: 0.7; /* Opacidad inicial para los slides no activos */
+  transition: opacity 0.3s ease; /* Transición suave de la opacidad */
+  box-shadow: 2px 2px 5px 4px var(--marron_fuerte);
+}
+
+.swiper-slide-active {
+  opacity: 1; /* Opacidad completa para el slide activo */
 }

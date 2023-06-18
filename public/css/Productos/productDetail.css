@@ -15,11 +15,7 @@
 
 /*Contenedor Principal*/
 .contenedor_producto {
-  background: linear-gradient(
-    241deg,
-    rgba(152, 100, 16, 0.55) 0%,
-    #d95a4e 100%
-  );
+  background: var(--marron_clarito);
 
   margin-top: 80px;
 }
@@ -53,7 +49,6 @@
 
   /*Estilos visuales*/
   border: 1px solid var(--marron_fuerte);
-  box-shadow: 1px 1px 500px rgb(140 58 39 / 59%);
   border-radius: 1rem;
 }
 
@@ -71,7 +66,7 @@
   position: relative;
 
   /*Estilos visuales*/
-  box-shadow: 1px 1px 10px 2px #d95a4e;
+  box-shadow: 1px 1px 10px 2px rgb(140 58 39 / 18%);
   border-radius: 100%;
 }
 
@@ -133,7 +128,7 @@
 
   /*Estilo*/
   color: var(--marron_fuerte);
-  background: rgb(140 58 39 / 18%);
+  background: rgb(0 0 0 / 18%);
   color: var(--marron_clarito);
   border-radius: 1rem;
 }
@@ -238,7 +233,6 @@
 
   /*Estilos visuales*/
   border: 1px solid var(--marron_fuerte);
-  box-shadow: 1px 1px 500px rgb(140 58 39 / 59%);
   border-radius: 1rem;
 }
 
@@ -264,5 +258,8 @@
 @media (max-width: 768px) {
   .boton_agregarCarrito {
     align-self: center;
+  }
+  .contenedor_informacion_producto, .contenedor_informacion_extra {
+    width: 90%;
   }
 }
