@@ -4,6 +4,8 @@ const path = require ("path");
 const methodOverride = require('method-override');
 const session = require("express-session")
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const cors = require ("cors");
 /*-----------*/
 
 /*Routes*/
@@ -34,8 +36,6 @@ app.listen(port,()=>{
     console.log("Running on: http://localhost:"+port);
 })
 
-
-
 /*Use Method Override*/
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -52,6 +52,7 @@ app.use(session({
 }));
 
 app.use(recordameMiddleware);
+app.use(cors());
 
 /*Use Public folder*/
 app.use(express.static(path.join(__dirname,'../public')));
@@ -62,6 +63,11 @@ app.use("/config",userRoutes);
 app.use("/checkout",payingRoutes);
 app.use("/product",productsRoutes);
 app.use("/generes",generesRoutes);
+app.use("/api/products",apiProducts);
+
+/* --TEMPORAL --API usage example */
+app.use("/api/fetch",apiFetchProducts)
+/*----------------------------------*/
 
 /*Page NOT FOUND*/
 app.use((req,res,next) => {

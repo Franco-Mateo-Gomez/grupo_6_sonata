@@ -12,9 +12,6 @@ var swiper = new Swiper(".mySwiper", {
     modifier: 1.5,
     slideShadows: true,
   },
-  pagination: {
-    el: ".swiper-pagination",
-  },
   autoplay: {
     delay: 3000 /*LOOP DE 1 segundo**/
   },

@@ -1,0 +1,265 @@
+/*GOOGLE FONTS: DM SANS*/
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+
+/*FONTAWESOME*/
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
+
+/*COLORES DE SONATA*/
+:root {
+  --marron_clarito: #d9c6b0;
+  --marron_medio: #a68f72;
+  --marron_fuerte: #8c3a27;
+  --naranja: #d95a4e;
+  --negro: #0d0d0d;
+}
+
+/*Contenedor Principal*/
+.contenedor_producto {
+  background: var(--marron_clarito);
+
+  margin-top: 80px;
+}
+
+.informacion_producto {
+  /*FLEX*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*Tamaño y posicionamiento de la caja*/
+  width: 100%;
+  height: fit-content;
+  position: relative;
+  padding-top: 3rem;
+}
+
+.contenedor_informacion_producto {
+  /*FLEX*/
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  /*Tamaño y posicionamiento de la caja*/
+  width: 80%;
+  padding: 0.5rem;
+  position: relative;
+  top: -20px;
+
+  /*Estilos visuales*/
+  border: 1px solid var(--marron_fuerte);
+  border-radius: 1rem;
+}
+
+/*CONTENEDOR DE IMAGEN DEL ALBUM*/
+.imagen_album {
+  /*FLEX*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  /*Tamaño y posicionamiento de la caja*/
+  height: 300px;
+  width: 300px;
+  position: relative;
+
+  /*Estilos visuales*/
+  box-shadow: 1px 1px 10px 2px rgb(140 58 39 / 18%);
+  border-radius: 100%;
+}
+
+.boton_play {
+  /*FLEX*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*Tamaño y posicionamiento de la caja*/
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+
+  /*Estilos visuales*/
+  font-size: 4rem;
+  background: none;
+  backdrop-filter: blur(10px) contrast(0.5);
+  border: 4px solid black;
+  border-radius: 5rem;
+}
+
+/*FIN DE DESARROLLO DE ESTILOS IMAGEN ALBUM ----------------------------*/
+
+/*DESCRIPCIÓN DE PRODUCTO*/
+.detalles_album {
+  /*Tamaño de la caja*/
+  width: 300px;
+  height: 100%;
+
+  /*FLEX*/
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/*NOMBRE ALBUM*/
+.detalle_nombreAlbum {
+  line-height: 50px;
+  color: var(--marron_fuerte);
+  font-size: 2rem;
+}
+
+.detalle_album {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.detalle_album_descripcion p {
+  /*TAMAÑO Y POSICIONAMIENTO*/
+  max-width: 300px;
+  height: fit-content;
+  max-height: 80px;
+  position: unset;
+  word-wrap: break-word;
+  overflow: overlay;
+  padding: 0.5rem;
+
+  /*Estilo*/
+  color: var(--marron_fuerte);
+  background: rgb(0 0 0 / 18%);
+  color: var(--marron_clarito);
+  border-radius: 1rem;
+}
+
+.detalle_album_descripcion span {
+  color: var(--marron_fuerte);
+  font-weight: 800;
+}
+
+.detalle_album span {
+  margin-left: 10px;
+  color: var(--marron_fuerte);
+}
+
+.precio_album_detalleProducto {
+  /*FLEX*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*Tamaño de la caja*/
+  width: fit-content;
+  height: 50px;
+  padding: 0 2rem;
+
+  /*Posicionamiento de la caja*/
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /*Estilos visuales*/
+  background-color: var(--naranja);
+
+  /*Bordes de la caja*/
+  border-radius: 1rem 0rem 1rem 0rem;
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+
+  /*Texto*/
+  color: white;
+  font-size: larger;
+}
+
+.boton_agregarCarrito {
+  /*Tamaño y posicionamiento de la caja*/
+  margin: 1rem 0;
+  padding: 0.6rem 1.9rem;
+
+  /*Estilos visuales*/
+  background: var(--marron_fuerte);
+  border: none;
+  border-radius: 1rem;
+
+  /*Texto*/
+  text-transform: uppercase;
+  color: var(--marron_clarito);
+  font-weight: bold;
+  font-size: 16px;
+  word-wrap: break-word;
+}
+
+/*Seccion oculta hasta presionar boton ver más*/
+.informacion_extra {
+  /*FLEX*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*Tamaño y posicionamiento de la caja*/
+  padding-top: 2rem;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  
+}
+
+/*Boton ver más*/
+.verMasDescripcion{
+    cursor: pointer;
+}
+
+.mostrar_informacion_extra{
+    height: fit-content;
+    width: 100%;
+    overflow: visible;
+}
+
+.contenedor_informacion_extra {
+  /*FLEX*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+
+  /*Tamaño y posicionamiento de la caja*/
+  width: 80%;
+  height: fit-content;
+  padding: 1rem 0;
+  position: relative;
+  top: -20px;
+
+  /*Estilos visuales*/
+  border: 1px solid var(--marron_fuerte);
+  border-radius: 1rem;
+}
+
+.descripcion_album {
+  width: 90%;
+  word-wrap: break-word;
+}
+.descripcion_album h2{
+    color: var(--marron_fuerte);
+}
+
+.informacion_artista{
+    width: 90%;
+}
+.nombre_artista{
+    color: var(--marron_fuerte);
+}
+
+.descripcion_artista {
+   width: 90%;
+} 
+
+@media (max-width: 768px) {
+  .boton_agregarCarrito {
+    align-self: center;
+  }
+  .contenedor_informacion_producto, .contenedor_informacion_extra {
+    width: 90%;
+  }
+}

@@ -1,0 +1,163 @@
+body{
+  background-color: var(--marron_clarito);
+}
+.contenedor_ofertas{
+  background: var(--naranja);
+}
+
+.contenedor_ofertas .contenedor_ofertas_titulo{
+  text-align: center;
+    color: var(--marron_fuerte);
+    font-size: 3.4rem;
+    font-style: italic;
+    font-weight: 900;
+    font-family: "Montserrat";
+    background-image: linear-gradient(to right, #8f1109, #ed683d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 9px 1px 1px rgb(246 225 219);
+    padding: 1rem 0 1rem 0;
+
+}
+
+
+.contenedor_ofertas_slider {
+  display: flex;
+  overflow: hidden;
+  height: fit-content;
+  align-items: center;
+}
+.oferta_imagen {
+  transform: scaleX(-1);
+  position: relative;
+  bottom: 0;
+  width: 300px;
+  align-self: self-end;
+  margin: 0rem 2rem;
+}
+
+.tarjetas_ofertas {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.tarjeta_album_ofertas {
+  width: 260px; /*300*/
+  height: 300px;/*320*/
+  background: var(--naranja);
+  border-radius: 0.2rem;
+  padding: 1rem 0;
+}
+
+.tarjeta_album_ofertasFondo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("/images/index/texturaTarjetaOfertas.png");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0.2rem;
+  position: relative;
+}
+
+.imagen_tarjeta_album_oferta {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+}
+
+.tarjeta_album_ofertas_titulo {
+  position: absolute;
+  top: -10px;
+  color: var(--marron_fuerte);
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 900;
+  font-family: "Montserrat";
+  background-image: linear-gradient(to right, #8f1109, #ed683d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 6px 1px 1px rgb(246 225 219);
+}
+
+.tarjeta_album_ofertas_descripcion {
+  position: absolute;
+  bottom: 20px;
+  display: none;
+}
+
+.tarjeta_album_ofertas_boton {
+  position: absolute;
+  bottom: 0;
+  background: var(--negro);
+  color: var(--marron_clarito);
+  padding: 0.2rem 2rem;
+  border-radius: 1rem;
+}
+
+.anuncio_oferta {
+  position: absolute;
+  bottom: 20%;
+  right: 20%;
+  border: 3px solid #685b11f5;
+  border-style: dashed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  box-shadow: 0px -3px 20px rgb(24, 25, 26);
+}
+
+.anuncio_oferta h3 {
+  width: 60px;
+  height: 60px;
+  background: #887719f5;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+
+
+.banner_publicidad {
+  height: fit-content;
+  margin: 0 auto;
+  padding: 1rem;
+  background: var(--marron_clarito);
+  width: 100%;
+}
+.banner_publicidad img{
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 5px 4px var(--marron_medio);
+
+}
+
+/*SWIPER SLIDER*/
+
+.swiper{
+    padding: 1rem;
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  opacity: 0.7; /* Opacidad inicial para los slides no activos */
+  transition: opacity 0.3s ease; /* Transición suave de la opacidad */
+  box-shadow: 2px 2px 5px 4px var(--marron_fuerte);
+}
+
+.swiper-slide-active {
+  opacity: 1; /* Opacidad completa para el slide activo */
+}

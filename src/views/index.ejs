@@ -1,55 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Titulo e icono de la pestaña-->
-    <title>¡Bienvenidos a Sonata!</title>
-    <link rel="shortcut icon" href="/images/imagen_logo_sonata_v1.png">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Titulo e icono de la pestaña-->
+        <title>¡Bienvenidos a Sonata!</title>
+        <link rel="shortcut icon" href="/images/imagen_logo_sonata_v1.png">
 
-    <!--CDN FONT AWESOME-->
-    <script src="https://kit.fontawesome.com/0aeb7696ea.js" crossorigin="anonymous"></script>
-    
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+        <!--CDN FONT AWESOME-->
+        <script src="https://kit.fontawesome.com/0aeb7696ea.js"
+            crossorigin="anonymous"></script>
 
-    <!--CUSTOM CSS-->
-    <link rel="stylesheet" href="/css/Pagina Principal/presentacion.css">
-    <link rel="stylesheet" href="/css/Pagina Principal/filtrador.css">
-    <link rel="stylesheet" href="/css/styles_header.css">
-    <link rel="stylesheet" href="/css/styles_footer.css">
-    <link rel="stylesheet" href="/css/styles_main.css">
+        <!-- Link Swiper's CSS -->
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
-</head>
+        <!--CUSTOM CSS-->
+        <link rel="stylesheet" href="/css/Pagina Principal/presentacion.css">
+        <link rel="stylesheet" href="/css/Pagina Principal/filtrador.css">
+        <link rel="stylesheet" href="/css/Pagina Principal/tarjetasOfertas.css">
+        <!-- <link rel="stylesheet"
+            href="/css/Pagina Principal/carruselDeProductos.css"> -->
 
-<body>
+    </head>
 
-    <%- include('./partials/header') %>
+    <body>
+
+        <%- include('./partials/header') %>
 
         <section class="presentacion">
             <section class="presentacion_marca">
                 <h2 id="typed-text">WELCOME TO <br> SONATA</h2>
 
                 <section class="boton_presentacion_productos">
-                    <a href="">View all products</a>
+                    <a href>View all products</a>
                 </section>
 
             </section>
 
+            <img class="imagen_presentacion_movil"
+                src="images/banner/personaPresentacion.png"
+                alt="Persona de presentación de Pagina">
 
-            <img class="imagen_presentacion_movil" src="images/banner/personaPresentacion.png" alt="">
-
-            <span class="btn_fondoColor" href="">
+            <span class="btn_fondoColor" href>
                 <i class="fa-solid fa-moon"></i>
             </span>
 
             <section class="presentacion_productos">
-                <img src="images/banner/banner1.jpeg" alt="">
+                <img src="images/banner/banner1.jpeg" alt>
                 <h2 id="text_imagen_banner">
-                    <div class="estilo_imagen_banner"><i class="fa-solid fa-music fa-beat-fade"></i> The
-                        best<br>experience <i class="fa-solid fa-music fa-beat-fade"></i></div>
+                    <div class="estilo_imagen_banner"><i
+                            class="fa-solid fa-music fa-beat-fade"></i> The
+                        best<br>experience <i
+                            class="fa-solid fa-music fa-beat-fade"></i></div>
                 </h2>
             </section>
 
@@ -67,20 +72,204 @@
             </div>
         </section>
 
-        <main>
-            <section class="slider_album_populares">
-                <div class="container">
-                    <h1 class="titulo_populares"><i class="fa-solid fa-compact-disc"></i> Albumes Populares</h1>
-                    
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                           <%-include("./partials/index/productosPopulares")%>
-                        </div>
-                        <div class="swiper-pagination"></div>
+        <section class="banner_publicidad">
+            <img class=""
+                    src="images/banner/bannerPublicidad.png"
+                    alt="Chica de presentación de ofertas">
+        </section>
+
+        <section class="contenedor_ofertas">
+            <h2 class="contenedor_ofertas_titulo">Las mejores ofertas!!</h2>
+            <section class="contenedor_ofertas_slider">
+                <img class="oferta_imagen"
+                    src="images/banner/imagen_Ofertas.png"
+                    alt="Chica de presentación de ofertas">
+
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+
+                        <section class="swiper-slide tarjeta_album_ofertas">
+                            <div class="tarjeta_album_ofertasFondo">
+                                <h2 class="tarjeta_album_ofertas_titulo">Titulo
+                                    Oferta</h2>
+                                <img class="imagen_tarjeta_album_oferta"
+                                    src="images/imagenes_albumsGenerales/imagen_album1.jpg">
+                                <div class="anuncio_oferta">
+                                    <h3>70%</h3>
+                                </div>
+
+                                <p class="tarjeta_album_ofertas_descripcion">Lorem
+                                    ipsum
+                                    dolor sit amet Lorem ipsum dolor, sit amet
+                                    consectetur adipisicing elit. Temporibus
+                                    eligendi,
+                                    consequuntur repellendus amet autem
+                                    necessitatibus odit aperiam vitae iusto illo
+                                    dignissimos.</p>
+                                <span class="tarjeta_album_ofertas_boton">Boton</span>
+                            </div>
+                        </section>
+
+                        <section class="swiper-slide tarjeta_album_ofertas">
+                            <div class="tarjeta_album_ofertasFondo">
+                                <h2 class="tarjeta_album_ofertas_titulo">Titulo
+                                    Oferta</h2>
+                                <img class="imagen_tarjeta_album_oferta"
+                                    src="images/imagenes_albumsGenerales/imagen_album1.jpg">
+                                <div class="anuncio_oferta">
+                                    <h3>70%</h3>
+                                </div>
+
+                                <p class="tarjeta_album_ofertas_descripcion">Lorem
+                                    ipsum
+                                    dolor sit amet Lorem ipsum dolor, sit amet
+                                    consectetur adipisicing elit. Temporibus
+                                    eligendi,
+                                    consequuntur repellendus amet autem
+                                    necessitatibus odit aperiam vitae iusto illo
+                                    dignissimos.</p>
+                                <span class="tarjeta_album_ofertas_boton">Boton</span>
+                            </div>
+                        </section>
+
+                        <section class="swiper-slide tarjeta_album_ofertas">
+                            <div class="tarjeta_album_ofertasFondo">
+                                <h2 class="tarjeta_album_ofertas_titulo">Titulo
+                                    Oferta</h2>
+                                <img class="imagen_tarjeta_album_oferta"
+                                    src="images/imagenes_albumsGenerales/imagen_album1.jpg">
+                                <div class="anuncio_oferta">
+                                    <h3>70%</h3>
+                                </div>
+
+                                <p class="tarjeta_album_ofertas_descripcion">Lorem
+                                    ipsum
+                                    dolor sit amet Lorem ipsum dolor, sit amet
+                                    consectetur adipisicing elit. Temporibus
+                                    eligendi,
+                                    consequuntur repellendus amet autem
+                                    necessitatibus odit aperiam vitae iusto illo
+                                    dignissimos.</p>
+                                <span class="tarjeta_album_ofertas_boton">Boton</span>
+                            </div>
+                        </section>
+
+                        <section class="swiper-slide tarjeta_album_ofertas">
+                            <div class="tarjeta_album_ofertasFondo">
+                                <h2 class="tarjeta_album_ofertas_titulo">Titulo
+                                    Oferta</h2>
+                                <img class="imagen_tarjeta_album_oferta"
+                                    src="images/imagenes_albumsGenerales/imagen_album1.jpg">
+                                <div class="anuncio_oferta">
+                                    <h3>70%</h3>
+                                </div>
+
+                                <p class="tarjeta_album_ofertas_descripcion">Lorem
+                                    ipsum
+                                    dolor sit amet Lorem ipsum dolor, sit amet
+                                    consectetur adipisicing elit. Temporibus
+                                    eligendi,
+                                    consequuntur repellendus amet autem
+                                    necessitatibus odit aperiam vitae iusto illo
+                                    dignissimos.</p>
+                                <span class="tarjeta_album_ofertas_boton">Boton</span>
+                            </div>
+                        </section>
+
+                        <section class="swiper-slide tarjeta_album_ofertas">
+                            <div class="tarjeta_album_ofertasFondo">
+                                <h2 class="tarjeta_album_ofertas_titulo">Titulo
+                                    Oferta</h2>
+                                <img class="imagen_tarjeta_album_oferta"
+                                    src="images/imagenes_albumsGenerales/imagen_album1.jpg">
+                                <div class="anuncio_oferta">
+                                    <h3>70%</h3>
+                                </div>
+
+                                <p class="tarjeta_album_ofertas_descripcion">Lorem
+                                    ipsum
+                                    dolor sit amet Lorem ipsum dolor, sit amet
+                                    consectetur adipisicing elit. Temporibus
+                                    eligendi,
+                                    consequuntur repellendus amet autem
+                                    necessitatibus odit aperiam vitae iusto illo
+                                    dignissimos.</p>
+                                <span class="tarjeta_album_ofertas_boton">Boton</span>
+                            </div>
+                        </section>
+
+                        <section class="swiper-slide tarjeta_album_ofertas">
+                            <div class="tarjeta_album_ofertasFondo">
+                                <h2 class="tarjeta_album_ofertas_titulo">Titulo
+                                    Oferta</h2>
+                                <img class="imagen_tarjeta_album_oferta"
+                                    src="images/imagenes_albumsGenerales/imagen_album1.jpg">
+                                <div class="anuncio_oferta">
+                                    <h3>70%</h3>
+                                </div>
+
+                                <p class="tarjeta_album_ofertas_descripcion">Lorem
+                                    ipsum
+                                    dolor sit amet Lorem ipsum dolor, sit amet
+                                    consectetur adipisicing elit. Temporibus
+                                    eligendi,
+                                    consequuntur repellendus amet autem
+                                    necessitatibus odit aperiam vitae iusto illo
+                                    dignissimos.</p>
+                                <span class="tarjeta_album_ofertas_boton">Boton</span>
+                            </div>
+                        </section>
+
+                        <section class="swiper-slide tarjeta_album_ofertas">
+                            <div class="tarjeta_album_ofertasFondo">
+                                <h2 class="tarjeta_album_ofertas_titulo">Titulo
+                                    Oferta</h2>
+                                <img class="imagen_tarjeta_album_oferta"
+                                    src="images/imagenes_albumsGenerales/imagen_album1.jpg">
+                                <div class="anuncio_oferta">
+                                    <h3>70%</h3>
+                                </div>
+
+                                <p class="tarjeta_album_ofertas_descripcion">Lorem
+                                    ipsum
+                                    dolor sit amet Lorem ipsum dolor, sit amet
+                                    consectetur adipisicing elit. Temporibus
+                                    eligendi,
+                                    consequuntur repellendus amet autem
+                                    necessitatibus odit aperiam vitae iusto illo
+                                    dignissimos.</p>
+                                <span class="tarjeta_album_ofertas_boton">Boton</span>
+                            </div>
+                        </section>
+
+                        <section class="swiper-slide tarjeta_album_ofertas">
+                            <div class="tarjeta_album_ofertasFondo">
+                                <h2 class="tarjeta_album_ofertas_titulo">Titulo
+                                    Oferta</h2>
+                                <img class="imagen_tarjeta_album_oferta"
+                                    src="images/imagenes_albumsGenerales/imagen_album1.jpg">
+                                <div class="anuncio_oferta">
+                                    <h3>70%</h3>
+                                </div>
+
+                                <p class="tarjeta_album_ofertas_descripcion">Lorem
+                                    ipsum
+                                    dolor sit amet Lorem ipsum dolor, sit amet
+                                    consectetur adipisicing elit. Temporibus
+                                    eligendi,
+                                    consequuntur repellendus amet autem
+                                    necessitatibus odit aperiam vitae iusto illo
+                                    dignissimos.</p>
+                                <span class="tarjeta_album_ofertas_boton">Boton</span>
+                            </div>
+                        </section>
                     </div>
+                    <div class="swiper-pagination"></div>
                 </div>
+
             </section>
-        </main>
+
+        </section>
 
         <section class="filtrador">
 
@@ -88,41 +277,45 @@
 
                 <section class="contenedor_boton_desplegable">
                     <h2>Últimos Albumes</h2>
-                    <span class="boton_generos">Seleccionar generos 
+                    <span class="boton_generos">Seleccionar generos
                         <i class="fa-solid fa-chevron-down flecha_submenu-boton"></i>
                     </span>
                 </section>
 
                 <section class="filtrador_botones_desplegable">
-                    <span  id="todo">Todo</span>
-                    <span  id="rock">Rock</span>
-                    <span  id="pop">pop</span>
-                    <span  id="clásica">Clasica</span>
-                    <span  id="rap">Rap</span>
-                    <span  id="electronica">Electrónica</span>
-                    <span  id="nada_desplegable"><i class="fa-solid fa-xmark"></i></span>
+                    <span id="todo">Todo</span>
+                    <span id="rock">Rock</span>
+                    <span id="pop">pop</span>
+                    <span id="clásica">Clasica</span>
+                    <span id="rap">Rap</span>
+                    <span id="electronica">Electrónica</span>
+                    <span id="nada_desplegable"><i class="fa-solid fa-xmark"></i></span>
                 </section>
 
-                <a class="vermas" href="">Ver Más <i class="fa-solid fa-arrow-right"></i></a>
+                <a class="vermas" href>Ver Más <i
+                        class="fa-solid fa-arrow-right"></i></a>
 
             </section>
 
         </section>
 
         <section class="section_generos">
-            <span class="botonDesplazamientoFiltrador prev"><i class="fa-solid fa-caret-left"></i></span>
+            <span class="botonDesplazamientoFiltrador prev"><i
+                    class="fa-solid fa-caret-left"></i></span>
             <div class="contenedor_genero">
-                <span class="genero boton_filtrador" id="nada"><i class="fa-solid fa-xmark"></i></span>
+                <span class="genero boton_filtrador" id="nada"><i
+                        class="fa-solid fa-xmark"></i></span>
                 <section class="division filtrador_botones">
                     <span class="genero boton_filtrador" id="todo">Todo</span>
                     <span class="genero boton_filtrador" id="rock">Rock</span>
                     <span class="genero boton_filtrador" id="pop">Pop</span>
                     <span class="genero boton_filtrador" id="clasica">Clasica</span>
                     <span class="genero boton_filtrador" id="rap">Rap</span>
-                    <span class="genero boton_filtrador" id="electronica">Electrónica</span>
+                    <span class="genero boton_filtrador2" id="electronica">Electrónica</span>
                 </section>
             </div>
-            <span class="botonDesplazamientoFiltrador next"><i class="fa-solid fa-caret-right"></i></span>
+            <span class="botonDesplazamientoFiltrador next"><i
+                    class="fa-solid fa-caret-right"></i></span>
         </section>
 
         <section class="contenedor_albumes_filtrar">
@@ -133,25 +326,28 @@
                     <i class="fa-solid fa-cart-plus"></i>
                 </section>
 
-                <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album1.jpg">
+                <img class="imagen_tarjeta_album"
+                    src="images/imagenes_albumsGenerales/imagen_album1.jpg">
 
                 <div class="fondo_imagen">
-                    <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    <a class="boton_verProducto" href>Ver producto <i
+                            class="fa-solid fa-eye"></i></a>
                 </div>
 
                 <h3 class="precio_tarjeta_album">$130</h3>
 
             </div>
 
-
             <div class="tarjeta_album todo pop">
                 <section class="titulo_tarjeta_album">
                     <h2>Album Nº2</h2>
                     <i class="fa-solid fa-cart-plus"></i>
                 </section>
-                <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album3.jpg">
+                <img class="imagen_tarjeta_album"
+                    src="images/imagenes_albumsGenerales/imagen_album3.jpg">
                 <div class="fondo_imagen">
-                    <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    <a class="boton_verProducto" href>Ver producto <i
+                            class="fa-solid fa-eye"></i></a>
                 </div>
                 <h3 class="precio_tarjeta_album">$130</h3>
             </div>
@@ -161,9 +357,11 @@
                     <h2>Album Nº3</h2>
                     <i class="fa-solid fa-cart-plus"></i>
                 </section>
-                <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album4.jpg">
+                <img class="imagen_tarjeta_album"
+                    src="images/imagenes_albumsGenerales/imagen_album4.jpg">
                 <div class="fondo_imagen">
-                    <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    <a class="boton_verProducto" href>Ver producto <i
+                            class="fa-solid fa-eye"></i></a>
                 </div>
                 <h3 class="precio_tarjeta_album">$130</h3>
             </div>
@@ -173,9 +371,11 @@
                     <h2>Album Nº4</h2>
                     <i class="fa-solid fa-cart-plus"></i>
                 </section>
-                <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album5.jpg">
+                <img class="imagen_tarjeta_album"
+                    src="images/imagenes_albumsGenerales/imagen_album5.jpg">
                 <div class="fondo_imagen">
-                    <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    <a class="boton_verProducto" href>Ver producto <i
+                            class="fa-solid fa-eye"></i></a>
                 </div>
                 <h3 class="precio_tarjeta_album">$130</h3>
             </div>
@@ -185,9 +385,11 @@
                     <h2>Album Nº5</h2>
                     <i class="fa-solid fa-cart-plus"></i>
                 </section>
-                <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album6.jpg">
+                <img class="imagen_tarjeta_album"
+                    src="images/imagenes_albumsGenerales/imagen_album6.jpg">
                 <div class="fondo_imagen">
-                    <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    <a class="boton_verProducto" href>Ver producto <i
+                            class="fa-solid fa-eye"></i></a>
                 </div>
                 <h3 class="precio_tarjeta_album">$130</h3>
             </div>
@@ -197,9 +399,11 @@
                     <h2>Album Nº5</h2>
                     <i class="fa-solid fa-cart-plus"></i>
                 </section>
-                <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album6.jpg">
+                <img class="imagen_tarjeta_album"
+                    src="images/imagenes_albumsGenerales/imagen_album6.jpg">
                 <div class="fondo_imagen">
-                    <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    <a class="boton_verProducto" href>Ver producto <i
+                            class="fa-solid fa-eye"></i></a>
                 </div>
                 <h3 class="precio_tarjeta_album">$130</h3>
             </div>
@@ -209,9 +413,11 @@
                     <h2>Album Nº5</h2>
                     <i class="fa-solid fa-cart-plus"></i>
                 </section>
-                <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album6.jpg">
+                <img class="imagen_tarjeta_album"
+                    src="images/imagenes_albumsGenerales/imagen_album6.jpg">
                 <div class="fondo_imagen">
-                    <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    <a class="boton_verProducto" href>Ver producto <i
+                            class="fa-solid fa-eye"></i></a>
                 </div>
                 <h3 class="precio_tarjeta_album">$130</h3>
             </div>
@@ -221,9 +427,11 @@
                     <h2>Album Nº5</h2>
                     <i class="fa-solid fa-cart-plus"></i>
                 </section>
-                <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album6.jpg">
+                <img class="imagen_tarjeta_album"
+                    src="images/imagenes_albumsGenerales/imagen_album6.jpg">
                 <div class="fondo_imagen">
-                    <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    <a class="boton_verProducto" href>Ver producto <i
+                            class="fa-solid fa-eye"></i></a>
                 </div>
                 <h3 class="precio_tarjeta_album">$130</h3>
             </div>
@@ -233,9 +441,11 @@
                     <h2>Album Nº5</h2>
                     <i class="fa-solid fa-cart-plus"></i>
                 </section>
-                <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album6.jpg">
+                <img class="imagen_tarjeta_album"
+                    src="images/imagenes_albumsGenerales/imagen_album6.jpg">
                 <div class="fondo_imagen">
-                    <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    <a class="boton_verProducto" href>Ver producto <i
+                            class="fa-solid fa-eye"></i></a>
                 </div>
                 <h3 class="precio_tarjeta_album">$130</h3>
             </div>
@@ -245,26 +455,27 @@
                     <h2>Album Nº5</h2>
                     <i class="fa-solid fa-cart-plus"></i>
                 </section>
-                <img class="imagen_tarjeta_album" src="images/imagenes_albumsGenerales/imagen_album6.jpg">
+                <img class="imagen_tarjeta_album"
+                    src="images/imagenes_albumsGenerales/imagen_album6.jpg">
                 <div class="fondo_imagen">
-                    <a class="boton_verProducto" href="">Ver producto <i class="fa-solid fa-eye"></i></a>
+                    <a class="boton_verProducto" href>Ver producto <i
+                            class="fa-solid fa-eye"></i></a>
                 </div>
                 <h3 class="precio_tarjeta_album">$130</h3>
             </div>
         </section>
 
-
         <!--Footer-->
         <%- include('./partials/footer') %>
 
-            <!-- Swiper JS -->
-            <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-            <script src="/scripts/script-slider-responsive.js"></script>
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="/scripts/script-slider-responsive.js"></script>
 
-            <!-- Custom JS -->
-            <script src="/scripts/filtrador.js"></script>
-            <script src="/scripts/modoOscuro.js"></script>
-            <script src="/scripts/headerColor.js"></script>
-</body>
+        <!-- Custom JS -->
+        <script src="/scripts/filtrador.js"></script>
+        <script src="/scripts/modoOscuro.js"></script>
+        <script src="/scripts/headerColor.js"></script>
+    </body>
 
 </html>

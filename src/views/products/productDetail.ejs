@@ -1,63 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Titulo e icono de la pestaña-->
-    <title>¡Bienvenidos a Sonata!</title>
-    <link rel="shortcut icon" href="/images/imagen_logo_sonata_v1.png">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Titulo e icono de la pestaña-->
+        <title>¡Bienvenidos a Sonata!</title>
+        <link rel="shortcut icon" href="/images/imagen_logo_sonata_v1.png">
 
-    <!--CDN FONT AWESOME-->
-    <script src="https://kit.fontawesome.com/0aeb7696ea.js" crossorigin="anonymous"></script>
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+        <!--CDN FONT AWESOME-->
+        <script src="https://kit.fontawesome.com/0aeb7696ea.js"
+            crossorigin="anonymous"></script>
+        <!-- Link Swiper's CSS -->
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
-    <!--CUSTOM CSS-->
-    <link rel="stylesheet" href="/css/styles_header.css">
-    <link rel="stylesheet" href="/css/styles_footer.css">
-    <link rel="stylesheet" href="/css/productDetail.css">
-</head>
+        <!--CUSTOM CSS-->
+        <link rel="stylesheet" href="/css/Productos/productDetail.css">
 
-<body>
-    <%- include('../partials/header') %>
+    </head>
 
-        <main>
+    <body>
+        <%- include('../partials/header') %>
 
-            <section class="informacion_artista">
-                <div class="content">
-                    <div class="informacion_artista_left">
-
-                        <!--VALORACIÓN DEL ARTISTA-->
-                        <div class="valoracion">
-                            <h2>Valoración del Artista:</h2>
-                            <% for (let i=0; i<5; i++){ %>
-                                <% if(i<user.valoracion){ %>
-                                    <i class="fa-solid fa-star" style="color:yellow"></i>
-                                <% } else{ %>
-                                  <i class="fa-solid fa-star"></i>
-                                <% } %>
-                              <% } %>
-
-                        </div>
-
-                        <!-- REDES SOCIALES DEL ARTISTA -->
-                        
-
-                    <div class="informacion_artista_right">
-
-                        <!--NOMBRE DEL ARTISTA-->
-                        <h2 class="nombre_artista"><%=user.userName%></h2>
-
-                        <!--DESCRIPCION DEL ARTISTA-->
-                        <p class="descripcion_artista"><%=user.description%></p>
-
-                    </div>
-
-                </div>
-            </section>
-
+        <section class="contenedor_producto">
 
             <section class="informacion_producto">
                 <div class="contenedor_informacion_producto">
@@ -65,16 +32,12 @@
                     <!--SLIDER DEL ÁLBUM-->
                     <section class="imagen_album">
 
-                        <button class="boton_left" type="button">
-                            <i class="fa-solid fa-chevron-left"></i>
-                        </button>
-
                         <!--IMAGEN DEL ÁLBUM-->
-                        <img src=<%=filtraProducto.image%> alt="Imagen de un album">
-
-                        <button class="boton_right" type="button">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </button>
+                        <script>
+                            let rutaImagenAlbum = "<%=filtraProducto.image%>"
+                            let contenedorRuta_imagen = document.querySelector(".imagen_album");
+                            contenedorRuta_imagen.style.background = `url('${rutaImagenAlbum}') center / cover no-repeat`;
+                        </script>
 
                         <button class="boton_play" type="button">
                             <i class=" fa-regular fa-circle-play"></i>
@@ -82,56 +45,99 @@
 
                     </section>
 
-                    <!--DESCRIPCIÓN DEL ARTISTA-->
-                    <section class="descripcion_producto">
-                        
-                        <button type="submit">Comprar</button>
+                    <!--DESCRIPCIÓN DEL PRODUCTO-->
+                    <section class="detalles_album">
 
-                        <div class="estilo_descripcion">
-                            <!--NOMBRE DEL ÁLBUM-->
-                            <h2><%=filtraProducto.name%></h2>
+                        <!--NOMBRE DEL ÁLBUM-->
+                        <h2 class="detalle_nombreAlbum">
+                            <%=filtraProducto.name%>
+                        </h2>
 
-                            <!--DURACIÓN DEL ÁLBUM-->
-                            <h5>Duración: <span><%=filtraProducto.totalLength%></span></h5>
+                        <!--DURACIÓN DEL ÁLBUM-->
+                        <h5 class="detalle_album">Duración: <span>
+                                <%=filtraProducto.totalLength%>
+                            </span>
+                        </h5>
 
-                            <!--GÉNERO DEL ÁLBUM-->
-                            <h5>Género: <span style="text-transform: capitalize;"><%=filtraProducto.genreAlbum.name%></span></h5>
+                        <!--GÉNERO DEL ÁLBUM-->
+                        <h5 class="detalle_album">Género: <span
+                                style="text-transform: capitalize;">
+                                <%=filtraProducto.genreAlbum.name%>
+                            </span>
+                        </h5>
 
-                            <h5>Descripción: <span><%=filtraProducto.description%></span></h5>
+                        <!--FECHA DE PUBLICACIÓN DEL ÁLBUM-->
+                        <h5 class="detalle_album">Fecha de publicación: <span>
+                                <%=filtraProducto.dateUpload%>
+                            </span>
+                        </h5>
 
-                            <!--FECHA DE PUBLICACIÓN DEL ÁLBUM-->
-                            <h5>Fecha de publicación: <span><%=filtraProducto.dateUpload%></span></h5>
-                            
-                            <!--VALORACIÓN DEL ÁLBUM-->
-                            <div class="valoracion2">
-                                <h5>Valoración del album:</h5>
-                                <%filtraProducto.valoracion+".0"%>
-                                <% for (let i=0; i<5; i++){ %>
-                                    <% if(i<filtraProducto.valoracion){ %>
-                                        <i class="fa-solid fa-star" style="color:yellow"></i>
-                                    <% } else{ %>
-                                    <i class="fa-solid fa-star"></i>
-                                    <% } %>
-                                <% } %>
+                        <!--ARTISTA DEL ÁLBUM-->
+                        <h5 class="detalle_album">Artista: <span>
+                                <%=user.userName%>
+                            </span>
+                        </h5>
 
-                            </div>
-                        </div>
+                        <section class="detalle_album_descripcion">
+                            Descripción:
+                            <p><%=filtraProducto.description%></p>
+                            <span class="verMasDescripcion">Ver más<i
+                                    class="fa-regular fa-eye"></i></span>
+                        </section>
 
+                        <script>
+                           document.addEventListener("DOMContentLoaded", () => {
+                                let verMasBoton = document.querySelector(".verMasDescripcion");
+                                let contenedorExtra = document.querySelector(".informacion_extra");
+                                verMasBoton.addEventListener("click", () => {
+                                    contenedorExtra.classList.toggle("mostrar_informacion_extra");
+                                    contenedorExtra.scrollIntoView({ behavior: "smooth" });
+                                });
+                                
+                            });
+                        </script>
+
+                        <button class="boton_agregarCarrito" type="submit">
+                            Agregar
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+
+                        <section class="precio_album_detalleProducto">
+                            <h4>$<%=filtraProducto.price+" "+filtraProducto.coin%></h4>
+                        </section>
                     </section>
 
-
-                    <section class="precio_album">
-                        <h4>$<%=filtraProducto.price%></h4>
-                    </section>
                 </div>
 
-
             </section>
-        </main>
 
-        <%- include('../partials/footer') %>
+            <section class="informacion_extra">
+                <section class="contenedor_informacion_extra">
+                    <section class="descripcion_album">
+                        <h2>Descripción del Album</h2>
+                        <p><%=filtraProducto.description%></p>
+                    </section>
 
+                    <section class="informacion_artista">
+                        <!--NOMBRE DEL ARTISTA-->
+                        <h2 class="nombre_artista">
+                            ¿Quién es <%=user.userName%>?
+                        </h2>
 
-</body>
+                        <!--DESCRIPCION DEL ARTISTA-->
+                        <p class="descripcion_artista">
+                            <%=user.description%>
+                        </p>
 
-</html>
+                        <!--VALORACIÓN DEL ARTISTA-->
+
+                    </section>
+
+                </section>
+            </section>
+
+            <%- include('../partials/footer') %>
+
+        </body>
+
+    </html>

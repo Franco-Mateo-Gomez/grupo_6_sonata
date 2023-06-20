@@ -13,7 +13,7 @@ header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  zoom: 0.9;
+  zoom: 0.8;
 }
 
 body {
@@ -51,10 +51,6 @@ label .boton_menu {
   color: var(--marron_clarito);
 }
 
-.nav-menu .btn a:hover {
-  transition: border-bottom 0.07s ease-in-out;
-  border-bottom: 4px var(--marron_clarito) solid;
-}
 
 /*BUSCADOR*/
 .formulario_buscador {
@@ -78,19 +74,22 @@ label .boton_menu {
 }
 
 .boton_formulario {
-  width: 10%;
-  height: 2.1rem;
+  width: 25%;
+  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 0.6rem;
-  border-radius: 0rem 2rem 2rem 0rem;
-  border: 3px var(--naranja) solid;
-  border-left: none;
-  background-color: var(--marron_clarito);
+  border:none;
   cursor: pointer;
-  color: var(--naranja);
+  color: var(--marron_clarito);
+  background-color: transparent;
+  margin-left: 20%;
 } /*FIN DE DESARROLLO DEL BUSCADOR*/
+
+.fa-solid.fa-magnifying-glass {
+  font-size: 20px;
+}
 
 .btn-usuario-x i {
   width: 40px;

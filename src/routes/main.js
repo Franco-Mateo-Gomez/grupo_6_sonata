@@ -48,6 +48,8 @@ router.get("/",mainController.front);
 
 router.get("/general",userController.generalView);
 
+router.get("/browser",mainController.browser);
+
 /*Login Path*/
 router.get("/login",userController.loginView);
 router.post("/login",validarUsuario,userController.loginUser);
