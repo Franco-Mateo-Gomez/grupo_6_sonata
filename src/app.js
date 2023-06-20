@@ -13,6 +13,7 @@ const payingRoutes = require("./routes/paying");
 const productsRoutes = require("./routes/products");
 const generesRoutes = require("./routes/generes");
 const cookieParser = require('cookie-parser');
+const comprasRoutes = require('./routes/compras');
 /*-----*/
 
 /*Middlewares*/

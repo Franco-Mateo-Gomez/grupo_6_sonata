@@ -1,5 +1,12 @@
 
-.error_contra, .error_confirmar, .errorImagen,.error_usuario, .error_correo, .error_nombre{
+.error_contra, .error_confirmar, .errorImagen,
+.error_usuario, .error_correo, .error_nombre, .error_name, 
+.error_tarjeta, .error_vencimiento, .error_ciudad, .errorDireccion{
+    color: red;
+    width: 100%;
+}
+
+.error_codigo, .error_pais{
     color: red;
     width: 100%;
 }
