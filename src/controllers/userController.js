@@ -92,6 +92,20 @@ const userController = {
             })
         }
         
+        const userNameVerification = await db.Users.findOne({ where: { userName: req.body.user_name }});
+
+        if (userNameVerification) {
+
+            return res.render("users/register", {
+                errors: {
+                    user_name: {
+                        msg: "Este nombre de usuario ya esta registrado. Intente con otro."
+                    }
+                } ,
+                oldData: req.body
+            })
+        }
+        
         let userType = req.body.typeUser;
 
         let defaultUserImage = req.file ? "/images/users/" + req.file.filename : "/images/users/default.png";
