@@ -17,6 +17,7 @@ const generesRoutes = require("./routes/generes");
 
 /* Api --> Routes */
 const apiProducts = require("./routes/apis/products");
+const apiUsers = require("./routes/apis/users");
 const apiFetchProducts = require("./routes/apis/fetchProducts")
 /*-----*/
 
@@ -66,6 +67,7 @@ app.use("/checkout",payingRoutes);
 app.use("/product",productsRoutes);
 app.use("/generes",generesRoutes);
 app.use("/api/products",apiProducts);
+app.use("/api/users",apiUsers);
 
 /* --TEMPORAL --API usage example */
 app.use("/api/fetch",apiFetchProducts)
