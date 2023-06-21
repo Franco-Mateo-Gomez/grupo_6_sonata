@@ -284,16 +284,14 @@
 
                 <section class="filtrador_botones_desplegable">
                     <span id="todo">Todo</span>
-                    <span id="rock">Rock</span>
+                    <span id="rock">rock</span>
                     <span id="pop">pop</span>
-                    <span id="clásica">Clasica</span>
-                    <span id="rap">Rap</span>
-                    <span id="electronica">Electrónica</span>
+                    <span id="clásica">classic</span>
+                    <span id="rap">rap</span>
+                    <span id="electronica">electronic</span>
+                    <span id="otro">otro</span>
                     <span id="nada_desplegable"><i class="fa-solid fa-xmark"></i></span>
                 </section>
-
-                <a class="vermas" href>Ver Más <i
-                        class="fa-solid fa-arrow-right"></i></a>
 
             </section>
 
@@ -309,9 +307,9 @@
                     <span class="genero boton_filtrador" id="todo">Todo</span>
                     <span class="genero boton_filtrador" id="rock">Rock</span>
                     <span class="genero boton_filtrador" id="pop">Pop</span>
-                    <span class="genero boton_filtrador" id="clasica">Clasica</span>
+                    <span class="genero boton_filtrador" id="classic">Clasica</span>
                     <span class="genero boton_filtrador" id="rap">Rap</span>
-                    <span class="genero boton_filtrador2" id="electronica">Electrónica</span>
+                    <span class="genero boton_filtrador2" id="electronic">Electrónica</span>
                 </section>
             </div>
             <span class="botonDesplazamientoFiltrador next"><i
@@ -319,150 +317,28 @@
         </section>
 
         <section class="contenedor_albumes_filtrar">
-            <div class="tarjeta_album todo rock">
 
-                <section class="titulo_tarjeta_album">
-                    <h2>Album Nº1</h2>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </section>
+            <%albumes.forEach(function(album) { %>
 
-                <img class="imagen_tarjeta_album"
-                    src="images/imagenes_albumsGenerales/imagen_album1.jpg">
+                <div class="tarjeta_album todo <%=album.genreAlbum.name.toLowerCase()%>">
 
-                <div class="fondo_imagen">
-                    <a class="boton_verProducto" href>Ver producto <i
-                            class="fa-solid fa-eye"></i></a>
+                    <section class="titulo_tarjeta_album">
+                        <h2><%=album.name%></h2>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </section>
+    
+                    <img class="imagen_tarjeta_album"
+                        src="<%=album.image%>">
+    
+                    <div class="fondo_imagen">
+                        <a class="boton_verProducto" href="/product/detail/<%=album.id%>">Ver producto <i
+                                class="fa-solid fa-eye"></i></a>
+                    </div>
+    
+                    <h3 class="precio_tarjeta_album">$<%=album.price%></h3>
+    
                 </div>
-
-                <h3 class="precio_tarjeta_album">$130</h3>
-
-            </div>
-
-            <div class="tarjeta_album todo pop">
-                <section class="titulo_tarjeta_album">
-                    <h2>Album Nº2</h2>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </section>
-                <img class="imagen_tarjeta_album"
-                    src="images/imagenes_albumsGenerales/imagen_album3.jpg">
-                <div class="fondo_imagen">
-                    <a class="boton_verProducto" href>Ver producto <i
-                            class="fa-solid fa-eye"></i></a>
-                </div>
-                <h3 class="precio_tarjeta_album">$130</h3>
-            </div>
-
-            <div class="tarjeta_album todo rock">
-                <section class="titulo_tarjeta_album">
-                    <h2>Album Nº3</h2>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </section>
-                <img class="imagen_tarjeta_album"
-                    src="images/imagenes_albumsGenerales/imagen_album4.jpg">
-                <div class="fondo_imagen">
-                    <a class="boton_verProducto" href>Ver producto <i
-                            class="fa-solid fa-eye"></i></a>
-                </div>
-                <h3 class="precio_tarjeta_album">$130</h3>
-            </div>
-
-            <div class="tarjeta_album todo rock">
-                <section class="titulo_tarjeta_album">
-                    <h2>Album Nº4</h2>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </section>
-                <img class="imagen_tarjeta_album"
-                    src="images/imagenes_albumsGenerales/imagen_album5.jpg">
-                <div class="fondo_imagen">
-                    <a class="boton_verProducto" href>Ver producto <i
-                            class="fa-solid fa-eye"></i></a>
-                </div>
-                <h3 class="precio_tarjeta_album">$130</h3>
-            </div>
-
-            <div class="tarjeta_album todo clasica">
-                <section class="titulo_tarjeta_album">
-                    <h2>Album Nº5</h2>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </section>
-                <img class="imagen_tarjeta_album"
-                    src="images/imagenes_albumsGenerales/imagen_album6.jpg">
-                <div class="fondo_imagen">
-                    <a class="boton_verProducto" href>Ver producto <i
-                            class="fa-solid fa-eye"></i></a>
-                </div>
-                <h3 class="precio_tarjeta_album">$130</h3>
-            </div>
-
-            <div class="tarjeta_album todo pop">
-                <section class="titulo_tarjeta_album">
-                    <h2>Album Nº5</h2>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </section>
-                <img class="imagen_tarjeta_album"
-                    src="images/imagenes_albumsGenerales/imagen_album6.jpg">
-                <div class="fondo_imagen">
-                    <a class="boton_verProducto" href>Ver producto <i
-                            class="fa-solid fa-eye"></i></a>
-                </div>
-                <h3 class="precio_tarjeta_album">$130</h3>
-            </div>
-
-            <div class="tarjeta_album todo clasica">
-                <section class="titulo_tarjeta_album">
-                    <h2>Album Nº5</h2>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </section>
-                <img class="imagen_tarjeta_album"
-                    src="images/imagenes_albumsGenerales/imagen_album6.jpg">
-                <div class="fondo_imagen">
-                    <a class="boton_verProducto" href>Ver producto <i
-                            class="fa-solid fa-eye"></i></a>
-                </div>
-                <h3 class="precio_tarjeta_album">$130</h3>
-            </div>
-
-            <div class="tarjeta_album todo rap">
-                <section class="titulo_tarjeta_album">
-                    <h2>Album Nº5</h2>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </section>
-                <img class="imagen_tarjeta_album"
-                    src="images/imagenes_albumsGenerales/imagen_album6.jpg">
-                <div class="fondo_imagen">
-                    <a class="boton_verProducto" href>Ver producto <i
-                            class="fa-solid fa-eye"></i></a>
-                </div>
-                <h3 class="precio_tarjeta_album">$130</h3>
-            </div>
-
-            <div class="tarjeta_album todo electronica">
-                <section class="titulo_tarjeta_album">
-                    <h2>Album Nº5</h2>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </section>
-                <img class="imagen_tarjeta_album"
-                    src="images/imagenes_albumsGenerales/imagen_album6.jpg">
-                <div class="fondo_imagen">
-                    <a class="boton_verProducto" href>Ver producto <i
-                            class="fa-solid fa-eye"></i></a>
-                </div>
-                <h3 class="precio_tarjeta_album">$130</h3>
-            </div>
-
-            <div class="tarjeta_album todo electronica">
-                <section class="titulo_tarjeta_album">
-                    <h2>Album Nº5</h2>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </section>
-                <img class="imagen_tarjeta_album"
-                    src="images/imagenes_albumsGenerales/imagen_album6.jpg">
-                <div class="fondo_imagen">
-                    <a class="boton_verProducto" href>Ver producto <i
-                            class="fa-solid fa-eye"></i></a>
-                </div>
-                <h3 class="precio_tarjeta_album">$130</h3>
-            </div>
+            <% }); %>
         </section>
 
         <!--Footer-->
