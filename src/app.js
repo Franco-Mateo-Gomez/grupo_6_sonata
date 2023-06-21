@@ -14,9 +14,10 @@ const userRoutes = require("./routes/user")
 const payingRoutes = require("./routes/paying");
 const productsRoutes = require("./routes/products");
 const generesRoutes = require("./routes/generes");
-const cookieParser = require('cookie-parser');
-const comprasRoutes = require('./routes/compras');
 /*-----*/
+
+const apiProducts = require("./routes/apis/products");
+const apiFetchProducts = require("./routes/apis/fetchProducts")
 
 /*Middlewares*/
 const recordameMiddleware = require("./middlewares/recordameMiddleware")
