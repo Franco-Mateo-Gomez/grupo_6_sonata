@@ -14,6 +14,7 @@ const userRoutes = require("./routes/user")
 const payingRoutes = require("./routes/paying");
 const productsRoutes = require("./routes/products");
 const generesRoutes = require("./routes/generes");
+const comprasRoutes = require('./routes/compras');
 /*-----*/
 
 const apiProducts = require("./routes/apis/products");
