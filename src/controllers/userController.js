@@ -16,9 +16,13 @@ const userController = {
 
             if (dataLogin != null ){
                 const findUser = await userFunctions.findInDB(req,res);
-                const popularAlbums = await db.Albums.findAll({limit: 5})
+                const offerAlbums = await db.Albums.findAll({limit: 5})
+                const filtraAlbums = await db.Albums.findAll({
+                    include:[
+                        {model:db.Genres,as: 'genreAlbum'}
+                    ]})
 
-                res.render("index",{ albumes: popularAlbums, user: findUser });
+                res.render("index",{ albumes: filtraAlbums, user: findUser, offerAlbums });
             }
             else{
                 res.redirect("/login");
@@ -82,6 +86,20 @@ const userController = {
                 errors: {
                     user_email: {
                         msg: "Este email ya esta registrado. Intente con otro."
+                    }
+                } ,
+                oldData: req.body
+            })
+        }
+        
+        const userNameVerification = await db.Users.findOne({ where: { userName: req.body.user_name }});
+
+        if (userNameVerification) {
+
+            return res.render("users/register", {
+                errors: {
+                    user_name: {
+                        msg: "Este nombre de usuario ya esta registrado. Intente con otro."
                     }
                 } ,
                 oldData: req.body

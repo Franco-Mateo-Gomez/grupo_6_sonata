@@ -14,12 +14,12 @@ const userRoutes = require("./routes/user")
 const payingRoutes = require("./routes/paying");
 const productsRoutes = require("./routes/products");
 const generesRoutes = require("./routes/generes");
+const comprasRoutes = require('./routes/compras');
+/*-----*/
 
-/* Api --> Routes */
 const apiProducts = require("./routes/apis/products");
 const apiUsers = require("./routes/apis/users");
 const apiFetchProducts = require("./routes/apis/fetchProducts")
-/*-----*/
 
 /*Middlewares*/
 const recordameMiddleware = require("./middlewares/recordameMiddleware")
