@@ -5,3 +5,5 @@ const validationsCompras = require ("../middlewares/validaCompras.js");
 
 router.get("/productCart", comprasController.compraView);
 router.post("/productCart", validationsCompras , comprasController.processCompras);
+
+module.exports = router;
