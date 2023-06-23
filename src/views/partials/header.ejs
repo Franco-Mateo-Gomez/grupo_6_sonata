@@ -15,7 +15,12 @@
     <ul class="nav-menu">
         <li class="btn btn-home"><a href="/general"><i class="icono-home fa-solid fa-house"></i> Home</a></li>
 
-        <li class="btn btn-carrito"><a href="/checkout"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+        <li class="btn btn-carrito">
+            <a href="/checkout">
+                <i class="fa-solid fa-cart-shopping"></i> Cart
+            </a>
+            <div class="cart_number">0</div>
+        </li>
 
         <li class="btn btn-busqueda">
             <a href="/browser">
@@ -47,11 +52,10 @@
         <section class="usuario_datos">
             <div class="ancho_contenedor_usario_datos" >
                 <div class="contenedor_usario_datos">
-                    <section class="contenedor_imagen_de_usuario">
-                        <script>
-                           let rutaImagenUsuario = "<%=user.image%>";
-                        </script>
-                    </section>
+                    <img src=<%=user.image%> class="contenedor_imagen_de_usuario">
+
+                    </img>
+
                     <h2>@<%=user.userName%></h2>
                     
                 </div>
@@ -88,6 +92,4 @@
     
 </section>
 
-
-<script src="/scripts/menuDesplegable.js"></script>
-<script src="/scripts/submenuDesplegable.js"></script>
+<%- include('./scripts') %>

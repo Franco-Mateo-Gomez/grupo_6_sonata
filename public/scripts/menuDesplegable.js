@@ -17,6 +17,3 @@ btn_usuario.addEventListener("click",()=>{
         estado_x = true;
     }
 });
-
-let contenedor_imagen = document.querySelector(".contenedor_imagen_de_usuario");
-contenedor_imagen.style.background = `url('${rutaImagenUsuario}') center / cover no-repeat`;

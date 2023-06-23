@@ -1,10 +1,15 @@
-
 let db = require ("../../database/models")
 
 const apiProductsController = {
     loadProducts: async (req,res) => {
 
-        let Albums = await db.Albums.findAll()
+        let Albums = await db.Albums.findAll({
+            include: {
+                model: db.Genres,
+                as: "genreAlbum", // Nombre de la relación definida en el modelo de álbum
+                attributes: ["name"], // Obtener solo el atributo "name" del género
+            },
+        })
         let Genres = await db.Genres.findAll()
 
         // Total Albums in DB
@@ -44,7 +49,17 @@ const apiProductsController = {
 
         return albumInDb ? res.json(albumInDb) : res.status(404).json({ error: "Producto no encontrado" })
 
-    }
+    },
+    checkout: async function (req, res) {
+        // return res.send({ ...req.body, userId: req.session.userLogged.id });
+        let order = await db.Order.create(
+        { ...req.body, userId: req.session.userLogged.id },
+        {
+            include: db.Order.OrderItems,
+        }
+        );
+        res.json({ ok: true, status: 200, order: order });
+  },
 }
 
 module.exports = apiProductsController;
