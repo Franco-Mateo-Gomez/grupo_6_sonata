@@ -15,6 +15,7 @@ const payingRoutes = require("./routes/paying");
 const productsRoutes = require("./routes/products");
 const generesRoutes = require("./routes/generes");
 const comprasRoutes = require('./routes/compras');
+const pagoRoutes = require('./routes/pago');
 /*-----*/
 
 const apiProducts = require("./routes/apis/products");
@@ -66,6 +67,8 @@ app.use("/checkout",payingRoutes);
 app.use("/product",productsRoutes);
 app.use("/generes",generesRoutes);
 app.use("/api/products",apiProducts);
+app.use("/checkout", comprasRoutes);
+app.use("/checkout", pagoRoutes);
 
 /* --TEMPORAL --API usage example */
 app.use("/api/fetch",apiFetchProducts)
