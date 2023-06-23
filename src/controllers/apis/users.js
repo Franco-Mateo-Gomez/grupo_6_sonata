@@ -11,6 +11,7 @@ const apiUsersController = {
                 id: user.id,
                 name: user.userName,
                 email: user.email,
+                image: user.image,
                 detail: "/api/users/" + user.id,
             }
             
