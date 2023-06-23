@@ -17,12 +17,16 @@ const userController = {
         if (dataLogin != null) {
             const findUser = await userFunctions.findInDB(req, res);
             console.log("GENERAL VIEW  ",findUser.id)
-            const popularAlbums = await db.Albums.findAll({ limit: 5 })
+            const offerAlbums = await db.Albums.findAll({ limit: 5 })
+                const filtraAlbums = await db.Albums.findAll({
+                    include:[
+                        {model:db.Genres,as: 'genreAlbum'}
+                    ]})
             req.session.userLogged = {
                 id: findUser.id
             };
             console.log( req.session.userLogged.id)
-            res.render("index", { albumes: popularAlbums, user: findUser });
+            res.render("index", { albumes: filtraAlbums, user: findUser, offerAlbums });
         }
         else {
             res.redirect("/login");
@@ -92,7 +96,7 @@ const userController = {
                 oldData: req.body
             })
         }
-
+        
         let userType = req.body.typeUser;
 
         let defaultUserImage = req.file ? "/images/users/" + req.file.filename : "/images/users/default.png";
