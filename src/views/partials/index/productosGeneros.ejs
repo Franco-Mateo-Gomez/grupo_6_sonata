@@ -1,17 +1,40 @@
-<% for(let i=0; i<3; i++){ %>
+<% for(let i=0; i<albumes.length; i++){ %>
 
-<div class="slider-generos">
+    <!--IMAGEN DEL ALBUM DEL SLIDER POPULAR-->
+    <div class="tarjeta_album todo">
+        <section class="titulo_tarjeta_album">
+            <h2><%=albumes[i].name%></h2>
+            <button data-id=<%=albumes[i].id%> class="fa-solid fa-cart-plus agregar_carrito"></button>
+        </section>
 
-    <div>
+        <img class="imagen_tarjeta_album" src=<%=albumes[i].image%>>
 
-        <a href="/generes/rock">
-            <h4>Rock</h4>
-            <picture>
-                <img src="/images/index/generos_rock.jpg" />
-            </picture>
-        </a>
+        <div class="fondo_imagen">
+            <a href=<%="product/detail/" + albumes[i].id%> class="boton_verProducto"
+                href>Ver producto <i
+                    class="fa-solid fa-eye"></i></a>
+        </div>
 
+        <h3 class="precio_tarjeta_album">$<%=albumes[i].price +" "+albumes[i].coin
+            %></h3>
     </div>
 
-</div>
-<%}%>
+    <%}%>
+
+    <script>
+//EFECTO SOBRE LAS TARJETAS DE LOS ALBUMES
+let fondo_imagen = document.querySelectorAll(".fondo_imagen")
+
+let contenedores = document.querySelectorAll(".tarjeta_album");
+
+for (let i = 0; i < contenedores.length; i++) {
+
+    contenedores[i].addEventListener("mouseover", () => {
+        fondo_imagen[i].classList.add("fondo_imagen_tamaño");
+    })
+
+    contenedores[i].addEventListener("mouseout", () => {
+        fondo_imagen[i].classList.remove("fondo_imagen_tamaño");
+    })
+}
+</script>

@@ -120,7 +120,7 @@
   padding: 0.7rem;
 }
 
-.titulo_tarjeta_album i {
+.titulo_tarjeta_album .agregar_carrito {
   color: var(--marron_clarito);
   background: var(--naranja);
   width: 1rem;
@@ -129,7 +129,9 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 100%;
+    border-color: var(--marron_medio);
+    border-style: none;
   font-size: 15px;
 }
 

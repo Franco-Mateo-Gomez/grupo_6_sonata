@@ -15,100 +15,34 @@
 
     <main class="main-checkout">
 
-        <!--Payiment method section-->
-        <section class="checkout-payment-method">
+        <%- include('../partials/header') %>
 
-            <div class="checkout-logo">
-                <img src="/images/imagen_logo_sonata_v2.png" alt="logo sonata">
-            </div>
+        <section class="contenedor_productos">
 
-            <!--Product list on mobile-->
-            <section class="checkout-products-coin-mobile">
-                <header>
-                    <h3>Moneda:</h3>
-                </header>
-                <select class="checkout-moneda" name="moneda">
-                    <option value="USD">
-                        USD
-                    </option>
-
-                    <option value="ARS" selected>
-                        ARS
-                    </option>
-
-                    <option value="EUR">
-                        EUR
-                    </option>
-                </select>
+            <section class="contenedor_total_producto">
+                <h4>PRECIO TOTAL:</h4>
+                <h4 class="precioTotalCarrito">$0.00</h4>
             </section>
 
-            <details>
+            <!--Product list - mobile version-->
+            <section class="productos_carrito">
 
-                <summary>
-                    <div class="summary-header">
-                        <p>Mostrar productos</p> <span class="fa-sharp fa-solid fa-circle-arrow-down"></span>
-                    </div>
-                    <h4>$0.00</h4>
-                </summary>
+            </section>
 
-                <%productList.forEach(function(producto) { %>
+        </section>
 
-                    <!--Product list - mobile version-->
-                    <div class="checkout-summary-products">
-                        <img src="<%=producto.image %>" alt="imagen de producto">
-
-                        <div class="checkout-summary-products-details">
-                            <div>
-                                <h4>
-                                    <%=producto.name %>
-                                </h4>
-                            </div>
-                            <div class="checkout-summary-products-details-bottom">
-                                <a href="#">
-                                    <button>Eliminar</button>
-                                </a>
-                                <div class="checkout-summary-products-details-bottom-price">
-                                    <h4>$<%=producto.precio %>
-                                    </h4>
-                                    <h6>$<%=producto.moneda %>
-                                    </h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <% }); %>
-
-            </details>
-            <!--END Product list on mobile-->
-
-            <!--Express payment methods-->
-            <div class="header-checkout">
-                <h2 class="titulares">Pago</h2>
-                <p>Seleccione el método de pago</p>
-
-                <div class="checkout-payiments-apps">
-                    <button id="tarjeta"></button>
-                    <button id="paypal"></button>
-                    <button id="modo"></button>
-                </div>
-            </div>
-            <!--END Express payment methods-->
+        <!--Payiment method section-->
+        <section class="checkout-payment-method">
 
             <div class="checkout-client-information">
 
                 <h2 class="titulares">Información del cliente</h2>
 
-                <form class="checkout-form-container" action="/productCart" method="post">
+                <form id="checkout-cart" class="checkout-form-container" action="" method="post">
 
                     <div class="checkout-form-fields-user">
                         <label class="label-forms" for="full_name">NOMBRE Y APELLIDO COMPLETO</label>
-                            <input type="text" id="full_name" name="full_name"  placeholder="Nombre completo"></input>
-                            <% if (locals.errors && errors.full_name ) { %>
-                                <div class="error-msg">
-                                    <%=errors.full_name.msg%>
-                                </div>
-                            <% } %>
+                            <input type="text" id="full_name" name="full_name" required placeholder="Nombre completo"></input>
                             <div class="error_nombre"> </div>
                         </div>
 
@@ -116,12 +50,7 @@
                     <div class="checkout-form-email-country">
                         <div class="form-fields-email">
                             <label class="label-forms" for="email">DIRECCIÓN DE CORREO ELECTRÓNICO</label>
-                            <input type="email" id="email" name="email"  placeholder="Correo"></input>
-                            <% if (locals.errors && errors.email ) { %>
-                                <div class="error-msg">
-                                    <%=errors.email.msg%>
-                                </div>
-                            <% } %>
+                            <input type="email" id="email" name="email" required placeholder="Correo"></input>
                             <div class="error_correo"> </div>
                         </div>
 
@@ -136,50 +65,29 @@
                                 <option value="USA">Estados Unidos</option>
                             </select>
                         </div>
-                        <% if (locals.errors && errors.select-checkout-country ) { %>
-                            <div class="error-msg">
-                                <%=errors.select-checkout-country.msg%>
-                            </div>
-                        <% } %>
                         <div class="error_pais"></div>
                     </div>
 
 
                     <div class="checkout-form-city-postal">
                         <label class="label-forms" for="city">CIUDAD</label>
-                        <input type="text" id="city" name="city"  placeholder="Ciudad"></input>
-                        <% if (locals.errors && errors.city ) { %>
-                            <div class="error-msg">
-                                <%=errors.city.msg%>
-                            </div>
-                        <% } %>
+                        <input type="text" id="city" name="city" required placeholder="Ciudad"></input>
                         <div class="error_ciudad"> </div>
-
                         <label class="label-forms" for="postal">CÓDIGO POSTAL</label>
-                        <input type="text" id="postal" name="postal"  placeholder="N° de código postal"></input>
-                        <% if (locals.errors && errors.postal ) { %>
-                            <div class="error-msg">
-                                <%=errors.postal.msg%>
-                            </div>
-                        <% } %>
+                        <input type="text" id="postal" name="postal" required placeholder="N° de código postal"></input>
                         <div class="error_codigo"></div>
                     </div>
 
                     <div class="checkout-form-fields-user">
                         <label class="label-forms" for="address">DIRECCIÓN</label>
-                        <input type="text" id="address" name="address"  placeholder="Dirección"></input>
-                        <% if (locals.errors && errors.address ) { %>
-                            <div class="error-msg">
-                                <%=errors.address.msg%>
-                            </div>
-                        <% } %>
+                        <input type="text" id="address" name="address" required placeholder="Dirección"></input>
                         <div class="errorDireccion"></div>
                     </div>
 
                     <div class="checkout-buttons">
 
                         <button id="checkout-exit">Cancelar</button>
-                        <button id="checkout-continue" type="submit" >Continuar</button>
+                        <button id="checkout-continue" type="submit" onclick="openModal()">Continuar</button>
                     </div>
 
                 </form>
@@ -267,13 +175,12 @@
                 <div class="modal-form-fields-user">
                     <label class="label-forms" for="card_name">Nombre completo del titular:</label>
                     <input type="text" id="card_name" name="card_name" required placeholder="Nombre completo"></input>
-                    <div class="error_name"> </div>
                 </div>
 
                 <div class="modal-form-fields-user">
                     <label class="label-forms" for="card_number">Número de tarjeta de débito/crédito:</label>
-                    <input type="number" id="card_number" name="card_number" required placeholder="0000 - 0000 - 0000 - 0000"></input>
-                    <div class="error_tarjeta"> </div>
+                    <input type="number" id="card_number" name="card_number" required
+                        placeholder="0000 - 0000 - 0000 - 0000"></input>
                 </div>
 
                 <div class="modal-form-fields-date-cvc">
@@ -281,13 +188,11 @@
                     <div class="modal-form-date">
                         <label class="label-forms" for="card_date">Fecha de expiración:</label>
                         <input type="date" id="card_date" name="card_date" required placeholder="01/2024"></input>
-                        <div class="error_vencimiento"> </div>
                     </div>
 
                     <div class="modal-form-cvc">
                         <label class="label-forms" for="card_cvc">CVC:</label>
                         <input type="number" id="card_cvc" name="card_cvc" required></input>
-                        <div class="error_codigo"> </div>
                     </div>
 
                 </div>
@@ -302,10 +207,6 @@
         </main>
 
     </dialog>
-
-    <script src="/scripts/script-checkout-modal.js"></script>
-    <script src="/scripts/validaciones/validatorCompras.js"></script>
-    <script src="/scripts/validaciones/validatorPago.js"></script>
     
 </body>
 

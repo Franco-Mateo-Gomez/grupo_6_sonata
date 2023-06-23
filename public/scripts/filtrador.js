@@ -95,27 +95,6 @@ boton_ocultarTodo.addEventListener("click", () => {
 });
 
 
-
-
-//EFECTO SOBRE LAS TARJETAS DE LOS ALBUMES
-let imagen_tarjeta = document.querySelectorAll(".imagen_tarjeta_album");
-let fondo_imagen = document.querySelectorAll(".fondo_imagen")
-
-let contenedores = document.querySelectorAll(".tarjeta_album");
-
-for (let i = 0; i < contenedores.length; i++) {
-
-    contenedores[i].addEventListener("mouseover", () => {
-        fondo_imagen[i].classList.add("fondo_imagen_tamaño");
-    })
-
-    contenedores[i].addEventListener("mouseout", () => {
-        fondo_imagen[i].classList.remove("fondo_imagen_tamaño");
-    })
-}
-
-
-
 //DESPLAZAMIENTO DE LAS CAJAS DE GENEROS
 let botonPrev = document.querySelector(".prev");
 let botonNext = document.querySelector(".next");
@@ -144,8 +123,10 @@ botonNext.addEventListener("click", () => {
     desplazamiento -= 240;
     contenedorFiltros.style.transform = `translateX(${desplazamiento}px)`;
 
-    if (desplazamiento < (-1*sumatoriaAnchoCaja)+limiteDesplazamientoDerecha) {
-        contenedorFiltros.style.transform = `translateX(${(-1*sumatoriaAnchoCaja)+limiteDesplazamientoDerecha}px)`;
+    if (desplazamiento < (-1 * sumatoriaAnchoCaja) + limiteDesplazamientoDerecha) {
+        contenedorFiltros.style.transform = `translateX(${(-1 * sumatoriaAnchoCaja) + limiteDesplazamientoDerecha}px)`;
         desplazamiento += 240;
     }
 });
+
+
