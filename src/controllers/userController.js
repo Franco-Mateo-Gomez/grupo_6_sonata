@@ -147,6 +147,7 @@ const userController = {
                 fullName: datosModificados.client_fullname,
                 userName: datosModificados.user_name,
                 email: datosModificados.user_email,
+                description: datosModificados.user_description,
             }, { where: { id: findUser.id } });
 
             res.redirect("/config");
