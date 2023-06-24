@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="/images/imagen_logo_sonata_v1.png">
     <link rel="stylesheet" href="/css/checkout.css">
     <link rel="stylesheet" href="/css/modal.css">
+    <link rel="stylesheet" href="/css/styles_validaciones.css">
     <title>Detalles de compra</title>
 </head>
 
@@ -43,6 +44,9 @@
                         <label class="label-forms" for="full_name">NOMBRE Y APELLIDO COMPLETO</label>
                             <input type="text" id="full_name" name="full_name"   placeholder="Nombre completo"></input>
                             <div class="error_nombre"> </div>
+                            <% if (locals.errors && errors.full_name) { %>
+                                <h6 style="color: red;"><%=errors.full_name.msg%></h6>
+                            <% } %>
                         </div>
 
 
@@ -51,6 +55,9 @@
                             <label class="label-forms" for="email">DIRECCIÓN DE CORREO ELECTRÓNICO</label>
                             <input type="email" id="email" name="email"   placeholder="Correo"></input>
                             <div class="error_correo"> </div>
+                            <% if (locals.errors && errors.email) { %>
+                                <h6 style="color: red;"><%=errors.email.msg%></h6>
+                            <% } %>
                         </div>
                     </div>
 
@@ -70,16 +77,28 @@
                             <label class="label-forms" for="card_number">Número de tarjeta de débito/crédito:</label>
                             <input type="number" id="card_number" name="card_number"  
                                 placeholder="0000 - 0000 - 0000 - 0000"></input>
+                                <div class="error_tarjeta"> </div>
+                                <% if (locals.errors && errors.card_number) { %>
+                                    <h6 style="color: red;"><%=errors.card_number.msg%></h6>
+                                <% } %>
                         </div>
     
                         <div class="modal-form-date">
                             <label class="label-forms" for="card_date">Fecha de expiración:</label>
                             <input type="date" id="card_date" name="card_date"   placeholder="01/2024"></input>
+                            <div class="error_vencimiento"> </div>
+                            <% if (locals.errors && errors.card_date) { %>
+                                <h6 style="color: red;"><%=errors.card_date.msg%></h6>
+                            <% } %>
                         </div>
     
                         <div class="modal-form-cvc">
                             <label class="label-forms" for="card_cvc">CVC:</label>
                             <input type="number" id="card_cvc" name="card_cvc"  ></input>
+                            <div class="error_codig"> </div>
+                            <% if (locals.errors && errors.card_cvc) { %>
+                                <h6 style="color: red;"><%=errors.card_cvc.msg%></h6>
+                            <% } %>
                         </div>
     
                     </div>
@@ -100,6 +119,7 @@
 
     <script src="/scripts/script-checkout-modal.js"></script>
     <script src="/scripts/carrito/carrito.js"></script>
+    <script src="/scripts/validaciones/validatorCompras.js"></script>
 </body>
 
 </html>
