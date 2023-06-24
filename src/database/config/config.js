@@ -2,7 +2,7 @@ module.exports = {
   "development": {
     "username": "root",
     "password": "", // Modificar si la contraseña root es distinta
-    "database": "SONATA2", //Modificar si es q lo llamamos diferente
+    "database": "sonata", //Modificar si es q lo llamamos diferente
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
