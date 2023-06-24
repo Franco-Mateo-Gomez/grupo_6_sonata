@@ -12,6 +12,7 @@ const apiUsersController = {
                 name: user.userName,
                 email: user.email,
                 image: user.image,
+                isComposer: user.isComposer,
                 detail: "/api/users/" + user.id,
             }
             
@@ -24,7 +25,6 @@ const apiUsersController = {
             return userData;
         }) 
         
-        
         let data = {
             count: Contador,
             Users: infoUsers,
@@ -34,13 +34,26 @@ const apiUsersController = {
     loadUser: async (req, res) => {
         let idUser = req.params.id 
         let User = await db.Users.findByPk (idUser)
-        let data = {
-            id: User.id,
-            name: User.userName,
-            email: User.email,
-            image: User.image,
-            description: User.description,
-            isComposer: User.isComposer,
+        let data;
+        if(User){
+            data = {
+                id: User.id,
+                name: User.userName,
+                email: User.email,
+                image: User.image,
+                description: User.description,
+                isComposer: User.isComposer,
+            }
+        }
+        else{
+            data = {
+                id: "0",
+                name: "No Existe",
+                email: "No Existe",
+                image: "No Tiene",
+                description: "No Tiene",
+                isComposer: null,
+            }
         }
         res.json(data)
     }
