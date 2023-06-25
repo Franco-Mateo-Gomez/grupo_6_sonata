@@ -162,6 +162,22 @@ button[type="reset"] {
     display: none;
 }
 
+.input_offer{
+  padding: 1%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete_input_offer{
+  display: none;
+}
+
+#offerLabel{
+  width: 80%;
+}
+
 @media (max-width: 615px) {
   main {
     padding: 2rem 0;
