@@ -163,6 +163,7 @@ const productsController = {
                 price: req.body.precio_album,
                 composerIdFk: idUser,
                 genereIdFk: filtraGenero.id,
+                offer:0,
                 dateUpload: new Date(),
 
             })
