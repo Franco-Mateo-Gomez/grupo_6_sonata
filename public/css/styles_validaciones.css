@@ -1,4 +1,4 @@
-.error_contra, .error_confirmar, .errorImagen,
+.error_contra, .error_confirmar, .errorImagen, .error_description,
 .error_usuario, .error_correo, .error_nombre, .error_name, 
 .error_tarjeta, .error_vencimiento, .error_codig{
     color: red;
