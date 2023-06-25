@@ -47,7 +47,7 @@ const apiProductsController = {
 
         let albumInDb = await db.Albums.findByPk(idAlbum,{include:[{ model: db.Genres, as: 'genreAlbum'}]})
 
-        return albumInDb ? res.json(albumInDb) : res.status(404).json({ error: "Producto no encontrado" })
+        return albumInDb ? res.json(albumInDb) : res.json({data:{id:"0"} })
 
     },
     checkout: async function (req, res) {

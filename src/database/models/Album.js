@@ -33,6 +33,16 @@ module.exports = (sequelize, dataTypes)=>{
             allowNull: false,
             unique: true
         },
+        offerPercent:{
+            type: dataTypes.TINYINT,
+            allowNull: false,
+            defaultValue: 0
+        },
+        offer:{
+            type: dataTypes.DECIMAL,
+            allowNull: false,
+        }
+        ,
         dateUpload:{
             type: dataTypes.DATE,
             allowNull: true, //NOT NULL

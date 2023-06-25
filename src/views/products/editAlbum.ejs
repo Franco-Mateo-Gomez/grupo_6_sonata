@@ -68,6 +68,13 @@
                             <textarea class="input_personalizado_fondo" name="descripcionProducto" id="descripcion_pista"><%=filtraAlbum.description%></textarea>
                         </div>
 
+                        <div class="input_offer">
+                            <label for="oferta">Nivel de oferta: </label>
+                            <input type="range" id="offerLabel" name="oferta" min="0" max="70" value="<%=filtraAlbum.offerPercent%>">
+
+                            <p id="offerOutput"><%=filtraAlbum.offerPercent%></p>
+                        </div>
+
                         <label class="boton_subir_imagen" for="imagen_pista">Modificar imagen<i class="fa-solid fa-circle-plus"></i></label>
     
                     </section>
@@ -103,6 +110,8 @@
         </main>
         <!--Footer-->
         <%- include('../partials/footer') %>
+
+        <script src="/scripts/productos/offer.js"></script>
 </body>
 
 </html>

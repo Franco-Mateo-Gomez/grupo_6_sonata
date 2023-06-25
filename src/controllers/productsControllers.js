@@ -62,6 +62,8 @@ const productsController = {
         const idAlbum = req.params.id;
         const datosModificados = req.body;
 
+        let updatePrice =0.00;
+
         if (req.file) {
             await db.Albums.update({
              image : "/images/products/albums/" + req.file.filename,
@@ -70,12 +72,23 @@ const productsController = {
             );
          }
 
+        if (datosModificados.oferta > 0 ) {
+            updatePrice = (datosModificados.nuevoPrecio - ((datosModificados.oferta * datosModificados.nuevoPrecio) / 100))
+        }
+        else{
+            updatePrice = 0
+        }
+
+        
+
         await db.Albums.update({
             name: datosModificados.nombrePista,
             description: datosModificados.descripcionProducto,
             price: datosModificados.nuevoPrecio,
             coin: datosModificados.moneda,
-            genereIdFk: datosModificados.generes
+            genereIdFk: datosModificados.generes,
+            offer: updatePrice,
+            offerPercent: datosModificados.oferta
          },
          {where:{id:idAlbum}}
          );

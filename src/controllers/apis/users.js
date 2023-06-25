@@ -24,7 +24,8 @@ const apiUsersController = {
             userData.detail = "/api/users/" + user.id; // Add new property [detail]
             return userData;
         }) 
-
+        
+        
         let data = {
             count: Contador,
             Users: infoUsers,

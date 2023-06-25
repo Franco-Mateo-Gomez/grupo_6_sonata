@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2023 a las 16:11:00
+-- Tiempo de generación: 25-06-2023 a las 04:09:51
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -37,15 +37,18 @@ CREATE TABLE `albums` (
   `price` decimal(10,0) NOT NULL,
   `coin` varchar(5) NOT NULL,
   `genereIdFk` int(11) DEFAULT NULL,
-  `composerIdFk` int(11) NOT NULL
+  `composerIdFk` int(11) NOT NULL,
+  `offer` decimal(10,0) NOT NULL DEFAULT 0,
+  `offerPercent` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `albums`
 --
 
-INSERT INTO `albums` (`id`, `name`, `description`, `image`, `totalLength`, `dateUpload`, `price`, `coin`, `genereIdFk`, `composerIdFk`) VALUES
-(24, 'Skrillex Remakes', 'Lorem Lorem', '/images/products/albums/idProduct24.png', 0, '0000-00-00', 2, 'USD', 4, 22);
+INSERT INTO `albums` (`id`, `name`, `description`, `image`, `totalLength`, `dateUpload`, `price`, `coin`, `genereIdFk`, `composerIdFk`, `offer`, `offerPercent`) VALUES
+(24, 'Skrillex Remakes', 'Lorem Lorem ', '/images/products/albums/idProduct24.png', 0, '0000-00-00', 350, 'ARS', 4, 22, 298, 15),
+(26, 'Album 2', 'Modo Mozart', '/images/products/albums/default.jpg', 0, '2023-06-02', 5, 'USD', 3, 22, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -128,8 +131,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullName`, `userName`, `email`, `password`, `image`, `isComposer`, `description`) VALUES
-(21, 'Matuu Gomez', 'Matuu', 'matuu@gmail.com', '$2a$10$./tXa/iHPvcpcF/7GEZ1G.p925.HGhjC9mbahFvw/WAjCMI5Jz7Y2', '/images/users/default.png', 0, 'Nuevo artista'),
-(22, 'Matuu Gomez DJ', 'MatuuDJ', 'matuDJ@gmail.com', '$2a$10$PxJSYT.g5doBEmjWIenUUOY4LdZ3oAvUx2wnteQs8877ywnsW8Vom', '/images/users/default.png', 1, 'Nuevo artista');
+(21, 'Matuu', 'Matuu', 'matu@gmail.com', '$2a$10$./tXa/iHPvcpcF/7GEZ1G.p925.HGhjC9mbahFvw/WAjCMI5Jz7Y2', '/images/users/idUser26.jpg', 0, 'Nuevo artista'),
+(22, 'Matuu Gomez DJ', 'MatuuDJ', 'matuDJ@gmail.com', '$2a$10$PxJSYT.g5doBEmjWIenUUOY4LdZ3oAvUx2wnteQs8877ywnsW8Vom', '/images/users/idUser25.jpeg', 1, 'Skrillex argentino, dedicado al Dubstep desde el 2011');
 
 --
 -- Índices para tablas volcadas
@@ -187,7 +190,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `albums`
 --
 ALTER TABLE `albums`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `genres`
@@ -217,7 +220,7 @@ ALTER TABLE `songs`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Restricciones para tablas volcadas
