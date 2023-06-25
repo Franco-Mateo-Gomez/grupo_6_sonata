@@ -52,7 +52,7 @@ router.get("/browser",mainController.browser);
 
 /*Login Path*/
 router.get("/login",userController.loginView);
-router.post("/login"/**,validarUsuario**/,userController.loginUser);
+router.post("/login",validarUsuario,userController.loginUser);
 
 /*Register Path*/
 router.get("/register",userController.registerView);

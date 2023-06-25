@@ -1,101 +1,173 @@
 @import url(../general.css);
-
-body{
-    height: 100vh;
-    background-color: var(--marron_clarito);
+body {
+  position: relative;
 }
-
-img{
-    width: 100%;
-}
-
 main {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    flex-direction: column;
-    height: 60%;
-    margin: auto;
+  min-height: 100vh;
+  max-height: fit-content;
+  background: var(--marron_clarito);
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+}
+.contenedor_albumes_filtrar {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.5rem;
+  margin: 30px auto;
 }
 
-form{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 8%;
+.buscador_productos {
+  width: 90%;
+  padding: 1rem;
+  background: #d95a4e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto 0px auto;
+  border-radius: 2rem;
 }
 
-form input{
-    width: 100%;
-    padding: 5%;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid var(--negro);
+.buscador_productos i {
+  color: var(--marron_fuerte);
+  background: var(--marron_clarito);
+  padding: 0.5rem;
+  border-radius: 100%;
+  margin: 10px;
 }
 
-.listAlbums{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2%;
+.buscador_productos input {
+  width: 60%;
+  padding: 0.5rem;
+  border-radius: 2rem;
 }
 
-#results{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.contenedor_albumes_filtrar_resultado {
+  background: var(--marron_medio);
+  padding: 2rem;
+  width: 100%;
+  border-radius: 2rem;
+  color: var(--marron_clarito);
+  font-size: 1.3rem;
+  text-align: center;
 }
 
-.descripcion_album{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    background-color: var(--marron_fuerte);
-    margin: 1.5%;
-    padding: 6%;
-    border: 3px solid var(--negro);
+/*ESTILOS DE TARJETA DE PRODUCTOS-------------------------------------------*/
+.tarjeta_album {
+  position: relative;
+  display: flex;
+  background-color: rgb(228 223 222 / 69%);
+  box-shadow: 6px 4px 6px rgb(87 80 80 / 50%);
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
 }
 
-.description_album_container{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    color: var(--marron_clarito);
+.tarjeta_album img {
+  width: 260px;
+  height: 260px;
+  border-radius: 10px;
 }
 
-.description_album_container a{
-    color: var(--marron_clarito);
-    border-bottom: 2px solid var(--marron_clarito);
+.fondo_imagen {
+  width: 0px;
+  height: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  position: absolute;
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  z-index: 1;
+  transition: width 0.6s ease-in;
+  transition: height 0.6s ease-in;
+  overflow: hidden;
+  transition: overflow 0.6s ease-in;
 }
 
-@media (min-width:425px){
-    main {
-        height: 95vh;
-    }
-    main header{
-        margin-top: 15%;
-    }
+.fondo_imagen_tamaño {
+  width: 260px;
+  height: 260px;
+  transition: overflow 0.6s ease-out;
+  transition: width 0.6s ease-out;
+  transition: height 0.6s ease-out;
+  overflow: visible;
 }
 
-@media (min-width:1024px){
-    main {
-        height: 100vh;
-    }
-    main header{
-        margin-top: 25%;
-    }
-    .listAlbums{
-        padding: 3%;
-    }
+.titulo_tarjeta_album {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-radius: 0px 0px 10px 10px;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 3px solid white;
+  z-index: 2;
+}
+
+.titulo_tarjeta_album h2,
+.titulo_tarjeta_album i {
+  font-size: 17px;
+  color: white;
+  padding: 0.7rem;
+}
+
+.titulo_tarjeta_album .agregar_carrito {
+  color: var(--marron_clarito);
+  background: var(--naranja);
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 100%;
+  border-color: var(--marron_medio);
+  border-style: none;
+  font-size: 15px;
+}
+
+.precio_tarjeta_album {
+  position: absolute;
+  top: 0;
+  padding: 0.1rem 1rem;
+  left: 0;
+  background-color: var(--naranja);
+  color: white;
+  border-radius: 10px 0px 10px 0px;
+  z-index: 2;
+}
+.boton_verProducto {
+  background: var(--naranja);
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  color: white;
+  font-weight: 900;
+  border: 3px solid white;
+  cursor: pointer;
+  transition: background 0.3s ease-in;
+}
+.boton_verProducto:hover {
+  background-color: #ff8276;
+}
+
+.visible-filtro {
+  display: block;
+  width: 50px;
+}
+
+.invisible-filtro {
+  display: none;
+}
+
+/*FIN------------------------------ESTILOS DE TARJETA DE PRODUCTOS*/
+
+@media (min-width: 425px) {
 }

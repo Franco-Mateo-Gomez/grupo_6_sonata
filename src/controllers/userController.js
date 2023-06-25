@@ -25,7 +25,8 @@ const userController = {
             req.session.userLogged = {
                 id: findUser.id
             };
-            console.log( req.session.userLogged.id)
+            console.log(filtraAlbums);
+
             res.render("index", { albumes: filtraAlbums, user: findUser, offerAlbums });
         }
         else {
