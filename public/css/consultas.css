@@ -105,6 +105,8 @@ header nav {
     background-color: var(--marron_clarito);
     width: 1100px;
     height: 150px;
+    box-shadow: 25px 22px 1px -10px white;
+    flex-wrap: wraps;
 }
 
 .consulta-uno h2, .consulta-dos h2 {
@@ -181,17 +183,18 @@ header nav {
 }
 
 .icono-uno{
-    border: 2px solid var(--negro);
-    border-radius: 15px;
     font-size: 18px;
-    margin-left: 120px;
-    margin-top: -25px;
+    margin-left: 130px;
+    margin-top: -22px;
 }
 
+
 .icono-dos{
+    margin-left: 10px;
     font-size: 18px;
-    margin-left: 120px;
-    margin-top: -25px;
+    margin-left: 160px;
+    margin-top: -22px;
 }
+
 
 
