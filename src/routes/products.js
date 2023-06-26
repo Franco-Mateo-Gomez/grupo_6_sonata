@@ -17,6 +17,7 @@ const storage = multer.diskStorage({
     filename: async function (req, file, cb) {
 
         let albumId;
+        let albumName;
 
         // Consulta a la BD el Álbum
         const albumDB = await db.Albums.findByPk(req.params.id);
@@ -24,15 +25,17 @@ const storage = multer.diskStorage({
 
         if(albumDB){
             albumId = albumDB.id;
+            albumName = albumDB.name;
         }
         else{
             const ultimoAlbumDB = await db.Albums.max("id");
             albumId = ultimoAlbumDB + 1;
+            albumName = albumDB.name;
         }
 
         const extension = path.extname(file.originalname);
         
-        cb(null, "idProduct" + albumId + extension);
+        cb(null, "idProduct" + albumId + albumName + extension);
     }
 });
 
