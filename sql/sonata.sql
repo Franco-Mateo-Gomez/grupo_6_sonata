@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2023 a las 04:09:51
+-- Tiempo de generación: 26-06-2023 a las 04:18:18
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -48,7 +48,17 @@ CREATE TABLE `albums` (
 
 INSERT INTO `albums` (`id`, `name`, `description`, `image`, `totalLength`, `dateUpload`, `price`, `coin`, `genereIdFk`, `composerIdFk`, `offer`, `offerPercent`) VALUES
 (24, 'Skrillex Remakes', 'Lorem Lorem ', '/images/products/albums/idProduct24.png', 0, '0000-00-00', 350, 'ARS', 4, 22, 298, 15),
-(26, 'Album 2', 'Modo Mozart', '/images/products/albums/default.jpg', 0, '2023-06-02', 5, 'USD', 3, 22, 0, 0);
+(26, 'Album 2', 'Modo Mozart', '/images/products/albums/default.jpg', 0, '2023-06-02', 5, 'USD', 3, 22, 0, 0),
+(27, 'Album3', 'Lorem', '/images/products/albums/idProduct27.png', 0, '2023-06-25', 300, 'ARS', 2, 22, 234, 22),
+(28, 'Dream', 'Arte', '/images/products/albums/idProduct28.jpg', 0, '2023-06-26', 600, 'ARS', 3, 27, 0, 0),
+(29, 'Life', 'Este álbum cuenta con una cantidad total de 5 canciones, ideal para la concentración.', '/images/products/albums/idProduct29.jpeg', 0, '2023-06-26', 550, 'ARS', 3, 27, 0, 0),
+(30, 'Dancing in the Rain', 'Vivir el momento y disfrutar de la vida a pesar de las dificultades', '/images/products/albums/idProduct30.jpg', 0, '2023-06-26', 750, 'ARS', 2, 29, 0, 0),
+(31, 'Whispers of the Stars', 'Captura la sensación de estar perdido en un vasto universo, donde las voces susurrantes de las estrellas guían el camino', '/images/products/albums/idProduct31.jpg', 0, '2023-06-26', 405, 'ARS', 2, 29, 0, 0),
+(32, 'Retrograde Revolution', 'Un álbum que rinde homenaje al sonido clásico del rock, con influencias de las décadas pasadas, presentando melodías pegadizas, solos de guitarra virtuosos y una actitud desenfadada.', '/images/products/albums/idProduct32.jpg', 0, '2023-06-26', 300, 'ARS', 1, 31, 0, 0),
+(33, 'Sons of Revolution', 'Un álbum políticamente cargado y lleno de furia, con letras que abordan temas sociales y críticas al sistema, respaldado por poderosos riffs de guitarra y una percusión contundente.', '/images/products/albums/idProduct33.jpg', 0, '2023-06-26', 420, 'ARS', 1, 31, 0, 0),
+(34, 'Echoes of Thunder', 'Un álbum épico y cargado de emociones que presenta una combinación de baladas introspectivas y himnos explosivos, con letras que exploran la lucha interna y la búsqueda de redención.', '/images/products/albums/idProduct34.png', 0, '2023-06-26', 400, 'ARS', 1, 31, 0, 0),
+(35, 'Synthetic Visions', 'Un álbum que fusiona elementos de la electrónica y la música ambiental, creando paisajes sonoros futuristas y etéreos, con capas de sintetizadores y efectos espaciales.', '/images/products/albums/idProduct35.jpg', 0, '2023-06-26', 309, 'ARS', 4, 30, 0, 0),
+(36, 'Binary Dreams', 'Un álbum de electrónica melódica y atmosférica que transporta al oyente a un mundo de sonidos digitales y sueños electrónicos, combinando ritmos pulsantes con arreglos sutiles.', '/images/products/albums/idProduct36.png', 0, '2023-06-26', 540, 'ARS', 4, 30, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -132,7 +142,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `fullName`, `userName`, `email`, `password`, `image`, `isComposer`, `description`) VALUES
 (21, 'Matuu', 'Matuu', 'matu@gmail.com', '$2a$10$./tXa/iHPvcpcF/7GEZ1G.p925.HGhjC9mbahFvw/WAjCMI5Jz7Y2', '/images/users/idUser26.jpg', 0, 'Nuevo artista'),
-(22, 'Matuu Gomez DJ', 'MatuuDJ', 'matuDJ@gmail.com', '$2a$10$PxJSYT.g5doBEmjWIenUUOY4LdZ3oAvUx2wnteQs8877ywnsW8Vom', '/images/users/idUser25.jpeg', 1, 'Skrillex argentino, dedicado al Dubstep desde el 2011');
+(22, 'Matuu Gomez DJ', 'MatuuDJ', 'matuDJ@gmail.com', '$2a$10$PxJSYT.g5doBEmjWIenUUOY4LdZ3oAvUx2wnteQs8877ywnsW8Vom', '/images/users/idUser25.jpeg', 1, 'Skrillex argentino, dedicado al Dubstep desde el 2011'),
+(27, 'Picasso', 'Picasso', 'picasso@gmail.com', '$2a$10$sX1e2ZRVtTOwuJ/hph668.M5sr1zvDiJu7mK9HJSnQd3SPEHcWb9.', '/images/users/idUser28.jpg', 1, 'Me inspiro en las obras de Picasso'),
+(28, 'Alicia González', 'melodymaker89', 'melodymaker89@gmail.com', '$2a$10$ahIixbkGlylrMoSqahsqUOWo.qEpMqU.p0Bn1Z6ivB7OskBiE/lfu', '/images/users/idUser28.jpg', 1, 'Nuevo artista'),
+(29, 'Carlos Rodríguez', 'rhythmking123', 'rhythmking123@yahoo.com', '$2a$10$cONqRGEwS40en18xavbP4uI/ZGnMzHRFTm6FuNl5uaefxVlLrD11q', '/images/users/idUser29.jpg', 1, 'Nuevo artista'),
+(30, 'Vanessa Sánchez', 'groovegirl22', 'groovegirl22@hotmail.com', '$2a$10$l9Kn8jPq7a.QDOJSvI83K.vbHe/Bq3aQBzoD12P56o7D1QjjCoLf.', '/images/users/idUser30.jpg', 1, 'Nuevo artista'),
+(31, 'Emily Davis', 'guitarmaster456', 'guitarmaster456@gmail.com', '$2a$10$PuM.P784Dk/C7CJevHBdO.nQWWTivgzaAsji.du1aQGZj7lgg7xtu', '/images/users/idUser31.jpg', 1, 'Nuevo artista');
 
 --
 -- Índices para tablas volcadas
@@ -190,7 +205,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `albums`
 --
 ALTER TABLE `albums`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `genres`
@@ -220,7 +235,7 @@ ALTER TABLE `songs`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Restricciones para tablas volcadas

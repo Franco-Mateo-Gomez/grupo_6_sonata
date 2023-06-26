@@ -16,16 +16,11 @@ const userController = {
         
         if (dataLogin != null) {
             const findUser = await userFunctions.findInDB(req, res);
-            console.log("GENERAL VIEW  ",findUser.id)
             const offerAlbums = await db.Albums.findAll({ limit: 5 })
                 const filtraAlbums = await db.Albums.findAll({
                     include:[
                         {model:db.Genres,as: 'genreAlbum'}
-                    ]})
-            req.session.userLogged = {
-                id: findUser.id
-            };
-            console.log( req.session.userLogged.id)
+                    ]});
             res.render("index", { albumes: filtraAlbums, user: findUser, offerAlbums });
         }
         else {
