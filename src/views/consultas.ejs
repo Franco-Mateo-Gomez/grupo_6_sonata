@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="logo-container">
-            <a href="/sonata">
+            <a href="/general">
                 <img class="logo" src="/images/imagen_logo_sonata_v2.png" alt="logo Sonata">
             </a>
         </div>
@@ -50,9 +50,13 @@
                 </div>
                 <div class="like">
                     <p>¿Te sirvió? </p>
-                    <div class="icono-uno">
-                        <i class="fa fa-thumbs-up" aria-hidden="true"></i> 
-                        <i class="fa fa-thumbs-down" aria-hidden="true"></i> 
+                    <div class="iconos">
+                        <div class="icono-uno">
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        </div>
+                        <div class="icono-dos">
+                            <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -75,21 +79,25 @@
                 </div>
                 <div class="like">
                     <p>¿Te sirvió?</p>
-                    <div class="icono-dos">
-                        <i class="fa fa-thumbs-up" aria-hidden="true"></i> 
-                        <i class="fa fa-thumbs-down" aria-hidden="true"></i> 
+                    <div class="iconos">
+                        <div class="icono-tres">
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        </div>
+                        <div class="icono-cuatro">
+                            <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <br>
+    <br>
 
-    <br>
-    <br>
-    
 
     <!--Footer-->
     <%- include('./partials/footer') %>
+        <script src="/scripts/iconos-like.js"></script>
 </body>
 
 </html>
