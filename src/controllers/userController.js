@@ -16,16 +16,11 @@ const userController = {
         
         if (dataLogin != null) {
             const findUser = await userFunctions.findInDB(req, res);
-            console.log("GENERAL VIEW  ",findUser.id)
             const offerAlbums = await db.Albums.findAll({ limit: 5 })
                 const filtraAlbums = await db.Albums.findAll({
                     include:[
                         {model:db.Genres,as: 'genreAlbum'}
-                    ]})
-            req.session.userLogged = {
-                id: findUser.id
-            };
-            console.log( req.session.userLogged.id)
+                    ]});
             res.render("index", { albumes: filtraAlbums, user: findUser, offerAlbums });
         }
         else {
@@ -79,6 +74,7 @@ const userController = {
         }
 
         const userEmailVerification = await db.Users.findOne({ where: { email: req.body.user_email } });
+        const userNameVerification = await db.Users.findOne({ where: { userName: req.body.user_name } });
 
         if (userEmailVerification) {
 
@@ -90,12 +86,28 @@ const userController = {
             return res.render("users/register", {
                 errors: {
                     user_email: {
-                        msg: "Este email ya esta registrado. Intente con otro."
+                        msg: "Este correo electronico ya esta registrado. Intente con otro."
                     }
                 },
                 oldData: req.body
             })
         }
+
+        if (userNameVerification) {
+
+            // Eliminar la imagen si se subió alguna
+            if (req.file) {
+                fs.unlinkSync(req.file.path);
+            }
+
+            return res.render("users/register", {
+                errors: {
+                    user_name: "Este nombre de usuario ya esta registrado. Intente con otro."
+                },
+                oldData: req.body
+            })
+        }
+
         
         let userType = req.body.typeUser;
 

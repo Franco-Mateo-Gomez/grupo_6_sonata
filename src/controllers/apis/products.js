@@ -16,15 +16,13 @@ const apiProductsController = {
         const long = Albums.length;
 
         // --start Void-- Save total Albums by genre |forEach|
-        const genres = {
-        }
-
+        const genres = []
+        let genreName = "";
         // Total Albums by category
         Genres.forEach(genre => {
-            let genreName = genre.name
+            genreName = (genre.name)
             let AlbumInGenre = Albums.filter(album => album.genereIdFk == genre.id)
-    
-            genres[genreName] = AlbumInGenre.length // --> Add new property [nameGenre] = Total Albums in Genre
+            genres.push({name: genreName ,count: AlbumInGenre.length})// --> Add new property [nameGenre] = Total Albums in Genre
         });
 
         const addDetailInAlbum = Albums.map(album => {

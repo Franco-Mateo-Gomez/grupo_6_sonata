@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscador</title>
-    <link rel="shortcut icon" href="/images/imagen_logo_sonata_v1.png">
-    <link rel="stylesheet" href="/css/browser/browser.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Buscador</title>
+        <link rel="shortcut icon" href="/images/imagen_logo_sonata_v1.png">
+        <link rel="stylesheet" href="/css/browser/browser.css">
+    </head>
 
-<body>
-    
-    <main>
+    <body>
+        <%- include('../partials/header') %>
+        <main>
 
-        <header>
-            <h2>Buscar Álbumes</h2>
-        </header>
+            <form class="buscador_productos browserForm" action method="get">
+                <input id="queryInput" type="text" name="query"
+                    placeholder="Nombre del álbum ..." /><i class="fa-solid fa-magnifying-glass"></i>
+            </form>
 
-        <form class="browserForm" action="" method="get">
-            <input id="queryInput" type="text" name="query" placeholder="Nombre del álbum ..." />
-        </form>
-
-        <div class="listAlbums">
-            <ul id="results">
+            <ul class="contenedor_albumes_filtrar" id="results">
+                <section class="contenedor_albumes_filtrar_resultado">
+                    Ingrese el nombre de un album
+                </section>
             </ul>
-        </div>
-    </main>
 
-
-    <script src="/scripts/browser/browser.js"></script>
-</body>
+        </main>
+        <%- include('../partials/footer') %>
+        
+        <script src="/scripts/browser/browser.js"></script>
+        <script src="/scripts/carrito/cantidadEnCarrito.js"></script>
+    </body>
 </html>
