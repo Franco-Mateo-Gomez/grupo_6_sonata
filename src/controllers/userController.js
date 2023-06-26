@@ -95,11 +95,6 @@ const userController = {
 
         if (userNameVerification) {
 
-            // Eliminar la imagen si se subió alguna
-            if (req.file) {
-                fs.unlinkSync(req.file.path);
-            }
-
             return res.render("users/register", {
                 errors: {
                     user_name: "Este nombre de usuario ya esta registrado. Intente con otro."
