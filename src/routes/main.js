@@ -10,6 +10,7 @@ const validaRegistro = require("../middlewares/validaRegister");
 const validarUsuario = require("../middlewares/validaLogin");
 
 let db = require('../database/models');
+const { route } = require('express/lib/application.js');
 
 /*Multer config*/
 const storage = multer.diskStorage({
@@ -66,5 +67,7 @@ router.get("/about",mainController.aboutUs);
 
 /*Logout Path*/
 router.get("/logout",userController.logout);
+
+router.get("/consultas", mainController.consultas);
 
 module.exports=router;

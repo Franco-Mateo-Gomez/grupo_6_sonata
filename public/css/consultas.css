@@ -1,0 +1,197 @@
+@import url(general.css);
+@import url(styles_footer.css);
+
+.main-desktop {
+    display: none;
+}
+
+body {
+    background-color: var(--marron_medio);
+
+}
+
+img {
+    width: 100%;
+}
+
+.logo-container {
+    width: 60%;
+    margin: 4% auto;
+    width: 13%;
+    margin: 2% 5%;
+    margin-bottom: 215px;
+}
+
+@media (min-width:1024px) {
+
+    .main-desktop {
+        display: flex;
+    }
+
+    header nav {
+        display: flex;
+    }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-image: url("/images/consultas/principal.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        height: 350px;
+    }
+
+}
+
+#btn-login {
+    background-color: var(--naranja);
+    color: var(--marron_clarito);
+}
+
+#btn-registro {
+    background-color: var(--negro);
+    color: var(--marron_clarito);
+}
+
+header nav {
+    width: 40%;
+    display: flex;
+}
+
+.desktop-register-login-buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+
+    margin-bottom: 160px;
+}
+
+.desktop-register-login-buttons li {
+    width: 100%;
+    margin-right: 15%;
+}
+
+.desktop-register-login-buttons li button {
+    padding: 5% 28%;
+    border: 2px solid var(--negro);
+    border-radius: 10px;
+    background-color: transparent;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.consultas-section h2 {
+    margin: 5% auto;
+    margin-top: -80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: var(--marron_clarito);
+    -webkit-text-stroke: 2px black;
+}
+
+.consulta-uno, .consulta-dos {
+    border: 2px solid var(--negro);
+    margin-bottom: 60px;
+    margin-left: 100px;
+    background-color: var(--marron_clarito);
+    width: 1100px;
+    height: 150px;
+}
+
+.consulta-uno h2, .consulta-dos h2 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 35px;
+}
+
+.consulta-uno p {
+    margin-left: 40px;
+}
+
+.consulta-dos p, li {
+    margin-left: 35px;
+}
+
+.consulta-dos ul{
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-freelance, .btn-contribute {
+    background-color: var(--marron_clarito);
+    color: black;
+    border: 2px solid var(--negro);
+    border-radius: 15px;
+    font-weight: 600;
+
+    width: 140px;
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 35px;
+}
+
+.btn-contribute p, .btn-freelance p {
+    margin-left: 25px;
+    font-size: 15px;
+    margin-top: 3px;
+}
+
+.hashtag-consultas {
+    display: flex;
+    flex-direction: row;
+}
+
+.like{
+    margin-top: 18px;
+    margin-left: 450px;
+    font-style: italic;
+}
+
+.btn-pagos, .btn-modo{
+    background-color: var(--marron_clarito);
+    color: black;
+    border: 2px solid var(--negro);
+    border-radius: 15px;
+    font-weight: 600;
+
+    width: 140px;
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 35px;
+}
+
+.btn-pagos p, .btn-modo p{
+    margin-left: 40px;
+    font-size: 15px;
+    margin-top: 3px;
+}
+
+.hashtag-pago{
+    display: flex;
+    flex-direction: row;
+}
+
+.icono-uno{
+    border: 2px solid var(--negro);
+    border-radius: 15px;
+    font-size: 18px;
+    margin-left: 120px;
+    margin-top: -25px;
+}
+
+.icono-dos{
+    font-size: 18px;
+    margin-left: 120px;
+    margin-top: -25px;
+}
+
+

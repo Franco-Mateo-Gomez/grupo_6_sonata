@@ -3,7 +3,7 @@ let db = require ("../../database/models")
 
 const apiUsersController = {
     loadUsers: async (req,res) => {
-         
+
         let Users = await db.Users.findAll()
         let Contador = Users.length;
         let infoUsers = Users.map(user =>{
@@ -15,15 +15,16 @@ const apiUsersController = {
                 isComposer: user.isComposer,
                 detail: "/api/users/" + user.id,
             }
-            
+
             return data;
-             
+
         })
         let addDetailInUser = Users.map(user => {
             const userData = user.toJSON(); // Convert to JSON version
             userData.detail = "/api/users/" + user.id; // Add new property [detail]
             return userData;
         }) 
+        
         
         let data = {
             count: Contador,

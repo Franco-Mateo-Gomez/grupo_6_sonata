@@ -21,6 +21,10 @@ const mainController = {
             else{
                 res.redirect("/login");
             }
+    },
+
+    consultas: (req,res) =>{
+        res.render("consultas");
     }
 }
 
