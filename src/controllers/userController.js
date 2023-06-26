@@ -74,6 +74,7 @@ const userController = {
         }
 
         const userEmailVerification = await db.Users.findOne({ where: { email: req.body.user_email } });
+        const userNameVerification = await db.Users.findOne({ where: { userName: req.body.user_name } });
 
         if (userEmailVerification) {
 
@@ -85,12 +86,28 @@ const userController = {
             return res.render("users/register", {
                 errors: {
                     user_email: {
-                        msg: "Este email ya esta registrado. Intente con otro."
+                        msg: "Este correo electronico ya esta registrado. Intente con otro."
                     }
                 },
                 oldData: req.body
             })
         }
+
+        if (userNameVerification) {
+
+            // Eliminar la imagen si se subió alguna
+            if (req.file) {
+                fs.unlinkSync(req.file.path);
+            }
+
+            return res.render("users/register", {
+                errors: {
+                    user_name: "Este nombre de usuario ya esta registrado. Intente con otro."
+                },
+                oldData: req.body
+            })
+        }
+
         
         let userType = req.body.typeUser;
 
