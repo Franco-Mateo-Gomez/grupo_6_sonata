@@ -17,10 +17,10 @@ window.addEventListener("load", () => {
 
                     for (let album of albums) {
                         let albumLowerCase = album.name.toLowerCase()
-
+                        
                         if (albumLowerCase.indexOf(inputUser) != -1) {
                             resultData += `
-                            <div class="tarjeta_album todo ${album.genreAlbum.name}.toLowerCase()}">
+                            <li class="tarjeta_album todo ${album.genreAlbum.name}.toLowerCase()}">
                             <section class="titulo_tarjeta_album">
                                 <h2>${album.name}</h2>
                             </section>
@@ -34,18 +34,15 @@ window.addEventListener("load", () => {
                             </div>
                     
                             <h3 class="precio_tarjeta_album">$ ${album.price + " " + album.coin}</h3>
-                        </div>`
+                        </li>`
 
                         }
-                        else{
-                            resultData = `<section class="contenedor_albumes_filtrar_resultado">
-                            ${"No se encontro coincidencias con " + input.value}
-                        </section>`
-                
-                        }
+                        
                     }
 
+
                     results.innerHTML = resultData;
+
                     //EFECTO SOBRE LAS TARJETAS DE LOS ALBUMES
                     let fondo_imagen = document.querySelectorAll(".fondo_imagen")
 
@@ -62,6 +59,8 @@ window.addEventListener("load", () => {
                         })
                     }
                 })
+
+               
         }
 
     });
