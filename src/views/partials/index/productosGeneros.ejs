@@ -1,7 +1,7 @@
 <% for(let i=0; i<albumes.length; i++){ %>
 
     <!--IMAGEN DEL ALBUM DEL SLIDER POPULAR-->
-    <div class="tarjeta_album todo">
+    <div class="tarjeta_album todo <%= (albumes[i].genreAlbum.name).toLowerCase() %>">
         <section class="titulo_tarjeta_album">
             <h2><%=albumes[i].name%></h2>
             <button data-id=<%=albumes[i].id%> class="fa-solid fa-cart-plus agregar_carrito"></button>

@@ -276,7 +276,9 @@ label .boton_menu {
 .buscador_menu_desplegable {
   display: none;
 }
-
+li.menu-boton.buscador_menu_desplegable{
+  text-align: center;
+}
 /*MEDIA QUERYS PARA ADAPTARSE A TAMAÑOS DE PANTALLAS*/
 
 /* Escritorio grande */
@@ -350,19 +352,12 @@ label .boton_menu {
   .invisible-navegacion {
     display: none;
   }
-  .buscador_menu_desplegable {
+  
+  .buscador_menu_desplegable{
     display: block;
   }
-  .buscador_menu_desplegable .formulario_buscador {
-    width: 100%;
+  .btn-busqueda{
+    display: none;
   }
-  .buscador_menu_desplegable .campo_formulario {
-    width: 100%;
-    border: 3px var(--marron_fuerte) solid;
-    border-right: none;
-  }
-  .buscador_menu_desplegable .boton_formulario {
-    border: 3px var(--marron_fuerte) solid;
-    border-left: none;
-  }
+  
 }
