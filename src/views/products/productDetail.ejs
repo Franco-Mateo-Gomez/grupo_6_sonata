@@ -97,7 +97,9 @@
                             });
                         </script>
 
-                        <button class="boton_agregarCarrito" type="submit">
+                        <button data-id="<%=user.id%>"
+                            class="boton_agregarCarrito agregar_carrito"
+                            type="submit">
                             Agregar
                             <i class="fa-solid fa-cart-plus"></i>
                         </button>
@@ -135,6 +137,7 @@
 
                 </section>
             </section>
+            
 
             <%- include('../partials/footer') %>
 

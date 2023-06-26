@@ -74,8 +74,8 @@ app.use("/api/users",apiUsers);
 app.use("/api/fetch",apiFetchProducts)
 /*----------------------------------*/
 
-/*Page NOT FOUND
+/*Page NOT FOUND*/
 app.use((req,res,next) => {
     res.status(404).render('not-found')
 })
-*/
+

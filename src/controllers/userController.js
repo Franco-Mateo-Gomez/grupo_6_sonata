@@ -34,7 +34,7 @@ const userController = {
 
     loginUser: (req, res) => {
         const resultValidation = validationResult(req)
-
+        
         /* Input errors check*/
         if (resultValidation.errors.length > 0) {
             res.render("users/login", { errors: resultValidation.mapped(), oldData: req.body })

@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="/css/login.css">
     <link rel="shortcut icon" href="/images/imagen_logo_sonata_v1.png">
     <title>Iniciar Sesión</title>
+
+    <script>
+        if(localStorage.carrito){
+            localStorage.removeItem("carrito");
+            localStorage.setItem("carrito","")
+        }
+    </script>
 </head>
 <body>
 

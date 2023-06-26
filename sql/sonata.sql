@@ -32,7 +32,7 @@ CREATE TABLE `albums` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL DEFAULT '/images/products/default.jpg',
-  `totalLength` bigint(20) NOT NULL,
+  `totalLength` bigint(20),
   `dateUpload` date NOT NULL,
   `price` decimal(10,0) NOT NULL,
   `coin` varchar(5) NOT NULL,
