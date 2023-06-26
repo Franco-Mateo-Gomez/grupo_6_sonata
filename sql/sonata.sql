@@ -59,6 +59,16 @@ INSERT INTO `albums` (`id`, `name`, `description`, `image`, `totalLength`, `date
 (34, 'Echoes of Thunder', 'Un álbum épico y cargado de emociones que presenta una combinación de baladas introspectivas y himnos explosivos, con letras que exploran la lucha interna y la búsqueda de redención.', '/images/products/albums/idProduct34.png', 0, '2023-06-26', 400, 'ARS', 1, 31, 0, 0),
 (35, 'Synthetic Visions', 'Un álbum que fusiona elementos de la electrónica y la música ambiental, creando paisajes sonoros futuristas y etéreos, con capas de sintetizadores y efectos espaciales.', '/images/products/albums/idProduct35.jpg', 0, '2023-06-26', 309, 'ARS', 4, 30, 0, 0),
 (36, 'Binary Dreams', 'Un álbum de electrónica melódica y atmosférica que transporta al oyente a un mundo de sonidos digitales y sueños electrónicos, combinando ritmos pulsantes con arreglos sutiles.', '/images/products/albums/idProduct36.png', 0, '2023-06-26', 540, 'ARS', 4, 30, 0, 0);
+INSERT INTO `albums` (`id`, `name`, `description`, `image`, `totalLength`, `dateUpload`, `price`, `coin`, `genereIdFk`, `composerIdFk`, `offer`, `offerPercent`) VALUES
+
+(37, 'abcde', '-------------', '/images/products/albums/idProduct27.jpg', 0, '2023-06-26', 5000, 'ARS', 4, 29, 0, 0),
+(38, 'Puchi', '-----------------------------------------------------', '/images/products/albums/idProduct288.jpg', 0, '2023-06-26', 4, 'USD', 3, 29, 0, 0),
+(39, 'astrological music', 'feel the good music in your veins like the gravity of the moon ❤️\r\n', '/images/products/albums/idProduct29.jpg', 0, '2023-06-26', 8000, 'ARS', 4, 29, 0, 0),
+(40, 'healerBeat', 'music that heals your feelings ', '/images/products/albums/idProduct300.jpg', 0, '2023-06-26', 15, 'EUR', 5, 29, 8, 45),
+(41, 'mystical', 'do you like olimpic and great mystical music?, so this is for you, just sit and relax with the best pop music\r\n', '/images/products/albums/idProduct311.jpg', 0, '2023-06-26', 5, 'USD', 2, 29, 0, 0),
+(42, 'soft orchestra', 'is there any place that you dont want to listen this music? if you are this kind of people, try this!!', '/images/products/albums/idProduct322.jpg', 0, '2023-06-26', 7000, 'ARS', 3, 29, 0, 0),
+(43, 'Ludwig van Remixoven', 'this guy... oh my god, this is the best list you can find about this man. try the best and most famous remix of Ludwig van Beethoven, the king of the clasic music!', '/images/products/albums/idProduct333.jpg', 0, '2023-06-26', 3, 'USD', 3, 29, 0, 0),
+(44, 'roger rocker', 'nirvana, guns n´roses, ACDC, every band you know, are here in this list with the best remixes!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', '/images/products/albums/idProduct34.jpg', 0, '2023-06-26', 6600, 'ARS', 1, 29, 0, 0);
 
 -- --------------------------------------------------------
 
